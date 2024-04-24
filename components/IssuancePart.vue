@@ -1,5 +1,5 @@
 <template>
-    <div class="inner_section">
+    <div class="inner_section w-100">
         <div class="extra mb20">
             <v-btn rounded flat size="small" class="primary">초기화</v-btn>
         </div>
@@ -22,15 +22,12 @@
                         <v-card-item>
                             <v-card-title>
                                 <span>로그인 횟수와 총 학습 시간</span>
-                                <strong class="count">
-                                    77
-                                    <span>회</span>
-                                </strong>
+                                <strong class="count"> {{ learningHistoryCollection.corsLoginTot }}<span>회</span> </strong>
                             </v-card-title>
                         </v-card-item>
                         <v-card-text>
                             <span>총 학습 시간</span>
-                            <strong class="hour">5시간 30분</strong>
+                            <strong class="hour">{{ formattedCorsTotTime(learningHistoryCollection.corsTotTime) }}</strong>
                         </v-card-text>
                     </v-card>
                 </div>
@@ -44,14 +41,14 @@
                             <v-card-title>
                                 <span>로그인 횟수와 총 학습 시간</span>
                                 <strong class="count">
-                                    45
+                                    {{ learningHistoryCollection.dirllLoginTot }}
                                     <span>회</span>
                                 </strong>
                             </v-card-title>
                         </v-card-item>
                         <v-card-text>
                             <span>총 학습 시간</span>
-                            <strong class="hour">2시간 30분</strong>
+                            <strong class="hour">{{ formattedCorsTotTime(learningHistoryCollection.drillTotTime) }}</strong>
                         </v-card-text>
                     </v-card>
                 </div>
@@ -65,14 +62,14 @@
                             <v-card-title>
                                 <span>로그인 횟수와 총 학습 시간</span>
                                 <strong class="count">
-                                    217
+                                    {{ learningHistoryCollection.vocaLoginTot }}
                                     <span>회</span>
                                 </strong>
                             </v-card-title>
                         </v-card-item>
                         <v-card-text>
                             <span>총 학습 시간</span>
-                            <strong class="hour">8시간 30분</strong>
+                            <strong class="hour">{{ formattedCorsTotTime(learningHistoryCollection.vocaTotTime) }}</strong>
                         </v-card-text>
                     </v-card>
                 </div>
@@ -86,14 +83,14 @@
                             <v-card-title>
                                 <span>로그인 횟수와 총 학습 시간</span>
                                 <strong class="count">
-                                    37
+                                    {{ learningHistoryCollection.curiLoginTot }}
                                     <span>회</span>
                                 </strong>
                             </v-card-title>
                         </v-card-item>
                         <v-card-text>
                             <span>총 학습 시간</span>
-                            <strong class="hour">5시간 30분</strong>
+                            <strong class="hour">{{ formattedCorsTotTime(learningHistoryCollection.curiTotTime) }}</strong>
                         </v-card-text>
                     </v-card>
                 </div>
@@ -194,7 +191,8 @@
             <!-- // 학습 정서_학기 평균 -->
         </div>
         <!-- 단원별 교과 학습 발달 사항 -->
-        <v-card elevation="0" class="type_record mgt40">
+
+        <v-card v-if="clampType === 'clamp_right'" elevation="0" class="type_record mgt40">
             <v-card-item>
                 <v-card-title>
                     <span>단원별 교과 학습 발달 사항</span>
@@ -257,10 +255,11 @@
                 </tbody>
             </v-data-table>
         </v-card>
+
         <!-- // 단원별 교과 학습 발달 사항 -->
 
         <!-- 담임 선생님의 행동 발달 평가 내용 -->
-        <v-card elevation="0" class="type_record mgt40">
+        <v-card v-if="clampType === 'clamp_right'" elevation="0" class="type_record mgt40">
             <v-card-item>
                 <v-card-title>
                     <span>담임 선생님의 행동 발달 평가 내용</span>
@@ -306,8 +305,28 @@
 </template>
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
+const { clampType } = storeToRefs(useApiRecordStore());
+const { learningHistoryCollection } = storeToRefs(useApiRecordHistoryStore());
 
+// 데이터값을 시간 형식으로 변환하는 계산된 속성
+const formattedCorsTotTime = item => {
+    // learningHistoryCollection.corsTotTime 값 가져오기
+    const Time = item;
+
+    // 분 단위를 시간과 분으로 분리
+    const hours = Math.floor(Time / 60);
+    const minutes = Time % 60;
+
+    // 시간과 분을 합쳐서 반환
+    return `${hours}시간 ${minutes}분`;
+};
 onMounted(() => {
-    useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+    if (clampType.value === 'clamp_left') {
+        useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+        useApiRecordHistoryStore().getLearningHistoryCollection('1', '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c');
+    }
+    if (clampType.value === 'clamp_right') {
+        useApiCompletionStore().getStudentList();
+    }
 });
 </script>

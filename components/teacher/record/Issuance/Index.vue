@@ -49,18 +49,18 @@
 <script setup>
 //[교사]생활기록부_학습이력수집 API
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
-
+const { completionStudent } = storeToRefs(useApiCompletionStore());
 const { clampType } = storeToRefs(useApiRecordStore());
 const { qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
 
-const selectedStudent = ref([]);
+const selectedStudent = ref(0);
 const studentList = computed(() => {
     if (clampType.value === 'clamp_left') {
         return learningHistoryCollectionStudent.value;
     } else if (clampType.value === 'clamp_center') {
         return qualificationByUnitStudentList.value;
     } else if (clampType.value === 'clamp_right') {
-        return [];
+        return completionStudent.value;
     }
 });
 const editMode = ref(false); // 편집 모드

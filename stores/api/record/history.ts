@@ -18,7 +18,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const achievementByArea = ref<Record>();
         const getAchievementByArea = async () => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get'
             });
 

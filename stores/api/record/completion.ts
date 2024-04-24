@@ -5,7 +5,7 @@ interface Record {}
 /**
  * 생활기록부 > 발행현황 > 발행완료건수
  */
-const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
+// const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
 
 export const useApiCompletionStore = defineStore(
     'apiCompleteRecordList',
@@ -15,12 +15,13 @@ export const useApiCompletionStore = defineStore(
         /**
          * 생활기록부 > 발행현황 > 발행완료건수 > 학생 목록
          */
+        const completionStudent = ref([]);
         const getStudentList = async () => {
             const { data } = await useCustomFetch('/teacher/dashboard/schoolReport/issueCompletedStudentList', {
                 method: 'get'
             });
             if (data.value) {
-                completionState.value = data.value.data as RecordList;
+                completionStudent.value = data.value.data as RecordList;
             }
         };
 
@@ -49,6 +50,7 @@ export const useApiCompletionStore = defineStore(
         return {
             completionState,
             getStudentList,
+            completionStudent,
             getStudentDevelopmetnList,
             putCompletion
         };
