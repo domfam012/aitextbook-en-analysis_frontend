@@ -1,0 +1,111 @@
+.image_wrap {
+  flex-shrink: 0;
+  align-items: center;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 36rem;
+  height: 21rem;
+	@include radius(.5rem);
+  img{
+    left: 50%;
+    width: auto;
+		height:100%;
+    transform: translateX(-50%);
+	}
+  .v-img {
+    height: 100%;
+  }
+
+  // media
+  &[class*='media_'] {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .ico {
+      width: 5rem;
+      height: 5rem;
+    }
+    .media_name {
+      margin-top: .5rem;
+      color: $white;
+      font-size: $font-large;
+      font-weight: 700;
+    }
+  }
+
+  &.media_pdf {
+    background-color: map-get($file-color-list, 'pdf');
+  }
+  &.media_image {
+    background-color: map-get($file-color-list, 'image');
+  }
+  &.media_url {
+    background-color: map-get($file-color-list, 'url');
+  }
+  &.media_excel {
+    background-color: map-get($file-color-list, 'excel');
+  }
+  &.media_ppt {
+    background-color: map-get($file-color-list, 'ppt');
+  }
+  &.media_word {
+    background-color: map-get($file-color-list, 'word');
+  }
+  &.media_hwp {
+    background-color: map-get($file-color-list, 'hwp');
+  }
+  &.media_whiteboard {
+    background-color: map-get($file-color-list, 'whiteboard');
+  }
+  &.media_video {
+    background-color: map-get($file-color-list, 'video');
+  }
+
+  // stamp
+	&[class*='stamp_'] {
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 1.5rem;
+			right: 1.5rem;
+			width: 6.5rem;
+			height: 6.5rem;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
+	&.stamp_01 {
+		&::after {
+			background-image: url('@/assets/images/img_stamp_01.svg');
+		}
+	}
+	&.stamp_02 {
+		&::after {
+			background-image: url('@/assets/images/img_stamp_02.svg');
+		}
+	}
+	&.stamp_03 {
+		&::after {
+			background-image: url('@/assets/images/img_stamp_03.svg');
+		}
+	}
+	&.stamp_04 {
+		&::after {
+			background-image: url('@/assets/images/img_stamp_04.svg');
+		}
+	}
+	&.stamp_05 {
+		&::after {
+			background-image: url('@/assets/images/img_stamp_05.svg');
+		}
+	}
+
+  // border
+  &.type_border {
+    border: 1px solid $G400;
+  }
+}

@@ -1,0 +1,31 @@
+<template>
+    <div class="grade">
+        <div class="top d-flex">
+            <div class="type d-flex align-center">
+                <p class="">평어 유형</p>
+                <v-btn-toggle v-model="typeList" class="d-flex" mandatory density="compact">
+                    <v-btn rounded flat size="small" class="secondary"> A형 </v-btn>
+                    <v-btn rounded flat size="small" class="secondary"> B형 </v-btn>
+                    <v-btn rounded flat size="small" class="secondary"> C형 </v-btn>
+                </v-btn-toggle>
+            </div>
+            <v-spacer />
+            <div class="align d-flex align-center">
+                <p>정렬 기준</p>
+                <v-btn rounded flat size="small" class="secondary">
+                    <i class="ico descending_black ico_size_6 mgr5"></i>
+                    기본순
+                </v-btn>
+                <v-btn rounded flat size="small" class="primary mgl10">
+                    <i class="ico descending_white ico_size_6 mgr5"></i>
+                    인기순
+                </v-btn>
+            </div>
+        </div>
+        <TableEdit :editMode="props.editMode" />
+    </div>
+</template>
+<script setup>
+const props = defineProps(['editMode']);
+const typeList = ref(0);
+</script>

@@ -1,0 +1,143 @@
+// sementic color
+$primary: $DB900;
+$secondary-success: $Y500;
+$secondary-info: $B500;
+$secondary-error: $Y900;
+
+//font-color
+$font-white: $white;
+$font-light: $G400;
+$font-basic: $G700;
+$font-darken: $G900;
+$font-blue: $B900;
+$font-orange: $Y900;
+$font-black: #000;
+$font-disabled: $G300; //$G200
+
+//bg-color
+$bg-light: $G50;
+$bg-basic: $G200;
+$bg-darken: $G900;
+$bg-blue: $B50;
+$bg-default: #f5f6fa;
+
+//line-color
+$line-basic: $G400;
+$line-darken: $G900;
+$line-Blue: $B500;
+$line-black: $black;
+$line-white: $white;
+
+//point-color
+$point-color-gray: $G500;
+$point-color-blue: $B500;
+$point-color-orange: $Y900;
+$point-color-green: #81b01b;
+$point-color-red: #f04c42;
+$point-color-yellow: $Y500; // $Y600;
+$point-color-white: $white;
+$point-color-black: $G900;
+
+$point-color-list: (
+    'primary': $primary,
+    'black': $point-color-black,
+    'bk': $point-color-black,
+    'gray': $G600,
+    'lightgray': $point-color-gray,
+    'light': $bg-light,
+    'white': $point-color-white,
+    'darkblue': $point-color-blue,
+    'blue': $point-color-blue,
+    'orange': $point-color-orange,
+    'green': $point-color-green,
+    'red': $point-color-red,
+    'yellow': $point-color-yellow) !default;
+
+$font-color-list: (
+    'light': $font-light,
+    'basic': $font-basic,
+    'darken': $font-darken,
+    'disabled': $font-disabled,
+    'primary': $primary,
+    'black': $point-color-black,
+    'bk': $point-color-black,
+    'gray': $G600,
+    'lightgray': $point-color-gray,
+    'white': $point-color-white,
+    'darkblue': $point-color-blue,
+    'blue': $point-color-blue,
+    'orange': $point-color-orange,
+    'green': $point-color-green,
+    'red': $point-color-red,
+    'yellow': $point-color-yellow) !default;
+
+$bg-color-list: (
+    'bg-light': $bg-light,
+    'bg-basic': $bg-basic,
+    'bg-darken': $bg-darken,
+    'bg-blue': $bg-blue) !default;
+
+$file-color-list: (
+    'ppt': #c03f1f,
+    'image': #53c1a0,
+    'url': #f26100,
+    'excel': #0f7d43,
+    'pdf': #cc2d22,
+    'word': #1458bc,
+    'hwp': #38a9ff,
+    'whiteboard': $Y500,
+    'video': #fd6e7f) !default;
+
+//Shemes-color ( 수업정보 )
+$shchme-color-list: (
+    'learner1': #42c5b1,
+    'learner2': #8dbb2c,
+    'learner3': $Y500,
+    'learner4': $Y800,
+    'learner5': #fd6e7f,
+    'learner6': $G400) !default;
+
+//dashboard-card-color
+$card-color-list: (
+    'green': #f3fdeb,
+    'yellow': #fff7db,
+    'blue': #e4f2ff,
+    'darkblue': #1c2837,
+    'lightblue': #ECF3F6,
+    'violet': #DDDDE9,
+    ) !default;
+
+// bg colors
+@each $key, $value in $point-color-list {
+    .bg-color-#{$key} {
+        background-color: $value;
+    }
+}
+
+//font colors
+@each $key, $value in $font-color-list {
+    .font-color-#{$key} {
+        color: $value;
+    }
+}
+
+//Shemes-color
+@each $key, $value in $shchme-color-list {
+    .shchme-color-#{$key} {
+        background: $value;
+        color: $value;
+    }
+}
+
+//icon-color
+$icon-default-color: $G900;
+$icon-default-hover: $G700;
+$icon-default-disabled: $G300; //$G200
+
+$icon-point1: $Y500;
+$icon-point2: $Y900;
+$icon-point3: $B500;
+
+$icon-bg-color: $G300;
+$icon-bg-color1: $G100;
+$icon-bg-color2: $white;

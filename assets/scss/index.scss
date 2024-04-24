@@ -1,0 +1,57 @@
+@import 'foundations/variables.scss';
+@import 'foundations/color.scss';
+@import 'foundations/font.scss';
+@import 'foundations/reset.scss';
+@import 'foundations/vuetify.scss';
+@import 'foundations/mixin.scss';
+@import 'foundations/text.scss';
+@import 'foundations/ico.scss';
+@import 'foundations/common.scss';
+@import 'foundations/layout.scss';
+
+
+// components
+@import 'components/btn.scss';
+@import 'components/avatar.scss';
+@import 'components/dialog.scss';
+@import 'components/flag.scss';
+@import 'components/card.scss';
+@import 'components/chart.scss';
+@import 'components/title.scss';
+// @import 'components/selectbox.scss';
+@import 'components/page-indicator.scss';
+// @import 'components/checkbox-radio.scss';
+@import 'components/learningHistoryStats.scss';
+@import 'components/analytics.scss';
+@import 'components/achievementRate.scss';
+@import 'components/dailyPerformance.scss';
+@import 'components/tableCarousel.scss';
+@import 'components/datepickers.scss';
+@import 'components/datepickerslot.scss';
+@import 'components/switch.scss';
+@import 'components/aILevelTest.scss';
+@import 'components/page_buttons.scss';
+@import 'components/tableEdit.scss';
+@import 'components/inner_title.scss';
+@import 'components/buttons.scss';
+@import 'components/image_wrap.scss';
+@import 'components/scrollable_container.scss';
+@import 'components/card_items.scss';
+@import 'components/title_wrap.scss';
+@import 'components/note_items.scss';
+@import 'components/table_wrap.scss';
+@import 'components/selfCheck.scss';
+@import 'components/tabs.scss';
+@import 'components/coloring_design.scss';
+@import 'components/inner_section.scss';
+@import 'components/chart_wrap.scss';
+@import 'components/inner_contents.scss';
+@import 'components/divider_group.scss';
+@import 'components/divider_items.scss';
+@import 'components/incorrect_wrap.scss';
+@import 'components/record_wrap.scss';
+
+
+// pages
+@import 'pages/guide_contents.scss';
+@import 'pages/AI_talk.scss';

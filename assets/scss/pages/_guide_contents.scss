@@ -1,0 +1,73 @@
+/**
+component name : guide_contents
+writer : 유하진
+변경일 : 240401
+**/
+
+
+.guide_contents {
+  h1 {
+    position: relative;
+    padding: 2rem 0;
+    background-color: $white;
+    text-align: center;
+  }
+  small {
+    display: block;
+    margin-top: .5rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary);
+    font-size: $font-small;
+  }
+
+  section {
+    h2 {
+      position: relative;
+      margin-top: 8rem;
+      margin-bottom: 4rem;
+      font-size: $font-large;
+      text-align: center;
+      
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: -1rem;
+        left: calc(50% - 2.5rem);
+        width: 5rem;
+        height: .2rem;
+        background-color: $G900;
+      }
+    }
+
+    h3 {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.guide_table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid $G900;
+
+  th, td {
+    padding: 1rem;
+    border: 1px solid $G300;
+    text-align: center;
+  }
+
+  th {
+    background-color: $G50;
+  }
+}
+
+.guide_bg_dark {
+  padding: 2rem 0;
+  background-color: #334152;
+
+  h2, h3 {
+    color: $white;
+  }
+}

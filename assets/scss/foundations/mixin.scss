@@ -1,0 +1,148 @@
+$header-weight: $font-weight-bold;
+$header1-size: 2.6rem;
+$header2-size: $font-xlarge;
+$header3-size: $font-large;
+
+$body1-size: $font-xlarge;
+$body2-size: $font-large;
+$body3-size: $font-medium;
+$body4-size: $font-small;
+$body5-size: $font-xsmall;
+$detail-size: var(--font-medium);
+
+@mixin font_header( $font-color: $font-darken, $font-size: $font-medium , $line-height: 2.4rem) {
+  color: $font-color;
+  font-size: $font-size;
+  font-weight: $font-weight-bold;
+  line-height: $line-height;
+  letter-spacing: 0;
+}
+
+@mixin font_header1($font-color: $font-darken, $line-height: 3.2rem) {
+  font-size: $header1-size;
+  font-weight: $font-weight-bold;
+  line-height: 3.2rem;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_header2($font-color: $font-darken, $line-height: 2.8rem) {
+  font-size: $header2-size;
+  font-weight: $font-weight-bold;
+  line-height: 2.8rem;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_header3($font-color: $font-darken, $line-height: 2.6rem) {
+  font-size: $header3-size;
+  font-weight: $font-weight-bold;
+  line-height: $line-height;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_body5(
+  $font-weight: var(--weight-medium),
+  $font-color: $font-darken,
+  $line-height: 2rem
+) {
+  font-size: $body5-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_body4(
+  $font-weight: var(--weight-medium),
+  $font-color: $font-darken,
+  $line-height: 2rem
+) {
+  font-size: $body4-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_body3(
+  $font-weight: var(--weight-medium),
+  $font-color: $font-darken,
+  $line-height: 2.4rem
+) {
+  font-size: $body3-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_body2(
+  $font-weight: var(--weight-medium),
+  $font-color: $font-darken,
+  $line-height: 2.6rem
+) {
+  font-size: $body2-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+  letter-spacing: 0;
+}
+
+@mixin font_body1(
+  $font-weight: var(--weight-medium),
+  $font-color: $font-darken,
+  $line-height: 2.8rem
+) {
+  font-size: $body1-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+}
+
+@mixin font_dohyeon($font-weight: var(--weight-medium), $font-color: $black, $line-height: 3rem) {
+  font-family: 'BMDoHyeon';
+  font-size: 2.6rem;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+}
+@mixin font_jalnan($font-weight: var(--weight-medium), $font-color: $black, $line-height: 3rem) {
+  font-family: 'yg-jalnan';
+  font-size: 2.6rem;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $font-color;
+}
+
+@mixin spacing-x($padding-x) {
+  padding: 0 $padding-x;
+}
+
+@mixin spacing-y($padding-y) {
+  padding: $padding-y 0;
+}
+
+@mixin spacing($position, $padding) {
+  padding-#{$position}: $padding;
+}
+
+@mixin radius($radius: $base-radius) {
+  @if not($radius == 0) {
+    border-radius: $radius;
+  }
+}
+
+@mixin ellipsis-multi($show-line, $font-size: $font-size-base, $line-height: $base-line-height) {
+  white-space: normal;
+  display: block; // Fallback for non-webkit
+  display: -webkit-box;
+  // max-height: calc(#{$font-size} * #{$line-height} * #{$show-line}); // Fallback for non-webkit
+  // font-size: $font-size;
+  // line-height: $line-height;
+  -webkit-line-clamp: $show-line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

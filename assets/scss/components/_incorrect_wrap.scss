@@ -1,0 +1,18 @@
+.incorrect_wrap {
+	.v-list {
+		padding: 0;
+
+		+ .inner_title {
+			margin-top: 2rem;
+		}
+	}
+	.v-list-item {
+		margin-left: 2rem;
+		margin-right: 2rem;
+		@include font_header2();
+
+		&:not(:first-child){
+			margin-top: 2rem;
+		}
+	}
+}

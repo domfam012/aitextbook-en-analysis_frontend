@@ -1,0 +1,498 @@
+<template>
+    <div class="text-center pa-4">
+        <!-- 숫자색칠판 완성하기 팝업 -->
+        <v-dialog v-model="isOpen" width="auto">
+            <v-card class="dialog piece-xxxlg collectedColor">
+                <div class="tabs-top">
+                    <div class="avatar avatar-box">
+                        <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item" />
+                        <div class="avatar-info">
+                            <span class="info_number">{{ remainingColorState?.studNo }}번</span>
+                            <span class="info_name">{{ remainingColorState?.studName }}</span>
+                        </div>
+                    </div>
+                    <div class="round_box_type ml-auto">
+                        <v-tabs color="transparent" v-model="tab">
+                            <v-tab value="one" class="color_piece" valiant="outlined">남은 색깔 조각</v-tab>
+                            <v-tab value="two" class="color_piece" valiant="outlined">수집한 색깔 조각</v-tab>
+                        </v-tabs>
+                    </div>
+                </div>
+                <div class="ma-0 pa-0 w-100">
+                    <v-window v-model="tab" class="tabs-item">
+                        <v-window-item value="one">
+                            <div class="d-flex">
+                                <div class="content">
+                                    <!-- <p class="title_bullet">색칠한 부분을 다시 선택하면 색깔 조각의 원래 자리로 돌아갑니다.</p> -->
+                                    <v-carousel hide-delimiters hide-delimiter-background show-arrows height="auto">
+                                        <template v-slot:prev="{ props }">
+                                            <v-btn
+                                                flat
+                                                rounded
+                                                size="small"
+                                                @click="props.onClick"
+                                                class="icon_only icon_only-transparent icon_only-36 ml-1"
+                                            >
+                                                <div class="ico_outer size_sm">
+                                                    <i class="ico size_5 left_24"></i>
+                                                    <span class="blind">이전</span>
+                                                </div>
+                                            </v-btn>
+                                        </template>
+                                        <template v-slot:next="{ props }">
+                                            <v-btn
+                                                flat
+                                                rounded
+                                                size="small"
+                                                @click="props.onClick"
+                                                class="icon_only icon_only-transparent icon_only-36 mr-1"
+                                            >
+                                                <div class="ico_outer size_sm">
+                                                    <i class="ico size_5 right_24"></i>
+                                                    <span class="blind">다음</span>
+                                                </div>
+                                            </v-btn>
+                                        </template>
+
+                                        <v-carousel-item
+                                            height="49.4rem"
+                                            max-height="49.4rem"
+                                            v-for="(item, index) in lessonPopupState"
+                                            :key="index"
+                                        >
+                                            <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" :paintable="true" />
+                                        </v-carousel-item>
+                                        <v-carousel-item height="49.4rem" max-height="49.4rem">
+                                            <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" />
+                                        </v-carousel-item>
+                                    </v-carousel>
+                                    <!-- 인디케이터 -->
+                                    <div class="indicator">
+                                        <span class="txt_wrap"><em>1</em> / <span>3</span></span>
+                                    </div>
+                                </div>
+                                <!-- 색깔 조각 영역 -->
+                                <div class="side-rlt">
+                                    <v-list bg-color="transparent">
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'듣기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_01"></i>
+                                                    <em>X</em>
+                                                    <span>{{ remainingColorState?.colorLstnnCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'읽기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_02"></i>
+                                                    <em>X</em>
+                                                    <span>{{ remainingColorState?.colorRedngCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'보기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_03"></i>
+                                                    <em>X</em>
+                                                    <span>{{ remainingColorState?.colorViewCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'말하기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_04"></i>
+                                                    <em>X</em>
+                                                    <span>{{ remainingColorState?.colorSpkngCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'쓰기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_05"></i>
+                                                    <em>X</em>
+                                                    <span>{{ remainingColorState?.colorWritngCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'제시하기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_06"></i>
+                                                    <em>X</em>
+                                                    <span>{{ remainingColorState?.colorPrsntCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                    </v-list>
+                                </div>
+                            </div>
+                            <div class="dialog_btn_wrap mgt30">
+                                <v-btn rounded flat class="outlined" @click="closeModalFunc">닫기</v-btn>
+                                <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
+                            </div>
+                        </v-window-item>
+
+                        <v-window-item value="two">
+                            <div class="d-flex">
+                                <div class="content">
+                                    <!-- 임시 이미지 개발 진행시 변경 예정 -->
+                                    <div class="collect-color">
+                                        <img src="@/assets/images/temp/img_remaining_board.png" alt="이미지" />
+                                    </div>
+
+                                    <!-- 인디케이터 -->
+                                    <div class="indicator">
+                                        <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-36 ml-1">
+                                            <div class="ico_outer size_sm">
+                                                <i class="ico size_5 left_24"></i>
+                                                <span class="blind">이전</span>
+                                            </div>
+                                        </v-btn>
+                                        <span class="txt_wrap"><em>1</em> / <span>3</span></span>
+                                        <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-36 mr-1">
+                                            <div class="ico_outer size_sm">
+                                                <i class="ico size_5 right_24"></i>
+                                                <span class="blind">다음</span>
+                                            </div>
+                                        </v-btn>
+                                    </div>
+                                </div>
+
+                                <!-- 색깔 조각 영역 -->
+                                <div class="side-rlt">
+                                    <v-list bg-color="transparent">
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'듣기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_01"></i>
+                                                    <em>X</em>
+                                                    <span>{{ collectedColorState?.colorLstnnCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'읽기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_02"></i>
+                                                    <em>X</em>
+                                                    <span>{{ collectedColorState?.colorRedngCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'보기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_03"></i>
+                                                    <em>X</em>
+                                                    <span>{{ collectedColorState?.colorViewCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'말하기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_04"></i>
+                                                    <em>X</em>
+                                                    <span>{{ collectedColorState?.colorSpkngCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'쓰기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_05"></i>
+                                                    <em>X</em>
+                                                    <span>{{ collectedColorState?.colorWritngCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <div class="text-center">
+                                                <p class="name">'제시하기' 색깔 조각</p>
+                                                <div class="brush_num">
+                                                    <i class="ico ico_size_9_half brush_06"></i>
+                                                    <em>X</em>
+                                                    <span>{{ collectedColorState?.colorPrsntCnt }}개</span>
+                                                </div>
+                                            </div>
+                                        </v-list-item>
+                                    </v-list>
+                                </div>
+                            </div>
+                            <div class="dialog_btn_wrap mgt30">
+                                <v-btn rounded flat class="outlined" @click="collectedColor = false">닫기</v-btn>
+                            </div>
+                        </v-window-item>
+                    </v-window>
+                </div>
+            </v-card>
+
+            <!-- 피드백 도장 보내기 -->
+            <div class="feedbackStampList" v-if="stamp">
+                <v-sheet class="px40 py40">
+                    <h3 class="text-center mb30">학생에게 어떤 도장을 보낼까요?</h3>
+                    <v-item-group mandatory class="d-flex flex-wrap gap3 py20" style="max-width: 57rem">
+                        <div class="item">
+                            <!-- 선택이 되면 .checked 추가 -->
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover checked"
+                                    :class="isSelected ? 'checked' : ''"
+                                    @click="toggle"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp01" alt="참 잘했어요" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp02" alt="정말 잘했어요" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp03" alt="세상에 !!!" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp04" alt="이미 최고의 경지" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp05" alt="어떻게 이렇게까지 잘하는 거지" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    :class="isSelected ? 'checked' : ''"
+                                    @click="toggle"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp01" alt="참 잘했어요" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp02" alt="정말 잘했어요" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp03" alt="세상에 !!!" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp04" alt="이미 최고의 경지" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="stamp05" alt="어떻게 이렇게까지 잘하는 거지" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                    </v-item-group>
+                    <div class="dialog_btn_wrap mgt30 gap1 d-flex justify-center">
+                        <v-btn rounded flat class="outlined" @click="stamp = false">닫기</v-btn>
+                        <v-btn rounded flat class="primary">피드백 도장 보내기</v-btn>
+                    </div>
+                </v-sheet>
+            </div>
+        </v-dialog>
+    </div>
+</template>
+
+<script setup>
+const emit = defineEmits(['close-modal']);
+const props = defineProps(['isOpen']);
+const tab = ref('one');
+const stamp = ref(false);
+
+const isOpen = props.isOpen;
+
+const lessonApiStore = useApiLessonStore();
+const { remainingColorState, collectedColorState, lessonPopupState } = storeToRefs(lessonApiStore);
+const colorMode = ref('blue');
+
+const setColor = mode => {
+    colorMode.value = mode;
+};
+
+const togglePainted = index => {
+    if (grid.value[index].color === colorMode.value) grid.value[index].painted = !grid.value[index].painted;
+    grid.value[index].color = colorMode.value;
+};
+
+const closeModalFunc = () => {
+    emit('close-modal');
+    console.log('clicked');
+};
+
+onMounted(() => {
+    lessonApiStore.getPopupRemainColor();
+    lessonApiStore.getPopupCollectedColor();
+    lessonApiStore.getPopupRemainColorDesign();
+    lessonApiStore.getPopupCollectedColorDesigns();
+    // lessonApiStore.getPopupSendFeedbackStamp();
+});
+
+import stamp01 from '@/assets/images/img_stamp_01.svg';
+import stamp02 from '@/assets/images/img_stamp_02.svg';
+import stamp03 from '@/assets/images/img_stamp_03.svg';
+import stamp04 from '@/assets/images/img_stamp_04.svg';
+import stamp05 from '@/assets/images/img_stamp_05.svg';
+</script>
+
+<style scoped lang="scss">
+.colorboard {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid {
+    width: 2.6rem;
+    height: 2.7rem;
+    border: 0.5px solid #171717;
+    cursor: pointer;
+}
+
+.painted {
+    border: 1px solid black;
+    &.blue {
+        background: #46a7e5;
+    }
+
+    &.green {
+        background: #81b01b;
+    }
+
+    &.darkgreen {
+        background: #0a8;
+    }
+    &.red {
+        background: #fd6e7f;
+    }
+    &.yellow {
+        background: #ffd44d;
+    }
+}
+</style>

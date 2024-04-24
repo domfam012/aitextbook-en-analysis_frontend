@@ -1,0 +1,107 @@
+.record_wrap {
+  .header {
+    overflow: hidden;
+    margin-bottom: 4rem;
+    @include radius();
+  }
+  .utility {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background-color: #3D495E;
+    border-bottom: 1px solid #818386;
+  }
+  .buttons {
+    gap: 2.5rem;
+
+    .v-btn {
+      box-shadow: none;
+    }
+  }
+  .v-select {
+    flex-basis: 35rem;
+    flex-grow: 0;
+  }
+  .inner_wrap {
+    padding: 3rem 3rem 4.5rem;
+    height: 19.2rem;
+    background: url('@/assets/images/bg_record.svg') no-repeat bottom left/ cover;
+  }
+  .divider_group {
+    > li {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      @include font_body2($font-color: $white, $line-height: 2.4rem);
+
+      &::before {
+        height: 2.2rem;
+      }
+    }
+  }
+  .avatar-box {
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .avatar {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 6.1rem;
+      height: 6.1rem;
+      border: 1px solid $Y500;
+      @include radius(50%);
+    }
+  }
+  .avatar-item {
+    margin-left: .3rem;
+    margin-bottom: .3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: none;
+  }
+  .avatar-info {
+    align-items: baseline;
+    color: $white;
+    h2 {
+      display: inline-flex;
+      align-items: flex-end;
+      font-size: 3.5rem;
+    }
+    .info_number {
+      color: $Y500;
+      font-size: $font-xlarge;
+      line-height: 1;
+    }
+    .info_name {
+      color: $Y500;
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+    .subject {
+      margin: 0 1.5rem;
+      padding: 1rem;
+      min-width: 12.2rem;
+      @include radius(1.2rem);
+      background-color: $B500;
+      text-align: center;
+      span {
+        display: block;
+        @include font_body4( $font-color: $white, $line-height: 2.2rem);
+      }
+      strong {
+        line-height: 4rem;
+      }
+    }
+  }
+  .inner_section {
+    padding: 0 4rem;
+
+    .extra {
+      display: none;
+    }
+  }
+}

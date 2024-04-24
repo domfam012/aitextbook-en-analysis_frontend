@@ -1,0 +1,209 @@
+$calendar-point-green: #139D42;
+$calendar-point-blue: $B100;
+$calendar-point-gray: $G300;
+$calendar-student-point-yellow: $Y200;
+
+.datepicker {
+    width: 42rem;
+    // min-width: 27rem;
+    min-height: 54rem;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    background: $white;
+    position: relative;
+    
+    .vc-mustard {
+        --vc-accent-100: #ffe082;
+        --vc-accent-200: #ffe082;
+        --vc-accent-300: #ffe082;
+        --vc-accent-400: #ffe082;
+        --vc-accent-500: #ffe082;
+        --vc-accent-600: #ffe082;
+        --vc-accent-700: #ffe082;
+        --vc-accent-800: #ffe082;
+        --vc-accent-900: #171717;
+    }
+
+    .vc-bordered {
+        border: none;
+    }
+
+    .vc-pane-header-wrapper {
+        height: 6rem;
+    }
+
+    .vc-header {
+        position: relative;
+        padding-left: 1rem;
+        padding-right: 12.5rem;
+        grid-template-columns: [ prev] 0.5fr [ title] 1.5fr [ next] 0.5fr;
+        height: 6rem;
+        margin: 0;
+
+        .vc-title {
+            position: relative;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-right: 3.4rem;
+            padding: 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: -3.4rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 2.4rem;
+                height: 2.4rem;
+                background: url(/_nuxt/assets/images/icon/ico_calendar.svg) no-repeat center / 88%;
+            }
+
+        }
+        .vc-arrow {
+            width: 3rem;
+            height: 3rem;
+            color: $G900;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .vc-pane {
+        min-width: 23rem;
+    }
+
+    .vc-week {
+        padding: 0 1rem .5rem;
+    }
+
+    .vc-weeks {
+        padding: 0;
+        min-width: 23rem;
+    }
+
+    .vc-weekdays {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .vc-weekday {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.6rem;
+    }
+
+    // .vc-day {
+    //     width: 4.6rem;
+    //     height: 4.6rem;
+    // }
+
+    .vc-day-content {
+        width: 4.6rem;
+        height: 4.6rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+    .vc-highlight {
+        width: 4.6rem;
+        height: 4.6rem;
+    }
+
+    .vc-weekday-1 {
+        color: #ff6600;
+    }
+
+    .vc-weekday-2,
+    .vc-weekday-3,
+    .vc-weekday-4,
+    .vc-weekday-5,
+    .vc-weekday-6,
+    .vc-weekday-7 {
+        color: #000000;
+    }
+
+    .vc-monthly .is-not-in-month * {
+        opacity: 1;
+        color: #b0b0b0;
+        pointer-events: none;
+    }
+
+    .vc-bar {
+        height: 0.5rem;
+        border-radius: 0.25rem;
+    }
+
+    .vc-bordered {
+        border: none;
+    }
+
+    .reset_btn {
+        position: absolute;
+        top: 3.5rem;
+        right: 4rem;
+        padding: 0;
+        min-width: 3rem;
+        min-height: 3rem;
+        z-index: 1000;
+    }
+
+    .my-calendar {
+        width: 100%;
+    }
+
+    .legend_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        padding-left: 1.6rem;
+        border-top: 1px solid $G400;
+
+        .legend {
+            display: flex;
+            align-items: center;
+            min-width: 50%;
+            @include font-body4($font-weight-medium, $font-basic);
+            line-height: 1.2;
+
+            &:nth-child(2n) {
+                padding-left: 2.6rem;
+            }
+
+            i {
+                display: inline-flex;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 1.5rem;
+                margin-right: 1rem;
+
+                &.submission {
+                    background: $calendar-point-green;
+                }
+
+                &.unsubmission {
+                    background: $calendar-point-gray;
+                }
+
+                &.today {
+                    border: 1px solid $line-darken;
+                }
+
+                &.period {
+                    background: $calendar-student-point-yellow;
+                }
+            }
+        }
+    }
+    .vc-focus:focus-within {
+        box-shadow: none;
+    }
+}

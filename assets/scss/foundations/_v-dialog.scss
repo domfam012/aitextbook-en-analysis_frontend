@@ -1,0 +1,17 @@
+.v-dialog {
+    > .v-overlay__content {
+        > .v-card, 
+        > .v-sheet, 
+        > form > .v-card, 
+        > form > .v-sheet {
+            &.dialog {
+                @include radius();
+            }
+        }
+        >.v-card {
+            &.display_block {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+.inner_section {
+	padding: 3rem 2rem;
+	@include radius();
+	background-color: $white;
+}

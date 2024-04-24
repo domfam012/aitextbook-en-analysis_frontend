@@ -1,0 +1,49 @@
+.analytics {
+    &.type_student {
+        padding: 2rem;
+        background-color: #334152;
+
+        .title {
+            .ico {
+                filter: invert(1);
+            }
+
+            p {
+                color: #fff;
+                font-size: var(--font-small);
+                line-height: 2.2rem;
+                font-weight: var(--weight-bold);
+            }
+        }
+
+        .sub_title {
+            padding: 1.5rem 0;
+            border-top: 1px solid #606873;
+
+            p {
+                color: white;
+            }
+        }
+    }
+}
+
+.authInfo {
+    padding-bottom: 1.5rem;
+
+    div {
+        &:nth-child(2) {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -1.7rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 2rem;
+                background-color: #B0B0B0;
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+.divider_items {
+	display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 3rem 3rem 1.5rem;
+  
+	> .item {
+    flex-grow: 1;
+    position: relative;
+    padding: 3rem 3rem 4.5rem; // 3rem;
+    border-left: 1px solid $G500;
+    text-align: center;
+
+    &:first-child {
+      border-left: 0;
+    }
+    
+    > strong {
+      display: block;
+      @include font_header2();
+    }
+  }
+  .v-btn.v-btn--rounded {
+    margin-top: 4rem;
+    width: 20rem;
+    --v-btn-height: 20rem;
+    @include radius(100%);
+    color: $white;
+
+    &.color_green {
+      background-color: #83B224;
+    }
+    &.color_mint {
+      background-color: #36B29F;
+    }
+    &.color_skyblue {
+      background-color: #2FAEED;
+    }
+    &.type_success {
+      &.color_green, 
+      &.color_mint,
+      &.color_skyblue {
+        background-color: $G400;
+      }
+    }
+  }
+  .v-btn__content {
+    display: block;
+  }
+  .inline_wrap {
+    align-items: baseline;
+    strong {
+      font-size: 7rem;
+      line-height: 1;
+    }
+    .number {
+      margin-left: .5rem;
+      font-size: 3.6rem;
+      line-height: 1;
+    }
+  }
+  .unit {
+    display: block;
+    margin-top: .8rem;
+    @include font_header1($font-color: $white);
+  }
+  .type_success {
+    &::before {
+      content: '완료';
+      display: inline-block;
+      position: absolute;
+      bottom: -.5rem;
+      left: 50%;
+      min-width: 11rem;
+      padding: .7rem 4.8rem .7rem 2rem;
+      @include radius(2.4rem);
+      background: $G600 url('@/assets/images/icon/ico_check_w.svg') no-repeat right 1.6rem center/ 2rem;
+      @include font_header3($font-color: $white);
+      transform: translateX(-50%);
+    }
+  }
+  + .extra {
+    p {
+      display: inline-block;
+      @include font_body3();
+      opacity: .8;
+    }
+  }
+}

@@ -1,0 +1,346 @@
+.v-card {
+    &.v-theme--light {
+        border-radius: 1rem;
+    }
+
+    min-width: 42rem;
+    // min-height: 54rem; // 240404 yhj 수정
+    overflow: unset;
+    border: none;
+    box-shadow: none;
+    flex-grow: 1;
+
+    // v-card-variation
+    @each $key, $value in $card-color-list {
+        &.v-card-#{$key} {
+            .v-card-item {
+                background-color: $value;
+                padding: 1.5rem 3rem;
+
+                margin: 0;
+                border-bottom: none;
+            }
+
+            .v-card-title {
+                @include font_header2();
+            }
+
+            .list_dot {
+                height: calc(100% - 6rem);
+
+                .v-list-item {
+                    margin-bottom: 1.5rem;
+                    @include font_body2();
+                }
+            }
+        }
+
+        @if ($key =='darkblue') {
+            &.v-card-#{$key} {
+                .v-card-item {
+                    background-color: $value;
+
+                    .v-card-title {
+                        color: $font-white;
+                    }
+                }
+
+                .ico {
+                    filter: $color-state-white;
+                }
+            }
+        }
+
+        &.fill-#{$key} {
+            background-color: $value;
+        }
+    }
+
+    &.type_record {
+        border-radius: 0;
+
+        >.v-card-item {
+            position: relative;
+            margin: 0;
+            padding: 1.2rem;
+            min-height: auto;
+            border-bottom: 0;
+            // border-color: transparent;
+            @include radius(.5rem);
+            background-color: $DB300;
+
+            .v-card-title {
+                display: block;
+                @include font_header3($font-color: $white);
+                text-align: center;
+
+                .icon_only {
+                    top: 50%;
+                    right: 1.2rem;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        .v-container {
+            margin-top: 2rem;
+            padding: 0 1rem;
+        }
+        .v-list {
+            padding: 2rem;
+            border-bottom: 1px solid $G400;
+        }
+        .card_items,
+        .coloring_design {
+            justify-content: center;
+        }
+        .chart-bar {
+            margin: 0 auto;
+            width: 90%;
+        }
+    }
+
+    &.box_contents {
+        padding: 4rem 3rem;
+        min-width: auto;
+
+        .v-card-item {
+            display: block;
+            margin: 0;
+            padding: 0;
+            min-height: auto;
+            border: 0;
+        }
+
+        .v-card-title {
+            display: block;
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid $line-color-violet;
+            line-height: inherit;
+
+            span {
+                display: block;
+                @include font_header($font-color: $font-color-violet);
+                text-align: center;
+            }
+        }
+
+        .count {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            margin-top: .5rem;
+            color: $font-color-violet;
+            font-size: 7.2rem;
+
+            span {
+                font-size: 2.6rem;
+            }
+        }
+
+        .v-card-text {
+            padding: 0;
+            text-align: center;
+
+            span {
+                @include font_header($font-color: $font-color-violet);
+            }
+        }
+
+        .hour {
+            display: block;
+            margin-top: .5rem;
+            @include font_header($font-color: $font-color-violet, $font-size: $font-xlarge, $line-height: 2.8rem);
+        }
+    }
+
+    .v-card-text {
+        height: calc(100% - 8rem);
+    }
+
+    .v-card-item {
+        margin: 0 3rem;
+        padding: 1.5rem 0;
+        min-height: 8rem;
+        border-bottom: 1px solid $line-basic;
+
+        // 데이터 피커로 overflow hidden 제거
+        .v-card-item__content,
+        .v-card-title {
+            overflow: unset;
+        }
+
+    }
+
+    .v-card-title {
+        display: flex;
+        align-items: center;
+        @include font_header2;
+        white-space: normal;
+        word-break: keep-all;
+        // position: relative;
+
+        // span {
+        //     &:first-child {
+        //         flex-grow: 1;
+        //     }
+        // }
+
+        > .icon_only {
+            position: absolute;
+            top: auto;
+            right: 2rem;
+        }
+    }
+
+    // 기본 리스트 형태
+    >ul {
+
+        // padding: 3rem;
+        li {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            @include font_body2;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0rem;
+                top: 1rem;
+                background: #000;
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 0.5rem;
+            }
+        }
+
+        // 리스트 불릿 및 텍스트 컬러 베리에이션
+        @each $key, $value in $point-color-list {
+            &.list-color-#{$key} {
+                li {
+                    em {
+                        @include font_header2($value);
+                    }
+
+                    &::before {
+                        background: $value;
+                    }
+                }
+            }
+        }
+    }
+
+    // 버튼 있는 리스트 형태
+    .list_with_btn {
+        padding: 0 2.2rem;
+
+        li {
+            &:first-child {
+                padding-bottom: 1.5rem;
+            }
+
+            margin-bottom: 0;
+            min-height: 7.5rem;
+            padding: 1.9rem 0 1.9rem 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            @include font_body3;
+            border-bottom: 1px solid $line-basic;
+
+            span {
+                flex-grow: 1;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0rem;
+                top: 3.2rem;
+                background: #000;
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+
+    // flag 있는 경우
+    &.v-card-with_flag {
+        overflow: unset;
+
+        .flag {
+            position: absolute;
+            top: -1.5rem;
+            left: 2rem;
+        }
+
+        .v-card-item {
+            border-radius: 1rem 1rem 0 0;
+            padding: 1.5rem 3rem 1.5rem 10.5rem;
+        }
+    }
+
+    .v-card-actions {
+        padding: 0;
+        min-height: auto;
+
+        +.v-card__underlay {
+            display: none;
+        }
+    }
+
+    // card design
+    &.v-card--variant-outlined {
+        padding: 3rem;
+        border: 3px solid var(--shchme-color-learner1);
+        background-color: $white;
+    }
+
+    // 학생 > 학습결과 > 학습분석 > AI CURI Talk!
+    &.tabs {
+        .v-card-item {
+            position: relative;
+
+            .v-tabs {
+                position: absolute;
+                bottom: 0;
+                left: 32rem;
+                width: 77%;
+            }
+        }
+        .v-slide-group__container {
+            border-bottom-color: $G200;
+        }
+        .icon_only {
+            background-color: inherit;
+            border: 0;
+        }
+        .colorLessonInfo .inner {
+            min-height: auto;
+        }
+
+        .v-container {
+            padding: 1.5rem 3rem;
+        }
+    }
+}
+
+.card_no_data {
+    width: 100%;
+    //min-height: 46rem;
+    @include font_body3;
+    text-align: center;
+    padding: 8rem 0; //0;
+    height: calc(100% - 6rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    i {
+        flex-shrink: 0;
+    }
+}

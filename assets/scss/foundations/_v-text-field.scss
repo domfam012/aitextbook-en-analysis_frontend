@@ -1,0 +1,212 @@
+/**
+component name : v-text-field
+writer : 유하진
+변경일 : 240318
+**/
+
+//input
+.v-input {
+    .v-label {
+        font-size: var(--font-medium);
+    }
+}
+//Enabled
+.v-text-field {
+    .v-field {
+        background-color: transparent;
+        &:hover {
+            // background-color: $B50;
+
+            .v-field__input {
+                &::placeholder {
+                    // color: $B500;
+                }
+            }
+            .v-field__outline {
+                // border: 1px solid $B500;
+            }
+        }
+    }
+    // 에러메세지
+    .v-input__details {
+        font-size: 1.4rem;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+        .v-messages {
+            font-size: inherit;
+            .v-messages__message {
+                // color: $secondary-error;
+                font-weight: 500;
+                line-height: inherit;
+            }
+        }
+    }
+    .v-field__input {
+        // min-height: auto;
+        // height: 5.5rem;
+        background-color: transparent;
+        // color: $G900;
+        // font-size: var(--font-medium);
+        // padding-left: 2rem;
+        &::placeholder {
+            // color: $G400;
+            font-weight: 500;
+            opacity: 1;
+        }
+    }
+}
+.v-field__outline {
+    // border: 1px solid $B500;
+}
+.v-field--variant-outlined {
+    .v-field__outline__start,
+    .v-field__outline__end {
+        border: 0;
+    }
+}
+
+//Focus
+.v-field--focused {
+    &.v-text-field {
+        .v-field {
+            // background-color: $white;
+        }
+    }
+    .v-field__outline {
+        // border: 1px solid $G800; // 포커싱시 색상
+    }
+}
+//Focus - clear버튼
+.mdi-close-circle::before {
+    content: '';
+    width: 3rem;
+    height: 3rem;
+    background: url('@/assets/images/common/ico/ico_delete_30.svg') no-repeat center center/contain;
+}
+
+//Error
+.v-field--error {
+    .v-field__outline {
+        border: 1px solid $Y900;
+    }
+    .ico_warning {
+        display: block;
+    }
+}
+//Error - 주의 버튼
+.ico_warning {
+    display: none;
+    background: url('@/assets/images/common/ico/ico_warning_30.svg') no-repeat center center/contain;
+}
+
+//Disabled
+.v-input--disabled {
+    &.v-text-field {
+        .v-field {
+            background-color: $G50;
+            opacity: 1;
+        }
+    }
+    .v-field__outline {
+        border: 1px solid $G400;//$G300;
+        .v-field__outline__end,
+        .v-field__outline__start {
+            border: 0;
+        }
+    }
+    .v-field__input {
+        &::placeholder {
+            color: $G400;
+        }
+    }
+}
+//Readonly
+.v-input--readonly {
+    pointer-events: none;
+    &.v-text-field {
+        .v-field {
+            background-color: #ecf3f6;
+        }
+    }
+    .v-field__outline {
+        .v-field__outline__end,
+        .v-field__outline__start {
+            border: 0;
+        }
+    }
+}
+
+//v-textarea
+.v-textarea {
+    position: relative;
+    .v-field__input {
+        height: 10rem;
+    }
+    .v-field--appended {
+        padding-inline-end: 0;
+    }
+    &.v-field-no-label {
+        &.v-field--appended {
+            padding-inline-end: 12px;
+        }
+    }
+    .v-field__clearable {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0;
+    }
+}
+
+// searchbar(커서변경 추가)
+.ico_search2 {
+    width: 3rem;
+    height: 3rem;
+    background: url('@/assets/images/common/ico/ico_search2_30.svg') no-repeat center center/contain;
+    cursor: pointer;
+}
+
+.search_box {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    &.active {
+        border: 1px solid $B500;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+    }
+    .v-field__outline {
+        border: 0;
+    }
+    .search_list {
+        position: sticky;
+        padding-top: 0;
+        background: $white;
+        z-index: 1;
+        ul {
+            max-height: 26.3rem;
+            padding: 2rem;
+            padding-top: 0;
+            overflow-y: auto;
+        }
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            @include font_body3;
+            .ico {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+    .title {
+        @include font_body3($font-weight-bold);
+        padding: 2rem 0;
+        margin: 0 2rem;
+        border-top: 1px solid $G300;
+    }
+    .list_item {
+        + .list_item {
+            margin-top: 1.5rem;
+        }
+    }
+}

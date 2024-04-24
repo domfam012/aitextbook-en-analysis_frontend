@@ -1,0 +1,12 @@
+.title_wrap {
+	display: flex;
+	align-items: baseline;
+	gap: .5rem;
+
+	h3 {
+		@include font_body1($font-color: $B500, $font-weight: 700);
+	}
+	span {
+		@include font_body4($font-color: $G500);
+	}
+}

@@ -1,0 +1,21 @@
+.inner_title {
+	display: flex;
+	align-items: center;
+	// gap: 2rem;
+	margin-top: .5rem;//1rem;
+	margin-bottom: 1.5rem;
+	
+	h3 {
+		@include font_body3();
+		span {
+			color: $Y900;
+			font-weight: $font-weight-bold;
+		}
+	}
+	.buttons {
+		margin-left: auto;
+	}
+	strong {
+		@include font_body3($font-color: $orange);
+	}
+}

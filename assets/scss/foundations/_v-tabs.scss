@@ -1,0 +1,397 @@
+$tabs-round-color-red: #f14c4c;
+$tabs-line-color-red: #d23030;
+$tabs-text-color-red: #f14c4c;
+$tabs-bg-color-red: #fde7e7;
+$tabs-round-color-blue: #417ffa;
+$tabs-line-color-blue: #285ec6;
+$tabs-text-color-blue: #46a7e5;
+$tabs-bg-color-blue: #d7ecff;
+$tabs-round-color-navy: $DB900;
+
+.line_type {
+    .v-tabs--density-default {
+        height: 6rem !important;
+    }
+
+    >.tab_head {
+        position: relative;
+
+        .v-tab--selected {
+            border-bottom: 0.3rem solid var(--border-black);
+            color: $black;
+        }
+
+        .v-tab__slider {
+            display: none;
+        }
+
+        button {
+            font-size: var(--font-large) !important;
+            border-bottom: 0.3rem solid #dbdbdb;
+            margin-right: 0 !important;
+            color: #666666;
+            font-weight: var(--weight-bold);
+        }
+    }
+
+    &.full {
+        >.tab_head {
+            button {
+                flex: 1;
+            }
+        }
+    }
+}
+
+.round_type {
+    .v-tabs--density-default {
+        height: 5rem !important;
+        width: 100%;
+    }
+
+    .tab_head {
+        display: flex;
+        width: 100%;
+
+        button {
+            border-radius: 3rem;
+            font-size: 2.2rem;
+            margin-right: 1rem !important;
+            border: 1px solid var(--border-gray);
+            height: 5rem !important;
+
+            &.v-tab--selected {
+                background: $primary;
+                color: $white;
+
+                .v-tab__slider {
+                    height: 0 !important;
+                }
+            }
+        }
+    }
+
+    &.full {
+        .tab_head {
+            button {
+                flex: 1;
+            }
+        }
+    }
+}
+
+.button_type {
+    margin-bottom: 2rem;
+
+    .v-tabs {
+        .v-tab {
+            @include font-body4($font-darken);
+            background: $white;
+            margin-right: 1rem;
+            border-radius: 3rem;
+            margin-right: 1rem;
+            border: 1px solid $line-darken;
+            height: 3.5rem !important;
+
+            &.v-tab--selected {
+                color: $white !important;
+                background: $primary;
+
+                .v-tab__slider {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.round_box_type {
+    .v-tabs--density-default {
+        --v-tabs-height: auto;
+        height: auto;
+    }
+
+    .v-tabs {
+        .v-tab {
+            @include font-header3($font-white);
+            border-radius: 0 0.5rem 0.5rem 0;
+            height: auto !important;
+            padding: 2.2rem 3rem !important;
+            min-height: auto !important;
+            width: 50%;
+
+
+            &.v-tab--selected {
+                background: #000;
+                color: $white !important;
+                border: 1px solid #000;
+
+                .v-btn__content {
+                    opacity: 1;
+                }
+
+                .btn__overlay {
+                    background: transparent;
+                }
+
+                .v-tab__slider {
+                    display: none;
+                }
+
+                &.pass {
+                    border: 1px solid $tabs-line-color-blue;
+                }
+
+                &.fail {
+                    border: 1px solid $tabs-line-color-red;
+                }
+
+                &.all {
+                    border: 1px solid $tabs-round-color-navy;
+                }
+            }
+        }
+
+        .v-btn {
+            .v-btn__content {
+                opacity: 0.5;
+            }
+
+            //맞힌 학생
+            &.pass {
+                background: $tabs-round-color-blue;
+                border-bottom: 1px solid $tabs-line-color-blue !important;
+            }
+
+            //못 맞힌 학생
+            &.fail {
+                background: $tabs-round-color-red;
+                border-bottom: 1px solid $tabs-line-color-red !important;
+            }
+
+            //전체 문제
+            &.all {
+                background: $tabs-round-color-navy;
+                border-bottom: 1px solid $tabs-round-color-navy !important;
+            }
+        }
+    }
+
+    &+.v-window {
+        height: 100%;
+
+        //overflow-y: auto;
+        .v-window__container {
+            //height: 100%;
+        }
+
+        .v-window-item {
+            border-radius: 0 0 1rem 1rem;
+
+            &:first-child {
+                background: $tabs-bg-color-blue;
+                border-left: 1px solid $tabs-line-color-blue;
+                border-right: 1px solid $tabs-line-color-blue;
+                border-bottom: 1px solid $tabs-line-color-blue;
+            }
+
+            &:last-child {
+                background: $tabs-bg-color-red;
+                border-left: 1px solid $tabs-line-color-red;
+                border-right: 1px solid $tabs-line-color-red;
+                border-bottom: 1px solid $tabs-line-color-red;
+            }
+        }
+    }
+}
+
+.box_type {
+    &.tab_btn {
+        .v-tabs--density-default {
+            height: 6.8rem !important;
+        }
+
+        .tab_head {
+            display: flex;
+            align-items: center;
+
+            .v-slide-group__content {
+                align-items: center;
+            }
+
+            button {
+                border-radius: 0.5rem;
+                background: $white;
+                width: 14rem;
+                height: 5rem !important;
+                margin-right: 0.5rem !important;
+
+                i {
+                    margin-right: 0.5rem;
+                }
+
+                span {
+                    @include font_body4($font-weight-bold);
+                }
+
+                &.v-tab--selected {
+                    position: relative;
+                    background: #1e3257;
+                    border: 1px solid var(--primary);
+
+                    span {
+                        color: $white;
+                        padding-bottom: 0.15rem;
+                    }
+
+                    i {
+                        filter: var(--color-white);
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: -1rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 0;
+                        height: 0;
+                    }
+
+                    .v-tab__slider {
+                        height: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .v-tabs--density-default {
+        height: 6.5rem !important;
+    }
+
+    .tab_head {
+        display: flex;
+
+        button {
+            border-radius: var(--border-radius-medium);
+            font-size: 2.3rem;
+            margin-right: 1rem !important;
+            border: 1px solid var(--icon-default-disabled);
+            height: 5.5rem !important;
+            background: $white;
+
+            i {
+                display: inline-flex;
+                align-items: center;
+                width: 3rem;
+                height: 3rem;
+                margin-right: 0.8rem;
+
+                &.ico_tab_board01 {
+                    background: url('@/assets/images/common/ico_tab_board01.svg') center center no-repeat;
+                    background-size: contain;
+                }
+
+                &.ico_tab_board02 {
+                    background: url('@/assets/images/common/ico_tab_board02.svg') center center no-repeat;
+                    background-size: contain;
+                }
+
+                &.ico_tab_board03 {
+                    background: url('@/assets/images/common/ico_tab_board03.svg') center center no-repeat;
+                    background-size: contain;
+                }
+            }
+
+            &.v-tab--selected {
+                background: $primary;
+                color: $white;
+                position: relative;
+
+                i {
+                    filter: var(--color-white);
+                }
+
+                &::before {
+                    content: '';
+                    content: '';
+                    position: absolute;
+                    bottom: -1rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    border-top: 1rem solid $primary;
+                    border-left: 1rem solid transparent;
+                    border-right: 1rem solid transparent;
+                }
+
+                .v-tab__slider {
+                    height: 0 !important;
+                }
+            }
+        }
+    }
+
+    .tab_sub_head {
+        display: flex;
+
+        button {
+            border-radius: var(--border-radius-medium);
+            font-size: 2.3rem;
+            margin-right: 1rem !important;
+            border: 1px solid var(--border-gray);
+            height: 5.5rem !important;
+            background: $white;
+
+            i {
+                display: inline-flex;
+                align-items: center;
+                width: 3rem;
+                height: 3rem;
+                margin-right: 0.8rem;
+
+                &.ico_tab_board01 {
+                    background: url('@/assets/images/common/ico_tab_board01.svg') center center no-repeat;
+                }
+
+                &.ico_tab_board02 {
+                    background: url('@/assets/images/common/ico_tab_board02.svg') center center no-repeat;
+                }
+
+                &.ico_tab_board03 {
+                    background: url('@/assets/images/common/ico_tab_board03.svg') center center no-repeat;
+                }
+            }
+
+            &.v-tab--selected {
+                background: $green;
+                color: $white;
+                position: relative;
+
+                i {
+                    filter: var(--color-white);
+                }
+
+                &::before {
+                    content: '';
+                    content: '';
+                    position: absolute;
+                    bottom: -1rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    border-top: 1rem solid $green;
+                    border-left: 1rem solid transparent;
+                    border-right: 1rem solid transparent;
+                }
+
+                .v-tab__slider {
+                    height: 0 !important;
+                }
+            }
+        }
+    }
+}

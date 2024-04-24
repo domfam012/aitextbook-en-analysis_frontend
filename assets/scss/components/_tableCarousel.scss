@@ -1,0 +1,229 @@
+.tableCarousel {
+    position: relative;
+    padding: 3rem;
+    border: 3px solid #42C5B1;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .close {
+        right: 1.2rem;
+        top: 1.2rem;
+    }
+
+
+    h3 {
+        font-size: var(--font-medium);
+        line-height: 2.4rem;
+        font-weight: var(--weight-medium);
+    }
+
+
+    .box {
+        display: flex;
+        margin-top: 2rem;
+
+
+    }
+}
+
+.left-table {
+    position: relative;
+    max-width: 27rem;
+    z-index: 1;
+}
+
+.center-table {
+    position: relative;
+    z-index: 0;
+    padding: 0 10.25rem;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        background: #fff;
+        z-index: 1;
+    }
+
+    &::before {
+        left: 0;
+        width: 10.25rem;
+    }
+
+    &::after {
+        right: 0;
+        width: 10.25rem;
+    }
+
+    .ico {
+        position: absolute;
+        right: 1.47rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.stamp_complete,
+        &.stamp_wait {
+            width: 5rem;
+            height: 5rem;
+        }
+
+        &.list {
+            cursor: pointer;
+        }
+    }
+
+    .carousel__prev,
+    .carousel__next {
+        margin: 0;
+        top: 0;
+        transform: translate(0);
+        width: 6rem;
+        height: 6rem;
+        z-index: 20;
+
+        svg {
+            display: none;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #D5D5D5;
+            border-radius: 100%;
+        }
+    }
+
+    .carousel__prev {
+        left: -8.1rem;
+
+        &::after {
+            background: url('@/assets/images/icon/ico_arrow_left_black.svg') no-repeat center;
+        }
+    }
+
+    .carousel__next {
+        right: -8.1rem;
+
+        &::after {
+            background: url('@/assets/images/icon/ico_arrow_right_black.svg') no-repeat center;
+        }
+    }
+}
+
+.right-table {
+    position: relative;
+    max-width: 18rem;
+    z-index: 1;
+}
+
+
+
+.customized {
+    position: absolute;
+    left: 3rem;
+    padding: 3rem;
+    width: calc(100% - 6rem);
+    background: #E7F5ED;
+    border: 1px solid #42C5B1;
+    z-index: 10;
+
+    .contents {
+        padding: 2.75rem 11.9rem 3.25rem;
+        gap: 8rem;
+    }
+
+    h3 {
+        font-size: var(--font-large);
+        line-height: 2.6rem;
+        font-weight: var(--weight-bold);
+    }
+
+    .left {
+        img {
+            width: 9.3rem;
+            height: 9.3rem;
+        }
+    }
+
+    .right {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 100%;
+            background: #B0B0B0;
+        }
+
+        .block {
+            &~.block {
+                margin-left: 6rem;
+            }
+
+            .question {
+                font-size: var(--font-large);
+                line-height: 2.6rem;
+                font-weight: var(--weight-medium);
+                text-align: left;
+
+            }
+
+            .v-field__outline {
+                display: none;
+            }
+
+            input {
+                max-width: 8rem;
+                height: 5.5rem;
+                background-color: #fff;
+                font-size: var(--font-medium);
+                line-height: 2.4rem;
+                font-weight: var(--weight-bold);
+                text-align: center;
+
+                border: 1px solid #46A7E5;
+                border-radius: 0.5rem;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                & input[type='number'] {
+                    -moz-appearance: textfield;
+                }
+
+            }
+
+            .total {
+                input {
+                    background-color: #46A7E5;
+                    color: #fff;
+                }
+            }
+
+            .points {
+                display: inline-block;
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+                font-weight: var(--weight-medium);
+            }
+
+
+        }
+    }
+}

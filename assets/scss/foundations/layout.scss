@@ -1,0 +1,37 @@
+$contents-area-padding: calc($spacing-root * 4) calc($spacing-root * 6) calc($spacing-root * 6) calc($spacing-root * 6);
+$container-area-height: $container-height;
+$contents-bg-teacher: $bg-default;
+
+.wrap {
+    position: relative;
+
+    .dashboard {}
+
+}
+
+// scroll_bar
+::-webkit-scrollbar {
+    border-radius: 5rem;
+    width: 2rem;
+    height: 2rem; // 가로스크롤ver 추가
+}
+
+/* 스크롤바 막대 꾸미기 */
+::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    background-clip: padding-box;
+    border: 0.7rem solid transparent;
+    width: 0.1rem;
+    border-radius: 5rem;
+}
+
+/* 스크롤바 트랙 꾸미기 */
+::-webkit-scrollbar-track {
+    background-clip: padding-box;
+    border: 0.7rem solid transparent;
+    background-color: #f8f8f8;
+    border-radius: 5rem;
+    width: 0.5rem;
+}
+
+// page_button 

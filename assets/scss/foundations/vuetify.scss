@@ -1,0 +1,50 @@
+@import 'v-text-field';
+@import 'v-list';
+@import 'v-select';
+@import 'v-data-table';
+@import 'v-radio-checkbox';
+@import 'v-switch';
+@import 'v-autocomplete';
+@import 'v-slider';
+@import 'v-expansion-panels';
+@import 'v-tabs';
+@import 'carousel';
+@import 'v-dialog';
+
+.ico_input_search {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    background: url('@/assets/images/common/ico_input_search.svg') no-repeat center center/contain;
+}
+
+.ico_list_search {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    background: url('@/assets/images/common/ico_list_search.svg') no-repeat center center/contain;
+}
+
+//carousel
+// .carousel_wrap {
+//   .btn_previous,
+//   .btn_next {
+//     width: 7rem;
+//     height: 15rem;
+//   }
+//   .btn_previous {
+//     background: url('@/assets/images/common/btn_arrow_l.svg') no-repeat;
+//     background-size: cover;
+//   }
+//   .btn_next {
+//     background: url('@/assets/images/common/btn_arrow_r.svg') no-repeat;
+//     background-size: cover;
+//   }
+//   .v-img {
+//     max-width: calc(100% - 15rem);
+//     margin: 0 auto;
+//   }
+//   .v-window__controls {
+//     padding: 0;
+//   }
+// }

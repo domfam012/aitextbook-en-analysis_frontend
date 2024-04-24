@@ -1,0 +1,33 @@
+.divider_group {
+	display: flex;
+  align-items: center;
+  gap: 0;
+	&:not(.type-outlined) {
+    > :first-child:not(.button) {
+      padding-left: 0;
+    }
+    > :last-child:not(.button) {
+      padding-right: 0;
+    }
+  }
+	> li {
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 1px;
+      height: 2.8rem;
+      background-color: $white;
+      transform: translateY(-50%);
+			opacity: .5;
+    }
+  }
+  > :first-child::before {
+    content: none;
+  }
+}

@@ -1,0 +1,77 @@
+//autocompletes_wrap
+.autocompletes_wrap {
+    margin: 5rem auto 0;
+
+    .auto_btn_list {
+        display: flex;
+        align-items: center;
+
+        .txt_tit {
+            font-size: var(--font-medium);
+            font-weight: var(--weight-bold);
+            margin-right: 1rem;
+        }
+
+        .com_btn_wrap {
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            flex: 1;
+        }
+
+        .com_text_wrap {
+            a {
+                margin: 0 1rem 0 0;
+                font-size: var(--font-medium);
+            }
+        }
+    }
+}
+
+.v-autocomplete {
+    &.big {
+        input {
+            font-size: var(--font-large);
+        }
+
+        .v-input__control {
+            background: #fff;
+        }
+
+        .v-field__input {
+            height: 8rem;
+        }
+
+        .v-autocomplete__selection {
+            font-size: var(--font-large);
+        }
+
+        .v-field__append-inner {
+            i {
+                opacity: 1;
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        .v-field__outline {
+            border: 0.2rem solid #169bd4;
+        }
+    }
+
+    .v-field__input {
+        height: 6rem;
+    }
+
+    .v-autocomplete__selection {
+        font-size: var(--font-medium);
+    }
+
+    .v-field__append-inner {
+        i {
+            opacity: 1;
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+}

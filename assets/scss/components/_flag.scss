@@ -1,0 +1,48 @@
+/**
+component name : flag
+writer : 문소정
+변경일 : 240207
+*/
+
+$flag-status-font-color: $font-white;
+
+.flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9rem;
+    height: 9rem;
+    background: url('@/assets/images/analytics/flag_orange.svg') no-repeat center / contain;
+
+    span {
+        display: inline-block;
+        padding: 0 1rem 1.5rem 1rem;
+        width: 7.5rem;
+        text-align: center;
+        word-break: keep-all;
+        @include font_body3($font-weight-bold, $flag-status-font-color);
+
+        &.flag_font_big {
+            padding-bottom: 0;
+            span {
+                display: block;
+                text-align: center;
+                @include font_body3($font-weight-bold, $flag-status-font-color);
+            }
+        }
+    }
+
+    &-left {
+        background: url('@/assets/images/analytics/flag_orange_left.svg') no-repeat center / contain;
+        span {
+            padding-right: 2rem;
+            @include font_body3($font-weight-bold, $flag-status-font-color);
+        }
+    }
+    &-blue {
+        background: url('@/assets/images/flag_blue.svg') no-repeat center / contain;
+    }
+    &-darkblue {
+        background: url('@/assets/images/flag_darkblue.svg') no-repeat center / contain;
+    }
+}

@@ -1,0 +1,279 @@
+.achievementRate {}
+
+
+
+// 단어학습 chatbot
+.chatbot {
+    padding-right: 3rem;
+
+    .inner {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        padding-right: 2rem;
+        width: -moz-fit-content;
+        width: fit-content;
+        border: 1px solid #373737;
+        border-radius: 2.5rem;
+        background: #fff;
+
+    }
+
+    .tit {
+        min-width: 40rem;
+
+        .v-list-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            height: 5rem;
+
+            &~.v-list-item {
+                margin-top: 0.66rem;
+            }
+
+            &.v-list-item--one-line {
+                padding-inline: 0;
+            }
+
+            &.bullet {
+                position: relative;
+                padding-left: 1.5rem;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    border: none;
+                    border-radius: 100%;
+                    opacity: 1;
+                }
+            }
+
+            &:nth-child(1) {
+                P {
+                    color: #42C5B1;
+                }
+
+                &:after {
+                    background-color: #42C5B1;
+                }
+
+            }
+
+            &:nth-child(2) {
+                P {
+                    color: #FFBF00;
+                }
+
+                &:after {
+                    background-color: #FFBF00;
+                }
+            }
+
+            &:nth-child(3) {
+                P {
+                    color: #FF8D00;
+                }
+
+                &:after {
+                    background-color: #FF8D00;
+                }
+            }
+
+            &:nth-child(4) {
+                P {
+                    color: #555555;
+                }
+
+                &:after {
+                    background-color: #555555;
+                }
+            }
+
+            p {
+                font-size: var(--font-xlarge);
+                font-weight: var(--weight-bold);
+                line-height: 2.8rem;
+            }
+        }
+    }
+
+    .word {
+        margin: 0 4rem;
+        width: calc(100% - 40rem);
+        padding-top: 4rem;
+        padding-bottom: 0rem;
+        margin-bottom: 1rem;
+
+        .v-list-item {
+            padding-top: 0;
+            padding-bottom: 0;
+
+            .v-list-item__content {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.66rem;
+                width: 100%;
+                height: 5rem;
+                overflow: unset;
+
+                p {
+                    flex-shrink: 0;
+                    font-size: var(--font-large);
+                    line-height: 2.6rem;
+                    font-weight: var(--weight-bold);
+
+
+                    &~p {
+                        margin-left: 3rem;
+                    }
+                }
+            }
+        }
+
+        li {
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.66rem;
+            width: 100%;
+
+            p {
+                flex-shrink: 0;
+                font-size: var(--font-large);
+                line-height: 2.6rem;
+                font-weight: var(--weight-bold);
+
+
+                &~p {
+                    margin-left: 3rem;
+                }
+            }
+        }
+
+    }
+
+    // 더보기 버튼
+    .more {
+        position: absolute;
+        right: -3rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6rem;
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background: #fff;
+        cursor: pointer;
+
+        .ico {
+            width: 3.2rem;
+            height: 4.4rem;
+            background-size: cover;
+        }
+
+        .left_24 {
+            margin-right: 0.3rem;
+        }
+
+        .right_24 {
+            margin-left: 0.3rem;
+        }
+    }
+}
+
+.achieveWord {
+    .top {
+        p {
+            position: relative;
+            width: 5rem;
+            height: 4.5rem;
+            font-size: var(--font-medium);
+            font-weight: var(--vc-font-bold);
+            line-height: 4.5rem;
+            text-align: center;
+
+            &~p {
+                margin-left: 0.4rem;
+            }
+
+            &.cuteTalk_basis {
+                color: #FD6E7F;
+            }
+
+            &.cuteTalk_active {
+                color: #fff;
+            }
+        }
+
+    }
+
+    .bottom {
+        padding: 4rem;
+        border: 1px solid #373737;
+        border-radius: 1rem;
+
+        .chat-list {
+            max-height: 25.7rem;
+            overflow: auto;
+        }
+
+        .group {
+            &~.group {
+                margin-top: 2rem;
+            }
+
+            .txt {
+                position: relative;
+                z-index: 0;
+
+                display: flex;
+                align-items: center;
+                padding: 1rem 2rem;
+                min-height: 6rem;
+                font-size: var(--font-xlarge);
+                font-weight: var(--weight-medium);
+                line-height: 2.4rem;
+                border-radius: 2rem 2rem 2rem 0;
+                word-break: keep-all;
+
+            }
+        }
+
+        .curi-box {
+            min-width: 53rem;
+            max-width: 53rem;
+
+            p {
+                background: #DDFFFF;
+            }
+        }
+
+        .student {
+            margin-left: 6rem;
+
+            p {
+                background: #006688;
+                color: #fff;
+            }
+
+            .drag {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 3.8rem;
+                background: #2AC0AA;
+                border-radius: 1rem;
+                z-index: -1;
+
+            }
+        }
+    }
+}

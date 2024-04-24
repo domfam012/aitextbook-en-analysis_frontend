@@ -1,0 +1,491 @@
+@mixin setIcon($icon_name) {
+    background: url('@/assets/images/icon/ico_#{$icon_name}.svg') no-repeat center center/contain;
+}
+
+$icon-directory-common: 'common';
+$icon-directory-common-ico: 'common/ico/';
+$icon-directory-student: 'student/';
+$icon-directory-teacher: 'teacher/';
+
+$icon-size: 0.4rem;
+$color-state-hover: var(--color-icon-hover);
+$color-state-disabled: var(--color-icon-disabled);
+$color-state-point-yellow: var(--color-point-yellow);
+$color-state-point-orange: var(--color-point-orange);
+$color-state-point-green: var(--point-color-green);
+$color-state-blue: var(--color-point-blue);
+$color-state-basic: var(--color-basic);
+$color-state-white: var(--color-white);
+$color-state-point-gray: var(--point-color-gray);
+$color-state-point-primary: var(--point-color-primary);
+$color-state-point-black: var(--point-color-black);
+
+.ico {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+
+    &.ico_none {
+        display: none;
+    }
+
+    /**
+  * size 10X10
+  */
+    &.ico_size_xs {
+        width: $icon-size * 2.5;
+        height: $icon-size * 2.5;
+    }
+
+    /**
+  * size 18X18
+  */
+    &.ico_size_sm {
+        width: $icon-size * 5;
+        height: $icon-size * 5;
+    }
+
+    /**
+  * size 20X20
+  */
+    &.ico_size_4 {
+        width: $icon-size * 4.5;
+        height: $icon-size * 4.5;
+    }
+
+    /**
+  * size 24X24
+  */
+    &.ico_size_6 {
+        width: $icon-size * 6;
+        height: $icon-size * 6;
+    }
+
+    /**
+  * size 30 * 30
+  */
+    &.ico_size_lg {
+        width: $icon-size * 7.5;
+        height: $icon-size * 7.5;
+    }
+
+    /**
+    * size 36 * 36
+    */
+    &.ico_size_9 {
+        width: $icon-size * 9;
+        height: $icon-size * 9;
+    }
+
+    /**
+    * size 38 * 38
+    */
+    &.ico_size_9_half {
+        width: $icon-size * 9.5;
+        height: $icon-size * 9.5;
+    }
+
+    /**
+  * size 40 * 40
+  */
+    &.ico_size_10 {
+        width: $icon-size * 10;
+        height: $icon-size * 10;
+    }
+
+    /**
+  * size 50 * 50
+  */
+    &.ico_size_12 {
+        width: $icon-size * 12.5;
+        height: $icon-size * 12.5;
+    }
+
+    /**
+  * size 56 * 56
+  */
+    &.ico_size_14 {
+        width: $icon-size * 14;
+        height: $icon-size * 14;
+    }
+
+    /**
+  * size 60X60
+  */
+    &.ico_size_15 {
+        width: $icon-size * 15;
+        height: $icon-size * 15;
+    }
+
+    /**
+  * size 80X80
+  */
+    &.ico_size_20 {
+        width: $icon-size * 20;
+        height: $icon-size * 20;
+    }
+
+    /**
+  * size 100X100
+  */
+    &.ico_size_25 {
+        width: $icon-size * 25;
+        height: $icon-size * 25;
+    }
+
+    /**
+  * size 120X120
+  */
+    &.ico_size_30 {
+        width: $icon-size * 30;
+        height: $icon-size * 30;
+    }
+
+    /**
+  * filter
+  **/
+    &.ico_color_yellow {
+        filter: $color-state-point-yellow;
+    }
+
+    &.ico_color_orange {
+        filter: $color-state-point-orange;
+    }
+
+    &.ico_color_white {
+        filter: $color-state-white;
+    }
+
+    &.ico_color_blue {
+        filter: $color-state-blue;
+    }
+
+    &.ico_color_gray {
+        filter: $color-state-point-gray;
+    }
+
+    &.ico_color_primary {
+        filter: $color-state-point-gray;
+    }
+
+    &.ico_color_black {
+        filter: $color-state-point-black;
+    }
+
+    &.ico_color_basic {
+        filter: $color-state-basic;
+    }
+
+    &.ico_color_green {
+        filter: $color-state-point-green;
+    }
+
+    /**
+  * hover, disabled
+  **/
+    &.interaction {
+        &:hover {
+            filter: $color-state-hover;
+        }
+
+        &.disabled {
+            filter: $color-state-disabled;
+        }
+    }
+
+    &.more {
+        @include setIcon('more');
+    }
+
+    &.refresh {
+        @include setIcon('refresh');
+    }
+
+    &.calendar_refresh {
+        @include setIcon('calendar_refresh');
+    }
+
+    &.people {
+        @include setIcon('people');
+    }
+
+    &.imoji1 {
+        @include setIcon('imoji1');
+    }
+
+    &.imoji2 {
+        @include setIcon('imoji2');
+    }
+
+    &.imoji3 {
+        @include setIcon('imoji3');
+    }
+
+    &.imoji4 {
+        @include setIcon('imoji4');
+    }
+
+    &.imoji5 {
+        @include setIcon('imoji5');
+    }
+
+    &.no_class_data {
+        @include setIcon('no_class_data');
+    }
+
+    &.no_voca {
+        @include setIcon('no_voca');
+    }
+
+    &.no_record {
+        @include setIcon('no_record');
+    }
+
+    &.no_student {
+        @include setIcon('no_student');
+    }
+
+    &.no_color_board {
+        @include setIcon('no_color_board');
+    }
+
+    &.left_24 {
+        @include setIcon($icon_name: 'left_24');
+    }
+
+    &.right_24 {
+        @include setIcon($icon_name: 'right_24');
+    }
+
+    &.brush_01 {
+        @include setIcon($icon_name: 'brush_01');
+    }
+
+    &.brush_02 {
+        @include setIcon($icon_name: 'brush_02');
+    }
+
+    &.brush_03 {
+        @include setIcon($icon_name: 'brush_03');
+    }
+
+    &.brush_04 {
+        @include setIcon($icon_name: 'brush_04');
+    }
+
+    &.brush_05 {
+        @include setIcon($icon_name: 'brush_05');
+    }
+
+    &.brush_06 {
+        @include setIcon($icon_name: 'brush_06');
+    }
+
+    &.arrow_left-black {
+        @include setIcon($icon_name: 'arrow_left-black');
+    }
+
+    &.arrow_right-black {
+        @include setIcon($icon_name: 'arrow_right-black');
+    }
+
+    &.cuteTalk_basis {
+        @include setIcon($icon_name: 'cuteTalk_basis');
+    }
+
+    &.cuteTalk_active {
+        @include setIcon($icon_name: 'cuteTalk_active');
+    }
+
+    &.stamp_complete {
+        @include setIcon($icon_name: 'stamp_complete');
+    }
+
+    &.stamp_wait {
+        @include setIcon($icon_name: 'stamp_wait');
+    }
+
+    &.list {
+        @include setIcon($icon_name: 'list');
+    }
+
+    &.calendar {
+        @include setIcon($icon_name: 'calendar');
+    }
+    
+    &.tool_delete {
+        @include setIcon($icon_name: 'tool_delete');
+    }
+    &.book2 {
+        @include setIcon($icon_name: 'book2');
+    }
+    &.drill {
+        @include setIcon($icon_name: 'drill');
+    }
+    &.voca {
+        @include setIcon($icon_name: 'voca');
+    }
+    &.chat {
+        @include setIcon($icon_name: 'chat');
+    }
+    &.pdf {
+        @include setIcon($icon_name: 'pdf');
+    }
+    &.print {
+        @include setIcon($icon_name: 'print');
+    }
+    &.close_w {
+        @include setIcon($icon_name: 'close_w');
+    }
+    // 학업 성취율 테이블
+    &.type_rounded_green {
+        @include radius(100%);
+        background-color: $green;
+        text-indent: -9999rem;
+    }
+
+    &.type_rounded_yellow {
+        @include radius(100%);
+        background-color: $Y500;
+        text-indent: -9999rem;
+    }
+
+    &.type_rounded_red {
+        @include radius(100%);
+        background-color: $point_red;
+        text-indent: -9999rem;
+    }
+
+    &.type_complete {
+        text-indent: -9999rem;
+        @include setIcon('imoji2');
+    }
+
+    &.type_uncompleted {
+        text-indent: -9999rem;
+        @include setIcon('imoji3');
+    }
+
+    &.learner6 {
+        @include setIcon($icon_name: 'learner6');
+    }
+
+    &.learner5 {
+        @include setIcon($icon_name: 'learner5');
+    }
+
+    &.learner4 {
+        @include setIcon($icon_name: 'learner4');
+    }
+
+    &.learner3 {
+        @include setIcon($icon_name: 'learner3');
+    }
+
+    &.learner2 {
+        @include setIcon($icon_name: 'learner2');
+    }
+
+    &.learner1 {
+        @include setIcon($icon_name: 'learner1');
+    }
+
+    &.close_30 {
+        @include setIcon($icon_name: 'close_30');
+    }
+
+    &.questionMark {
+        @include setIcon($icon_name: 'questionMark');
+    }
+
+    &.ellipsisMark {
+        @include setIcon($icon_name: 'ellipsisMark');
+    }
+
+    &.exclamationMark {
+        @include setIcon($icon_name: 'exclamationMark');
+    }
+
+    &.close_circle {
+        @include setIcon($icon_name: 'close_circle');
+    }
+
+    &.descending_black {
+        @include setIcon($icon_name: 'descending_black');
+    }
+
+    &.descending_white {
+        @include setIcon($icon_name: 'descending_white');
+
+        // media data
+        &.data_pdf {
+            @include setIcon($icon_name: 'data_pdf');
+        }
+
+        &.data_image {
+            @include setIcon($icon_name: 'data_img');
+        }
+
+        &.data_url {
+            @include setIcon($icon_name: 'data_web');
+        }
+
+        &.data_excel {
+            @include setIcon($icon_name: 'data_xlsx');
+        }
+
+        &.data_ppt {
+            @include setIcon($icon_name: 'data_ppt');
+        }
+
+        &.data_word {
+            @include setIcon($icon_name: 'data_docs');
+        }
+
+        &.data_hwp {
+            @include setIcon($icon_name: 'data_hwp');
+        }
+
+        &.data_whiteboard {
+            @include setIcon($icon_name: 'data_whiteboard');
+        }
+
+        &.data_video {
+            @include setIcon($icon_name: 'data_video');
+        }
+
+        &.close_grayBackground {
+            @include setIcon($icon_name: 'close_grayBackground');
+        }
+    }
+
+    &.arrow {
+        @include setIcon($icon_name: 'arrow');
+    }
+}
+
+.ico_outer {
+    //background: var(--icon-bg-color-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    background-color: $white;
+    border: 1px solid $line-darken;
+
+    &.size_sm {
+        width: 3.6rem;
+        height: 3.6rem;
+    }
+
+    &.size_5 {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    &.size_60 {
+        width: 6rem;
+        height: 6rem;
+    }
+}

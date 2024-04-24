@@ -1,0 +1,131 @@
+.AI_talk {
+  &.v-card {
+    padding: 2rem 3rem;
+  }
+
+
+  .table_wrap {
+    height: 100%;
+
+    th {
+      &:nth-child(1) {
+        width: 18rem;
+        max-width: 18rem;
+      }
+
+      &:nth-child(2) {
+        width: 13rem;
+        max-width: 13rem;
+      }
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        width: 30rem;
+        max-width: 30rem;
+      }
+    }
+
+
+    tr {
+
+      td:nth-child(4) {
+        .v-list-item {
+          margin: 0 auto;
+          width: fit-content;
+        }
+      }
+
+      td:last-child {
+        .v-list-item__content {
+          padding: 0;
+          word-break: keep-all;
+        }
+      }
+    }
+  }
+}
+
+.colorLessonInfo {
+  .inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    min-height: 40rem;
+  }
+
+  .v-list,
+  .v-list-item {
+    position: relative;
+    padding: 0;
+  }
+
+  .v-list {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: unset;
+  }
+
+  .v-list-item {
+    width: 33.33%;
+
+
+    &:nth-child(1),
+    &:nth-child(4) {
+      .v-list-item__content {
+        margin-right: auto
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(5) {
+      .v-list-item__content {
+        margin: auto;
+
+      }
+    }
+
+    &:nth-child(3),
+    &:nth-child(6) {
+      .v-list-item__content {
+        margin-left: auto
+      }
+    }
+
+
+  }
+
+  .v-list-item__content {
+    flex-direction: column;
+  }
+
+  .colorboard {
+    position: relative;
+  }
+
+  .board-stamp {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 100%;
+
+
+    .v-responsive {
+      overflow: unset;
+    }
+
+    img {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 104%;
+      height: 104%;
+    }
+  }
+
+
+
+}

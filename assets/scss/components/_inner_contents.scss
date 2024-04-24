@@ -1,0 +1,34 @@
+.inner_contents {
+	padding: 3rem;
+	text-align: center;
+
+	.v-list {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.chart_wrap {
+		display: inline-flex;
+		flex-wrap: wrap;
+
+		&.chart_donut {
+			gap: 3rem 6.5rem;
+		}
+	}
+	.extra {
+		.v-list {
+			display: inline-block;
+		}
+	}
+	.radial_bars {
+		width: 33rem;
+	}
+
+	.v-list-item__content {
+		display: block;
+	}
+
+	.donut {
+		width: 34.8rem;
+	}
+}

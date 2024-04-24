@@ -1,0 +1,30 @@
+.indicator {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    width: 100%;
+    justify-content: flex-end;
+    box-sizing: content-box;
+
+    .txt_wrap {
+        @include font_header2(#999);
+        margin: 0 0.5rem;
+        min-width: 8.4rem;
+        text-align: center;
+
+        em,
+        span {
+            display: inline-block;
+            line-height: 1;
+        }
+
+        em {
+            color: $black;
+            font-weight: var(--weight-bold);
+        }
+
+        span {
+            font-weight: var(--weight-bold);
+        }
+    }
+}

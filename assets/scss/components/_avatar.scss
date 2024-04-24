@@ -1,0 +1,158 @@
+/**
+component name : avatar
+writer : 조영동
+변경일 : 240213
+*/
+
+$avatar-spacing: 1rem;
+$avatar-box-selected-width: 19rem;
+$avatar-button-min-width: 16rem;
+$avatat-bg-color-other: #ffecdf;
+
+.avatar {
+  position: relative;
+
+  // 상태값
+  &.avatar-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3.5rem;
+    background: $B50;
+  }
+
+  &.avatar-empty {
+    min-width: $avatar-box-selected-width;
+    height: 7rem;
+    background: transparent;
+    border: 1px dashed black;
+    border-radius: 3.5rem;
+    justify-content: center;
+  }
+
+  &.avatar-stamp {
+    position: relative;
+    background: transparent;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5rem;
+      height: 5rem;
+      background: url('@/assets/images/temp/stamp_good_thumb2.png');
+      background-size: contain;
+    }
+  }
+
+  &.avatar-other {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 3.5rem;
+    background: $avatat-bg-color-other;
+
+    .info_number {
+      color: $Y900;
+    }
+  }
+  
+  &.avatar_font_sm {
+    .info_name {
+      @include font_body4($font-weight-bold);
+    }
+
+    .info_number {
+      @include font_body5;
+      color: $point-color-blue;
+    }
+  }
+}
+// atom molecules + state
+.avatar-box {
+  display: flex;
+  align-items: center;
+  gap: $avatar-spacing;
+
+  // padding
+  &.avatar-box-padding {
+    padding: $avatar-spacing;
+  }
+}
+
+// atom avatar
+.avatar-item {
+  width: 5rem;
+  height: 5rem;
+
+  position: relative;
+  border-radius: 5rem;
+  border: 1px solid $point;
+
+  &.avatar-item-sm {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &.avatar-item-lg {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 13rem;
+  }
+
+  &.avatar-item-xl {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 16rem;
+  }
+
+  &.avatar-item-60 {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+  }
+}
+.avatar-item-93 {
+  width: 9.3rem;
+  height: 9.3rem;
+}
+
+// text 정보 영역
+.avatar-info {
+  display: flex;
+  gap: 0.5rem;
+
+  &.avatar-info-column {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &.invisible-info {
+    display: flex;
+    width: 12.6rem;
+    height: 2.6rem;
+    align-items: center;
+    gap: var(--Spacing-spacing_5, 0.5rem);
+    border-radius: 1.5rem;
+    background: var(--Color-BG-Color-Basic, #e6e6e6);
+  }
+
+  .info_number {
+    @include font-body3($font-weight-bold, $point-color-blue);
+  }
+
+  .info_name {
+    @include font-body3($font-weight-bold, $font-darken);
+  }
+}
+
+.avatar_with_icon {
+  position: absolute;
+  top: -1rem;
+  left: -1.4rem;
+  z-index: 10;
+}

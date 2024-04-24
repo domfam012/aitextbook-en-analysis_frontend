@@ -1,0 +1,13 @@
+.table_wrap {
+  .inner_header {
+    @include font_body3();
+    text-align: left;
+
+    .font-color-orange {
+      margin-left: .5rem;
+    }
+  }
+}
+.table_items {
+  margin-top: 1rem;
+}

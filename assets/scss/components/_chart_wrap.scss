@@ -1,0 +1,29 @@
+.chart_wrap {
+	display: flex;
+
+	.v-card {
+		&.type_record {
+			flex-basis: 50%;
+			padding-left: 2rem;
+			border-left: 1px solid $G400;
+
+			&:first-child {
+				padding-left: 0;
+				padding-right: 2rem;
+				border-left: 0;
+			}
+		}
+	}
+
+	.extra {
+		p {
+			display: inline-block;
+			@include font_body4($line-height: 2.2rem);
+			opacity: .8;
+		}
+	}
+
+	.avatar {
+		margin-bottom: 1rem;
+	}
+}

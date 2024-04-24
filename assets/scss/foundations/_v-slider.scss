@@ -1,0 +1,32 @@
+//v-slider
+.v-slider {
+    &.custom_white {
+
+        .v-slider-track,
+        .v-slider-track__background {
+            height: 2.6rem !important;
+            border-radius: 2.6rem !important;
+        }
+
+        .v-slider-track__fill {
+            height: 2rem !important;
+            margin: 0.3rem;
+            border-radius: 2rem !important;
+        }
+
+        .v-slider-track__background {
+            border: 1px solid $white;
+            background: transparent !important;
+        }
+
+        .v-slider-track__background--opacity {
+            opacity: 1;
+        }
+    }
+
+    .v-slider-track,
+    .v-slider-track__background {
+        height: 2rem !important;
+        border-radius: 2rem !important;
+    }
+}

@@ -1,0 +1,38 @@
+//swich
+.v-switch--inset {
+    label {
+        padding-left: 1rem;
+        color: $black !important;
+        opacity: 1 !important;
+    }
+
+    .v-selection-control__wrapper {
+        scale: 1.15;
+    }
+
+    .v-switch__thumb {
+        transform: scale(1) !important;
+    }
+
+    .v-switch__track {
+        background-color: $white !important;
+        opacity: 1;
+        border: 1px solid $outline_gray;
+    }
+
+    .v-switch__thumb {
+        background-color: $primary !important;
+    }
+
+    //true
+    .v-selection-control--dirty {
+        .v-switch__track {
+            background-color: $primary !important;
+            opacity: 1;
+        }
+
+        .v-switch__thumb {
+            background-color: $white !important;
+        }
+    }
+}

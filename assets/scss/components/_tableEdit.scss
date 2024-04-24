@@ -1,0 +1,232 @@
+.tableEdit {
+    position: relative;
+    padding: 8rem 3rem 3rem;
+    background: #CED6E4;
+    border: 1px solid #b6becf;
+    border-radius: 1rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -6.1rem;
+        // left: 57.7rem;
+        border-top: 2rem solid transparent;
+        border-bottom: 4.3rem solid #CED6E4;
+        border-left: 3.5rem solid transparent;
+        border-right: 3.5rem solid transparent;
+        z-index: 0;
+    }
+
+    &.clamp_left {
+        &::after {
+            left: calc(50% - 27.5rem);
+        }
+    }
+    &.clamp_center {
+        &::after {
+            left: calc(50% + 17.5rem);
+        }
+    }
+    &.clamp_right {
+        &::after {
+            right: 21.5rem;
+        }
+    }
+
+    .close {
+        right: 3rem;
+        top: 3rem;
+    }
+}
+
+.student-num {
+    .v-btn-group--density-default {
+        &.v-btn-toggle {
+            height: auto;
+        }
+    }
+
+    .v-card {
+        min-width: 16rem;
+        max-width: 16rem;
+
+        .v-btn-group {
+            .v-btn {
+                padding: 0.6rem 0;
+                border-radius: 5rem;
+
+                &~.v-btn {
+                    margin-top: 1rem;
+                }
+
+                &.v-btn--active {
+                    background: #1E3257;
+
+                    .info_name {
+                        color: #fff;
+                    }
+                }
+
+                &--disabled {
+                    background: #B0B0B0;
+                    opacity: 1;
+
+                    .info_number,
+                    .info_name {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.grade {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    background: #fff;
+    border-radius: 1rem;
+    gap: 2rem;
+
+    .top {
+        .v-btn-group {
+            .v-btn {
+                border: 1px solid #373737;
+                border-radius: 5rem;
+
+                &~.v-btn {
+                    margin-left: 1rem;
+                }
+
+                &.v-btn--active {
+                    color: #ffff;
+                    background: #1E3257;
+                }
+            }
+
+        }
+
+        p {
+            flex-shrink: 0;
+            margin-right: 1rem;
+            font-size: var(--font-medium);
+            line-height: 2.4rem;
+            font-weight: var(--weight-bold);
+        }
+    }
+
+    .v-card {
+        padding: 2rem;
+        border: 1px solid #B0B0B0;
+
+        >.v-btn {
+            right: 4rem;
+            top: 2.9rem;
+            z-index: 1;
+        }
+
+        .v-table {
+            td {
+                border: 1px solid #b0b0b0;
+
+                &.active {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+
+            .v-data-table__th {
+                position: relative;
+
+                &:nth-child(1) {
+                    width: 27rem;
+                }
+
+                &:nth-child(2) {
+                    width: 12rem;
+                }
+
+                .v-data-table-header__sort-icon {
+                    position: absolute;
+                    right: 1rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 3rem;
+                    height: 3rem;
+                    opacity: 1;
+                }
+            }
+
+            td {
+
+                &:first-child,
+                &:last-child {
+                    text-align: left;
+                }
+
+                .v-input {
+                    background: #E3F5FC;
+                    border: 1px solid #46A7E5;
+                    height: 6.8rem;
+                    font-size: var(--font-medium);
+                    font-weight: var(--weight-medium);
+                    border-radius: 0.8rem;
+                    overflow: hidden;
+
+                    &__control {
+                        height: 6.8rem;
+
+                    }
+
+                    .v-field {
+                        --v-field-padding-top: 0;
+                    }
+
+                    .v-field__input {
+                        padding: 1rem 5rem 1rem 1.5rem;
+                        height: 100%;
+                        color: #46A7E5;
+                        line-height: 2.4rem;
+                    }
+
+                    .v-field__outline {
+                        display: none;
+                    }
+                }
+
+                .v-textarea {
+                    .v-field__clearable {
+                        margin: 0;
+                        right: 2rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        opacity: 1;
+                        z-index: 120;
+
+
+                        .v-icon {
+                            opacity: 1;
+                            width: 3rem;
+                            height: 3rem;
+
+                            &::before {
+                                background: url('@/assets/images/icon/ico_close_grayBackground.svg');
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+.student-develop {
+    .top {
+        p {
+            flex-shrink: 0;
+        }
+    }
+}

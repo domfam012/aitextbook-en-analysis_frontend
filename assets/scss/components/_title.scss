@@ -1,0 +1,88 @@
+.sub_title {
+    display: flex;
+    align-items: center;
+    // min-height: 5.5rem;
+    // margin-bottom: 1.5rem;
+    @include font_header2();
+
+    span {
+        &:first-child {
+            flex-grow: 1;
+        }
+    }
+
+    .v-input {
+        flex: inherit;
+        margin-left: auto;
+        width: 22rem;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+
+    @include font_body4($font-weight-bold);
+
+    // div {
+    //     &:first-child {
+    //         flex-grow: 1;
+    //         display: flex;
+    //         align-items: center;
+    //     }
+    // }
+}
+.title_inner {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #606873;
+}
+
+.student {
+
+    .title,
+    .sub_title {
+        color: $white;
+
+        i {
+            filter: var(--color-white);
+        }
+    }
+}
+
+.left_divider {
+    position: relative;
+    padding-left: 1.2rem;
+
+    &::before {
+        display: inline-block;
+        content: '';
+        width: 1px;
+        height: 2rem;
+        background: $line-basic;
+        position: absolute;
+        left: 0;
+    }
+}
+
+// 불릿있는 타이틀
+.title_bullet {
+    position: relative;
+    padding-left: 1.5rem;
+    text-align: left;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.7rem;
+        height: 0.7rem;
+        background: #171717;
+        border-radius: 100%;
+    }
+}

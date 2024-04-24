@@ -1,0 +1,112 @@
+.v-carousel {
+    &.table-carousel {
+        padding: 0 10.25rem;
+
+        .v-window__controls {
+            align-items: flex-start;
+            left: -8.1rem;
+            padding: 0;
+            width: calc(100% + 16.2rem);
+            z-index: 10;
+
+            // 버튼 사이즈 수정
+            .v-btn {
+                width: 6rem;
+                height: 6rem;
+                min-width: 6rem;
+
+                &.v-window__left {
+                    .v-btn__content {
+                        &::before {
+                            background: url(/_nuxt/assets/images/icon/ico_arrow_left_black.svg) no-repeat center / contain;
+                        }
+                    }
+                }
+
+                &.v-window__right {
+                    .v-btn__content {
+                        &::before {
+                            background: url(/_nuxt/assets/images/icon/ico_arrow_right_black.svg) no-repeat center / contain;
+                        }
+                    }
+                }
+
+                .v-btn__content {
+                    position: relative;
+
+                    i {
+                        display: none;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 3rem;
+                        height: 3rem;
+
+                    }
+
+                }
+            }
+        }
+    }
+    &.type_fraction {
+        .extra {
+            margin-top: 1rem;
+        }
+        .v-window__controls {
+            // display: inline-block;
+            // position: relative;
+            padding: 0;
+            // width: auto;
+            // height: auto;
+        }
+        .v-btn--elevated:hover, 
+        .v-btn--elevated:focus {
+            box-shadow: none;
+        }
+        .v-btn--icon.v-btn--density-default {
+            width: 3.6rem;
+            height: 3.6rem;
+        }
+        .v-btn--variant-elevated {
+            box-shadow: none;
+        }
+    }
+}
+.fraction_wrap {
+    position: relative;
+    .type_fraction {
+        .v-btn--icon {
+            position: absolute;
+            bottom: 0;
+            padding: 0;
+            border: 1px solid $G900;
+
+            &.v-window__left {
+                right: 11.5rem;
+            }
+            &.v-window__right {
+                right: 0;
+            }
+        }
+    }
+    .v-window__container {
+        padding-bottom: 6rem;
+    }
+    .fraction {
+        position: absolute;
+        bottom: 2rem;
+        right: 6.5rem;
+        @include font_header2($font-color: $G400);
+        .number {
+            color: $G900;
+        }
+        .total {
+            margin-left: .5rem;
+        }
+    }
+}

@@ -1,0 +1,327 @@
+/**
+component name : v-select
+writer : 유하진
+변경일 : 2024.04.02
+**/
+
+//select
+.v-select {
+
+    // selectbox font-size
+    &.font_medium {
+        .v-select__selection-text {
+            @include font_body3;
+        }
+    }
+
+    .v-field {
+        background-color: $white;
+
+        &:hover {
+            background-color: $B50;
+        }
+    }
+
+    .v-field__input {
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
+        --v-input-control-height: auto;
+    }
+
+    .v-select__selection-text {
+        @include font_body1;
+    }
+
+    .v-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .mdi-menu-down {
+        margin-right: 1rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 3rem;
+            height: 3rem;
+            background: url('@/assets/images/icon/ico_select_arrow.svg') no-repeat center/contain;
+        }
+    }
+
+    .v-field__append-inner {
+        justify-content: flex-end;
+
+        >.v-icon {
+            opacity: 1;
+        }
+    }
+
+    .v-field__outline {
+
+        .v-field__outline__start,
+        .v-field__outline__end {
+            border: 0;
+        }
+    }
+
+    // disabled
+    &.v-input--disabled {
+        .v-field {
+            background-color: $white;
+        }
+
+        .v-select__selection-text {
+            color: $G400;
+        }
+
+        .v-field__append-inner {
+            >.v-icon {
+                opacity: .5;
+            }
+        }
+    }
+
+    // type 별 경우
+    &.type_dark {
+        .v-field__outline {
+            border-color: $G800;
+        }
+
+        .v-field {
+            &:hover {
+                background-color: $G50;
+            }
+        }
+
+        // disabled
+        &.v-input--disabled .v-field__outline {
+            border-color: $G400;
+        }
+    }
+
+    &.type_white {
+        .v-field {
+            background-color: transparent;
+
+            &:hover {
+                background-color: #1C2837;
+            }
+        }
+
+        .v-select__selection-text {
+            color: $white;
+        }
+
+        .v-field__outline {
+            border-color: $white;
+        }
+
+        .mdi-menu-down {
+            &::before {
+                background-image: url('@/assets/images/icon/ico_select_arrow_white.svg');
+            }
+        }
+
+        // disabled
+        &.v-input--disabled {
+            opacity: .5;
+        }
+    }
+
+    &.type_primary_fill {
+        .v-field {
+            background-color: var(--primary);
+
+            &:hover {
+                background-color: $DB800;
+
+                .v-field__outline {
+                    border-color: transparent;
+                }
+            }
+        }
+
+        .v-select__selection-text {
+            color: $white;
+        }
+
+        .v-field__outline {
+            border-color: transparent;
+        }
+
+        .mdi-menu-down {
+            &::before {
+                background-image: url('@/assets/images/icon/ico_select_arrow_white.svg');
+            }
+        }
+
+        // disabled
+        &.v-input--disabled {
+            .v-field {
+                background-color: $G400;
+            }
+
+            .v-field__outline {
+                border-color: $G400;
+            }
+        }
+    }
+}
+
+.v-field__outline {
+    border: 1px solid $B500;
+}
+
+.v-select--active-menu {
+    .v-field {
+        box-shadow: .5rem 1.3rem 1rem 0 rgba($color: $black, $alpha: .18);
+
+        &:hover {
+            .v-field__outline {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    .v-field__outline {
+        border-width: 1px 1px 0;
+    }
+
+    .v-field--rounded {
+        border-radius: 2.5rem 2.5rem 0 0;
+
+        .v-field__outline {
+            border-top-left-radius: 2.5rem;
+            border-top-right-radius: 2.5rem;
+        }
+    }
+}
+
+.v-overlay-container {
+    .v-menu {
+        >.v-overlay__content {
+            border-radius: 0 0 2.5rem 2.5rem;
+            box-shadow: .5rem 1.3rem 1rem 0 rgba($color: $black, $alpha: .25);
+
+            .v-list {
+                position: relative;
+                padding: 0;
+                border-color: $B500;
+                border-width: 0 1px 1px;
+                border-style: solid;
+                box-shadow: none;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .v-list-item {
+            width: inherit;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &:hover {
+                background-color: $B50;
+            }
+
+            &.v-list-item--active {
+                background-color: $B50;
+            }
+
+            &.v-list-item--one-line {
+                padding-top: 1.3rem;
+                padding-bottom: 1.3rem;
+                padding-inline: 1.6rem;
+                min-height: auto;
+            }
+
+            .v-list-item__overlay {
+                background-color: transparent;
+                opacity: 0;
+            }
+
+            .v-list-item-title {
+                @include font_body1;
+            }
+        }
+
+        // type 별 경우
+        .dark_item {
+            .v-list {
+                border-color: $G800;
+            }
+
+            .v-list-item {
+                &:hover {
+                    background-color: $G50;
+                }
+
+                &.v-list-item--active {
+                    background-color: $G50;
+                }
+            }
+        }
+
+        .white_item {
+            .v-list {
+                border-color: $white;
+                background-color: #334152;
+
+                .v-list-item-title {
+                    color: $white;
+                }
+            }
+
+            .v-list-item {
+                &:hover {
+                    background-color: $white;
+
+                    .v-list-item-title {
+                        color: $G900;
+                    }
+                }
+
+                &.v-list-item--active {
+                    background-color: $white;
+
+                    .v-list-item-title {
+                        color: $G900;
+                    }
+                }
+            }
+        }
+
+        .primary_fill_item {
+            .v-list {
+                border: 0;
+                background-color: var(--primary);
+
+                .v-list-item-title {
+                    color: $white;
+                }
+            }
+
+            .v-list-item {
+                &:hover {
+                    background-color: $white;
+
+                    .v-list-item-title {
+                        color: $G900;
+                    }
+                }
+
+                &.v-list-item--active {
+                    background-color: $white;
+
+                    .v-list-item-title {
+                        color: $G900;
+                    }
+                }
+            }
+        }
+    }
+}

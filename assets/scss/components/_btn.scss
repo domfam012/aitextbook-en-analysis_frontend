@@ -1,0 +1,541 @@
+@each $key, $value in $point-color-list {
+    .v-btn {
+        &.#{$key} {
+            background-color: $value;
+            color: $point-color-white;
+
+            @if ($key =='white') {
+                color: $point-color-black;
+            }
+        }
+
+        &.outlined {
+            border: 1px solid $point-color-black;
+            color: $point-color-black;
+        }
+
+        &.outlined_#{$key} {
+            border: 1px solid $value;
+            color: $value;
+        }
+    }
+}
+
+$v-btn-default-height: 3.6rem;
+
+.v-btn {
+    text-transform: none !important;
+    padding: 0 4rem;
+
+    .v-btn__overlay {
+        background-color: transparent;
+    }
+
+    // .v-btn__content {
+    //     letter-spacing: -0.05rem;
+    // }
+    /**
+   * size는 xs 부터 lg까지 처리
+   * 높이 값은 제한 없이 padding으로 조절
+   */
+    &.v-btn--size-large {
+        // min-height: 5.6rem;
+        --v-btn-height: 5.6rem;
+        min-width: 16rem;
+        height: auto;
+        padding: 0 4rem;
+        @include font_body3($font-weight-medium);
+    }
+
+    &.v-btn--size-default {
+        // min-height: 4rem;
+        --v-btn-height: 4rem;
+        // min-width: 14rem;
+        padding: 0 2rem;
+        @include font_body3($font-weight-medium);
+        height: $v-btn-default-height;
+    }
+
+    &.v-btn--size-small {
+        // min-height: 3.6rem;
+        --v-btn-height: 3.6rem;
+        min-width: 11rem;
+        height: auto;
+        padding: 0 1.5rem;
+        @include font_body4($font-weight-medium);
+    }
+
+    &.v-btn--size-x-small {
+        // min-height: 3.2rem;
+        --v-btn-height: 3.2rem;
+        min-width: 8rem;
+        height: auto;
+        padding: 0 1.5rem;
+        @include font_body5($font-weight-medium);
+    }
+
+    /**
+   * color
+   */
+    &.primary {
+        background: $G900;
+        color: $white;
+
+        &:hover {
+            background: $G600;
+        }
+    }
+
+    &.secondary {
+        border: 1px solid $G800;
+        background: $white;
+        color: $G900;
+
+        &:hover {
+            border-color: $G600;
+            color: $G600;
+        }
+    }
+
+    &.type_default_underline {
+        color: var(--font-darken);
+        text-decoration: underline;
+    }
+
+    &.type_blue_underline {
+        color: $B500;
+        text-decoration: underline;
+    }
+
+    /**
+   * radius
+   */
+    &.v-btn--rounded {
+        border-radius: 5rem;
+    }
+
+    /**
+   * disabled
+   * 컬러별로 정의가 아닌 opacity로 처리
+   */
+    &.v-btn--disabled,
+    &.v-btn--disabled.v-btn--variant-elevated,
+    &.v-btn--disabled.v-btn--variant-flat {
+        opacity: 0.2;
+
+        &.primary {
+            background: $G900;
+            color: $white;
+        }
+
+        &.secondary {
+            border: 1px solid $G800;
+            background: $white;
+            color: $G900;
+        }
+    }
+
+    &.btn_2row {
+        // 2줄 버튼
+        height: auto !important;
+
+        .v-btn__content {
+            flex-direction: column;
+            padding: 0.8rem 0;
+            min-width: 10rem;
+        }
+
+        em {
+            display: block;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            @include font-body5;
+        }
+
+        &.black {
+            em {
+                color: $white;
+            }
+        }
+    }
+
+    /**
+   * 진도학습 페이지 버튼 추가
+   */
+    &.ico_btn {
+        &.v-btn--size-default {
+            padding: 0.5rem 1.5rem !important;
+            background: transparent;
+            flex-direction: column;
+            min-width: 9rem !important;
+            min-height: auto !important;
+            height: auto;
+            @include font-body3;
+        }
+
+        .v-btn__content {
+            flex-direction: column;
+        }
+
+        &.selected {
+            background: $green;
+            position: relative;
+
+            &.v-btn--size-default {
+                @include font-body3($font-color: $white);
+            }
+
+            .ico {
+                filter: var(--color-white);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -0.9rem;
+                left: 50%;
+                top: inherit;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-top: 1rem solid $green;
+                border-left: 1rem solid transparent;
+                border-right: 1rem solid transparent;
+                opacity: 1;
+            }
+
+            // 진도확인(체크버튼)에 사용
+            &.check_btn {
+                background: transparent;
+
+                &.v-btn--size-default {
+                    @include font-body3;
+                }
+
+                .ico {
+                    background: url('@/assets/images/common/ico/ico_check_40_active.svg') no-repeat center center/contain;
+                    filter: inherit;
+                }
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        &.horizontal {
+            &.v-btn--size-default {
+                padding: 1rem 1.5rem !important;
+            }
+
+            .v-btn__content {
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            &.selected {
+                background: $DB900;
+
+                &.v-btn--size-default {
+                    @include font-body3($font-color: $white);
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -0.9rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    transform: translateX(-50%);
+                    border-top: 1rem solid $DB900;
+                    border-left: 1rem solid transparent;
+                    border-right: 1rem solid transparent;
+                }
+            }
+        }
+    }
+
+    /**
+    * 내용 : icon_only 버튼의 small에서 좌우 표시를 위한 클래스
+   */
+
+    &.icon_only {
+        position: relative;
+        padding: 0rem;
+        font-size: 4rem;
+        width: 5rem;
+        min-width: auto;
+        --v-btn-height: 5rem;
+        background-color: transparent;
+
+        &.icon_only-sm {
+            width: 3rem;
+            --v-btn-height: 3rem;
+        }
+
+        &.size_md {
+            width: 4rem;
+            --v-btn-height: 4rem;
+        }
+
+        &.icon_only-36 {
+            width: 3.6rem;
+            --v-btn-height: 3.6rem;
+        }
+
+        &.icon_only_no_shadow {
+            box-shadow: none;
+        }
+
+        &.pre {
+            background: url('@/assets/images/common/ico_page_arrow.svg') center center no-repeat;
+        }
+
+        &.next {
+            transform: rotate(180deg);
+            background: url('@/assets/images/common/ico_page_arrow.svg') center center no-repeat;
+        }
+
+        &.icon_only_circle {
+            border-radius: 50%;
+            background: $DB900;
+        }
+
+        &.with_txt {
+            font-size: 1.4rem;
+            color: $font-basic;
+        }
+    }
+
+    /**
+    * 내용 : 버튼의 반쪽 모습의 ui를 위해 사용
+   */
+    &.half {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &.reversal {
+            border-top-right-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    &.wide_width {
+        min-width: 29rem;
+    }
+
+    /**
+    * 내용 : 학업 성취율 테이블 닫기 아이콘 버튼
+    **/
+    &.close_button {
+        --v-btn-height: auto;
+        position: absolute;
+        top: 2rem;
+        right: 2.5rem;
+        padding: 0;
+        min-width: auto;
+        min-height: auto;
+        background: transparent;
+    }
+
+    // 학생 > 학습결과 > 학습분석 > 진도학습이력 팝업 >노트 업로드 사용
+    &.color_green {
+        background-color: $green;
+        color: $white;
+    }
+    &.color_red {
+        background-color: $dashboard-color-danger;
+        color: $white;
+    }
+    &.button_note {
+        padding-right: 4.4rem;
+        background-color: $B500;
+        background-image: url('@/assets/images/icon/ico_arrow_down_w.svg');
+        background-repeat: no-repeat;
+        background-position: center right 1.5rem;
+        background-size: 2.4rem;
+        color: $white;
+
+        &.upload {
+            background-color: $DB900;
+            background-image: url('@/assets/images/icon/ico_arrow_up_w.svg');
+        }
+    }
+}
+
+/**
+ * 내용 : btn-week 숙제 관리 화면에서 버튼 레이아웃 정렬하기 위해서 사용
+ */
+.btn-week {
+    position: relative;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .v-btn {
+        display: flex;
+        width: 6rem;
+        min-width: auto;
+        height: 5.4rem;
+        padding: 1.4rem 0rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3rem;
+        border: 1px solid var(--Point_169BD4, #169bd4);
+        background: var(--white-fff, #fff);
+        margin: 0 5px !important;
+
+        &.v-btn--disabled {
+            border: 0 solid #ffffff;
+            background: #ffffff;
+            opacity: 0.6 !important;
+
+            ::v-deep(.v-btn__overlay) {
+                display: none !important;
+            }
+        }
+
+        & .v-btn__overlay {
+            display: none;
+        }
+
+        &.active {
+            background: #1e3257;
+            border-color: #1e3257;
+            color: #ffffff;
+        }
+    }
+}
+
+.tab_btn {
+    gap: 1rem;
+
+    .v-btn {
+        &.v-btn--size-default {
+            padding: 1rem 1.5rem !important;
+            background: transparent;
+            flex-direction: column;
+            min-width: 9rem !important;
+            min-height: auto !important;
+            height: auto;
+            @include font-body3;
+        }
+
+        .v-btn__content {
+            flex-direction: row;
+            gap: 0.5rem;
+
+            span {
+                @include font-body3;
+            }
+        }
+
+        &.active_tooltip {
+            background: $DB900;
+            position: relative;
+
+            .v-btn__content {
+                span {
+                    @include font-body3($font-color: $white);
+                }
+            }
+
+            .ico {
+                filter: var(--color-white);
+            }
+
+            &::after {
+                content: '';
+                width: 1rem;
+                height: 0.6rem;
+                background: url('@/assets/images/common/ico_vector2.svg');
+                background-size: 100%;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: inherit;
+                bottom: -0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 1;
+                border: 0;
+            }
+        }
+
+        &:disabled {
+            background: transparent;
+
+            .v-btn__overlay {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.today_study_tabs {
+    .tab_head {
+        .v-slide-group__content {
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .v-slide-group__content {
+            align-items: center;
+            gap: 1rem;
+        }
+
+        button {
+            border-radius: 0.5rem;
+            background: transparent;
+            padding: 0 !important;
+            height: 5rem !important;
+
+            span {
+                @include font_body4;
+            }
+
+            &.v-tab--selected {
+                background: $primary;
+                position: relative;
+                padding: 1rem 1.5rem !important;
+
+                span {
+                    color: $white;
+                }
+
+                i {
+                    filter: var(--color-white);
+                }
+
+                &::before {
+                    content: '';
+                    width: 1rem;
+                    height: 0.6rem;
+                    background: url('@/assets/images/common/ico_vector2.svg');
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: inherit;
+                    bottom: -0.5rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    opacity: 1;
+                    border: 0;
+                }
+
+                .v-tab__slider {
+                    height: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+// index.vue
+.v-tab.v-tab.v-btn {
+    color: $white;
+}
