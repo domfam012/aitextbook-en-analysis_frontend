@@ -11,6 +11,9 @@ const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
 export const useApiRecordGradeStore = defineStore(
     'apiRecordGrade',
     () => {
+        const isEditMode = ref(false);
+        const typeList = ref(0);
+
         /**
          * [교사] 개인별 평어 편집 조회
          */
@@ -89,6 +92,8 @@ export const useApiRecordGradeStore = defineStore(
         };
 
         return {
+            isEditMode,
+            typeList,
             individualEditsSearch,
             personalListOfQualification,
             qualificationByUnit,

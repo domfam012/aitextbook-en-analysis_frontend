@@ -2,7 +2,7 @@
     <!-- 테이블 -->
     <div class="grade">
         <v-card>
-            <v-btn v-if="!props.editMode" @click="handleRestSelectedItem" rounded flat size="x-small" class="primary position-absolute"
+            <v-btn v-if="!isEditMode" @click="handleRestSelectedItem" rounded flat size="x-small" class="primary position-absolute"
                 >선택 초기화</v-btn
             >
             <v-data-table
@@ -21,7 +21,7 @@
                         <td>
                             <span>{{ item.level }}</span>
                         </td>
-                        <template v-if="props.editMode">
+                        <template v-if="isEditMode">
                             <v-textarea
                                 class="no-border"
                                 :model-value="item.text"
@@ -31,7 +31,7 @@
                                 rows="1"
                                 hide-details
                                 tile
-                                clearable="true"
+                                clearable
                                 clear-icon="mdi-close-circle"
                             ></v-textarea>
                         </template>
@@ -143,7 +143,8 @@ const achievementData = [
     }
 ];
 
-const props = defineProps(['editMode']);
+const { isEditMode } = storeToRefs(useApiRecordGradeStore());
+
 const selectItems = ref([]);
 const achievement = ref(achievementData);
 const itemPerPage = 25;

@@ -14,7 +14,12 @@
         <div class="d-flex gap2">
             <div class="student-num">
                 <v-card :elevation="0" color="transparent">
-                    <v-btn-toggle v-model="selectedStudent" class="d-flex flex-column" mandatory>
+                    <v-btn-toggle
+                        v-model="selectedStudent"
+                        class="d-flex flex-column"
+                        mandatory
+                        @update:modelValue="handleChangeStudent($event)"
+                    >
                         <template v-for="item in studentList">
                             <v-btn rounded flat height="4.6rem" :disabled="item.writeFlag">
                                 <div class="avatar avatar-box">
@@ -32,28 +37,39 @@
             <!-- 학습 이력 수집 -->
             <IssuancePart v-if="clampType === 'clamp_left'" />
             <!-- 테이블 -->
-            <TeacherRecordIssuanceGrade v-else-if="clampType === 'clamp_center'" :editMode="editMode" />
+            <TeacherRecordIssuanceGrade v-else-if="clampType === 'clamp_center'" />
             <!-- 발행 완료 건수 -->
             <IssuancePart v-else-if="clampType === 'clamp_right'" />
         </div>
-        <div class="mgt30 gap1 d-flex justify-center position-relative">
-            <v-btn @click="cancelMode(editMode)" rounded flat size="large" class="outlined">취소</v-btn>
+        <div v-if="clampType === 'clamp_center'" class="mgt30 gap1 d-flex justify-center position-relative">
+            <v-btn @click="cancelMode" rounded flat size="large" class="outlined">취소</v-btn>
             <v-btn rounded flat size="large" class="primary">저장</v-btn>
-            <v-btn @click="editOrResetText(editMode)" rounded flat size="large" class="primary position-absolute" style="right: 0">{{
-                editMode ? '편집 초기화' : '텍스트 편집'
+            <v-btn @click="isEditMode = !isEditMode" rounded flat size="large" class="primary position-absolute" style="right: 0">{{
+                isEditMode ? '편집 초기화' : '텍스트 편집'
             }}</v-btn>
         </div>
     </div>
 </template>
 
 <script setup>
-//[교사]생활기록부_학습이력수집 API
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const { completionStudent } = storeToRefs(useApiCompletionStore());
 const { clampType } = storeToRefs(useApiRecordStore());
-const { qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
+const { isEditMode, qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
 
 const selectedStudent = ref(0);
+
+const handleChangeStudent = studentIndex => {
+    // 학생 선택 이벤트
+    if (clampType.value === 'clamp_left') {
+        console.log(studentIndex);
+    } else if (clampType.value === 'clamp_center') {
+        console.log(studentIndex);
+    } else if (clampType.value === 'clamp_right') {
+        console.log(studentIndex);
+    }
+};
+
 const studentList = computed(() => {
     if (clampType.value === 'clamp_left') {
         return learningHistoryCollectionStudent.value;
@@ -63,26 +79,13 @@ const studentList = computed(() => {
         return completionStudent.value;
     }
 });
-const editMode = ref(false); // 편집 모드
-
-/**
- * 텍스트 편집 또는 텍스트 리셋
- * @constructor
- */
-const editOrResetText = mode => {
-    if (mode) {
-    } else {
-        editMode.value = !editMode.value;
-    }
-};
 
 /**
  * 취소 버튼
  * @param mode
  */
-const cancelMode = mode => {
-    if (mode) {
-        editMode.value = !editMode.value;
-    }
+const cancelMode = () => {
+    selectedStudent.value = 0;
+    isEditMode.value = false;
 };
 </script>
