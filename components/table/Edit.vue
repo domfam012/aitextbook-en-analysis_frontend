@@ -49,6 +49,8 @@
 </template>
 
 <script setup>
+const { isEditMode } = storeToRefs(useApiRecordGradeStore());
+
 const achievementData = [
     {
         id: 1,
@@ -142,10 +144,13 @@ const achievementData = [
         count: 0
     }
 ];
-
-const { isEditMode } = storeToRefs(useApiRecordGradeStore());
-
-const selectItems = ref([]);
+const a = { test: 3 };
+const b = ref(a);
+onMounted(() => {
+    b.value.test = 5;
+    console.log(a);
+});
+const selectedItems = ref([]);
 const achievement = ref(achievementData);
 const itemPerPage = 25;
 
@@ -160,7 +165,7 @@ const achievementHeaders = [
  * @returns {string}
  */
 const addActiveClass = item => {
-    const result = selectItems.value.findIndex(lesson => lesson.id === item.id);
+    const result = selectedItems.value.findIndex(lesson => lesson.id === item.id);
     return result !== -1 ? 'active' : '';
 };
 
@@ -172,7 +177,7 @@ const addActiveClass = item => {
  * @param index
  */
 const handleSelectItem = (item, index) => {
-    const findIndex = selectItems.value.findIndex(lesson => lesson.id === item.id);
+    const findIndex = selectedItems.value.findIndex(lesson => lesson.id === item.id);
     if (findIndex !== -1) {
         if (achievement.value[index].count === 0) {
             achievement.value[index].count = 0;
@@ -180,11 +185,11 @@ const handleSelectItem = (item, index) => {
             achievement.value[index].count -= 1;
         }
         // 이미 선택된 경우 제거
-        selectItems.value.splice(findIndex, 1);
+        selectedItems.value.splice(findIndex, 1);
     } else {
         achievement.value[index].count += 1;
         // 선택되지 않은 경우 추가
-        selectItems.value.push(item);
+        selectedItems.value.push(item);
     }
 };
 
@@ -192,14 +197,9 @@ const handleSelectItem = (item, index) => {
  * 선택한 셀 초기화
  */
 const handleRestSelectedItem = () => {
-    selectItems.value = [];
+    console.log(achievementData);
+    selectedItems.value = [];
 };
-
-const watchSelectItems = () => {
-    console.log('selectItems : ', selectItems.value);
-};
-
-watch(selectItems.value, watchSelectItems);
 </script>
 
 <style lang="scss" scoped>

@@ -3,7 +3,7 @@
         <div class="top d-flex">
             <div class="type d-flex align-center">
                 <p class="">평어 유형</p>
-                <v-btn-toggle v-model="typeList" @update:modelValue="val => console.log(val)" class="d-flex" mandatory density="compact">
+                <v-btn-toggle v-model="unitType" @update:modelValue="val => console.log(val)" class="d-flex" mandatory density="compact">
                     <v-btn rounded flat size="small" class="secondary"> A형 </v-btn>
                     <v-btn rounded flat size="small" class="secondary"> B형 </v-btn>
                     <v-btn rounded flat size="small" class="secondary"> C형 </v-btn>
@@ -12,12 +12,12 @@
             <v-spacer />
             <div class="align d-flex align-center">
                 <p>정렬 기준</p>
-                <v-btn rounded flat size="small" class="secondary">
-                    <i class="ico descending_black ico_size_6 mgr5"></i>
+                <v-btn rounded flat size="small" :class="orderType === 0 ? 'primary' : 'secondary'" @click="orderType = 0">
+                    <i class="ico ico_size_6 mgr5" :class="orderType === 0 ? 'descending_white' : 'descending_black'"></i>
                     기본순
                 </v-btn>
-                <v-btn rounded flat size="small" class="primary mgl10">
-                    <i class="ico descending_white ico_size_6 mgr5"></i>
+                <v-btn rounded flat size="small" class="mgl10" :class="orderType === 0 ? 'secondary' : 'primary'" @click="orderType = 1">
+                    <i class="ico ico_size_6 mgr5" :class="orderType === 0 ? 'descending_black' : 'descending_white'"></i>
                     인기순
                 </v-btn>
             </div>
@@ -26,7 +26,8 @@
     </div>
 </template>
 <script setup>
-const { typeList } = storeToRefs(useApiRecordGradeStore());
+const unitType = ref(0);
+const orderType = ref(0);
 
 onMounted(async () => {
     // [교사] 단원별 평어 작성_학생 목록 조회
