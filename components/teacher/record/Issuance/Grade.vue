@@ -28,4 +28,8 @@
 <script setup>
 const props = defineProps(['editMode']);
 const typeList = ref(0);
+
+onMounted(() => {
+    useApiRecordGradeStore().getQualificationByUnitStudentList();
+});
 </script>

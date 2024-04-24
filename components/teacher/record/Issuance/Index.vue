@@ -1,5 +1,5 @@
 <template>
-    <div class="tableEdit clamp_left">
+    <div class="tableEdit" :class="clampType">
         <v-btn
             class="close pa-0 position-absolute"
             :elevation="0"
@@ -14,8 +14,8 @@
         <div class="d-flex gap2">
             <div class="student-num">
                 <v-card :elevation="0" color="transparent">
-                    <v-btn-toggle v-model="studentList" class="d-flex flex-column" mandatory>
-                        <template v-for="item in students">
+                    <v-btn-toggle v-model="selectedStudent" class="d-flex flex-column" mandatory>
+                        <template v-for="item in studentList">
                             <v-btn rounded flat height="4.6rem" :disabled="item.writeFlag">
                                 <div class="avatar avatar-box">
                                     <div class="avatar-info">
@@ -28,10 +28,13 @@
                     </v-btn-toggle>
                 </v-card>
             </div>
-            <!-- 학습 이력 수집 & 발행 완료 건수 -->
-            <IssuancePart />
+
+            <!-- 학습 이력 수집 -->
+            <IssuancePart v-if="clampType === 'clamp_left'" />
             <!-- 테이블 -->
-            <!-- <TeacherRecordIssuanceGrade :editMode="editMode" /> -->
+            <TeacherRecordIssuanceGrade v-else-if="clampType === 'clamp_center'" :editMode="editMode" />
+            <!-- 발행 완료 건수 -->
+            <IssuancePart v-else-if="clampType === 'clamp_right'" />
         </div>
         <div class="mgt30 gap1 d-flex justify-center position-relative">
             <v-btn @click="cancelMode(editMode)" rounded flat size="large" class="outlined">취소</v-btn>
@@ -45,62 +48,22 @@
 
 <script setup>
 //[교사]생활기록부_학습이력수집 API
-const apiRecordHistory = useApiRecordHistoryStore();
-const { learningHistoryCollection } = storeToRefs(apiRecordHistory);
+const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 
-const studentList = ref(0);
-const editMode = ref(false); // 편집 모드
+const { clampType } = storeToRefs(useApiRecordStore());
+const { qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
 
-const students = [
-    {
-        studUuid: '18a79d80-22ea-47d6-a6d9-f4c6689dd2c3',
-        studName: '늘푸른하늘',
-        studId: 15,
-        writeFlag: false
-    },
-    {
-        studUuid: '24c75743-47bb-4d48-8495-25bda5c05acf',
-        studName: '김아미',
-        studId: 14,
-        writeFlag: false
-    },
-    {
-        studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
-        studName: '홍길동',
-        studId: 13,
-        writeFlag: false
-    },
-    {
-        studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
-        studName: '장보고',
-        studId: 12,
-        writeFlag: false
-    },
-    {
-        studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
-        studName: '권율',
-        studId: 11,
-        writeFlag: false
-    },
-    {
-        studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
-        studName: '이순신',
-        studId: 10,
-        writeFlag: false
-    },
-    {
-        studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
-        studName: '임꺽정',
-        studId: 9,
-        writeFlag: true
-    },
-    {
-        studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
-        studName: '세종대왕',
-        studId: 8,
-        writeFlag: true
+const selectedStudent = ref([]);
+const studentList = computed(() => {
+    if (clampType.value === 'clamp_left') {
+        return learningHistoryCollectionStudent.value;
+    } else if (clampType.value === 'clamp_center') {
+        return qualificationByUnitStudentList.value;
+    } else if (clampType.value === 'clamp_right') {
+        return [];
     }
-];
+});
+const editMode = ref(false); // 편집 모드
 
 /**
  * 텍스트 편집 또는 텍스트 리셋
@@ -122,10 +85,4 @@ const cancelMode = mode => {
         editMode.value = !editMode.value;
     }
 };
-
-onMounted(async () => {
-    //[교사]학습이력수집 API 연동
-    await useApiRecordHistoryStore().getLearningHistoryCollection();
-    console.log('[교사]학습이력수집 API 연동', learningHistoryCollection.value);
-});
 </script>

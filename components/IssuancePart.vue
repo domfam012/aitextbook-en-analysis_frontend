@@ -305,7 +305,9 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue';
-
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
+
+onMounted(() => {
+    useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+});
 </script>

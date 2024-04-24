@@ -32,7 +32,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const achievementByUnit = ref<Record>();
         const getAchievementByUnit = async () => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
                 method: 'get'
             });
 
@@ -47,7 +47,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/learningHistoryCollection`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollection`, {
                 method: 'get',
                 query: {
                     semId: '1',
@@ -62,26 +62,11 @@ export const useApiRecordHistoryStore = defineStore(
         };
 
         /**
-         * [교사] 목록 (학습 이력, 단원별 평어 작성, 발행 완료 건수)
-         */
-
-        const issuanceStatus = ref<RecordCount>();
-        const getIssuanceStatus = async (semiId: String) => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/learningHistoryCollectionCount`, {
-                method: 'get',
-                params: semiId
-            });
-            if (data.value) {
-                issuanceStatus.value = data.value.data as RecordCount;
-            }
-        };
-
-        /**
          * [교사] 학습 이력 수집 학생 목록
          */
         const learningHistoryCollectionStudent = ref<StudentList>();
         const getLearningHistoryCollectionStudent = async () => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/learningHistoryCollectionStudent`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollectionStudent`, {
                 method: 'get'
             });
 
@@ -203,13 +188,11 @@ export const useApiRecordHistoryStore = defineStore(
             //[교사] 학습이력수집
             achievementByArea,
             achievementByUnit,
-            issuanceStatus,
             learningHistoryCollectionStudent,
             learningHistoryCollection,
             semesterInProgress,
             getAchievementByArea,
             getAchievementByUnit,
-            getIssuanceStatus,
             getLearningHistoryCollectionStudent,
             getLearningHistoryCollection,
             putLearningHistoryEdit,

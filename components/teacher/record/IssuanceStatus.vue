@@ -3,8 +3,11 @@
         <v-card-item>
             <v-card-title>
                 <ul class="divider_group">
-                    <li>3학년 1학기</li>
-                    <li>AI 수학 생활기록부 발행 현황 : <span class="font-color-yellow">총 25명</span></li>
+                    <li>3학년 {{ issuanceStatus?.currentSemester }}학기</li>
+                    <li>
+                        AI 수학 생활기록부 발행 현황 :
+                        <span class="font-color-yellow">총 {{ issuanceStatus?.schoolReportCount }}명</span>
+                    </li>
                 </ul>
             </v-card-title>
         </v-card-item>
@@ -13,29 +16,44 @@
                 <div class="item">
                     <strong>학습 이력 수집</strong>
                     <!-- !NOTE 완료되면 하기 <v-btn></v-btn>에 class="type_success"를 추가해주세요. -->
-                    <v-btn rounded flat class="color_green type_success">
+                    <v-btn rounded flat class="color_green type_success" @click="changeClamp('clamp_left')">
                         <div class="inline_wrap">
-                            <strong>25</strong>
+                            <strong>{{ issuanceStatus?.schoolReportCount }}</strong>
                         </div>
                         <span class="unit">명</span>
                     </v-btn>
                 </div>
                 <div class="item">
                     <strong>단원별 평어 작성</strong>
-                    <v-btn rounded flat class="color_mint">
+                    <v-btn
+                        rounded
+                        flat
+                        class="color_mint"
+                        :class="issuanceStatus?.schoolReportLearningDevelopCount === issuanceStatus?.schoolReportCount && 'type_success'"
+                        @click="changeClamp('clamp_center')"
+                    >
                         <div class="inline_wrap">
-                            <strong>8</strong>
-                            <span class="number">/25</span>
+                            <strong>{{ issuanceStatus?.schoolReportLearningDevelopCount }}</strong>
+                            <span class="number">/{{ issuanceStatus?.schoolReportCount }}</span>
                         </div>
                         <span class="unit">명</span>
                     </v-btn>
                 </div>
                 <div class="item">
                     <strong>발행 완료 건수</strong>
-                    <v-btn rounded flat class="color_skyblue">
+                    <v-btn
+                        rounded
+                        flat
+                        class="color_skyblue"
+                        :class="
+                            issuanceStatus?.schoolReportIssueCompletedCount === issuanceStatus?.schoolReportLearningDevelopCount &&
+                            'type_success'
+                        "
+                        @click="changeClamp('clamp_right')"
+                    >
                         <div class="inline_wrap">
-                            <strong>3</strong>
-                            <span class="number">/8</span>
+                            <strong>{{ issuanceStatus?.schoolReportIssueCompletedCount }}</strong>
+                            <span class="number">/{{ issuanceStatus?.schoolReportLearningDevelopCount }}</span>
                         </div>
                         <span class="unit">건</span>
                     </v-btn>
@@ -47,3 +65,14 @@
         </v-container>
     </v-card>
 </template>
+<script setup>
+const { issuanceStatus, clampType } = storeToRefs(useApiRecordStore());
+
+const changeClamp = clamp => {
+    clampType.value = clamp;
+};
+
+onMounted(async () => {
+    await useApiRecordStore().getIssuanceStatus('');
+});
+</script>

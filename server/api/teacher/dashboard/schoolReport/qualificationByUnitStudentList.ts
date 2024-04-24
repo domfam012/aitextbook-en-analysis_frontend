@@ -23,7 +23,7 @@ const data = {
             studUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
             studName: '정우성',
             number: 1,
-            writeFlag: true
+            writeFlag: false
         }
     ]
 };
