@@ -32,9 +32,11 @@ export const useApiRecordGradeStore = defineStore(
          */
         const personalListOfQualification = ref<StudentList>();
         const getPersonalListOfQualification = async (params: string) => {
-            const queryString = new URLSearchParams(params).toString();
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/personalListOfQualification?${queryString}`, {
-                method: 'get'
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/personalListOfQualification`, {
+                method: 'get',
+                query: {
+                    params
+                }
             });
 
             if (data.value) {

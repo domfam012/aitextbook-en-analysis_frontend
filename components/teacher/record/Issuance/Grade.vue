@@ -33,7 +33,7 @@ onMounted(async () => {
     // [교사] 단원별 평어 작성_학생 목록 조회
     await useApiRecordGradeStore().getQualificationByUnitStudentList();
     // [교사] 개인별 평어 목록
-    // await useApiRecordGradeStore().getPersonalListOfQualification();
+    await useApiRecordGradeStore().getPersonalListOfQualification();
     // [교사] 개인별 평어 편집 조회
     // await useApiRecordGradeStore().getIndividualEditsSearch();
 });
