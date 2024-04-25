@@ -110,7 +110,25 @@
                     <div class="extra">
                         <p class="bullet">조회 기간: 학기 초 ~ 학기 말</p>
                     </div>
-                    <ChartRadar />
+                    <div class="chart_radar">
+                        <ChartRadar :chartData="chartRadarData" />
+                        <!-- !NOTE 차트 라벨부분 입니다.-->
+                        <div class="chart-bar">
+                            <div class="use-word">
+                                <span class="bullet color-1"></span>
+                                <p>김영철 학생</p>
+                            </div>
+                            <div class="use-word">
+                                <span class="bullet color-2"></span>
+                                <p>반 평균</p>
+                            </div>
+                            <div class="use-word">
+                                <span class="bullet color-3"></span>
+                                <p>지역 평균</p>
+                            </div>
+                        </div>
+                        <!-- // 차트 라벨부분 입니다. -->
+                    </div>
                 </v-container>
             </v-card>
             <!-- // 이번 학기 영역별 학업 성취도 -->
@@ -142,7 +160,7 @@
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid>
-                    <ChartBasicBar :wrd-data="wrdData" />
+                    <ChartBasicBar />
                 </v-container>
             </v-card>
             <!-- // 단어 학습 진단 -->
@@ -170,8 +188,8 @@
                         <v-btn class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
                     </v-card-title>
                 </v-card-item>
-                <v-container fluid>
-                    <ChartSimpleDonut />
+                <v-container fluid class="chart_simple_donut">
+                    <ChartSimpleDonut :chartData="chartData" />
                 </v-container>
             </v-card>
             <!-- // 감정 날씨_학기 총계 -->
@@ -305,17 +323,20 @@
 </template>
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
-const { clampType } = storeToRefs(useApiRecordStore());
+const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
 const { learningHistoryCollection } = storeToRefs(useApiRecordHistoryStore());
-console.log(learningHistoryCollection);
+const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 
-onMounted(() => {
+onMounted(async () => {
     if (clampType.value === 'clamp_left') {
-        useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
-        useApiRecordHistoryStore().getLearningHistoryCollection('1', '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c');
+        await useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+        await useApiRecordHistoryStore().getLearningHistoryCollection(
+            issuanceStatus.value.currentSemester,
+            learningHistoryCollectionStudent.value[0].studUuid
+        );
     }
     if (clampType.value === 'clamp_right') {
-        useApiCompletionStore().getStudentList();
+        await useApiCompletionStore().getStudentList();
     }
     basicChart();
 });
@@ -325,6 +346,67 @@ const formattedCorsTotTime = item => {
     const hours = Math.floor(Time / 60);
     const minutes = Time % 60;
     return `${hours}시간 ${minutes}분`;
+};
+const chartRadarData = {
+    labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
+    datasets: [
+        {
+            type: 'radar',
+            label: '김영철 학생',
+            data: [4, 2, 3, 2, 2.5, 3.8],
+            borderWidth: 3,
+            borderColor: '#46A7E5',
+            pointStyle: 'circle',
+            pointBackgroundColor: '#46A7E5',
+            backgroundColor: 'rgba(81, 179, 233,0.2)'
+        },
+        {
+            type: 'radar',
+            label: '반 평균',
+            data: [3.2, 2.5, 3, 3.5, 3.8, 4.5],
+            borderWidth: 3,
+            borderColor: '#B0B0B0',
+            pointStyle: 'circle',
+            pointBackgroundColor: '#B0B0B0',
+            backgroundColor: 'transparent'
+        },
+        {
+            type: 'radar',
+            label: '지역 평균',
+            data: [2.8, 3.2, 3.8, 3, 3, 2.4],
+            borderWidth: 3,
+            borderColor: '#FFBF00',
+            pointStyle: 'circle',
+            pointBackgroundColor: '#FFBF00',
+            backgroundColor: 'transparent'
+        }
+    ]
+};
+const chartData = {
+    labels: ['맑음', '흐리고 비', '흐리고 천둥', '바람 많이', '무응답', '흐린 뒤 갬', '맑았다 흐림', '폭우', '흐리고 눈'],
+    datasets: [
+        {
+            type: 'doughnut',
+            label: '맑음',
+            data: [10, 5, 5, 5, 4, 4, 7, 4, 3],
+            backgroundColor: ['#67CCEE', '#F5B659', '#FF7283', '#59D8AF', '#D0D0D0', '#8EC536', '#AB8FFD', '#F5E3AE', '#EEA0D0'],
+            datalabels: {
+                display: 'true',
+                color: '#171717',
+                align: 'middle',
+                formatter: function (value, context) {
+                    return value;
+                },
+                textAlign: 'center',
+                font: {
+                    family: 'NotoSansKR',
+                    size: '20',
+                    weight: '700'
+                }
+            },
+            spacing: 5
+        }
+    ]
 };
 const basicChart = () => {
     learningHistoryCollection?.value.map(item => {

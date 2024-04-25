@@ -84,6 +84,10 @@
         .v-container {
             margin-top: 2rem;
             padding: 0 1rem;
+
+            &.chart_simple_donut {
+                padding: 3rem;
+            }
         }
         .v-list {
             padding: 2rem;
@@ -97,6 +101,13 @@
             margin: 0 auto;
             width: 90%;
         }
+        .chart_radar {
+			margin-top: 2rem;
+            
+            .chart_contents.type_radar {
+                height: 45rem;
+            }
+		}
     }
 
     &.box_contents {

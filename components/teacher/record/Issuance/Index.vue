@@ -54,15 +54,18 @@
 <script setup>
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const { completionStudent } = storeToRefs(useApiCompletionStore());
-const { clampType } = storeToRefs(useApiRecordStore());
+const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
 const { isEditMode, qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
 
 const selectedStudent = ref(0);
 
-const handleChangeStudent = studentIndex => {
+const handleChangeStudent = async studentIndex => {
     // 학생 선택 이벤트
     if (clampType.value === 'clamp_left') {
-        console.log(studentIndex);
+        await useApiRecordHistoryStore().getLearningHistoryCollection(
+            issuanceStatus.value.currentSemester,
+            studentList.value[selectedStudent.value].studUuid
+        );
     } else if (clampType.value === 'clamp_center') {
         console.log(studentIndex);
     } else if (clampType.value === 'clamp_right') {
@@ -87,5 +90,9 @@ const studentList = computed(() => {
 const cancelMode = () => {
     selectedStudent.value = 0;
     isEditMode.value = false;
+};
+
+const changeClamp = clamp => {
+    clampType.value = clamp;
 };
 </script>

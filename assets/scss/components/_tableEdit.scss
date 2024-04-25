@@ -22,11 +22,13 @@
             left: calc(50% - 27.5rem);
         }
     }
+
     &.clamp_center {
         &::after {
             left: calc(50% + 17.5rem);
         }
     }
+
     &.clamp_right {
         &::after {
             right: 21.5rem;
@@ -167,6 +169,14 @@
                     text-align: left;
                 }
 
+                &:first-child {
+                    border-left: 0;
+                }
+
+                &:last-child {
+                    border-right: 0;
+                }
+
                 .v-input {
                     background: #E3F5FC;
                     border: 1px solid #46A7E5;
@@ -223,6 +233,7 @@
         }
     }
 }
+
 .student-develop {
     .top {
         p {

@@ -120,7 +120,7 @@ const data3 = {
         vocaLoginTot: 229, //보카로그인횟수
         vocaTotTime: 510, // 보카총학습시간
         curiViewYn: 1, // 큐리여부
-        curiLoginTot: 27, // 큐리로그인횟수
+        curiLoginTot: 25, // 큐리로그인횟수
         curiTotTime: 320, // 큐리총학습시간
         wrdViewYn: 1, // 단어 학습진단 여부
         wrdPrfctUndrsUseCnt: 65, // 잘이해하고 활용한 단어

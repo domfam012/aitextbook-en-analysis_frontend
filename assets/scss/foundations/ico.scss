@@ -312,31 +312,39 @@ $color-state-point-black: var(--point-color-black);
     &.calendar {
         @include setIcon($icon_name: 'calendar');
     }
-    
+
     &.tool_delete {
         @include setIcon($icon_name: 'tool_delete');
     }
+
     &.book2 {
         @include setIcon($icon_name: 'book2');
     }
+
     &.drill {
         @include setIcon($icon_name: 'drill');
     }
+
     &.voca {
         @include setIcon($icon_name: 'voca');
     }
+
     &.chat {
         @include setIcon($icon_name: 'chat');
     }
+
     &.pdf {
         @include setIcon($icon_name: 'pdf');
     }
+
     &.print {
         @include setIcon($icon_name: 'print');
     }
+
     &.close_w {
         @include setIcon($icon_name: 'close_w');
     }
+
     // 학업 성취율 테이블
     &.type_rounded_green {
         @include radius(100%);
@@ -461,6 +469,10 @@ $color-state-point-black: var(--point-color-black);
 
     &.arrow {
         @include setIcon($icon_name: 'arrow');
+    }
+
+    &.tool_delete {
+        @include setIcon($icon_name: 'tool_delete');
     }
 }
 

@@ -1,22 +1,46 @@
-<template></template>
+<template>
+    <div class="chart_contents type_simple_donut">
+        <canvas ref="chart"></canvas>
+    </div>
+</template>
 
 <script setup>
-const props = defineProps(['series', 'labels']);
+    const props = defineProps({
+        chartData: Object
+    });
+    const { $Chart } = useNuxtApp();
+    const chart = ref(null);
+    const chartOptions = ref({
+        plugins: {
+            datalabels: {
+                display: false
+            },
 
-const series = ref(props.series);
-const chartOptions = ref({
-    chart: {
-        height: 330,
-        type: 'donut'
-    },
-    dataLabels: {
-        enabled: true,
-        formatter: function (val) {
-            return val.toFixed(0);
+            legend: {
+                labels: {
+                    // filter: function (item, chart) {
+                    //     return chart.datasets[item.datasetIndex].type !== 'line';
+                    // },
+                    color: '#171717',
+                    font: {
+                        family: 'NotoSansKR',
+                        size: '16',
+                        weight: '500'
+                    },
+                    boxWidth: 16,
+                    boxHeight: 16,
+                    padding: 20,
+                },
+                onClick: null,
+                position: 'right',
+            }
         }
-    },
-    labels: props.labels
+    });
+
+onMounted(() => {
+    new $Chart(chart.value, {
+        data: props.chartData,
+        options: chartOptions.value
+    });
 });
 </script>
-
-<style lang="scss" scoped></style>

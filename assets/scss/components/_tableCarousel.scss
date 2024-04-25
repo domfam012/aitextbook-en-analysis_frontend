@@ -24,18 +24,42 @@
 
 
     }
+
+    .v-table {
+        .v-table__wrapper>table {
+            tbody {
+                tr {
+                    td {
+                        height: 7rem;
+
+                        button {
+                            height: auto;
+                            ;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
+
+
+
 .left-table {
+    flex-shrink: 0;
     position: relative;
     max-width: 27rem;
     z-index: 1;
+
+
 }
 
 .center-table {
     position: relative;
     z-index: 0;
     padding: 0 10.25rem;
+    // max-width: 116.5rem;
 
     &::before,
     &::after {
@@ -116,6 +140,7 @@
 }
 
 .right-table {
+    flex-shrink: 0;
     position: relative;
     max-width: 18rem;
     z-index: 1;

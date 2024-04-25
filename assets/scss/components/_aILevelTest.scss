@@ -3,24 +3,26 @@
         width: 42rem;
         min-height: 54rem;
     }
+
     h3 {
         margin: 0 3rem;
         padding: 2.6rem 0;
         font-size: var(--font-xlarge);
         font-weight: var(--weight-bold);
         line-height: 2.8rem;
-        border-bottom: 1px solid #171717;
+        border-bottom: 1px solid #B0B0B0;
     }
 
     .wrap {
-        padding: 3rem;
+        padding: 3rem 2.5rem 3rem 3rem;
 
         .v-list {
+            padding-right: 1rem;
             height: calc(100% - 6rem);
             overflow: auto;
 
             .v-list-item {
-                & ~ .v-list-item {
+                &~.v-list-item {
                     margin-top: 0.5rem;
                 }
             }
@@ -52,6 +54,8 @@
                         @include font_body4($font-weight-bold);
                         margin-left: 0.5rem;
                         color: var(--font-orange);
+                        margin-right: 2rem;
+                        line-height: 2.4rem;
                     }
                 }
 

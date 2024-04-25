@@ -9,7 +9,7 @@ $attach-box-bg: $bg-blue;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1.5rem;
+    gap: 2rem; // 1.5rem;
     min-width: $modal-width;
     width: $modal-width;
     padding: $modal-padding;
@@ -31,6 +31,11 @@ $attach-box-bg: $bg-blue;
         display: flex;
         justify-content: center;
         gap: 1rem;
+
+        .btn-close {
+            min-width: 14rem;
+            min-height: 4rem;
+        }
 
         &.dialog_btn_wrap_2line_full {
             flex-wrap: wrap;
@@ -383,6 +388,9 @@ $attach-box-bg: $bg-blue;
 }
 
 .dialog_header {
+    flex-shrink: 0;
+    width: 100%;
+
     h1 {
         @include font_header1();
     }
@@ -403,9 +411,16 @@ $attach-box-bg: $bg-blue;
 }
 
 .dialog_body {
+    flex-grow: 1;
     position: relative;
     overflow: hidden;
-    margin-top: 2rem;
+    // margin-top: 2rem;
+    width: 100%;
+}
+
+.chart_combination {
+    width: 100%;
+    height: 100%;
 }
 
 .feedbackStampList {
@@ -531,7 +546,7 @@ $attach-box-bg: $bg-blue;
     gap: 2rem;
     padding-top: 2rem;
     overflow-x: auto;
-    
+
     .group {
         position: relative;
         flex-shrink: 0;
@@ -557,14 +572,17 @@ $attach-box-bg: $bg-blue;
             }
         }
     }
+
     .title_box {
         min-height: 5.9rem;
     }
+
     .contents {
         max-height: 58.6rem;
         overflow-y: auto;
         overflow-x: hidden;
     }
+
     .title_box {
         .flag {
             position: absolute;
@@ -576,18 +594,20 @@ $attach-box-bg: $bg-blue;
             }
         }
     }
+
     .inner_box {
         margin-bottom: 2rem;
         padding: 0 0 0 3rem;
         overflow-y: auto;
         min-height: 33.4rem;
     }
+
     .v-list {
         .v-list-item {
             display: flex;
             align-items: center;
 
-            & ~.v-list-item {
+            &~.v-list-item {
                 margin-top: 1.9rem;
             }
 
@@ -598,6 +618,7 @@ $attach-box-bg: $bg-blue;
             }
         }
     }
+
     .tit_txt {
         @include font-header2($font-color: $B500);
 
@@ -613,13 +634,16 @@ $attach-box-bg: $bg-blue;
             left: 0px;
         }
     }
+
     .sub_txt {
         margin-left: 0.5rem;
         @include font-body3($font-color: $G500);
     }
+
     .tit {
         border-bottom: 1px solid #B0B0B0;
     }
+
     .box_bg {
         display: inline-block;
         background: #1E3257;
@@ -633,8 +657,9 @@ $attach-box-bg: $bg-blue;
 
     .achieve_box {
         padding: 0 3rem;
-        
+
     }
+
     .v-list-item-subtitle {
         position: relative;
         padding-left: 2.9rem;
@@ -659,6 +684,7 @@ $attach-box-bg: $bg-blue;
             margin-top: 1rem
         }
     }
+
     .date_box {
         margin-top: 2rem;
         padding: 0 3rem 2rem;
