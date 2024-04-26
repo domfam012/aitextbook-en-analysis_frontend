@@ -28,12 +28,12 @@ const data = {
         wrdSplngWrongKnowCnt: 0,
         wrdUnknownCnt: 0,
         wrdLrnTotCnt: 0,
-        exprsPrfctUndrsUseCnt: 0,
-        exprsExprsUndrsUnsdCnt: 0,
-        exprsWrongExprsUndrsCnt: 0,
-        exprsSplngWrongKnowCnt: 0,
-        exprsUnknownCnt: 0,
-        exprsLrnTotCnt: 0,
+        exprsPrfctUndrsUseCnt: 10,
+        exprsExprsUndrsUnsdCnt: 50,
+        exprsWrongExprsUndrsCnt: 20,
+        exprsSplngWrongKnowCnt: 70,
+        exprsUnknownCnt: 50,
+        exprsLrnTotCnt: 20,
         startDt: '2024-04-23',
         endDt: '2024-04-23'
     }

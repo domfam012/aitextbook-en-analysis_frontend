@@ -1,5 +1,5 @@
 <template>
-    <v-card height="56rem" elevation="0" class="v-card-yellow v-card-with_flag flex1">
+    <v-card height="56rem" elevation="0" class="v-card-yellow v-card-with_flag flex-1-1-100">
         <div class="selfCheck">
             <div class="flag flag-left">
                 <span>{{ props?.sessionInfo }}차시</span>
@@ -19,14 +19,8 @@
                         question?.content
                     }}</v-list-item>
                 </v-list>
-                <v-chip-group selected-class="active" mandatory v-model="selection">
-                    <v-chip
-                        class="px-1 py-1"
-                        variant="text"
-                        color="transparent"
-                        v-for="(item, index) in pointList"
-                        :key="item"
-                        :value="item"
+                <v-chip-group selected-class="active" mandatory v-model="selection" @update:model-value="registerSelfCheck">
+                    <v-chip class="px-1 py-1" variant="text" color="transparent" v-for="(item, index) in 5" :key="item" :value="item"
                         ><i class="ico" :class="`imoji${index + 1}`"></i>{{ item }}</v-chip
                     >
                 </v-chip-group>
@@ -51,8 +45,6 @@ const props = defineProps({
 
 const { modalData, openModal } = useModalStore();
 
-const pointList = [5, 4, 3, 2, 1];
-
 const selection = ref(null);
 
 const apiTodayStore = useApiTodayStore();
@@ -67,10 +59,6 @@ const registerSelfCheck = async () => {
     });
     return data;
 };
-
-watch(selection, () => {
-    registerSelfCheck();
-});
 
 onMounted(() => {
     apiTodayStore.getTodayChapterAchievementCriteriaQuestion();

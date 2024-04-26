@@ -14,6 +14,30 @@ interface TodayProps {
     };
 }
 
+export interface SessionList {
+    chId: number;
+    sessId: number;
+    sessName: string;
+}
+export interface SelDayLearningLessons {
+    chId: number;
+    chName: string;
+    sessionList: SessionList[];
+}
+
+export interface TodayChapterLearningStatus {
+    sctnId: number;
+    absncReviewYn: number;
+    sctnNameEng: string;
+    sctnNameKor: string;
+}
+
+export interface ChapterLearningStatus {
+    date: string;
+    chId: number;
+    sessId: number;
+}
+
 const defaultUrl = `/student/dashboard/learningAnalytics`;
 
 /**
@@ -24,16 +48,56 @@ export const useApiTodayStore = defineStore(
     () => {
         const todayState = ref<Today>();
         const questionState = ref();
+        const learningLessonsState: Ref<SelDayLearningLessons> = ref([]);
+        const chapterLearningStatusState: Ref<TodayChapterLearningStatus[]> = ref([]);
+        const selectLessonState: Ref<SessionList> = ref({});
+
+        /**
+         * 달력 선택일 학습 단원, 차시 목록 조회
+         */
+        const getSelDayLearningLessons = async (date: string) => {
+            let selectDate = '';
+            if (date) {
+                selectDate = `date=${date}`;
+            }
+            const { data } = await useCustomFetch(`${defaultUrl}/selDayLearningLessons?date=${selectDate}`, {
+                method: 'get'
+            });
+            if (data.value) {
+                // 단원, 차시 목록 저장
+                learningLessonsState.value = data.value.data;
+                // 선택한 날짜의 첫번째 단원의 첫번째 차시
+                const defaultLesson = data.value.data[0].sessionList[0];
+                selectLessonState.value = defaultLesson;
+            }
+
+            return data.value.data;
+        };
+
+        /**
+         * 선택된 단원/차시 정보
+         * @param item
+         * SessionList;
+         */
+        const updateSelectLessons = (item: SessionList) => {
+            console.log('item 11111 : ', item);
+            const rawData = toRaw(item);
+            console.log('rawData : ', rawData);
+
+            selectLessonState.value = rawData;
+        };
+
         /**
          *    단원 > 차시 학습 현황
          *    GET
          **/
-        const getTodayChapterLearningStatus = async () => {
+        const getTodayChapterLearningStatus = async ({ date, chId, sessId }: ChapterLearningStatus) => {
             const { data } = await useCustomFetch(`${defaultUrl}/chapterLearningStatus`, {
-                method: 'get'
+                method: 'get',
+                params: { date, chId, sessId }
             });
             if (data.value) {
-                todayState.value = data.value.data as Today;
+                chapterLearningStatusState.value = data.value.data;
             }
         };
 
@@ -42,14 +106,9 @@ export const useApiTodayStore = defineStore(
          * GET
          **/
         const getTodayChapterAchievementCriteriaQuestion = async (sessionId: Number) => {
-            const { data } = await useCustomFetch(
-                `${defaultUrl}/chapterAchievementCriteriaQuestion
-            
-            `,
-                {
-                    method: 'get'
-                }
-            );
+            const { data } = await useCustomFetch(`${defaultUrl}/chapterAchievementCriteriaQuestion`, {
+                method: 'get'
+            });
             if (data.value) {
                 questionState.value = data.value.data as Today;
             }
@@ -102,11 +161,16 @@ export const useApiTodayStore = defineStore(
         return {
             todayState,
             questionState,
+            learningLessonsState,
+            chapterLearningStatusState,
+            selectLessonState,
+            getSelDayLearningLessons,
             getTodayChapterLearningStatus,
             getTodayChapterAchievementCriteriaQuestion,
             postTodayFivePointScale,
             getTodayTouchVoca,
-            getTodayTouchVocaLearning
+            getTodayTouchVocaLearning,
+            updateSelectLessons
         };
     },
     {

@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
-onBeforeMount(() => {
+onBeforeMount(async () => {
     //토큰
-    useToken();
+    useToken('teacher');
 });
 </script>
 

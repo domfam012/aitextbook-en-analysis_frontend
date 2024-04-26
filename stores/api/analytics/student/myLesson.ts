@@ -8,6 +8,12 @@ interface MyLesson {
     };
 }
 
+interface DiagnosticParams {
+    recent: number;
+    startDt: string;
+    endDt: string;
+}
+
 interface MyLessonProps {
     data: {
         test: string;
@@ -29,8 +35,14 @@ export const useApiMyLessonStore = defineStore(
          * 단어 학습 진단 통계
          * GET
          **/
-        const getMyLessonWordDiagnostics = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/wordLearningDiagnostics`, {
+        const getMyLessonWordDiagnostics = async (params: DiagnosticParams) => {
+            let url = '';
+            if (params?.recent) {
+                url = `recentDay=${params.recent}`;
+            } else if (params.startDt && params.endDt) {
+                url = `startDt=${params.startDt}&endDt=${params.endDt}`;
+            }
+            const { data } = await useCustomFetch(`${defaultUrl}/wordLearningDiagnostics?${url}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -55,8 +67,14 @@ export const useApiMyLessonStore = defineStore(
          * 누적 학습 시간 통계
          * GET
          **/
-        const getMyLessonCumulativeLearningTime = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/cumulativeLearningTime`, {
+        const getMyLessonCumulativeLearningTime = async (params: Object) => {
+            let url = '';
+            if (params?.recent) {
+                url = `recentDay=${params.recent}`;
+            } else if (params.startDt && params.endDt) {
+                url = `startDt=${params.startDt}&endDt=${params.endDt}`;
+            }
+            const { data } = await useCustomFetch(`${defaultUrl}/cumulativeLearningTime?${url}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -65,7 +83,7 @@ export const useApiMyLessonStore = defineStore(
         };
 
         /**
-         * 진도학습이력 팝업    목록
+         * 진도학습이력 팝업 목록
          * GET
          **/
         const getMyLessonProgressLearningHistory = async () => {
@@ -141,12 +159,16 @@ export const useApiMyLessonStore = defineStore(
          * 성취 기준 모아보기 팝업
          * GET
          */
-        const getMyLessonAchievementCriteria = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/achievementCriteria`, {
+        const getMyLessonAchievementCriteria = async (chId: number, orderType: number) => {
+            let query = '';
+            if (chId && orderType) {
+                query = `?chId=${chId}&orderType=${orderType}`;
+            }
+            const { data } = await useCustomFetch(`${defaultUrl}/achievementCriteria${query}`, {
                 method: 'get'
             });
             if (data.value) {
-                myLessonState.value = data.value.data as MyLesson;
+                myLessonState.value = data.value as MyLesson;
             }
         };
 

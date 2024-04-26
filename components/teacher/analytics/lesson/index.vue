@@ -76,8 +76,10 @@ watch(
     () => formatDate.value,
     async () => {
         reset();
-        await handleGetSessionInfos();
-        await handleGetAchievementRate();
+        if (showLessonSelector.value) {
+            await handleGetSessionInfos();
+            await handleGetAchievementRate();
+        }
     }
 );
 
@@ -92,7 +94,9 @@ const showLessonSelector = computed(() =>
 );
 
 onMounted(async () => {
-    await handleGetSessionInfos();
-    await handleGetAchievementRate();
+    if (showLessonSelector.value) {
+        await handleGetSessionInfos();
+        await handleGetAchievementRate();
+    }
 });
 </script>

@@ -1,6 +1,6 @@
 <template>
-    <div style="height: 600px; width: 100%">
-        <canvas ref="chart" width="100%" height="100%"></canvas>
+    <div class="chart_contents type_combination">
+        <canvas ref="chart"></canvas>
     </div>
 </template>
 
@@ -14,19 +14,42 @@ const chartOptions = ref({
     scales: {
         x: {
             grid: {
-                display: false
+                display: false,
+                color: '#373737'
             },
             ticks: {
+                color: '#171717',
                 font: {
-                    weight: '600'
+                    family: 'NotoSansKR',
+                    size: '16',
+                    weight: '500'
                 }
             }
         },
         y: {
+            grid: {
+                color: [
+                    '#373737',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0',
+                    '#B0B0B0'
+                ]
+            },
             ticks: {
+                color: '#171717',
                 font: {
+                    family: 'NotoSansKR',
+                    size: '16',
                     weight: '500'
                 },
+                padding: 20,
                 callback: value => {
                     return value + '%';
                 }
@@ -45,9 +68,15 @@ const chartOptions = ref({
                 filter: function (item, chart) {
                     return chart.datasets[item.datasetIndex].type !== 'line';
                 },
+                color: '#171717',
                 font: {
+                    family: 'NotoSansKR',
+                    size: '16',
                     weight: '500'
-                }
+                },
+                boxWidth: 16,
+                boxHeight: 16,
+                padding: 20
             },
             onClick: null,
             position: 'bottom'

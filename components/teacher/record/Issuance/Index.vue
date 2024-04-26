@@ -36,7 +36,7 @@
             </div>
 
             <!-- 학습 이력 수집 -->
-            <IssuancePart v-if="clampType === 'clamp_left'" />
+            <IssuancePart v-if="clampType === 'clamp_left' && mode" />
             <!-- 테이블 -->
             <TeacherRecordIssuanceGrade v-else-if="clampType === 'clamp_center'" />
             <!-- 발행 완료 건수 -->
@@ -53,6 +53,7 @@
 </template>
 
 <script setup>
+const { mode } = storeToRefs(useApiUserStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const { completionStudent } = storeToRefs(useApiCompletionStore());
 const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
@@ -78,6 +79,7 @@ const handleChangeStudent = async () => {
     } else if (clampType.value === 'clamp_right') {
         await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
+        await useApiCompletionStore().getStudentDevelopmetnList(studentId);
     }
 };
 
@@ -139,10 +141,10 @@ const handleSubmit = async () => {
 // const copyPersonalListOfQualification = ref([]);
 const handleEditMode = () => {
     if (isEditMode.value) {
-        // console.log(copyPersonalListOfQualification.value);
-        // personalListOfQualification.value = prevList.value.filter(data => data.flag);
+        personalListOfQualification.value.forEach(element => {
+            element.editSentence = element.sentence;
+        });
     } else {
-        // copyPersonalListOfQualification.value = JSON.parse(JSON.stringify(personalListOfQualification.value));
         isEditMode.value = true;
     }
 };

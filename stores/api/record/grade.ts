@@ -40,6 +40,7 @@ export const useApiRecordGradeStore = defineStore(
 
             if (data.value) {
                 personalListOfQualification.value = data.value.data as StudentList;
+                personalListOfQualification.value.forEach(obj => (obj.editSentence = obj.sentence));
             }
         };
 

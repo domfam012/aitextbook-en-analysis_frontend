@@ -13,13 +13,14 @@ const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
 export const useApiRecordHistoryStore = defineStore(
     'apiRecordHistory',
     () => {
+        const { mode } = storeToRefs(useApiUserStore());
         /**
          * [교사] 영역별 학업 성취율
          */
         const radarChart = ref({});
         const achievementByArea = ref<Record>();
         const getAchievementByArea = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
+            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get',
                 query: {
                     semId: semiId,
@@ -115,7 +116,7 @@ export const useApiRecordHistoryStore = defineStore(
         const weatherChart = ref({});
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollection`, {
+            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/learningHistoryCollection`, {
                 method: 'get',
                 query: {
                     semId: semiId,

@@ -27,10 +27,13 @@ export const useApiCalendarStore = defineStore(
         /**
          * 달력 > 시간표정보
          */
-        const getCalendar = async () => {
+        const getCalendar = async (date: string) => {
             // TODO:URL 미정 - 변경 필요
             const { data } = await useCustomFetch('/calendar', {
-                method: 'get'
+                method: 'get',
+                query: {
+                    yyyymm: date
+                }
             });
 
             if (data.value) {

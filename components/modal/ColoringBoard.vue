@@ -1,18 +1,18 @@
 <template>
     <div class="text-center pa-4">
         <!-- 숫자색칠판 완성하기 팝업 -->
-        <v-dialog v-model="isOpen" width="auto">
+        <v-dialog v-model="modalData.isOpen" width="auto">
             <v-card class="dialog piece-xxxlg collectedColor">
                 <div class="tabs-top">
                     <div class="avatar avatar-box">
-                        <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item" />
+                        <v-img :src="avatar" alt="아바타 이미지" class="avatar-item" />
                         <div class="avatar-info">
                             <span class="info_number">{{ remainingColorState?.studNo }}번</span>
                             <span class="info_name">{{ remainingColorState?.studName }}</span>
                         </div>
                     </div>
                     <div class="round_box_type ml-auto">
-                        <v-tabs color="transparent" v-model="tab">
+                        <v-tabs color="transparent" v-model="tab" @update:model-value="resetPage">
                             <v-tab value="one" class="color_piece" valiant="outlined">남은 색깔 조각</v-tab>
                             <v-tab value="two" class="color_piece" valiant="outlined">수집한 색깔 조각</v-tab>
                         </v-tabs>
@@ -21,222 +21,258 @@
                 <div class="ma-0 pa-0 w-100">
                     <v-window v-model="tab" class="tabs-item">
                         <v-window-item value="one">
-                            <div class="d-flex">
-                                <div class="content">
-                                    <!-- <p class="title_bullet">색칠한 부분을 다시 선택하면 색깔 조각의 원래 자리로 돌아갑니다.</p> -->
-                                    <v-carousel hide-delimiters hide-delimiter-background show-arrows height="auto">
-                                        <template v-slot:prev="{ props }">
-                                            <v-btn
-                                                flat
-                                                rounded
-                                                size="small"
-                                                @click="props.onClick"
-                                                class="icon_only icon_only-transparent icon_only-36 ml-1"
-                                            >
-                                                <div class="ico_outer size_sm">
-                                                    <i class="ico size_5 left_24"></i>
-                                                    <span class="blind">이전</span>
-                                                </div>
-                                            </v-btn>
-                                        </template>
-                                        <template v-slot:next="{ props }">
-                                            <v-btn
-                                                flat
-                                                rounded
-                                                size="small"
-                                                @click="props.onClick"
-                                                class="icon_only icon_only-transparent icon_only-36 mr-1"
-                                            >
-                                                <div class="ico_outer size_sm">
-                                                    <i class="ico size_5 right_24"></i>
-                                                    <span class="blind">다음</span>
-                                                </div>
-                                            </v-btn>
-                                        </template>
-
-                                        <v-carousel-item
-                                            height="49.4rem"
-                                            max-height="49.4rem"
-                                            v-for="(item, index) in lessonPopupState"
-                                            :key="index"
+                            <v-card height="fit-content" :elevation="0" class="rounded-0">
+                                <div class="d-flex">
+                                    <div class="content">
+                                        <!-- <p class="title_bullet">색칠한 부분을 다시 선택하면 색깔 조각의 원래 자리로 돌아갑니다.</p> -->
+                                        <v-carousel
+                                            hide-delimiters
+                                            hide-delimiter-background
+                                            show-arrows
+                                            height="fit-content"
+                                            v-model="page"
+                                            v-if="lessonPopupState?.length > 0"
                                         >
-                                            <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" :paintable="true" />
-                                        </v-carousel-item>
-                                        <v-carousel-item height="49.4rem" max-height="49.4rem">
-                                            <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" />
-                                        </v-carousel-item>
-                                    </v-carousel>
-                                    <!-- 인디케이터 -->
-                                    <div class="indicator">
-                                        <span class="txt_wrap"><em>1</em> / <span>3</span></span>
+                                            <template v-slot:prev="{ props }">
+                                                <v-btn
+                                                    flat
+                                                    rounded
+                                                    size="small"
+                                                    @click="props.onClick"
+                                                    class="icon_only icon_only-transparent icon_only-36 ml-1"
+                                                >
+                                                    <div class="ico_outer size_sm">
+                                                        <i class="ico size_5 left_24"></i>
+                                                        <span class="blind">이전</span>
+                                                    </div>
+                                                </v-btn>
+                                            </template>
+                                            <template v-slot:next="{ props }">
+                                                <v-btn
+                                                    flat
+                                                    rounded
+                                                    size="small"
+                                                    @click="props.onClick"
+                                                    class="icon_only icon_only-transparent icon_only-36 mr-1"
+                                                >
+                                                    <div class="ico_outer size_sm">
+                                                        <i class="ico size_5 right_24"></i>
+                                                        <span class="blind">다음</span>
+                                                    </div>
+                                                </v-btn>
+                                            </template>
+
+                                            <v-carousel-item v-for="(item, index) in lessonPopupState" :key="index">
+                                                <v-card max-height="49.4rem" :elevation="0" class="rounded-0">
+                                                    <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" :paintable="true" />
+                                                </v-card>
+                                            </v-carousel-item>
+                                        </v-carousel>
+                                        <!-- 인디케이터 -->
+                                        <div class="indicator">
+                                            <span class="txt_wrap"
+                                                ><em>{{ page + 1 }}</em> / <span> {{ lessonPopupState?.length }}</span></span
+                                            >
+                                        </div>
+                                    </div>
+                                    <!-- 색깔 조각 영역 -->
+                                    <div class="side-rlt">
+                                        <v-list bg-color="transparent">
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'듣기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_01"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorLstnnCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'읽기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_02"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorRedngCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'보기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_03"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorViewCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'말하기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_04"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorSpkngCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'쓰기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_05"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorWritngCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'제시하기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_06"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorPrsntCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                        </v-list>
                                     </div>
                                 </div>
-                                <!-- 색깔 조각 영역 -->
-                                <div class="side-rlt">
-                                    <v-list bg-color="transparent">
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'듣기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_01"></i>
-                                                    <em>X</em>
-                                                    <span>{{ remainingColorState?.colorLstnnCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'읽기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_02"></i>
-                                                    <em>X</em>
-                                                    <span>{{ remainingColorState?.colorRedngCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'보기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_03"></i>
-                                                    <em>X</em>
-                                                    <span>{{ remainingColorState?.colorViewCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'말하기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_04"></i>
-                                                    <em>X</em>
-                                                    <span>{{ remainingColorState?.colorSpkngCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'쓰기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_05"></i>
-                                                    <em>X</em>
-                                                    <span>{{ remainingColorState?.colorWritngCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'제시하기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_06"></i>
-                                                    <em>X</em>
-                                                    <span>{{ remainingColorState?.colorPrsntCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                    </v-list>
-                                </div>
-                            </div>
+                            </v-card>
                             <div class="dialog_btn_wrap mgt30">
-                                <v-btn rounded flat class="outlined" @click="closeModalFunc">닫기</v-btn>
+                                <v-btn rounded flat class="outlined" @click="closeModal">닫기</v-btn>
                                 <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
                             </div>
                         </v-window-item>
 
                         <v-window-item value="two">
-                            <div class="d-flex">
-                                <div class="content">
-                                    <!-- 임시 이미지 개발 진행시 변경 예정 -->
-                                    <div class="collect-color">
-                                        <img src="@/assets/images/temp/img_remaining_board.png" alt="이미지" />
-                                    </div>
+                            <v-card height="fit-content" :elevation="0" class="rounded-0">
+                                <div class="d-flex">
+                                    <div class="content">
+                                        <!-- <p class="title_bullet">색칠한 부분을 다시 선택하면 색깔 조각의 원래 자리로 돌아갑니다.</p> -->
+                                        <v-carousel
+                                            hide-delimiters
+                                            hide-delimiter-background
+                                            show-arrows
+                                            height="fit-content"
+                                            v-model="page"
+                                            v-if="lessonPopupState?.length > 0"
+                                        >
+                                            <template v-slot:prev="{ props }">
+                                                <v-btn
+                                                    flat
+                                                    rounded
+                                                    size="small"
+                                                    @click="props.onClick"
+                                                    class="icon_only icon_only-transparent icon_only-36 ml-1"
+                                                >
+                                                    <div class="ico_outer size_sm">
+                                                        <i class="ico size_5 left_24"></i>
+                                                        <span class="blind">이전</span>
+                                                    </div>
+                                                </v-btn>
+                                            </template>
+                                            <template v-slot:next="{ props }">
+                                                <v-btn
+                                                    flat
+                                                    rounded
+                                                    size="small"
+                                                    @click="props.onClick"
+                                                    class="icon_only icon_only-transparent icon_only-36 mr-1"
+                                                >
+                                                    <div class="ico_outer size_sm">
+                                                        <i class="ico size_5 right_24"></i>
+                                                        <span class="blind">다음</span>
+                                                    </div>
+                                                </v-btn>
+                                            </template>
 
-                                    <!-- 인디케이터 -->
-                                    <div class="indicator">
-                                        <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-36 ml-1">
-                                            <div class="ico_outer size_sm">
-                                                <i class="ico size_5 left_24"></i>
-                                                <span class="blind">이전</span>
-                                            </div>
-                                        </v-btn>
-                                        <span class="txt_wrap"><em>1</em> / <span>3</span></span>
-                                        <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-36 mr-1">
-                                            <div class="ico_outer size_sm">
-                                                <i class="ico size_5 right_24"></i>
-                                                <span class="blind">다음</span>
-                                            </div>
-                                        </v-btn>
+                                            <v-carousel-item v-for="(item, index) in lessonPopupState" :key="index">
+                                                <v-card max-height="49.4rem" :elevation="0" class="rounded-0">
+                                                    <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" :paintable="true" />
+                                                </v-card>
+                                            </v-carousel-item>
+                                        </v-carousel>
+                                        <!-- 인디케이터 -->
+                                        <div class="indicator">
+                                            <span class="txt_wrap"
+                                                ><em>{{ page + 1 }}</em> / <span> {{ lessonPopupState?.length }}</span></span
+                                            >
+                                        </div>
+                                    </div>
+                                    <!-- 색깔 조각 영역 -->
+                                    <div class="side-rlt">
+                                        <v-list bg-color="transparent">
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'듣기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_01"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorLstnnCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'읽기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_02"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorRedngCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'보기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_03"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorViewCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'말하기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_04"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorSpkngCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'쓰기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_05"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorWritngCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                            <v-list-item>
+                                                <div class="text-center">
+                                                    <p class="name">'제시하기' 색깔 조각</p>
+                                                    <div class="brush_num">
+                                                        <i class="ico ico_size_9_half brush_06"></i>
+                                                        <em>X</em>
+                                                        <span>{{ remainingColorState?.colorPrsntCnt }}개</span>
+                                                    </div>
+                                                </div>
+                                            </v-list-item>
+                                        </v-list>
                                     </div>
                                 </div>
-
-                                <!-- 색깔 조각 영역 -->
-                                <div class="side-rlt">
-                                    <v-list bg-color="transparent">
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'듣기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_01"></i>
-                                                    <em>X</em>
-                                                    <span>{{ collectedColorState?.colorLstnnCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'읽기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_02"></i>
-                                                    <em>X</em>
-                                                    <span>{{ collectedColorState?.colorRedngCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'보기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_03"></i>
-                                                    <em>X</em>
-                                                    <span>{{ collectedColorState?.colorViewCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'말하기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_04"></i>
-                                                    <em>X</em>
-                                                    <span>{{ collectedColorState?.colorSpkngCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'쓰기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_05"></i>
-                                                    <em>X</em>
-                                                    <span>{{ collectedColorState?.colorWritngCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <div class="text-center">
-                                                <p class="name">'제시하기' 색깔 조각</p>
-                                                <div class="brush_num">
-                                                    <i class="ico ico_size_9_half brush_06"></i>
-                                                    <em>X</em>
-                                                    <span>{{ collectedColorState?.colorPrsntCnt }}개</span>
-                                                </div>
-                                            </div>
-                                        </v-list-item>
-                                    </v-list>
-                                </div>
-                            </div>
+                            </v-card>
                             <div class="dialog_btn_wrap mgt30">
-                                <v-btn rounded flat class="outlined" @click="collectedColor = false">닫기</v-btn>
+                                <v-btn rounded flat class="outlined" @click="closeModal">닫기</v-btn>
+                                <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
                             </div>
                         </v-window-item>
                     </v-window>
@@ -421,12 +457,12 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['close-modal']);
-const props = defineProps(['isOpen']);
 const tab = ref('one');
 const stamp = ref(false);
+const page = ref(0);
+const resetPage = () => (page.value = 0);
 
-const isOpen = props.isOpen;
+const { modalData, openModal, closeModal } = useModalStore();
 
 const lessonApiStore = useApiLessonStore();
 const { remainingColorState, collectedColorState, lessonPopupState } = storeToRefs(lessonApiStore);
@@ -441,11 +477,6 @@ const togglePainted = index => {
     grid.value[index].color = colorMode.value;
 };
 
-const closeModalFunc = () => {
-    emit('close-modal');
-    console.log('clicked');
-};
-
 onMounted(() => {
     lessonApiStore.getPopupRemainColor();
     lessonApiStore.getPopupCollectedColor();
@@ -453,6 +484,7 @@ onMounted(() => {
     lessonApiStore.getPopupCollectedColorDesigns();
     // lessonApiStore.getPopupSendFeedbackStamp();
 });
+import avatar from '@/assets/images/temp/img_pho_st01.png';
 
 import stamp01 from '@/assets/images/img_stamp_01.svg';
 import stamp02 from '@/assets/images/img_stamp_02.svg';
@@ -470,7 +502,7 @@ import stamp05 from '@/assets/images/img_stamp_05.svg';
 
 .grid {
     width: 2.6rem;
-    height: 2.7rem;
+    height: 2.6rem;
     border: 0.5px solid #171717;
     cursor: pointer;
 }

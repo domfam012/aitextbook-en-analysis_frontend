@@ -2599,12 +2599,12 @@ const data = {
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
@@ -3655,6 +3655,1832 @@ const data = {
                 {
                     id: uuidv4(),
                     painted: true,
+                    color: 'blue'
+                }
+            ],
+            dsgnUseColorCnt: 90,
+            stampId: 1,
+            etlDttm: null
+        },
+        {
+            semId: 9,
+            clssUuid: 'c3967784-b8c0-11ee-a85f-6045bd452244',
+            tchrUuid: 'ba294ecc-0e2b-4fa9-8baa-ecdef82cff92',
+            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            dsgnId: 2,
+            dsgnPrgrsRt: 0.91,
+            dsgnUseInfo: [
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: true,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'blue'
                 }
             ],

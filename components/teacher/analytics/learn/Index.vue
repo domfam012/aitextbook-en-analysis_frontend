@@ -1,5 +1,5 @@
 <template>
-    <v-card elevation="0">
+    <v-card elevation="0" min-height="54rem">
         <div class="LearningHistoryStats">
             <v-sheet>
                 <div class="title top">
@@ -46,8 +46,24 @@
                     </p>
                 </div>
             </v-sheet>
-            <TeacherAnalyticsLearnColoring v-if="depth1 === '색칠판 학습 이력'" />
-            <TeacherAnalyticsLearnTouchVoca v-if="depth1 === 'Touch Voca'" />
+            <TeacherAnalyticsLearnColoring
+                v-if="depth1 === '색칠판 학습 이력'"
+                @page="
+                    page => {
+                        currentPage = page;
+                    }
+                "
+                :current-page="currentPage"
+            />
+            <TeacherAnalyticsLearnTouchVoca
+                v-if="depth1 === 'Touch Voca'"
+                @page="
+                    page => {
+                        currentPage = page;
+                    }
+                "
+                :current-page="currentPage"
+            />
             <TeacherAnalyticsLearnRecord v-if="depth1 === '누적 학습 기록'" />
         </div>
     </v-card>
@@ -71,18 +87,20 @@ const select02Items = ref([
     { title: '많이 맞힌 순서', type: 'rankingOfHighCorrectAnswerRate' }
 ]);
 const select03Items = [{ title: '누적 차트', type: 'cumulativeRecord' }];
+const currentPage = ref(0);
 
 onMounted(async () => {
     await apiClassStore.getClassColorBoard(depth2.value.type);
 });
 
 const changeDepth1 = async () => {
+    currentPage.value = 0;
     if (depth1.value === '색칠판 학습 이력') {
         depth2.value = select01Items.value[0];
         await apiClassStore.getClassColorBoard(depth2.value.type);
     } else if (depth1.value === 'Touch Voca') {
         depth2.value = select02Items.value[0];
-        await apiClassStore.getClassVocaRanking(depth2.value.type);
+        await apiClassStore.getClassVocaRanking(depth2.value.type, formatDate.value);
     } else if (depth1.value === '누적 학습 기록') {
         await apiClassStore.getClassCumulativeRecordOften();
         await apiClassStore.getClassCumulativeRecordOMany();
@@ -91,10 +109,11 @@ const changeDepth1 = async () => {
 };
 
 const changeDepth2 = async () => {
+    currentPage.value = 0;
     if (depth1.value === '색칠판 학습 이력') {
         await apiClassStore.getClassColorBoard(depth2.value.type);
     } else if (depth1.value === 'Touch Voca') {
-        await apiClassStore.getClassVocaRanking(depth2.value.type);
+        await apiClassStore.getClassVocaRanking(depth2.value.type, formatDate.value);
     }
 };
 
@@ -118,4 +137,13 @@ const getLastSunday = () => {
     const lastSunday = lastMonday.add(6, 'day');
     return lastSunday;
 };
+
+// //(임시) 캘린더 클릭한 날짜일 때 touch voca api 호출로 수정 필요할 수 있음.
+watch(
+    () => formatDate.value,
+    async () => {
+        // !NOTE API 응답 Data 확인 가능한 일자 확인 요청중. 2024-04-24
+        await apiClassStore.getClassVocaRanking(depthTwo.value, formatDate.value);
+    }
+);
 </script>

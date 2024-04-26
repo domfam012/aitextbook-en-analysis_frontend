@@ -25,7 +25,7 @@
                         </td>
                         <template v-if="isEditMode">
                             <v-textarea
-                                v-model="item.sentence"
+                                v-model="item.editSentence"
                                 class="no-border"
                                 variant="solo"
                                 :elevation="0"
@@ -67,10 +67,8 @@ const achievementHeaders = [
 const handleSelectItem = (item, index) => {
     if (item.flag) {
         item.flag = false;
-        item.count -= 1;
     } else {
         item.flag = true;
-        item.count += 1;
     }
 };
 

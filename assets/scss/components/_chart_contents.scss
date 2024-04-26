@@ -15,6 +15,7 @@
 			@include font_body4($line-height: 2.2rem);
 		}
 	}
+
 	&.type_multiple_radial {
 		margin: 0 auto;
 		width: 33rem;
@@ -25,6 +26,7 @@
 			height: 100%;
 		}
 	}
+
 	&.type_donut {
 		margin: 0 auto;
 		width: 34.8rem;
@@ -40,6 +42,7 @@
 			span {
 				@include font_body1();
 			}
+
 			strong {
 				display: block;
 				color: $G900;
@@ -58,7 +61,7 @@
 	}
 
 	&.type_radar {
-		// margin: 0 auto;
+		margin: 0 auto;
 		// width: 47.8em;
 		height: 37rem;
 

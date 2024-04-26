@@ -2,6 +2,7 @@
     .tabs {
         padding: 3rem 4rem;
     }
+
     &.v-card-green {
         .notice {
             margin-right: 5rem;
@@ -11,39 +12,52 @@
                 flex-grow: 1;
             }
         }
-        .info{
+
+        .info {
             flex-grow: 1;
         }
+
         .name {
             width: 100%;
         }
+
         .class-box {
             padding: 2rem 6.2rem;
         }
+
         .v-list {
             flex-grow: 1;
             padding: 0;
 
-            .v-list-item ~ .v-list-item {
+            .v-list-item~.v-list-item {
                 margin-top: 0;
             }
         }
+
+        .v-card-item {
+            padding: 0.8rem 3rem;
+        }
+
         .v-list-item {
-            padding: 1.2rem 0;
+            padding: 1.1rem 0;
             border-bottom: 1px solid rgba(126, 131, 138, 0.30);
+
             &:last-child {
                 border-bottom: 0;
             }
         }
+
         .v-list-item__content {
             flex-grow: 1;
         }
+
         .sub_txt {
             margin-left: 1.5rem;
             color: $G900;
         }
     }
 }
+
 .lessonInfo {
     display: flex;
     align-items: center;
@@ -65,6 +79,7 @@
             max-height: 3rem;
         }
     }
+
     .info {
         display: flex;
         align-items: center;
@@ -78,6 +93,7 @@
             font-weight: var(--weight-bold);
         }
     }
+
     .kind {
         position: relative;
         padding-left: 2rem;
@@ -97,6 +113,7 @@
 
         }
     }
+
     .box {
         position: relative;
         border: 1px solid #373737;
@@ -104,6 +121,7 @@
         padding: 1.25rem 2.5rem;
         background-color: $white;
     }
+
     .pages {
         display: flex;
         align-items: center;
@@ -127,6 +145,7 @@
         }
     }
 }
+
 .dailyPerformance-tap {
     padding: 3rem;
 
@@ -176,6 +195,7 @@
         border: 1px dashed #A4C6D7;
         border-radius: 3rem;
     }
+
     .v-list {
         .v-list-item {
             padding: 0;
@@ -200,6 +220,7 @@
             }
         }
     }
+
     .count_box {
         >* {
             cursor: pointer;
@@ -213,12 +234,13 @@
     padding-bottom: 0;
     gap: 0.5rem;
     padding-top: 1rem;
-    
-    .result_box {
-        display: flex;
-        justify-content: center;
-        
-        margin: 0 auto;
+
+    &>div {
+        &:hover {
+            .count_box {
+                z-index: 10;
+            }
+        }
     }
 
     .learner6 {
@@ -319,6 +341,7 @@
 
     .count_box {
         position: relative;
+        width: 100%;
 
         span {
             position: absolute;
@@ -336,10 +359,11 @@
         }
 
         .ico {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
             width: 6.5rem;
             height: 8.5rem;
-            display: block;
-            margin: 0 auto;
             margin-bottom: 0.5rem;
         }
 

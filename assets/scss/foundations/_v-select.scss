@@ -20,11 +20,15 @@ writer : 유하진
         &:hover {
             background-color: $B50;
         }
+
+        &.v-field--rounded {
+            border-radius: 27.5rem
+        }
     }
 
     .v-field__input {
-        padding-top: 1.4rem;
-        padding-bottom: 1.4rem;
+        padding-top: 1.35rem;
+        padding-bottom: 1.35rem;
         --v-input-control-height: auto;
     }
 
@@ -114,6 +118,7 @@ writer : 유하진
         }
 
         .v-field__outline {
+            border-radius: 5.6rem;
             border-color: $white;
         }
 
@@ -182,6 +187,10 @@ writer : 유하진
                 border-bottom: 0;
             }
         }
+
+        &.v-field--rounded {
+            border-radius: 2.5rem 2.5rem 0 0;
+        }
     }
 
     .v-field__outline {
@@ -192,8 +201,9 @@ writer : 유하진
         border-radius: 2.5rem 2.5rem 0 0;
 
         .v-field__outline {
-            border-top-left-radius: 2.5rem;
-            border-top-right-radius: 2.5rem;
+            // border-top-left-radius: 2.5rem;
+            // border-top-right-radius: 2.5rem;
+            border-radius: 2.5rem 2.5rem 0 0;
         }
     }
 }

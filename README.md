@@ -51,4 +51,3 @@ npm run dev
 -   GitLens — Git supercharged
 -   Prettier
 -   Vue Language Features(Volar)
-# aitextbook-en-analysis_frontend

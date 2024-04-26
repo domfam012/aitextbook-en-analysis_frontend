@@ -102,12 +102,17 @@
             width: 90%;
         }
         .chart_radar {
-			margin-top: 2rem;
-            
-            .chart_contents.type_radar {
-                height: 45rem;
+            margin-top: 2rem;
+
+            .chart-bar {
+                justify-content: center;
+                margin-top: 2rem;
             }
 		}
+        .chart_contents.type_radar {
+            width: 65.8rem;
+            height: 45rem;
+        }
     }
 
     &.box_contents {
@@ -319,6 +324,7 @@
                 bottom: 0;
                 left: 32rem;
                 width: 77%;
+                max-width: 82.5rem;
             }
         }
         .v-slide-group__container {

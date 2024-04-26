@@ -11,7 +11,7 @@
 <script setup>
 onBeforeMount(async () => {
     //토큰
-    useToken();
+    useToken('student');
 });
 </script>
 

@@ -1,8 +1,14 @@
 <template>
-    <canvas ref="canvas" width="330" height="330"></canvas>
+    <div class="chart_contents type_multiple_radial">
+        <canvas ref="canvas" width="330" height="330"></canvas>
+    </div>
 </template>
 <script setup>
-const props = defineProps(['values']);
+const props = defineProps({
+    values: Array, // values는 배열 형태의 Props
+    circleValue: Object // circleValue는 객체 형태의 Props
+});
+
 // datasets 예시 [[값, 색상, 마커 값], [...]]
 // const values = [
 //     [20, 'gray', 2],
@@ -87,11 +93,11 @@ onMounted(() => {
         ctx.font = 'bold 20px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('100', centerX - 8, centerY - 8);
+        ctx.fillText(props.circleValue.correctRate, centerX - 8, centerY - 8);
         ctx.font = 'bold 12px Arial';
         ctx.fillText('%', centerX + 16, centerY - 6);
         ctx.font = 'bold 12px Arial';
-        ctx.fillText(36 + '개', centerX, centerY + 15);
+        ctx.fillText(props.circleValue.totalCount + '개', centerX, centerY + 15);
     };
     // 애니메이션 함수
     const animate = () => {

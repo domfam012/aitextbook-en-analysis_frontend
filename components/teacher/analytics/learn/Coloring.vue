@@ -4,24 +4,26 @@
         <div v-if="colorBoardState?.length > 0" class="inner">
             <v-list class="d-flex px30 py-0">
                 <v-list-item
-                    class="px15 py15 cursor"
-                    v-for="(item, index) in renderAll ? colorBoardState : colorBoardState.slice(0, 3)"
+                    class="px15 py15"
+                    v-for="(item, index) in renderAll ? colorBoardState : colorBoardState?.slice(0, currentPage * 3 + 3)"
                     :key="index"
-                    @click="toggleOpen(index)"
+                    @click="openModal({ type: 'coloring' })"
                 >
-                    <div class="avatar avatar-box">
-                        <v-img :src="avatarSrc" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
-                        <div class="avatar-info">
-                            <span class="info_number">{{ item.studNo }}번</span>
-                            <span class="info_name">{{ item.studName }}</span>
+                    <div class="box cursor">
+                        <div class="avatar avatar-box">
+                            <v-img :src="avatarSrc" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
+                            <div class="avatar-info">
+                                <span class="info_number">{{ item.studNo }}번</span>
+                                <span class="info_name">{{ item.studName }}</span>
+                            </div>
                         </div>
+                        <TeacherAnalyticsLearnColorBoard :stamp="item.stampId" :grid="item.areaBaseArr" class="mt-3" />
                     </div>
-                    <TeacherAnalyticsLearnColorBoard :stamp="item.stampId" :grid="item.areaBaseArr" class="mt-3" />
                 </v-list-item>
             </v-list>
             <div class="bottom_btn_wrap text-center">
-                <v-btn rounded flat class="secondary mgt30" v-if="colorBoardState.length > 3 && !renderAll" @click="renderAll = true">
-                    <span class="more">더 보기</span>
+                <v-btn rounded flat class="secondary mgt30" :disabled="renderAll" @click="emit('page', currentPage + 1)">
+                    <span class="more">{{ `3명 더 보기 (${currentPage + 1}/${Math.ceil(colorBoardState?.length / 3)})` }}</span>
                 </v-btn>
             </div>
         </div>
@@ -31,17 +33,25 @@
             <p>아직 숫자 색칠판을 시작한 학생이 없습니다.</p>
         </div>
     </v-sheet>
-    <ModalColoringBoard v-if="isOpen" :isOpen="isOpen" @close-modal="toggleOpen" />
+    <Modal v-if="modalData?.type === 'coloring'">
+        <ModalColoringBoard v-if="modalData?.isOpen" />
+    </Modal>
 </template>
 <script setup>
 import avatarSrc from '@/assets/images/temp/img_pho_st01.png';
-
-const props = defineProps({ depth: { type: String, default: '완성도 Top 5' } });
+const { modalData, openModal, closeModal } = useModalStore();
 const apiClassStore = useApiTeacherClassStore();
 const { colorBoardState } = storeToRefs(apiClassStore);
-const renderAll = ref(false);
-const isOpen = ref(false);
-const toggleOpen = () => {
-    isOpen.value = !isOpen.value;
-};
+const props = defineProps({
+    currentPage: {
+        type: Number,
+        required: true
+    },
+    depth: {
+        type: String,
+        default: '완성도 Top 5'
+    }
+});
+const emit = defineEmits(['page']);
+const renderAll = computed(() => props.currentPage + 1 === Math.ceil(colorBoardState.value?.length / 3));
 </script>

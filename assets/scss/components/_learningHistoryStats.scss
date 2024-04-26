@@ -4,4 +4,7 @@
         margin: 0 3rem;
         border-bottom: 1px solid #171717;
     }
+    h3 {
+        @include font_header2();
+    }
 }

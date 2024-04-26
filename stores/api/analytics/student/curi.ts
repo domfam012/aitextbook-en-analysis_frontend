@@ -14,7 +14,7 @@ interface CuriProps {
     };
 }
 
-const defaultUrl = `/student/${process.env.ANALITICS_URL}`;
+const defaultUrl = `/student/dashboard/learningAnalytics`;
 
 /**
  * 학습분석 > AI Curi Talk
@@ -23,6 +23,9 @@ export const useApiCuriStore = defineStore(
     'apiCuri',
     () => {
         const curiState = ref<Curi>();
+        const colorBoardState = ref();
+        const calendarStore = useApiCalendarStore();
+        const { formatDate } = storeToRefs(calendarStore);
 
         /**
          * 숫자 색칠판    학습분석
@@ -46,7 +49,7 @@ export const useApiCuriStore = defineStore(
          * GET
          **/
         const getCuriComplimentExpression = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/curiComplimentExpression`, {
+            const { data } = await useCustomFetch(`${defaultUrl}/curiComplimentExpression?date=${formatDate.value}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -62,7 +65,7 @@ export const useApiCuriStore = defineStore(
          *  /student/dashboard/learningAnalytics/curiRegretfulExpression
          **/
         const getCuriRegretfulExpression = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/curiRegretfulExpression`, {
+            const { data } = await useCustomFetch(`${defaultUrl}/curiRegretfulExpression?date=${formatDate.value}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -91,12 +94,16 @@ export const useApiCuriStore = defineStore(
          *  숫자 색칠판 완성하기 팝업 > 수집한 색깔조각 > 도안
          *  GET
          **/
-        const getCuriCollectedColorDesign = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/collectedColorFragmentDesign`, {
+        const getCuriCollectedColorDesign = async (date: string) => {
+            let dateUrl = '';
+            if (date) {
+                dateUrl = `?date=${date}`;
+            }
+            const { data } = await useCustomFetch(`${defaultUrl}/collectedColorFragmentDesign${dateUrl}`, {
                 method: 'get'
             });
             if (data.value) {
-                curiState.value = data.value.data as Curi;
+                colorBoardState.value = data.value.data as Curi;
             }
         };
 
@@ -156,8 +163,13 @@ export const useApiCuriStore = defineStore(
          *  GET
          *  /student/dashboard/learningAnalytics/aiCuriTalkAtAGlance
          */
-        const getCuriAiCuriTalkAtAGlance = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/aiCuriTalkAtAGlance`, {
+        const getCuriAiCuriTalkAtAGlance = async (period: string) => {
+            let periodUrl = '';
+            if (period) {
+                periodUrl = `?period=${period}`;
+            }
+            console.log(periodUrl);
+            const { data } = await useCustomFetch(`${defaultUrl}/aiCuriTalkAtAGlance${periodUrl}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -166,6 +178,7 @@ export const useApiCuriStore = defineStore(
         };
 
         return {
+            colorBoardState,
             curiState,
             getCuriNumColorFragmentDesign,
             getCuriComplimentExpression,

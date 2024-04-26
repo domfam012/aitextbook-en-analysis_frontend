@@ -1,8 +1,6 @@
 <template>
-    <v-btn class="primary" @click="touchVoca = true"> Open Dialog </v-btn>
-    <!-- Touch VOCA 학습이력 팝업 -->
-    <v-dialog v-model="touchVoca" width="auto">
-        <v-card class="dialog pda20 display_block" width="138rem" height="80rem">
+    <v-dialog v-model="modalData.isOpen" width="auto">
+        <v-card class="dialog pda20" width="138rem" height="80rem">
             <div class="dialog_header">
                 <div class="inline_wrap gap1">
                     <h1>나의</h1>
@@ -23,7 +21,7 @@
                     ></v-select>
                     <h1>Touch VOCA 학습이력</h1>
                 </div>
-                <v-btn class="icon_close" @click="aItalk = false"><i class="ico close_30 ico_size_lg"></i></v-btn>
+                <v-btn class="icon_close" @click="closeModal"><i class="ico close_30 ico_size_lg"></i></v-btn>
             </div>
             <div class="dialog_body">
                 <div class="chart_combination">
@@ -36,6 +34,7 @@
 </template>
 
 <script setup>
+const { modalData, closeModal } = useModalStore();
 const chartData = {
     labels: ['9월 11일', '9월 12일', '9월 13일', '9월 14일', '9월 15일', '9월 16일', '9월 17일'],
     datasets: [

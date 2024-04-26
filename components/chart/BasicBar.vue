@@ -1,6 +1,5 @@
 <template>
     <div class="learningDiagnostics" :class="{ solid: solidColor }">
-        <h3 class="learn-title bullet-bot">{{ chartTitle }}</h3>
         <div class="chart-bar">
             <v-row no-gutters class="gap2">
                 <v-col>
@@ -28,10 +27,6 @@ const props = defineProps({
     solidColor: {
         type: Boolean,
         default: false
-    },
-    chartTitle: {
-        type: String,
-        default: '차트제목'
     },
     item: {
         type: Array,

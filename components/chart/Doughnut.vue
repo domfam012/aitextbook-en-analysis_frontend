@@ -1,12 +1,33 @@
 <template>
-    <div class="myChartDiv">
-        <canvas ref="chart" width="400px" height="400px"></canvas>
-        <div class="titleCenter">
-            <p>얼마나</p>
-            <br />
-            <p>
+    <div class="chart_donut">
+        <div class="chart_contents type_donut">
+            <canvas ref="chart" width="348" height="348"></canvas>
+            <div class="text_wrap">
+                <span>얼마나</span>
                 <strong>{{ getTypeText }}</strong>
-            </p>
+            </div>
+        </div>
+        <div class="chart-bar">
+            <div class="use-word">
+                <span class="bullet color-1"></span>
+                <p>10회 이상 방문</p>
+            </div>
+            <div class="use-word">
+                <span class="bullet color-2"></span>
+                <p>6~9회 방문</p>
+            </div>
+            <div class="use-word">
+                <span class="bullet color-3"></span>
+                <p>3~5회 방문</p>
+            </div>
+            <div class="use-word">
+                <span class="bullet color-4"></span>
+                <p>1~2회 방문</p>
+            </div>
+            <div class="use-word">
+                <span class="bullet color-5"></span>
+                <p>방문 기록 없음</p>
+            </div>
         </div>
     </div>
 </template>
@@ -107,18 +128,3 @@ onMounted(() => {
     });
 });
 </script>
-<style scoped>
-.myChartDiv {
-    position: relative;
-    width: 400px;
-    height: 400px;
-}
-.titleCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 30px;
-}
-</style>

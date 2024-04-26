@@ -1,6 +1,6 @@
 <template>
     <div class="grade">
-        <div v-if="isEditMode" class="top d-flex">
+        <div v-if="!isEditMode" class="top d-flex">
             <div class="type d-flex align-center">
                 <p class="">평어 유형</p>
                 <v-btn-toggle v-model="unitType" @update:modelValue="val => console.log(val)" class="d-flex" mandatory density="compact">
@@ -14,7 +14,7 @@
     </div>
 </template>
 <script setup>
-const { isEditMode } = storeToRefs(useApiRecordStore());
+const { isEditMode } = storeToRefs(useApiRecordGradeStore());
 const { qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
 const unitType = ref(0);
 

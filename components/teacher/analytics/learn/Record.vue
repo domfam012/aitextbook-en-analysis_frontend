@@ -1,22 +1,15 @@
 <template>
-    <v-sheet class="px30 py30 colorLessonInfo">
-        <div></div>
+    <v-sheet class="inner_contents">
         <!-- 데이터 있을 때 -->
-        <v-list v-if="chartData1" class="chart_wrap chart_donut">
+        <v-list v-if="chartData1" class="chart_wrap donut_wrap">
             <v-list-item class="chart">
-                <div class="donut">
-                    <ChartDoughnut :type="'often'" :chartData="chartData1" />
-                </div>
+                <ChartDoughnut :type="'often'" :chartData="chartData1" />
             </v-list-item>
             <v-list-item class="chart">
-                <div class="donut">
-                    <ChartDoughnut :type="'much'" :chartData="chartData2" />
-                </div>
+                <ChartDoughnut :type="'much'" :chartData="chartData2" />
             </v-list-item>
             <v-list-item class="chart">
-                <div class="donut">
-                    <ChartDoughnut :type="'long'" :chartData="chartData3" />
-                </div>
+                <ChartDoughnut :type="'long'" :chartData="chartData3" />
             </v-list-item>
         </v-list>
         <div v-if="!chartData1" class="card_no_data">

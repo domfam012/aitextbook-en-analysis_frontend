@@ -25,56 +25,79 @@
                     </div>
                 </div>
             </div>
-            <div class="inner_wrap">
-                <ul class="divider_group">
-                    <li>시공초등학교</li>
-                    <li>3학년 2반</li>
-                </ul>
-                <div class="avatar-box">
-                    <div class="avatar">
-                        <v-img :src="avatar" alt="아바타 이미지" class="avatar-item" />
-                    </div>
-                    <div class="avatar-info">
-                        <span class="info_number">17번</span>
-                        <h2>
-                            <span class="info_name">김아미</span>
-                            의 AI
-                            <span class="subject">
-                                <span>3학년 1학기</span>
-                                <strong>영어</strong>
-                            </span>
-                            생활기록부
-                        </h2>
+            <div id="pdf">
+                <div class="inner_wrap">
+                    <ul class="divider_group">
+                        <li>{{ user.schoolName }}</li>
+                        <li>{{ user.classInfo.grade }}학년 {{ user.classInfo.classNum }}반</li>
+                    </ul>
+                    <div class="avatar-box">
+                        <div class="avatar">
+                            <v-img :src="user.profileUrl" alt="아바타 이미지" class="avatar-item" />
+                        </div>
+                        <div class="avatar-info">
+                            <span class="info_number">{{ user.number }}번</span>
+                            <h2>
+                                <span class="info_name">{{ user.name }}</span>
+                                의 AI
+                                <span class="subject">
+                                    <span>{{ user.classInfo.grade }}학년 {{ user.semester }}학기</span>
+                                    <strong>영어</strong>
+                                </span>
+                                생활기록부
+                            </h2>
+                        </div>
                     </div>
                 </div>
+                <IssuancePart v-if="mode" />
             </div>
         </div>
-        <IssuancePart id="pdf" />
     </div>
 </template>
 <script setup>
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-
+const { mode } = storeToRefs(useApiUserStore());
+const { user } = storeToRefs(useApiUserStore());
 const apiRecordHistory = useApiRecordHistoryStore();
 const { semesterInProgress } = storeToRefs(apiRecordHistory);
 const select = ref({ state: '교과 진도만 분석합니다.' });
 const items = ref([{ state: '교과 진도만 분석합니다.' }]);
-
 onMounted(() => {
     apiRecordHistory.getStudentSemesterInProgress();
 });
 
-const printPage = () => {
-    const printContents = document.getElementById('pdf').innerHTML;
-    const originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
+const printPage = async () => {
+    const printElement = document.getElementById('pdf');
+    try {
+        const canvas = await html2canvas(printElement);
+        const imageData = canvas.toDataURL('image/png');
+
+        const imgWidth = 210; // 가로(mm) (A4)
+        const pageHeight = imgWidth * 1.414; // 세로 길이 (A4)
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        console.log(imgHeight);
+        const printContent = `<img src="${imageData}" style="width:100%;">`;
+
+        const windowContent = '<!DOCTYPE html>';
+
+        const printWindow = window.open('', '_blank');
+        printWindow.document.open();
+        printWindow.document.write(windowContent);
+        printWindow.document.write(printContent);
+        printWindow.document.close();
+
+        printWindow.onload = function () {
+            printWindow.print();
+            printWindow.close();
+        };
+    } catch (error) {
+        console.error('Error:', error);
+    }
 };
 
 /**
- * 페이지를
+ * pdf저장
  */
 const savePdf = () => {
     html2canvas(document.getElementById('pdf')).then(canvas => {
@@ -110,20 +133,3 @@ const savePdf = () => {
     });
 };
 </script>
-
-<style lang="scss" scoped>
-@media print {
-    html,
-    body,
-    div,
-    #pdf {
-        width: 100%;
-        height: 100%;
-    }
-
-    * {
-        width: 100%;
-        box-sizing: border-box;
-    }
-}
-</style>

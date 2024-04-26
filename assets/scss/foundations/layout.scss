@@ -6,14 +6,50 @@ $contents-bg-teacher: $bg-default;
     position: relative;
 
     .dashboard {}
-
 }
 
+.dashboard-area {
+    width: 100%;
+    padding: 3rem;
+    background: #f5f6fa;
+
+    &.student {
+        background: #334152;
+        border-top-right-radius: 2.5rem;
+    }
+    &.record {
+        padding: 2rem;
+        background-color: #ffffff;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: transparent;
+    }
+}
+
+.dashboard-area {
+    width: 100%;
+    padding: 3rem;
+    background: #f5f6fa;
+
+    &.student {
+        background: #334152;
+        border-top-right-radius: 2.5rem;
+    }
+    &.record {
+        padding: 2rem;
+        background-color: #ffffff;
+    }
+    ::-webkit-scrollbar {
+        background-color: transparent;
+    }
+}
 // scroll_bar
 ::-webkit-scrollbar {
-    border-radius: 5rem;
+    // border-radius: 5rem;
     width: 2rem;
     height: 2rem; // 가로스크롤ver 추가
+    background-color: $G50;
 }
 
 /* 스크롤바 막대 꾸미기 */

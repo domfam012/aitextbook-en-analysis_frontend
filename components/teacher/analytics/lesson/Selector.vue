@@ -8,8 +8,8 @@
                 </div>
             </v-btn>
             <div class="info">
-                <p class="name">{{ teacherLearningSessionState[currentPage].chName }}</p>
-                <p class="kind">{{ teacherLearningSessionState[currentPage].sessionName }}</p>
+                <p class="name">{{ teacherLearningSessionState[currentPage]?.chName }}</p>
+                <p class="kind">{{ teacherLearningSessionState[currentPage]?.sessionName }}</p>
             </div>
             <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-sm" @click="handleNextLesson">
                 <div class="size_sm">
@@ -20,7 +20,7 @@
         </div>
         <div class="pages">
             <div>교과서</div>
-            <span class="num">{{ teacherLearningSessionState[currentPage].bookPageCount }}쪽</span>
+            <span class="num">{{ teacherLearningSessionState[currentPage]?.bookPageCount }}쪽</span>
         </div>
     </div>
 </template>

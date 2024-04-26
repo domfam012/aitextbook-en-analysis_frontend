@@ -10,7 +10,9 @@ export interface TokenState {
     token: String;
 }
 
-export const useToken = () => {
+export const useToken = async (modeType: string) => {
+    const { authenticated } = storeToRefs(useAuthStore());
+    const { mode } = storeToRefs(useApiUserStore());
     const token = useCookie('token');
     const url = new URL(window.location.href);
     const params = url.searchParams;
@@ -19,4 +21,10 @@ export const useToken = () => {
 
     const user = useCookie('user');
     user.value = window.location.href.split('/')[3];
+
+    mode.value = modeType;
+    console.log(modeType);
+    console.log(mode.value);
+    await useAuthStore().userAuthenticate();
+    if (authenticated.value) await useApiUserStore().getUser(modeType);
 };

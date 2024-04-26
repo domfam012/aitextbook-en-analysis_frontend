@@ -7,12 +7,12 @@ const data = {
     httpCode: 200,
     message: '조회성공',
     data: {
-        mondayLearnTime: 0,
-        tuesdayLearnTime: 0,
-        wednesdayLearnTime: 0,
-        thursdayLearnTime: 0,
-        fridayLearnTime: 0,
-        saturdaySundayLearnTime: 0
+        mondayLearnTime: 10,
+        tuesdayLearnTime: 20,
+        wednesdayLearnTime: 30,
+        thursdayLearnTime: 20,
+        fridayLearnTime: 10,
+        saturdaySundayLearnTime: 5
     }
 };
 export default defineEventHandler(() => {

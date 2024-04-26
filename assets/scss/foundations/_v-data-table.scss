@@ -8,6 +8,12 @@
     &.v-table>.v-table__wrapper>table>tbody>tr>td {
         padding: 1.5rem; //1rem 1.5rem;
     }
+    &.v-data-table .v-table__wrapper > table > thead > tr > th:not(.v-data-table__th--sorted) {
+        &:hover .v-data-table-header__sort-icon,
+        .v-data-table-header__sort-icon {
+            opacity: 1;
+        }
+    } 
 
     .v-btn {
         .v-btn--density-default {
@@ -191,17 +197,20 @@
         }
     }
     thead {
-        th,
-        .v-data-table__th {
-            padding: 1rem 1.5rem;
-            border-color: $white;
-        }
-        
-        tr:last-child {
+        tr {
+            &:last-child {
+                th,
+                .v-data-table__th {
+                    border-right-color: #E7F0F3;
+                    border-bottom-color: #E7F0F3;
+                    font-weight: 700;
+                }
+            }
             th,
             .v-data-table__th {
-                border-right-color: #E7F0F3;
-                border-bottom-color: #E7F0F3;
+                padding: 1rem 1.5rem;
+                border-color: $white;
+                font-weight: 700;
             }
         } 
     }

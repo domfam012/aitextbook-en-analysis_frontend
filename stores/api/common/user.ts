@@ -16,27 +16,29 @@ export const useApiUserStore = defineStore(
             soundVolume?: number;
         };
 
+        const mode = ref('');
         const user = ref<Item>();
         const getUser = async (value: string) => {
-            const { data } = await useCustomFetch(`/${value}`, {
+            const { data, error } = await useCustomFetch('https://aitextbookapi-stage.i-screammedia.com/' + value, {
                 method: 'get'
             });
-
+            if (error.value) throw error.value;
             if (data.value) {
-                user.value = data.value.data as Item;
+                const result = data.value as Result;
+                user.value = result.data as Item;
+
+                //id 저장
+                const userId = useCookie('userId');
+                if (value == 'teacher') {
+                    userId.value = user.value.teacherId;
+                } else {
+                    userId.value = user.value.studentId;
+                }
             }
-        };
-
-        const setUser = async (value: string) => {
-            const { status } = await useCustomFetch(`/${value}`, {
-                method: 'post',
-                body: JSON.stringify(value)
-            });
-
-            return { status };
         };
         return {
             user,
+            mode,
             getUser
         };
     },

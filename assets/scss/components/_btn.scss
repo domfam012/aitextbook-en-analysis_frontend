@@ -73,6 +73,15 @@ $v-btn-default-height: 3.6rem;
         padding: 0 1.5rem;
         @include font_body5($font-weight-medium);
     }
+    &.size_xxs {
+        --v-btn-height: 3rem;
+        padding: 0 1rem;
+        font-size: $font-small;
+        line-height: 2.2rem;
+    }
+    &.size_md {
+        min-width: 14rem;
+    }
 
     /**
    * color
@@ -94,6 +103,16 @@ $v-btn-default-height: 3.6rem;
         &:hover {
             border-color: $G600;
             color: $G600;
+        }
+    }
+    &.dark_blue {
+        border: 1px solid $DB900;
+        background: $DB900;
+        color: $white;
+
+        &:hover {
+            border-color: $DB900;
+            color: $white;
         }
     }
 
@@ -127,11 +146,14 @@ $v-btn-default-height: 3.6rem;
             background: $G900;
             color: $white;
         }
-
         &.secondary {
             border: 1px solid $G800;
             background: $white;
             color: $G900;
+        }
+        &.dark_blue {
+            background: $DB900;
+            color: $white;
         }
     }
 

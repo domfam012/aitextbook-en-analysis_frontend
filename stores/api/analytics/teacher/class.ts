@@ -4,7 +4,13 @@ interface Class {
     dataSize: number;
     timestamp: string;
     data: {
-        name: string;
+        name: number;
+        dt: string;
+        wrdKnowCnt: number;
+        wrdLittleknowCnt: number;
+        wrdUnknownCnt: number;
+        wrdTot: number;
+        avgAnswrRt: number;
     };
 }
 
@@ -54,9 +60,12 @@ export const useApiTeacherClassStore = defineStore(
          * Touch VOCA
          * GET
          **/
-        const getClassVocaRanking = async (type: string) => {
+        const getClassVocaRanking = async (type: string, date: string) => {
             const { data } = await useCustomFetch(`${defaultUrl}/${type}`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    date: date
+                }
             });
             if (data.value) {
                 vocaState.value = data.value.data as Class;

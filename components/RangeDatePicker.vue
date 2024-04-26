@@ -8,6 +8,14 @@
                 mask: 'YYYY-MM-DD'
             }"
             :masks="{ L: 'YYYY-MM-DD', title: 'YYYY년 MMM' }"
+            @update:model-value="
+                val => {
+                    $emit('updateRange', {
+                        startDt: dayjs(val.start).format('YYYY-MM-DD'),
+                        endDt: dayjs(val.end).format('YYYY-MM-DD')
+                    });
+                }
+            "
         >
             <template #default="{ inputValue, togglePopover }">
                 <div class="date_selector">
@@ -34,10 +42,12 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+const dayjs = useDayjs();
 
 const range = ref({
     start: null,
     end: null
 });
+
+const emit = ['updateRange'];
 </script>

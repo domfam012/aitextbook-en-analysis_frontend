@@ -22,62 +22,49 @@
                             return-object
                             single-line
                             hide-details
+                            @update:model-value="handleGetAchievement"
                         ></v-select>
                     </div>
                     의 성취 기준 모아보기
                 </div>
             </v-card-title>
             <div class="mgt20">
-                <div class="d-flex align-center justify-end">
-                    <v-btn rounded flat size="small" class="primary mgr10">
-                        <i class="ico descending_white ico_size_6 mgr5"></i>
-                        단원별
-                    </v-btn>
-                    <v-btn rounded flat size="small" class="secondary">
-                        <i class="ico descending_black ico_size_6 mgr5"></i>
-                        날짜별
-                    </v-btn>
-                </div>
-
+                <v-item-group v-model="filter" class="d-flex align-center justify-end">
+                    <v-item>
+                        <v-btn
+                            rounded
+                            flat
+                            size="small"
+                            :class="isSession ? 'primary' : 'secondary'"
+                            class="mgr5"
+                            @click="() => handleFilter('session')"
+                        >
+                            <i class="ico ico_size_6 mgr5" :class="isSession ? 'descending_white' : 'descending_black'"></i>
+                            단원별
+                        </v-btn>
+                    </v-item>
+                    <v-item>
+                        <v-btn rounded flat size="small" :class="!isSession ? 'primary' : 'secondary'" @click="() => handleFilter('date')">
+                            <i class="ico ico_size_6 mgr5" :class="!isSession ? 'descending_white' : 'descending_black'"></i>
+                            날짜별
+                        </v-btn>
+                    </v-item>
+                </v-item-group>
                 <!-- 차시별 리스트 -->
                 <div class="class-box">
-                    <div class="group">
+                    <div class="group" v-for="(item, index) in myLessonState" :key="index">
                         <div class="title_box">
                             <div class="flag flag_position">
-                                <span>1차시</span>
+                                <span>{{ index + 1 }}차시</span>
                             </div>
                         </div>
                         <div class="contents">
                             <!-- 차시명 -->
                             <div class="inner_box">
                                 <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item>
-                                        <p class="tit_txt">Get Ready</p>
-                                        <p class="sub_txt">때에 맞는 인사하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Let’s Learn</p>
-                                        <p class="sub_txt">학습 내용 알아보기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Look and Think</p>
-                                        <p class="sub_txt">동영상 보고 표현 이해하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Let’s Learn</p>
-                                        <p class="sub_txt">실생활 동영상 보며 대화하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Chant</p>
-                                        <p class="sub_txt">찬트 하며 표현 익히기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Play Time 1</p>
-                                        <p class="sub_txt">몸으로 말해요</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Play Time 1</p>
-                                        <p class="sub_txt">몸으로 말해요</p>
+                                    <v-list-item v-for="(section, index) in item.sectionList" :key="index">
+                                        <p class="tit_txt">{{ section.nameEng }}</p>
+                                        <p class="sub_txt">{{ section.nameKor }}</p>
                                     </v-list-item>
                                 </v-list>
                             </div>
@@ -87,252 +74,31 @@
                                     <span class="box_bg">성취 기준</span>
                                 </div>
                                 <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item-subtitle>안부를 묻고 답하는 말을 듣고 이해할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답하는 말을 듣고 이해할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답할 수 있나요?</v-list-item-subtitle>
+                                    <v-list-item-subtitle v-for="(achievement, index) in item.achievementList" :key="index">{{
+                                        achievement
+                                    }}</v-list-item-subtitle>
                                 </v-list>
                             </div>
                             <!-- YYYY.MM.DD 체크 -->
                             <div class="date_box">
                                 <div class="tit">
-                                    <span class="box_bg">YYYY.MM.DD 체크</span>
+                                    <span class="box_bg">
+                                        <time :datetime="item.edlDtm">
+                                            {{ dayjs(item.edlDtm).format('MM월 DD일 (dd)') }}
+                                        </time>
+                                    </span>
                                 </div>
-                                <v-chip-group selected-class="active" mandatory v-model="selection" class="mgt10 py-0">
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji1"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji2"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji3"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji4"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji5"></i></v-chip>
-                                </v-chip-group>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group">
-                        <div class="title_box">
-                            <div class="flag flag_position">
-                                <span>2차시</span>
-                            </div>
-                        </div>
-                        <div class="contents">
-                            <!-- 차시명 -->
-                            <div class="inner_box">
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item>
-                                        <p class="tit_txt">Look and Say</p>
-                                        <p class="sub_txt">동영상 보고 표현 말하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Song</p>
-                                        <p class="sub_txt">Good Morning 노래 부르기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Play Time 2</p>
-                                        <p class="sub_txt">가위바위보 말판 놀이</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Around the World</p>
-                                        <p class="sub_txt">여러 나라의 아침 인사말</p>
-                                    </v-list-item>
-                                </v-list>
-                            </div>
-                            <!-- 성취기준 -->
-                            <div class="achieve_box">
-                                <div class="tit">
-                                    <span class="box_bg">성취 기준</span>
+                                <div class="d-flex justify-center mt-2">
+                                    <v-chip
+                                        class="px-1 py-1"
+                                        :class="{ active: point === item.selfCheck }"
+                                        variant="text"
+                                        color="transparent"
+                                        v-for="point in 5"
+                                        :key="point"
+                                        ><i class="ico" :class="`imoji${point}`"
+                                    /></v-chip>
                                 </div>
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item-subtitle>안부를 묻고 답하는 말을 듣고 이해할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답할 수 있나요?</v-list-item-subtitle>
-                                </v-list>
-                            </div>
-                            <!-- YYYY.MM.DD 체크 -->
-                            <div class="date_box">
-                                <div class="tit">
-                                    <span class="box_bg">YYYY.MM.DD 체크</span>
-                                </div>
-                                <v-chip-group selected-class="active" mandatory v-model="selection" class="mgt10 py-0">
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji1"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji2"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji3"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji4"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji5"></i></v-chip>
-                                </v-chip-group>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group">
-                        <div class="title_box">
-                            <div class="flag flag_position">
-                                <span>3차시</span>
-                            </div>
-                        </div>
-                        <div class="contents">
-                            <!-- 차시명 -->
-                            <div class="inner_box">
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item>
-                                        <p class="tit_txt">Get Ready</p>
-                                        <p class="sub_txt">때에 맞는 인사하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Let’s Learn</p>
-                                        <p class="sub_txt">학습 내용 알아보기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Look and Think</p>
-                                        <p class="sub_txt">동영상 보고 표현 이해하기</p>
-                                    </v-list-item>
-                                </v-list>
-                            </div>
-                            <!-- 성취기준 -->
-                            <div class="achieve_box">
-                                <div class="tit">
-                                    <span class="box_bg">성취 기준</span>
-                                </div>
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item-subtitle>
-                                        주요단어 (fine, good, great, bad, morning, afternoon, evening, night) 및 해당 단어가 포함된 문장을
-                                        읽고 쓸 수 있나요?
-                                    </v-list-item-subtitle>
-                                    <v-list-item-subtitle
-                                        >소리와 철자의 관계를 이해하며 단어 (dog, doll, tall, tiger)를 읽고 쓸 수
-                                        있나요?</v-list-item-subtitle
-                                    >
-                                </v-list>
-                            </div>
-                            <!-- YYYY.MM.DD 체크 -->
-                            <div class="date_box">
-                                <div class="tit">
-                                    <span class="box_bg">YYYY.MM.DD 체크</span>
-                                </div>
-                                <v-chip-group selected-class="active" mandatory v-model="selection" class="mgt10 py-0">
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji1"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji2"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji3"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji4"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji5"></i></v-chip>
-                                </v-chip-group>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group">
-                        <div class="title_box">
-                            <div class="flag flag_position">
-                                <span>4차시</span>
-                            </div>
-                        </div>
-                        <div class="contents">
-                            <!-- 차시명 -->
-                            <div class="inner_box">
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item>
-                                        <p class="tit_txt">Look and Say</p>
-                                        <p class="sub_txt">동여상 보고 표현 말하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Song</p>
-                                        <p class="sub_txt">Good Morning 노래 부르기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Play Time 2</p>
-                                        <p class="sub_txt">가위바위보 말판 놀이</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Around the World</p>
-                                        <p class="sub_txt">여러 나라의 아침 인사말</p>
-                                    </v-list-item>
-                                </v-list>
-                            </div>
-                            <!-- 성취기준 -->
-                            <div class="achieve_box">
-                                <div class="tit">
-                                    <span class="box_bg">성취 기준</span>
-                                </div>
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item-subtitle>안부를 묻고 답하는 말을 듣고 이해할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답할 수 있나요?</v-list-item-subtitle>
-                                </v-list>
-                            </div>
-                            <!-- YYYY.MM.DD 체크 -->
-                            <div class="date_box">
-                                <div class="tit">
-                                    <span class="box_bg">YYYY.MM.DD 체크</span>
-                                </div>
-                                <v-chip-group selected-class="active" mandatory v-model="selection" class="mgt10 py-0">
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji1"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji2"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji3"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji4"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji5"></i></v-chip>
-                                </v-chip-group>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group">
-                        <div class="title_box">
-                            <div class="flag flag_position">
-                                <span>5차시</span>
-                            </div>
-                        </div>
-                        <div class="contents">
-                            <!-- 차시명 -->
-                            <div class="inner_box">
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item>
-                                        <p class="tit_txt">Get Ready</p>
-                                        <p class="sub_txt">때에 맞는 인사하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Let’s Learn</p>
-                                        <p class="sub_txt">학습 내용 알아보기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Look and Think</p>
-                                        <p class="sub_txt">동영상 보고 표현 이해하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Let’s Learn</p>
-                                        <p class="sub_txt">실생활 동영상 보며 대화하기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Chant</p>
-                                        <p class="sub_txt">찬트 하며 표현 익히기</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Play Time 1</p>
-                                        <p class="sub_txt">몸으로 말해요</p>
-                                    </v-list-item>
-                                    <v-list-item>
-                                        <p class="tit_txt">Play Time 1</p>
-                                        <p class="sub_txt">몸으로 말해요</p>
-                                    </v-list-item>
-                                </v-list>
-                            </div>
-                            <!-- 성취기준 -->
-                            <div class="achieve_box">
-                                <div class="tit">
-                                    <span class="box_bg">성취 기준</span>
-                                </div>
-                                <v-list variant="flat" class="pa-0" density="compact">
-                                    <v-list-item-subtitle>안부를 묻고 답하는 말을 듣고 이해할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답하는 말을 듣고 이해할 수 있나요?</v-list-item-subtitle>
-                                    <v-list-item-subtitle>안부를 묻고 답할 수 있나요?</v-list-item-subtitle>
-                                </v-list>
-                            </div>
-                            <!-- YYYY.MM.DD 체크 -->
-                            <div class="date_box">
-                                <div class="tit">
-                                    <span class="box_bg">YYYY.MM.DD 체크</span>
-                                </div>
-                                <v-chip-group selected-class="active" mandatory v-model="selection" class="mgt10 py-0">
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji1"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji2"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji3"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji4"></i></v-chip>
-                                    <v-chip variant="text" color="transparent"><i class="ico imoji5"></i></v-chip>
-                                </v-chip-group>
                             </div>
                         </div>
                     </div>
@@ -344,9 +110,35 @@
 
 <script setup>
 import { ref } from 'vue';
-const selection = ref(0);
+const dayjs = useDayjs();
+
 const { modalData, closeModal } = useModalStore();
 
-const select = ref({ state: 'Lesson 1' });
-const items = ref([{ state: 'Lesson 1' }, { state: 'Lesson 2' }, { state: 'Lesson 3' }, { state: 'Lesson 4' }, { state: 'Lesson 5' }]);
+const filter = ref('session');
+const isSession = computed(() => filter.value === 'session');
+
+const handleFilter = type => {
+    filter.value = type;
+    handleGetAchievement();
+};
+
+const select = ref({ state: 'Lesson 1', value: 1 });
+const items = ref([
+    { state: 'Lesson 1', value: 1 },
+    { state: 'Lesson 2', value: 2 },
+    { state: 'Lesson 3', value: 3 },
+    { state: 'Lesson 4', value: 4 },
+    { state: 'Lesson 5', value: 5 }
+]);
+
+const myLessonStore = useApiMyLessonStore();
+const { myLessonState } = storeToRefs(myLessonStore);
+
+const handleGetAchievement = async () => {
+    myLessonStore.getMyLessonAchievementCriteria(select.value.value, filter.value);
+};
+
+onMounted(() => {
+    handleGetAchievement();
+});
 </script>

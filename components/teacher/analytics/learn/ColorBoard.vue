@@ -59,19 +59,20 @@ const stampSrc = computed(() => {
     flex-wrap: wrap;
 
     &.paintable {
-        max-width: 51.3rem;
-        height: 51.3rem;
+        max-width: 49.4rem;
+        max-height: 49.4rem;
+        // height: 51.3rem;
         height: 100%;
         .grid {
-            width: 2.7rem;
-            height: 2.7rem;
+            width: 2.6rem;
+            height: 2.6rem;
         }
     }
 
     .grid {
         width: 1.3rem;
         height: 1.3rem;
-        border: 1px solid black;
+        border: 0.5px solid black;
         cursor: pointer;
     }
 

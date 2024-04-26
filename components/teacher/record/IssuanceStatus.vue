@@ -66,10 +66,13 @@
     </v-card>
 </template>
 <script setup>
-const { issuanceStatus, clampType } = storeToRefs(useApiRecordStore());
+const { issuanceStatus, clampType, selectedStudentIndex } = storeToRefs(useApiRecordStore());
+const { isEditMode } = storeToRefs(useApiRecordGradeStore());
 
 const changeClamp = clamp => {
     clampType.value = clamp;
+    selectedStudentIndex.value = 0;
+    isEditMode.value = false;
 };
 
 onMounted(async () => {
