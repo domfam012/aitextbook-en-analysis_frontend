@@ -9,7 +9,9 @@
             <v-card-item>
                 <v-card-title>
                     <span>로그인 횟수와 총 학습 시간</span>
-                    <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                    <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        ><i class="ico tool_delete ico_size_10"
+                    /></v-btn>
                 </v-card-title>
             </v-card-item>
             <v-container fluid class="card_items gutter_3">
@@ -107,7 +109,9 @@
                 <v-card-item>
                     <v-card-title>
                         <span>영역별 학업 성취율</span>
-                        <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </v-card-title>
                 </v-card-item>
                 <v-container v-if="Object.keys(radarChart).length > 0" fluid>
@@ -142,7 +146,9 @@
                 <v-card-item>
                     <v-card-title>
                         <span>단원별 학업 성취율</span>
-                        <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid>
@@ -160,7 +166,9 @@
                 <v-card-item>
                     <v-card-title>
                         <span>단어 학습 진단</span>
-                        <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid>
@@ -174,7 +182,9 @@
                 <v-card-item>
                     <v-card-title>
                         <span>요일별 평균 학습 시간</span>
-                        <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid>
@@ -189,7 +199,9 @@
                 <v-card-item>
                     <v-card-title>
                         <span>감정 날씨_학기 총계</span>
-                        <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </v-card-title>
                 </v-card-item>
                 <v-container v-if="Object.keys(weatherChart).length > 0" fluid class="chart_simple_donut">
@@ -203,7 +215,9 @@
                 <v-card-item>
                     <v-card-title>
                         <span>학습 정서_학기 평균</span>
-                        <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </v-card-title>
                 </v-card-item>
                 <v-container v-if="Object.keys(emotionChart).length > 0" fluid>
@@ -260,7 +274,9 @@
             <v-card-item>
                 <v-card-title>
                     <span>{{ mode === 'student' ? user.name : '' }} 학생이 한 학기 동안 꾸민 색칠 도안입니다.</span>
-                    <v-btn v-if="mode.teacher" class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
+                    <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        ><i class="ico tool_delete ico_size_10"
+                    /></v-btn>
                 </v-card-title>
             </v-card-item>
             <v-container fluid class="coloring_design">
@@ -285,7 +301,8 @@
 </template>
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
-const { user, mode } = storeToRefs(useApiUserStore());
+const { mode } = storeToRefs(useApiUserStore());
+const { user } = storeToRefs(useApiUserStore());
 const { completionState } = storeToRefs(useApiCompletionStore());
 const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
 const { learningHistoryCollection, achievementByArea, dayChart, wordChart, emotionChart, weatherChart, radarChart } =
@@ -293,7 +310,6 @@ const { learningHistoryCollection, achievementByArea, dayChart, wordChart, emoti
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 
 onMounted(async () => {
-    console.log(mode.value);
     if (mode.value === 'student') {
         await useApiRecordHistoryStore().getAchievementByArea(user.value.semester, user.value.studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(user.value.semester, user.value.studentId);
