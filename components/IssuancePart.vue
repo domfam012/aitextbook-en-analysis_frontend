@@ -160,7 +160,7 @@
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid>
-                    <ChartBasicBar />
+                    <ChartBasicBar :item="wordChart" />
                 </v-container>
             </v-card>
             <!-- // 단어 학습 진단 -->
@@ -174,7 +174,7 @@
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid>
-                    <chartBasicBar :solidColor="true" />
+                    <chartBasicBar :solidColor="true" :item="dayChart" />
                 </v-container>
             </v-card>
             <!-- // 누적 학습 시간 -->
@@ -324,8 +324,10 @@
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
 const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
-const { learningHistoryCollection } = storeToRefs(useApiRecordHistoryStore());
+const { learningHistoryCollection, dayChart, wordChart } = storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
+const wrdData = ref([]);
+const lrnTimeData = ref([]);
 
 onMounted(async () => {
     if (clampType.value === 'clamp_left') {
@@ -338,8 +340,8 @@ onMounted(async () => {
     if (clampType.value === 'clamp_right') {
         await useApiCompletionStore().getStudentList();
     }
-    basicChart();
 });
+
 // 데이터값을 시간 형식으로 변환하는 계산된 속성
 const formattedCorsTotTime = item => {
     const Time = item;
@@ -407,26 +409,5 @@ const chartData = {
             spacing: 5
         }
     ]
-};
-const basicChart = () => {
-    learningHistoryCollection?.value.map(item => {
-        return {
-            wrdData: [
-                { value: item.wrdPrfctUndrsUseCnt, color: 'color-1', label: '잘이해하고 활용한 단어' },
-                { value: item.wrdExprsUndrsUnsdCnt, color: 'color-2', label: '이해했으나 활용하지 못한 단어' },
-                { value: item.wrdWrongExprsUndrsCnt, color: 'color-3', label: '조금만 더학습하면 좋을 단어' },
-                { value: item.wrdSplngWrongKnowCnt, color: 'color-4', label: '더열심히 학습해야 할 단어' },
-                { value: item.wrdLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
-            ],
-            lrnTimeData: [
-                { value: 50, color: 'color-1', label: '범례1' },
-                { value: 50, color: 'color-2', label: '범례1' },
-                { value: 50, color: 'color-3', label: '범례1' },
-                { value: 50, color: 'color-4', label: '범례1' },
-                { value: 80, color: 'color-5', label: '범례1' },
-                { value: 80, color: 'color-6', label: '범례1' }
-            ]
-        };
-    });
 };
 </script>

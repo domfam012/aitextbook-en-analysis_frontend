@@ -45,6 +45,9 @@ export const useApiRecordHistoryStore = defineStore(
          * [교사] 학습 이력 수집
          * API 연동 완료
          */
+
+        const wordChart = ref([]);
+        const dayChart = ref([]);
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollection`, {
@@ -54,10 +57,24 @@ export const useApiRecordHistoryStore = defineStore(
                     studUuid: studUuid
                 }
             });
-            console.log(data);
-
             if (data.value) {
                 learningHistoryCollection.value = data.value.data as Record;
+                const item = learningHistoryCollection.value;
+                wordChart.value = [
+                    { value: item.wrdPrfctUndrsUseCnt, color: 'color-1', label: '잘이해하고 활용한 단어' },
+                    { value: item.wrdExprsUndrsUnsdCnt, color: 'color-2', label: '이해했으나 활용하지 못한 단어' },
+                    { value: item.wrdWrongExprsUndrsCnt, color: 'color-3', label: '조금만 더학습하면 좋을 단어' },
+                    { value: item.wrdSplngWrongKnowCnt, color: 'color-4', label: '더열심히 학습해야 할 단어' },
+                    { value: item.wrdLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
+                ];
+                dayChart.value = [
+                    { value: item.lrnTimeMon, color: 'color-1', label: '월요일' },
+                    { value: item.lrnTimeTues, color: 'color-2', label: '화요일' },
+                    { value: item.lrnTimeWed, color: 'color-3', label: '수요일' },
+                    { value: item.lrnTimeThur, color: 'color-4', label: '목요일' },
+                    { value: item.lrnTimeFri, color: 'color-5', label: '금요일' },
+                    { value: item.lrnTimeSatSun, color: 'color-6', label: '토요일, 일요일' }
+                ];
             }
         };
 
@@ -187,6 +204,8 @@ export const useApiRecordHistoryStore = defineStore(
         return {
             //[교사] 학습이력수집
             achievementByArea,
+            dayChart,
+            wordChart,
             achievementByUnit,
             learningHistoryCollectionStudent,
             learningHistoryCollection,
