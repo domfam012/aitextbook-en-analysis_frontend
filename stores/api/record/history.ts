@@ -17,9 +17,10 @@ export const useApiRecordHistoryStore = defineStore(
          * [교사] 영역별 학업 성취율
          */
         const achievementByArea = ref<Record>();
-        const getAchievementByArea = async () => {
+        const getAchievementByArea = async params => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
-                method: 'get'
+                method: 'get',
+                query: params
             });
 
             if (data.value) {
@@ -31,9 +32,10 @@ export const useApiRecordHistoryStore = defineStore(
          * [교사] 단원별 학업 성취율
          */
         const achievementByUnit = ref<Record>();
-        const getAchievementByUnit = async () => {
+        const getAchievementByUnit = async params => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
-                method: 'get'
+                method: 'get',
+                query: params
             });
 
             if (data.value) {

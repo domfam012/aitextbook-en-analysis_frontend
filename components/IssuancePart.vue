@@ -102,7 +102,7 @@
             <v-card elevation="0" class="type_record">
                 <v-card-item>
                     <v-card-title>
-                        <span>영역별 학업성취율</span>
+                        <span>영역별 학업 성취율</span>
                         <v-btn class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
                     </v-card-title>
                 </v-card-item>
@@ -137,7 +137,7 @@
             <v-card elevation="0" class="type_record">
                 <v-card-item>
                     <v-card-title>
-                        <span>단원별 학업성취율</span>
+                        <span>단원별 학업 성취율</span>
                         <v-btn class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
                     </v-card-title>
                 </v-card-item>

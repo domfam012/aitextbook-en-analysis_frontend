@@ -20,6 +20,8 @@ const data1 = {
         curiViewYn: 1, // 큐리여부
         curiLoginTot: 37, // 큐리로그인횟수
         curiTotTime: 330, // 큐리총학습시간
+        areaAchvViewYn: 1, // 영역별 성취율여부,
+        chapterAchvViewYn: 1, // 단원별 성취율여부,
         wrdViewYn: 1, // 단어 학습진단 여부
         wrdPrfctUndrsUseCnt: 25, // 잘이해하고 활용한 단어
         wrdExprsUndrsUnsdCnt: 8, // 이해했으나 활용하지 못한 단어
@@ -71,6 +73,8 @@ const data2 = {
         curiViewYn: 1, // 큐리여부
         curiLoginTot: 27, // 큐리로그인횟수
         curiTotTime: 130, // 큐리총학습시간
+        areaAchvViewYn: 1, // 영역별 성취율여부,
+        chapterAchvViewYn: 1, // 단원별 성취율여부,
         wrdViewYn: 1, // 단어 학습진단 여부
         wrdPrfctUndrsUseCnt: 15, // 잘이해하고 활용한 단어
         wrdExprsUndrsUnsdCnt: 18, // 이해했으나 활용하지 못한 단어
@@ -122,6 +126,8 @@ const data3 = {
         curiViewYn: 1, // 큐리여부
         curiLoginTot: 25, // 큐리로그인횟수
         curiTotTime: 320, // 큐리총학습시간
+        areaAchvViewYn: 1, // 영역별 성취율여부,
+        chapterAchvViewYn: 1, // 단원별 성취율여부,
         wrdViewYn: 1, // 단어 학습진단 여부
         wrdPrfctUndrsUseCnt: 65, // 잘이해하고 활용한 단어
         wrdExprsUndrsUnsdCnt: 28, // 이해했으나 활용하지 못한 단어
