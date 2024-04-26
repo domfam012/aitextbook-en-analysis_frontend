@@ -31,6 +31,7 @@ export const useApiRecordGradeStore = defineStore(
          * [교사] 개인별 평어 목록
          */
         const personalListOfQualification = ref<StudentList>();
+
         const getPersonalListOfQualification = async (params: object) => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/personalListOfQualification`, {
                 method: 'get',
@@ -74,9 +75,9 @@ export const useApiRecordGradeStore = defineStore(
          * [교사] 개인별 평어 저장
          */
         const putSaveIndividualEdits = async (params: Record) => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/saveIndividualEdits`, {
+            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/saveIndividualEdits`, {
                 method: 'put',
-                params: params
+                body: JSON.stringify(params)
             });
         };
 
@@ -84,9 +85,9 @@ export const useApiRecordGradeStore = defineStore(
          * [교사] 텍스트 편집 저장
          */
         const putSaveTextEdits = async (params: Record) => {
-            const { data } = await useCustomFetch(`/teacher/teacher/dashboard/schoolReport/saveTextEdits`, {
+            const { data } = await useCustomFetch(`${basetUrl}/teacher/teacher/dashboard/schoolReport/saveTextEdits`, {
                 method: 'put',
-                params: params
+                body: JSON.stringify(params)
             });
         };
 

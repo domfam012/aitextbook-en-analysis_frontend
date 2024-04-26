@@ -1,6 +1,6 @@
 <template>
     <div class="grade">
-        <div class="top d-flex">
+        <div v-if="isEditMode" class="top d-flex">
             <div class="type d-flex align-center">
                 <p class="">평어 유형</p>
                 <v-btn-toggle v-model="unitType" @update:modelValue="val => console.log(val)" class="d-flex" mandatory density="compact">
@@ -14,8 +14,9 @@
     </div>
 </template>
 <script setup>
-const unitType = ref(0);
+const { isEditMode } = storeToRefs(useApiRecordStore());
 const { qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
+const unitType = ref(0);
 
 onMounted(async () => {
     // [교사] 단원별 평어 작성_학생 목록 조회
@@ -28,7 +29,5 @@ onMounted(async () => {
         orderLEsson: 'asc',
         orderLevel: 'desc'
     });
-    // [교사] 개인별 평어 편집 조회
-    // await useApiRecordGradeStore().getIndividualEditsSearch();
 });
 </script>

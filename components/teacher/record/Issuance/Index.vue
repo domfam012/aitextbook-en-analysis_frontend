@@ -15,18 +15,14 @@
             <div class="student-num">
                 <v-card :elevation="0" color="transparent">
                     <v-btn-toggle
-                        v-model="selectedStudent"
+                        v-model="selectedStudentIndex"
                         class="d-flex flex-column"
                         mandatory
-                        @update:modelValue="handleChangeStudent($event)"
+                        @update:modelValue="handleChangeStudent"
                     >
-                        <template
-                            v-for="item in isEditMode && clampType === 'clamp_center'
-                                ? studentList.filter((student, idx) => idx === selectedStudent)
-                                : studentList"
-                        >
+                        <template v-for="(item, idx) in studentList">
                             <!-- !disabled 처리로 하면 안됨, 클릭은 가능해야함 (기획참고) -->
-                            <v-btn rounded flat height="4.6rem" :disabled="item.writeFlag">
+                            <v-btn v-show="!isEditMode || idx === selectedStudentIndex" rounded flat height="4.6rem">
                                 <div class="avatar avatar-box">
                                     <div class="avatar-info">
                                         <span class="info_number">{{ item.studId }}</span>
@@ -48,8 +44,8 @@
         </div>
         <div v-if="clampType === 'clamp_center'" class="mgt30 gap1 d-flex justify-center position-relative">
             <v-btn @click="cancelMode" rounded flat size="large" class="outlined">취소</v-btn>
-            <v-btn rounded flat size="large" class="primary">저장</v-btn>
-            <v-btn @click="isEditMode = !isEditMode" rounded flat size="large" class="primary position-absolute" style="right: 0">{{
+            <v-btn @click="handleSubmit" rounded flat size="large" class="primary">저장</v-btn>
+            <v-btn @click="handleEditMode" rounded flat size="large" class="primary position-absolute" style="right: 0">{{
                 isEditMode ? '편집 초기화' : '텍스트 편집'
             }}</v-btn>
         </div>
@@ -59,29 +55,27 @@
 <script setup>
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const { completionStudent } = storeToRefs(useApiCompletionStore());
-const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
-const { isEditMode, qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
+const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
+const { isEditMode, qualificationByUnitStudentList, personalListOfQualification } = storeToRefs(useApiRecordGradeStore());
 
-const selectedStudent = ref(0);
+const handleChangeStudent = async () => {
+    const studentId = studentList.value[selectedStudentIndex.value].studUuid;
+    const studentSemId = issuanceStatus.value.currentSemester;
 
-const handleChangeStudent = async studentIndex => {
     // 학생 선택 이벤트
     if (clampType.value === 'clamp_left') {
-        await useApiRecordHistoryStore().getLearningHistoryCollection(
-            issuanceStatus.value.currentSemester,
-            studentList.value[selectedStudent.value].studUuid
-        );
+        await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
+        await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
     } else if (clampType.value === 'clamp_center') {
         // [교사] 개인별 평어 목록
         await useApiRecordGradeStore().getPersonalListOfQualification({
-            studUuid: qualificationByUnitStudentList.value[studentIndex].studUuid,
+            studUuid: qualificationByUnitStudentList.value[selectedStudentIndex.value]?.studUuid,
             semId: '1',
             divisionCode: 'A',
             orderLEsson: 'asc',
             orderLevel: 'desc'
         });
     } else if (clampType.value === 'clamp_right') {
-        console.log(studentIndex);
     }
 };
 
@@ -97,10 +91,57 @@ const studentList = computed(() => {
 
 /**
  * 취소 버튼
- * @param mode
  */
 const cancelMode = () => {
-    selectedStudent.value = 0;
+    selectedStudentIndex.value = 0;
+    handleChangeStudent(0);
     isEditMode.value = false;
+};
+
+/**
+ * 저장 버튼
+ */
+const handleSubmit = async () => {
+    if (isEditMode.value) {
+        await useApiRecordGradeStore().putSaveTextEdits(
+            personalListOfQualification.value
+                .filter(data => data.flag)
+                .map(data => {
+                    return {
+                        semId: issuanceStatus.value.currentSemester,
+                        studUuid: studentList.value[selectedStudentIndex.value]?.studUuid,
+                        chId: data.chId,
+                        lrnGrwthIssue: data.sentence
+                    };
+                })
+        );
+        isEditMode.value = false;
+    } else {
+        await useApiRecordGradeStore().putSaveIndividualEdits(
+            personalListOfQualification.value
+                .filter(data => data.flag)
+                .map(data => {
+                    return {
+                        semId: issuanceStatus.value.currentSemester,
+                        studUuid: studentList.value[selectedStudentIndex.value]?.studUuid,
+                        evaluationSentenceId: data.evaluationSentenceId
+                    };
+                })
+        );
+    }
+};
+
+/**
+ * 텍스트 편집, 편집 초기화 버튼
+ */
+// const copyPersonalListOfQualification = ref([]);
+const handleEditMode = () => {
+    if (isEditMode.value) {
+        // console.log(copyPersonalListOfQualification.value);
+        // personalListOfQualification.value = prevList.value.filter(data => data.flag);
+    } else {
+        // copyPersonalListOfQualification.value = JSON.parse(JSON.stringify(personalListOfQualification.value));
+        isEditMode.value = true;
+    }
 };
 </script>

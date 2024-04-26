@@ -9,7 +9,7 @@ export const useApiRecordStore = defineStore(
     'apiRecord',
     () => {
         const clampType = ref('clamp_left');
-
+        const selectedStudentIndex = ref(0);
         /**
          * [교사] 목록 (학습 이력, 단원별 평어 작성, 발행 완료 건수)
          */
@@ -27,6 +27,7 @@ export const useApiRecordStore = defineStore(
 
         return {
             clampType,
+            selectedStudentIndex,
             issuanceStatus,
             getIssuanceStatus
         };

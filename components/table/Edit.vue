@@ -2,12 +2,12 @@
     <!-- 테이블 -->
     <div class="grade">
         <v-card>
-            <v-btn v-if="!isEditMode" @click="handleRestSelectedItem" rounded flat size="x-small" class="primary position-absolute"
+            <v-btn v-if="!isEditMode" @click="handleResetSelectedItem" rounded flat size="x-small" class="primary position-absolute"
                 >선택 초기화</v-btn
             >
             <v-data-table
                 :headers="achievementHeaders"
-                :items="personalListOfQualification"
+                :items="isEditMode ? personalListOfQualification.filter(data => data.flag) : personalListOfQualification"
                 item-value="number"
                 expand-on-click
                 class="color_gray type_center"
@@ -25,8 +25,8 @@
                         </td>
                         <template v-if="isEditMode">
                             <v-textarea
+                                v-model="item.sentence"
                                 class="no-border"
-                                :model-value="item.text"
                                 variant="solo"
                                 :elevation="0"
                                 no-resize
@@ -51,12 +51,13 @@
 </template>
 
 <script setup>
-const { isEditMode, personalListOfQualification } = storeToRefs(useApiRecordGradeStore());
+const { isEditMode, personalListOfQualification, qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
+const { selectedStudentIndex } = storeToRefs(useApiRecordStore());
 
 const itemPerPage = 25;
 const achievementHeaders = [
-    { title: 'Lesson', key: 'lesson' },
-    { title: '수준', key: 'level' },
+    { title: 'Lesson', key: 'chNumber' },
+    { title: '수준', key: 'levelName' },
     { title: '교과 학습 발달 사항', key: 'text', sortable: false }
 ];
 
@@ -76,9 +77,9 @@ const handleSelectItem = (item, index) => {
 /**
  * 선택한 셀 초기화
  */
-const handleRestSelectedItem = () => {
-    useApiRecordGradeStore().getPersonalListOfQualification({
-        studUuid: qualificationByUnitStudentList.value[studentIndex].studUuid,
+const handleResetSelectedItem = async () => {
+    await useApiRecordGradeStore().getPersonalListOfQualification({
+        studUuid: qualificationByUnitStudentList.value[selectedStudentIndex.value].studUuid,
         semId: '1',
         divisionCode: 'A',
         orderLEsson: 'asc',
