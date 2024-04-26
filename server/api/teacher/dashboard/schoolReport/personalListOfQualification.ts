@@ -2,7 +2,7 @@ const dataList1 = [
     {
         chId: 352,
         chNumber: 1,
-        chName: 'What Time Is It?',
+        chName: '정우성 What Time Is It?',
         level: 3,
         levelName: '하',
         sentence:
@@ -180,7 +180,7 @@ const dataList2 = [
     {
         chId: 352,
         chNumber: 1,
-        chName: 'What Time Is It?',
+        chName: '차은우 What Time Is It?',
         level: 3,
         levelName: '하',
         sentence:
@@ -358,7 +358,7 @@ const dataList3 = [
     {
         chId: 352,
         chNumber: 1,
-        chName: 'What Time Is It?',
+        chName: '박보검 What Time Is It?',
         level: 3,
         levelName: '하',
         sentence:

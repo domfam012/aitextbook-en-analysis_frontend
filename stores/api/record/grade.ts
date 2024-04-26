@@ -31,12 +31,10 @@ export const useApiRecordGradeStore = defineStore(
          * [교사] 개인별 평어 목록
          */
         const personalListOfQualification = ref<StudentList>();
-        const getPersonalListOfQualification = async (params: string) => {
+        const getPersonalListOfQualification = async (params: object) => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/personalListOfQualification`, {
                 method: 'get',
-                query: {
-                    params
-                }
+                query: params
             });
 
             if (data.value) {

@@ -20,7 +20,12 @@
                         mandatory
                         @update:modelValue="handleChangeStudent($event)"
                     >
-                        <template v-for="item in studentList">
+                        <template
+                            v-for="item in isEditMode && clampType === 'clamp_center'
+                                ? studentList.filter((student, idx) => idx === selectedStudent)
+                                : studentList"
+                        >
+                            <!-- !disabled 처리로 하면 안됨, 클릭은 가능해야함 (기획참고) -->
                             <v-btn rounded flat height="4.6rem" :disabled="item.writeFlag">
                                 <div class="avatar avatar-box">
                                     <div class="avatar-info">
@@ -67,7 +72,14 @@ const handleChangeStudent = async studentIndex => {
             studentList.value[selectedStudent.value].studUuid
         );
     } else if (clampType.value === 'clamp_center') {
-        console.log(studentIndex);
+        // [교사] 개인별 평어 목록
+        await useApiRecordGradeStore().getPersonalListOfQualification({
+            studUuid: qualificationByUnitStudentList.value[studentIndex].studUuid,
+            semId: '1',
+            divisionCode: 'A',
+            orderLEsson: 'asc',
+            orderLevel: 'desc'
+        });
     } else if (clampType.value === 'clamp_right') {
         console.log(studentIndex);
     }
@@ -90,9 +102,5 @@ const studentList = computed(() => {
 const cancelMode = () => {
     selectedStudent.value = 0;
     isEditMode.value = false;
-};
-
-const changeClamp = clamp => {
-    clampType.value = clamp;
 };
 </script>
