@@ -50,6 +50,7 @@ export const useApiRecordHistoryStore = defineStore(
 
         const wordChart = ref([]);
         const dayChart = ref([]);
+        const emotionChart = ref({});
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollection`, {
@@ -77,6 +78,36 @@ export const useApiRecordHistoryStore = defineStore(
                     { value: item.lrnTimeFri, color: 'color-5', label: '금요일' },
                     { value: item.lrnTimeSatSun, color: 'color-6', label: '토요일, 일요일' }
                 ];
+                emotionChart.value = {
+                    labels: [['즐거움'], ['자부심'], ['두려움'], ['화, 절망감'], ['지루함'], ['학습환경', '불안감']],
+                    datasets: [
+                        {
+                            data: [
+                                item.emtJoyScale,
+                                item.emtPrideScale,
+                                item.emtFearScale,
+                                item.emtAngryScale,
+                                item.emtBrdmScale,
+                                item.emtAnxtyScale
+                            ],
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'end',
+                                offset: 10,
+                                font: {
+                                    weight: 500,
+                                    size: 20,
+                                    lineHeight: '26px',
+                                    family: '"NotoSansKR", sans-serif'
+                                }
+                            },
+                            backgroundColor: ['#42C5B1', '#46A7E5', '#636DC4', '#FD6E7F', '#B0B0B0', '#FFBF00'],
+                            stack: 'word',
+                            categoryPercentage: 1,
+                            barThickness: 40
+                        }
+                    ]
+                };
             }
         };
 
@@ -208,6 +239,7 @@ export const useApiRecordHistoryStore = defineStore(
             achievementByArea,
             dayChart,
             wordChart,
+            emotionChart,
             achievementByUnit,
             learningHistoryCollectionStudent,
             learningHistoryCollection,

@@ -400,10 +400,6 @@ const chartData = {
                 display: 'true',
                 color: '#171717',
                 align: 'middle',
-                formatter: function (value, context) {
-                    return value;
-                },
-                textAlign: 'center',
                 font: {
                     family: 'NotoSansKR',
                     size: '20',

@@ -23,7 +23,6 @@
 </template>
 
 <script setup>
-const { dayChart, wordChart } = storeToRefs(useApiRecordHistoryStore());
 const props = defineProps({
     // 차트 단색 옵션
     solidColor: {
