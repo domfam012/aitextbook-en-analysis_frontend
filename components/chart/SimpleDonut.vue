@@ -1,16 +1,14 @@
 <template>
     <div class="chart_contents type_simple_donut">
-        <!-- <canvas ref="chart"></canvas> -->
-        <Doughnut :data="chartData" :options="chartOptions"></Doughnut>
+        <Doughnut :data="weatherChart" :options="chartOptions"></Doughnut>
     </div>
 </template>
 
 <script setup>
 import { Doughnut } from 'vue-chartjs';
 const props = defineProps({
-    chartData: Object
+    weatherChart: Object
 });
-// const { $Chart } = useNuxtApp();
 const chart = ref(null);
 const chartOptions = ref({
     plugins: {
@@ -34,11 +32,4 @@ const chartOptions = ref({
         }
     }
 });
-
-// onMounted(() => {
-//     new $Chart(chart.value, {
-//         data: props.chartData,
-//         options: chartOptions.value
-//     });
-// });
 </script>

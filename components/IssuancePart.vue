@@ -192,8 +192,8 @@
                         <v-btn class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
                     </v-card-title>
                 </v-card-item>
-                <v-container fluid class="chart_simple_donut">
-                    <ChartSimpleDonut :chartData="chartData" />
+                <v-container v-if="Object.keys(weatherChart).length > 0" fluid class="chart_simple_donut">
+                    <ChartSimpleDonut :weather-chart="weatherChart" />
                 </v-container>
             </v-card>
             <!-- // 감정 날씨_학기 총계 -->
@@ -328,11 +328,8 @@
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
 const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
-const { learningHistoryCollection, dayChart, wordChart, emotionChart } = storeToRefs(useApiRecordHistoryStore());
+const { learningHistoryCollection, dayChart, wordChart, emotionChart, weatherChart } = storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
-const wrdData = ref([]);
-const lrnTimeData = ref([]);
-
 onMounted(async () => {
     if (clampType.value === 'clamp_left') {
         await useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
@@ -385,28 +382,6 @@ const chartRadarData = {
             pointStyle: 'circle',
             pointBackgroundColor: '#FFBF00',
             backgroundColor: 'transparent'
-        }
-    ]
-};
-const chartData = {
-    labels: ['맑음', '흐리고 비', '흐리고 천둥', '바람 많이', '무응답', '흐린 뒤 갬', '맑았다 흐림', '폭우', '흐리고 눈'],
-    datasets: [
-        {
-            type: 'doughnut',
-            label: '맑음',
-            data: [10, 5, 5, 5, 4, 4, 7, 4, 3],
-            backgroundColor: ['#67CCEE', '#F5B659', '#FF7283', '#59D8AF', '#D0D0D0', '#8EC536', '#AB8FFD', '#F5E3AE', '#EEA0D0'],
-            datalabels: {
-                display: 'true',
-                color: '#171717',
-                align: 'middle',
-                font: {
-                    family: 'NotoSansKR',
-                    size: '20',
-                    weight: '700'
-                }
-            },
-            spacing: 5
         }
     ]
 };
