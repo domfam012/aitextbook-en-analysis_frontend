@@ -206,7 +206,7 @@
                         <v-btn class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
                     </v-card-title>
                 </v-card-item>
-                <v-container fluid>
+                <v-container v-if="Object.keys(emotionChart).length > 0" fluid>
                     <ChartColumnBar />
                 </v-container>
             </v-card>
@@ -328,7 +328,7 @@
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
 const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
-const { learningHistoryCollection, dayChart, wordChart } = storeToRefs(useApiRecordHistoryStore());
+const { learningHistoryCollection, dayChart, wordChart, emotionChart } = storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const wrdData = ref([]);
 const lrnTimeData = ref([]);

@@ -14,30 +14,6 @@ const { $Chart } = useNuxtApp();
 const chart = ref('null');
 const { emotionChart } = storeToRefs(useApiRecordHistoryStore());
 
-// const chartData = ref({
-//     labels: [['즐거움'], ['자부심'], ['두려움'], ['화, 절망감'], ['지루함'], ['학습환경', '불안감']],
-//     datasets: [
-//         {
-//             data: [4.5, 4.2, 1.2, 0.9, 2.3, 1.4],
-//             datalabels: {
-//                 anchor: 'end',
-//                 align: 'end',
-//                 offset: 10,
-//                 font: {
-//                     weight: 500,
-//                     size: 20,
-//                     lineHeight: '26px',
-//                     family: '"NotoSansKR", sans-serif'
-//                 }
-//             },
-//             backgroundColor: ['#42C5B1', '#46A7E5', '#636DC4', '#FD6E7F', '#B0B0B0', '#FFBF00'],
-//             stack: 'word',
-//             categoryPercentage: 1,
-//             barThickness: 40
-//         }
-//     ]
-// });
-
 const chartOptions = ref({
     chartArea: {
         backgroundColor: '#F8F8F8'
@@ -122,11 +98,12 @@ const chartOptions = ref({
 const plugin = {
     id: 'custom_canvas_background_color',
     beforeDraw: (chart, args, options) => {
-        if (chart.options.chartArea && chart.options.chartArea.backgroundColor) {
+        if (chart.data.datasets[0]?.data && chart.options.chartArea && chart.options.chartArea.backgroundColor) {
             var ctx = chart.ctx;
             var chartArea = chart.chartArea;
-            var values = chart.data.datasets[0].data;
-            var rowCount = Math.ceil(Math.max.apply(null, values) / 0.9);
+            var values = chart.data.datasets[0]?.data;
+            // var rowCount = Math.ceil(Math.max.apply(null, values) / 0.9);
+            var rowCount = 6;
             var width = chartArea.right - chartArea.left;
             var height = chartArea.bottom - chartArea.top;
             var rowHeight = height / rowCount;
@@ -142,13 +119,26 @@ const plugin = {
     }
 };
 
+let chartInstance = null;
+watch(
+    () => emotionChart.value,
+    () => {
+        if (chartInstance && emotionChart.value) {
+            chartInstance.data = emotionChart.value;
+            chartInstance.update();
+        }
+    }
+);
+
 onMounted(() => {
-    new $Chart(chart.value, {
-        type: 'bar',
-        data: emotionChart.value,
-        options: chartOptions.value,
-        plugins: [plugin]
-    });
+    if (chart.value && emotionChart.value) {
+        chartInstance = new $Chart(chart.value, {
+            type: 'bar',
+            data: emotionChart.value,
+            options: chartOptions.value,
+            plugins: [plugin]
+        });
+    }
 });
 </script>
 
