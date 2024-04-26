@@ -51,6 +51,7 @@ export const useApiRecordHistoryStore = defineStore(
         const wordChart = ref([]);
         const dayChart = ref([]);
         const emotionChart = ref({});
+        const weatherChart = ref({});
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollection`, {
@@ -78,6 +79,7 @@ export const useApiRecordHistoryStore = defineStore(
                     { value: item.lrnTimeFri, color: 'color-5', label: '금요일' },
                     { value: item.lrnTimeSatSun, color: 'color-6', label: '토요일, 일요일' }
                 ];
+
                 emotionChart.value = {
                     labels: [['즐거움'], ['자부심'], ['두려움'], ['화, 절망감'], ['지루함'], ['학습환경', '불안감']],
                     datasets: [
@@ -105,6 +107,48 @@ export const useApiRecordHistoryStore = defineStore(
                             stack: 'word',
                             categoryPercentage: 1,
                             barThickness: 40
+                        }
+                    ]
+                };
+                weatherChart.value = {
+                    labels: ['맑음', '흐리고 비', '흐리고 천둥', '바람 많이', '미응답', '흐린 뒤 갬', '맑았다 흐림', '폭우', '흐리고 눈'],
+                    datasets: [
+                        {
+                            type: 'doughnut',
+                            label: '맑음',
+                            data: [
+                                item.wethrVeryClrTot,
+                                item.wethrCloudyRainTot,
+                                item.wethrCloudyThndrTot,
+                                item.wethrHeavyWindTot,
+                                item.wethrNotRspnsTot,
+                                item.wethrCloudyClrTot,
+                                item.wethrClrCloudyTot,
+                                item.wethrHeavyRainTot,
+                                item.wethrCloudySnowTot
+                            ],
+                            backgroundColor: [
+                                '#67CCEE',
+                                '#F5B659',
+                                '#FF7283',
+                                '#59D8AF',
+                                '#D0D0D0',
+                                '#8EC536',
+                                '#AB8FFD',
+                                '#F5E3AE',
+                                '#EEA0D0'
+                            ],
+                            datalabels: {
+                                display: 'true',
+                                color: '#171717',
+                                align: 'middle',
+                                font: {
+                                    family: 'NotoSansKR',
+                                    size: '20',
+                                    weight: '700'
+                                }
+                            },
+                            spacing: 5
                         }
                     ]
                 };
@@ -240,6 +284,7 @@ export const useApiRecordHistoryStore = defineStore(
             dayChart,
             wordChart,
             emotionChart,
+            weatherChart,
             achievementByUnit,
             learningHistoryCollectionStudent,
             learningHistoryCollection,
