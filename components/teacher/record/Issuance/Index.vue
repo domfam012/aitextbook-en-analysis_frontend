@@ -76,6 +76,8 @@ const handleChangeStudent = async () => {
             orderLevel: 'desc'
         });
     } else if (clampType.value === 'clamp_right') {
+        await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
+        await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
     }
 };
 
