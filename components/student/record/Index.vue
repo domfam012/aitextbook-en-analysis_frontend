@@ -19,6 +19,11 @@
                 ></v-select>
                 <div class="extra">
                     <div class="buttons">
+                        <!-- (개발용)로그아웃버튼 -->
+                        <v-btn rounded size="x-small" class="primary ml-2 px-2" color="green" flat @click="useAuthStore().logoutUser()"
+                            >(개발용)로그아웃</v-btn
+                        >
+                        <!-- //(개발용)로그아웃버튼 -->
                         <v-btn class="icon_only size_md"><i class="ico ico_size_10 pdf" @click="savePdf"></i></v-btn>
                         <v-btn class="icon_only size_md"><i class="ico ico_size_10 print" @click="printPage"></i></v-btn>
                         <v-btn class="icon_only size_md"><i class="ico ico_size_10 close_w"></i></v-btn>
