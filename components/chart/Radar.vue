@@ -1,14 +1,15 @@
 <template>
     <div class="chart_contents type_radar">
-        <canvas ref="chart"></canvas>
+        <Radar :data="radarChart" :options="chartOptions"></Radar>
     </div>
 </template>
 
 <script setup>
+import { Radar } from 'vue-chartjs';
 const props = defineProps({
-    chartData: Object
+    radarChart: Object
 });
-const { $Chart } = useNuxtApp();
+
 const chart = ref(null);
 const chartOptions = ref({
     scales: {
@@ -56,12 +57,5 @@ const chartOptions = ref({
             position: 'bottom'
         }
     }
-});
-
-onMounted(() => {
-    new $Chart(chart.value, {
-        data: props.chartData,
-        options: chartOptions.value
-    });
 });
 </script>

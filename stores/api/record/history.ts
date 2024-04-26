@@ -16,15 +16,76 @@ export const useApiRecordHistoryStore = defineStore(
         /**
          * [교사] 영역별 학업 성취율
          */
+        const radarChart = ref({});
         const achievementByArea = ref<Record>();
-        const getAchievementByArea = async params => {
+        const getAchievementByArea = async (semiId: String, studUuid: String) => {
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get',
-                query: params
+                query: {
+                    semId: semiId,
+                    studUuid: studUuid
+                }
             });
 
             if (data.value) {
                 achievementByArea.value = data.value.data as Record;
+                const item = achievementByArea.value;
+                radarChart.value = {
+                    labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
+                    datasets: [
+                        {
+                            type: 'radar',
+                            label: '학생',
+                            data: [
+                                item.achvLstnnRt,
+                                item.achvSpkngRt,
+                                item.achvWritngRt,
+                                item.achvPrsntRt,
+                                item.achvViewRt,
+                                item.achvRedngRt
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#46A7E5',
+                            pointStyle: 'circle',
+                            pointBackgroundColor: '#46A7E5',
+                            backgroundColor: 'rgba(81, 179, 233,0.2)'
+                        },
+                        {
+                            type: 'radar',
+                            label: '반 평균',
+                            data: [
+                                item.classLstnnRt,
+                                item.classSpkngRt,
+                                item.classWritngRt,
+                                item.classPrsntRt,
+                                item.classViewRt,
+                                item.classRedngRt
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#B0B0B0',
+                            pointStyle: 'circle',
+                            pointBackgroundColor: '#B0B0B0',
+                            backgroundColor: 'transparent'
+                        },
+                        {
+                            type: 'radar',
+                            label: '지역 평균',
+                            data: [
+                                item.areaLstnnRt,
+                                item.areaSpkngRt,
+                                item.areaPrsntRt,
+                                item.areaWritngRt,
+                                item.areaViewRt,
+                                item.areaRedngRt
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#FFBF00',
+                            pointStyle: 'circle',
+                            pointBackgroundColor: '#FFBF00',
+                            backgroundColor: 'transparent'
+                        }
+                    ]
+                };
             }
         };
 
@@ -57,7 +118,7 @@ export const useApiRecordHistoryStore = defineStore(
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollection`, {
                 method: 'get',
                 query: {
-                    semId: '1',
+                    semId: semiId,
                     studUuid: studUuid
                 }
             });
@@ -285,6 +346,7 @@ export const useApiRecordHistoryStore = defineStore(
             wordChart,
             emotionChart,
             weatherChart,
+            radarChart,
             achievementByUnit,
             learningHistoryCollectionStudent,
             learningHistoryCollection,

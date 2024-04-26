@@ -110,12 +110,12 @@
                         <v-btn class="icon_only size_md" rounded flat><i class="ico tool_delete ico_size_10" /></v-btn>
                     </v-card-title>
                 </v-card-item>
-                <v-container fluid>
+                <v-container v-if="Object.keys(radarChart).length > 0" fluid>
                     <div class="extra">
                         <p class="bullet">조회 기간: 학기 초 ~ 학기 말</p>
                     </div>
                     <div class="chart_radar">
-                        <ChartRadar :chartData="chartRadarData" />
+                        <ChartRadar :radar-chart="radarChart" />
                         <!-- !NOTE 차트 라벨부분 입니다.-->
                         <div class="chart-bar">
                             <div class="use-word">
@@ -328,11 +328,17 @@
 <script setup>
 import coloring from '@/assets/images/temp/img_coloring_board_full.png';
 const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
-const { learningHistoryCollection, dayChart, wordChart, emotionChart, weatherChart } = storeToRefs(useApiRecordHistoryStore());
+const { learningHistoryCollection, achievementByArea, dayChart, wordChart, emotionChart, weatherChart, radarChart } =
+    storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
+console.log(achievementByArea);
 onMounted(async () => {
     if (clampType.value === 'clamp_left') {
         await useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+        await useApiRecordHistoryStore().getAchievementByArea(
+            issuanceStatus.value.currentSemester,
+            learningHistoryCollectionStudent.value[0].studUuid
+        );
         await useApiRecordHistoryStore().getLearningHistoryCollection(
             issuanceStatus.value.currentSemester,
             learningHistoryCollectionStudent.value[0].studUuid
@@ -350,39 +356,39 @@ const formattedCorsTotTime = item => {
     const minutes = Time % 60;
     return `${hours}시간 ${minutes}분`;
 };
-const chartRadarData = {
-    labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
-    datasets: [
-        {
-            type: 'radar',
-            label: '김영철 학생',
-            data: [4, 2, 3, 2, 2.5, 3.8],
-            borderWidth: 3,
-            borderColor: '#46A7E5',
-            pointStyle: 'circle',
-            pointBackgroundColor: '#46A7E5',
-            backgroundColor: 'rgba(81, 179, 233,0.2)'
-        },
-        {
-            type: 'radar',
-            label: '반 평균',
-            data: [3.2, 2.5, 3, 3.5, 3.8, 4.5],
-            borderWidth: 3,
-            borderColor: '#B0B0B0',
-            pointStyle: 'circle',
-            pointBackgroundColor: '#B0B0B0',
-            backgroundColor: 'transparent'
-        },
-        {
-            type: 'radar',
-            label: '지역 평균',
-            data: [2.8, 3.2, 3.8, 3, 3, 2.4],
-            borderWidth: 3,
-            borderColor: '#FFBF00',
-            pointStyle: 'circle',
-            pointBackgroundColor: '#FFBF00',
-            backgroundColor: 'transparent'
-        }
-    ]
-};
+// const chartRadarData = {
+//     labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
+//     datasets: [
+//         {
+//             type: 'radar',
+//             label: '김영철 학생',
+//             data: [4, 2, 3, 2, 2.5, 3.8],
+//             borderWidth: 3,
+//             borderColor: '#46A7E5',
+//             pointStyle: 'circle',
+//             pointBackgroundColor: '#46A7E5',
+//             backgroundColor: 'rgba(81, 179, 233,0.2)'
+//         },
+//         {
+//             type: 'radar',
+//             label: '반 평균',
+//             data: [3.2, 2.5, 3, 3.5, 3.8, 4.5],
+//             borderWidth: 3,
+//             borderColor: '#B0B0B0',
+//             pointStyle: 'circle',
+//             pointBackgroundColor: '#B0B0B0',
+//             backgroundColor: 'transparent'
+//         },
+//         {
+//             type: 'radar',
+//             label: '지역 평균',
+//             data: [2.8, 3.2, 3.8, 3, 3, 2.4],
+//             borderWidth: 3,
+//             borderColor: '#FFBF00',
+//             pointStyle: 'circle',
+//             pointBackgroundColor: '#FFBF00',
+//             backgroundColor: 'transparent'
+//         }
+//     ]
+// };
 </script>
