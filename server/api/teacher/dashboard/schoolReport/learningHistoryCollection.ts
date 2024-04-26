@@ -165,6 +165,8 @@ export default defineEventHandler(async event => {
             return data2;
         } else if (studUuid === '18a79d80-22ea-47d6-a6d9-f4c6689dd2c3') {
             return data3;
+        } else {
+            return data1;
         }
     }
 });
