@@ -52,9 +52,9 @@ const dataList1 = [
         chNumber: 2,
         chName: 'Who are you?',
         level: 3,
-        levelName:
+        levelName: '하',
+        sentence:
             '하1 - 재미있거나 감동적인 부분에 유의하며 작품을 바르게 이해하고, 재미있는 부분이 잘 나타나도록 시화를 잘 만들어 낼 수 있음.',
-        sentence: '',
         evaluationSentenceId: 23655,
         count: 0,
         flag: false
@@ -230,9 +230,9 @@ const dataList2 = [
         chNumber: 2,
         chName: 'Who are you?',
         level: 3,
-        levelName:
+        levelName: '하',
+        sentence:
             '하1 - 재미있거나 감동적인 부분에 유의하며 작품을 바르게 이해하고, 재미있는 부분이 잘 나타나도록 시화를 잘 만들어 낼 수 있음.',
-        sentence: '',
         evaluationSentenceId: 23655,
         count: 0,
         flag: false
@@ -408,9 +408,9 @@ const dataList3 = [
         chNumber: 2,
         chName: 'Who are you?',
         level: 3,
-        levelName:
+        levelName: '하',
+        sentence:
             '하1 - 재미있거나 감동적인 부분에 유의하며 작품을 바르게 이해하고, 재미있는 부분이 잘 나타나도록 시화를 잘 만들어 낼 수 있음.',
-        sentence: '',
         evaluationSentenceId: 23655,
         count: 0,
         flag: false
