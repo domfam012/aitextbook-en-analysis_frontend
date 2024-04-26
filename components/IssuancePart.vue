@@ -17,6 +17,7 @@
                     <p class="title">
                         <i class="ico book2 ico_size_lg" />
                         교과서 학습
+                        <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -35,6 +36,7 @@
                     <p class="title">
                         <i class="ico drill ico_size_lg" />
                         드릴 학습
+                        <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -56,6 +58,7 @@
                     <p class="title">
                         <i class="ico voca ico_size_lg" />
                         AI Touch Voca
+                        <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -77,6 +80,7 @@
                     <p class="title">
                         <i class="ico chat ico_size_lg" />
                         AI CURI Talk
+                        <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
