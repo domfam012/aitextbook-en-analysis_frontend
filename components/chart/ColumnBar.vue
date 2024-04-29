@@ -100,7 +100,6 @@ const plugin = {
             var ctx = chart.ctx;
             var chartArea = chart.chartArea;
             var values = chart.data.datasets[0]?.data;
-            console.log(values);
             // var rowCount = Math.ceil(Math.max.apply(null, values) / 0.9);
             var rowCount = 6;
             var width = chartArea.right - chartArea.left;
