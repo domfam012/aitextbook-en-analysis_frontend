@@ -4,16 +4,14 @@
     </div>
     <div class="columnBar mgt15">
         <div class="chart">
-            <canvas ref="chart"></canvas>
+            <Bar :data="emotionChart" :options="chartOptions"></Bar>
         </div>
     </div>
 </template>
 
 <script setup>
-const { $Chart } = useNuxtApp();
-const chart = ref('null');
+import { Bar } from 'vue-chartjs';
 const { emotionChart } = storeToRefs(useApiRecordHistoryStore());
-
 const chartOptions = ref({
     chartArea: {
         backgroundColor: '#F8F8F8'
@@ -118,28 +116,6 @@ const plugin = {
         }
     }
 };
-
-let chartInstance = null;
-watch(
-    () => emotionChart.value,
-    () => {
-        if (chartInstance && emotionChart.value) {
-            chartInstance.data = emotionChart.value;
-            chartInstance.update();
-        }
-    }
-);
-
-onMounted(() => {
-    if (chart.value && emotionChart.value) {
-        chartInstance = new $Chart(chart.value, {
-            type: 'bar',
-            data: emotionChart.value,
-            options: chartOptions.value,
-            plugins: [plugin]
-        });
-    }
-});
 </script>
 
 <!-- 완료시 삭제 -->
