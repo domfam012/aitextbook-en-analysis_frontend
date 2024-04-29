@@ -236,13 +236,11 @@ export const useApiRecordHistoryStore = defineStore(
          */
 
         const putLearningHistoryEdit = async (params: string) => {
-            const queryString = new URLSearchParams(params).toString();
-            const { data } = await useCustomFetch(
-                `${basetUrl}/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection?${queryString}`,
-                {
-                    method: 'put'
-                }
-            );
+            console.log(params);
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection`, {
+                method: 'put',
+                body: JSON.stringify(params)
+            });
 
             return { data };
         };
