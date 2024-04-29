@@ -10,15 +10,15 @@ const data = {
     data: {
         semId: 0,
         studUuid: 'string',
-        corsViewYn: 0,
-        drillViewYn: 0,
-        vocaViewYn: 0,
-        curiViewYn: 0,
-        achvViewYn: 0,
-        wrdViewYn: 0,
-        exprsViewYn: 0,
-        wethrViewYn: 0,
-        emtViewYn: 0
+        corsViewYn: '1',
+        drillViewYn: '1',
+        vocaViewYn: '1',
+        curiViewYn: '1',
+        achvViewYn: '1',
+        wrdViewYn: '1',
+        exprsViewYn: '1',
+        wethrViewYn: '1',
+        emtViewYn: '1'
     }
 };
 

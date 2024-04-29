@@ -1,7 +1,7 @@
 <template>
     <div class="inner_section w-100">
         <div class="extra mb20">
-            <v-btn rounded flat size="small" class="primary">초기화</v-btn>
+            <v-btn rounded flat size="small" class="primary" @click="deleteBtn('reset')">초기화</v-btn>
         </div>
 
         <!-- 로그인 횟수와 총 학습 시간 -->
@@ -9,7 +9,7 @@
             <v-card-item>
                 <v-card-title>
                     <span>로그인 횟수와 총 학습 시간</span>
-                    <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                    <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat @click="toggleDeleteBtn"
                         ><i class="ico tool_delete ico_size_10"
                     /></v-btn>
                 </v-card-title>
@@ -19,7 +19,15 @@
                     <p class="title">
                         <i class="ico book2 ico_size_lg" />
                         교과서 학습
-                        <!-- <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn> -->
+                        <v-btn
+                            v-show="deleteBtnVisible"
+                            class="icon_only size_md"
+                            rounded
+                            flat
+                            color="primary"
+                            @click="deleteBtn('corsView')"
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -38,7 +46,15 @@
                     <p class="title">
                         <i class="ico drill ico_size_lg" />
                         드릴 학습
-                        <!-- <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn> -->
+                        <v-btn
+                            v-show="deleteBtnVisible"
+                            class="icon_only size_md"
+                            rounded
+                            flat
+                            color="primary"
+                            @click="deleteBtn('drillView')"
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -60,7 +76,15 @@
                     <p class="title">
                         <i class="ico voca ico_size_lg" />
                         AI Touch Voca
-                        <!-- <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn> -->
+                        <v-btn
+                            v-show="deleteBtnVisible"
+                            class="icon_only size_md"
+                            rounded
+                            flat
+                            color="primary"
+                            @click="deleteBtn('vocaView')"
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -82,7 +106,15 @@
                     <p class="title">
                         <i class="ico chat ico_size_lg" />
                         AI CURI Talk
-                        <!-- <v-btn class="icon_only size_md" rounded flat color="primary"><i class="ico tool_delete ico_size_10" /></v-btn> -->
+                        <v-btn
+                            v-show="deleteBtnVisible"
+                            class="icon_only size_md"
+                            rounded
+                            flat
+                            color="primary"
+                            @click="deleteBtn('curiView')"
+                            ><i class="ico tool_delete ico_size_10"
+                        /></v-btn>
                     </p>
                     <v-card elevation="0" class="fill-violet box_contents">
                         <v-card-item>
@@ -109,7 +141,7 @@
                 <v-card-item>
                     <v-card-title>
                         <span>영역별 학업 성취율</span>
-                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat @click="deleteBtn('achvView')"
                             ><i class="ico tool_delete ico_size_10"
                         /></v-btn>
                     </v-card-title>
@@ -166,7 +198,7 @@
                 <v-card-item>
                     <v-card-title>
                         <span>단어 학습 진단</span>
-                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat @click="deleteBtn('wrdView')"
                             ><i class="ico tool_delete ico_size_10"
                         /></v-btn>
                     </v-card-title>
@@ -182,7 +214,7 @@
                 <v-card-item>
                     <v-card-title>
                         <span>요일별 평균 학습 시간</span>
-                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat @click="deleteBtn('exprsView')"
                             ><i class="ico tool_delete ico_size_10"
                         /></v-btn>
                     </v-card-title>
@@ -199,7 +231,7 @@
                 <v-card-item>
                     <v-card-title>
                         <span>감정 날씨_학기 총계</span>
-                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat @click="deleteBtn('wethrView')"
                             ><i class="ico tool_delete ico_size_10"
                         /></v-btn>
                     </v-card-title>
@@ -215,7 +247,7 @@
                 <v-card-item>
                     <v-card-title>
                         <span>학습 정서_학기 평균</span>
-                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat
+                        <v-btn v-if="mode === 'teacher'" class="icon_only size_md" rounded flat @click="deleteBtn('emtView')"
                             ><i class="ico tool_delete ico_size_10"
                         /></v-btn>
                     </v-card-title>
@@ -304,11 +336,24 @@ import coloring from '@/assets/images/temp/img_coloring_board_full.png';
 const { mode } = storeToRefs(useApiUserStore());
 const { user } = storeToRefs(useApiUserStore());
 const { completionState } = storeToRefs(useApiCompletionStore());
-const { clampType, issuanceStatus } = storeToRefs(useApiRecordStore());
+const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
 const { learningHistoryCollection, achievementByArea, dayChart, wordChart, emotionChart, weatherChart, radarChart } =
     storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
-
+const corsView = ref('1');
+const drillView = ref('1');
+const vocaView = ref('1');
+const curiView = ref('1');
+const achvView = ref('1');
+const wrdView = ref('1');
+const exprsView = ref('1');
+const wethrView = ref('1');
+const emtView = ref('1');
+const deleteBtnVisible = ref(false);
+const { openAlert } = useAlertStore();
+const toggleDeleteBtn = () => {
+    deleteBtnVisible.value = !deleteBtnVisible.value;
+};
 onMounted(async () => {
     if (mode.value === 'student') {
         await useApiRecordHistoryStore().getAchievementByArea(user.value.semester, user.value.studentId);
@@ -316,15 +361,7 @@ onMounted(async () => {
         await useApiCompletionStore().getStudentDevelopmetnList(user.value.studentId);
     } else {
         if (clampType.value === 'clamp_left') {
-            await useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
-            await useApiRecordHistoryStore().getAchievementByArea(
-                issuanceStatus.value.currentSemester,
-                learningHistoryCollectionStudent.value[0].studUuid
-            );
-            await useApiRecordHistoryStore().getLearningHistoryCollection(
-                issuanceStatus.value.currentSemester,
-                learningHistoryCollectionStudent.value[0].studUuid
-            );
+            await fetchStudentData();
         }
         if (clampType.value === 'clamp_right') {
             await useApiCompletionStore().getStudentList();
@@ -336,6 +373,76 @@ onMounted(async () => {
         }
     }
 });
+const fetchStudentData = async () => {
+    await useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+    await useApiRecordHistoryStore().getAchievementByArea(
+        issuanceStatus.value.currentSemester,
+        learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid
+    );
+    await useApiRecordHistoryStore().getLearningHistoryCollection(
+        issuanceStatus.value.currentSemester,
+        learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid
+    );
+};
+const mainViews = {
+    corsView: corsView,
+    drillView: drillView,
+    vocaView: vocaView,
+    curiView: curiView
+};
+
+const views = {
+    ...mainViews,
+    achvView: achvView,
+    wrdView: wrdView,
+    exprsView: exprsView,
+    wethrView: wethrView,
+    emtView: emtView
+};
+
+const handleZeroCount = item => {
+    let zeroCount = 0;
+    for (const key in mainViews) {
+        if (mainViews[key].value === '0') {
+            zeroCount++;
+        }
+    }
+    if (item === 'corsView' || item === 'drillView' || item === 'vocaView' || item === 'curiView') {
+        if (zeroCount >= 1) {
+            openAlert({ message: '최대 2개 항목 이상 삭제가 불가능합니다.' });
+            return true;
+        }
+        return false;
+    }
+};
+
+const deleteBtn = item => {
+    if (handleZeroCount(item)) {
+        return;
+    }
+
+    if (item === 'reset') {
+        for (const key in views) {
+            views[key].value = '1';
+        }
+        fetchStudentData();
+    } else {
+        views[item].value = '0';
+    }
+    useApiRecordHistoryStore().putLearningHistoryEdit({
+        semId: user.value.semester,
+        studUuid: learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid,
+        corsViewYn: corsView.value,
+        drillViewYn: drillView.value,
+        vocaViewYn: vocaView.value,
+        curiViewYn: curiView.value,
+        achvViewYn: achvView.value,
+        wrdViewYn: wrdView.value,
+        exprsViewYn: exprsView.value,
+        wethrViewYn: wethrView.value,
+        emtViewYn: emtView.value
+    });
+};
 
 // 데이터값을 시간 형식으로 변환하는 계산된 속성
 const formattedCorsTotTime = item => {
