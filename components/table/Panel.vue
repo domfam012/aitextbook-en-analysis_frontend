@@ -1,19 +1,16 @@
 <template>
     <v-data-table
+        v-model:expanded="expanded"
         :headers="AchievementHeaders"
         :items="teacherColorMatchedGroupState.slice(0, props.currentPageCount)"
         item-value="name"
         class="color_mint type_center"
     >
-        <template #item="{ columns, internalItem, toggleExpand, item, index }">
+        <template #item="{ columns, internalItem, item }">
             <tr>
-                <td
-                    v-for="column in columns"
-                    :key="column.key"
-                    @click="handleExpandPanel(toggleExpand, internalItem, column.key)"
-                    class="type_center"
-                >
+                <td v-for="(column, index) in columns" :key="column.key" class="type_center">
                     <v-btn
+                        @click="handleExpandPanel(index, internalItem, column.key)"
                         variant="text"
                         v-if="column.title !== '성취 기준 자기채점' && column.title !== '번호' && column.title !== '이름'"
                         :class="{ type_blue_underline: column.title !== '번호' && column.title !== '이름' }"
@@ -31,7 +28,7 @@
                 </td>
             </tr>
         </template>
-        <template v-slot:expanded-row="{ columns, item, index, internalItem }">
+        <template v-slot:expanded-row="{ columns, item, internalItem }">
             <tr>
                 <td :colspan="columns.length" class="table_panel">
                     <template v-if="isPanel === 'studName'"> 이름 {{ internalItem.raw.studName }}</template>
@@ -62,6 +59,11 @@ const props = defineProps(['currentPageCount']);
 const learnStore = useApiLearnStore();
 
 const { teacherColorMatchedGroupState } = storeToRefs(learnStore);
+const expanded = ref([]);
+const selectedIdx = ref({
+    row: null,
+    column: null
+});
 const isPanel = ref(null);
 
 const AchievementHeaders = [
@@ -98,15 +100,24 @@ const getItemValue = (item, column, index) => {
 
 /**
  * 학업성취율 expand 함수
- * @param toggleExpand
  * @param item
  * @param key
  */
-const handleExpandPanel = (toggleExpand, item, key) => {
-    isPanel.value = key;
-    // expand
-    if (key !== 'sessId' && key !== 'achvBaseScale' && key !== 'studName') {
-        toggleExpand(item);
+const handleExpandPanel = (index, item, key) => {
+    if (selectedIdx.value.row === item.index && selectedIdx.value.column === index) {
+        selectedIdx.value = {
+            row: null,
+            column: null
+        };
+        expanded.value = [];
+        return;
+    } else {
+        isPanel.value = key;
+        selectedIdx.value = {
+            row: item.index,
+            column: index
+        };
+        expanded.value = [item.key];
     }
 };
 </script>
