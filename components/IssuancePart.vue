@@ -416,7 +416,7 @@ const handleZeroCount = item => {
     }
 };
 
-const deleteBtn = item => {
+const deleteBtn = async item => {
     if (handleZeroCount(item)) {
         return;
     }
@@ -429,7 +429,7 @@ const deleteBtn = item => {
     } else {
         views[item].value = '0';
     }
-    useApiRecordHistoryStore().putLearningHistoryEdit({
+    await useApiRecordHistoryStore().putLearningHistoryEdit({
         semId: user.value.semester,
         studUuid: learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid,
         corsViewYn: corsView.value,
@@ -442,8 +442,11 @@ const deleteBtn = item => {
         wethrViewYn: wethrView.value,
         emtViewYn: emtView.value
     });
+    await useApiRecordHistoryStore().getLearningHistoryCollection(
+        issuanceStatus.value.currentSemester,
+        learningHistoryCollectionStudent.value[0].studUuid
+    );
 };
-
 // 데이터값을 시간 형식으로 변환하는 계산된 속성
 const formattedCorsTotTime = item => {
     const Time = item;
