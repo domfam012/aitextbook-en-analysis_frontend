@@ -346,19 +346,8 @@
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid class="coloring_design">
-                    <div class="design">
-                        <!-- !NOTE 색칠 도안 영역 입니다. -->
-                        <v-img :src="useAsset('images/temp/img_coloring_board_full.png')" alt="색칠 도안" />
-                        <!-- // 색칠 도안 영역 입니다. -->
-                    </div>
-                    <div class="design">
-                        <v-img :src="useAsset('images/temp/img_coloring_board_full.png')" alt="색칠 도안" />
-                    </div>
-                    <div class="design">
-                        <v-img :src="useAsset('images/temp/img_coloring_board_full.png')" alt="색칠 도안" />
-                    </div>
-                    <div class="design">
-                        <v-img :src="useAsset('images/temp/img_coloring_board_full.png')" alt="색칠 도안" />
+                    <div v-for="(item, index) in colorBoardState?.slice(0, 4)" class="design">
+                        <TeacherAnalyticsLearnColorBoard :stamp="item.stampId" :grid="item.areaBaseArr" class="mt-3" />
                     </div>
                 </v-container>
             </v-card>
@@ -374,6 +363,8 @@ const { completionState } = storeToRefs(useApiCompletionStore());
 const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
 const { learningHistoryCollection, dayChart, wordChart, emotionChart, weatherChart, radarChart } = storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
+const apiClassStore = useApiTeacherClassStore();
+const { colorBoardState } = storeToRefs(apiClassStore);
 const corsView = ref('1');
 const drillView = ref('1');
 const vocaView = ref('1');
@@ -394,6 +385,7 @@ onMounted(async () => {
         await useApiRecordHistoryStore().getAchievementByArea(user.value.semester, user.value.studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(user.value.semester, user.value.studentId);
         await useApiCompletionStore().getStudentDevelopmetnList(user.value.studentId);
+        await useApiTeacherClassStore().getClassColorBoard('perfection');
     } else {
         if (clampType.value === 'clamp_left') {
             await fetchStudentData();
@@ -405,6 +397,7 @@ onMounted(async () => {
                 learningHistoryCollectionStudent.value[0].studUuid
             );
             await useApiCompletionStore().getStudentDevelopmetnList(learningHistoryCollectionStudent.value[0].studUuid);
+            await useApiTeacherClassStore().getClassColorBoard('perfection');
         }
     }
 });
@@ -418,6 +411,7 @@ const fetchStudentData = async () => {
         issuanceStatus.value.currentSemester,
         learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid
     );
+    await useApiTeacherClassStore().getClassColorBoard('perfection');
 };
 const mainViews = {
     corsView: corsView,

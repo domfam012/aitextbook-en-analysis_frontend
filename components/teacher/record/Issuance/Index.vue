@@ -73,6 +73,7 @@ const handleChangeStudent = async () => {
     if (clampType.value === 'clamp_left') {
         await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
+        await useApiTeacherClassStore().getClassColorBoard('perfection');
     } else if (clampType.value === 'clamp_center') {
         // [교사] 개인별 평어 목록
         await useApiRecordGradeStore().getPersonalListOfQualification({
@@ -86,6 +87,7 @@ const handleChangeStudent = async () => {
         await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
         await useApiCompletionStore().getStudentDevelopmetnList(studentId);
+        await useApiTeacherClassStore().getClassColorBoard('perfection');
     }
 };
 
