@@ -1,0 +1,25 @@
+.no_data_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+}
+
+.no_data {
+  text-align: center;
+
+  .icon {
+    display: block;
+    margin: 0 auto;
+    width: 10rem;
+    height: 10rem;
+  }
+  p {
+    margin-top: 2rem;
+    @include font_body3();
+  }
+  .v-btn {
+    margin-top: 4rem;
+  }
+}

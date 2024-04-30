@@ -47,7 +47,7 @@ const values = [
     [20, 'gray', 2],
     [40, 'orange', 3],
     [50, 'lightgreen', 4],
-    [60, 'skyblue', 5]
+    [60, '#0099FF', 5]
 ];
 
 const circleValue = {

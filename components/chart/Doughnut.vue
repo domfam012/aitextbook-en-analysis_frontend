@@ -8,25 +8,23 @@
             </div>
         </div>
         <div class="chart-bar">
-            <div class="use-word">
-                <span class="bullet color-1"></span>
-                <p>10회 이상 방문</p>
+            <div v-if="props.type === 'often'" v-for="(item, index) in oftenLegends" :key="index" class="use-word">
+                <span class="bullet" :class="`color-${index + 1}`"></span>
+                <p>{{ item.text }}</p>
             </div>
-            <div class="use-word">
-                <span class="bullet color-2"></span>
-                <p>6~9회 방문</p>
+            <div v-if="props.type === 'much' && props.legend" v-for="(count, index) in props.legend" :key="index" class="use-word">
+                <span class="bullet" :class="`color-${index + 1}`"></span>
+                <p v-if="count === Number.MAX_SAFE_INTEGER" class="legend-text">색깔 조각 {{ props.legend.length }}개 이상</p>
+                <p v-else-if="index === props.legend.length - 1" class="legend-text">색깔 조각 {{ count }}개 미만</p>
+                <p v-else class="legend-text">색깔 조각 {{ count }}~{{ props.legend[index + 1] - 1 }}개</p>
             </div>
-            <div class="use-word">
-                <span class="bullet color-3"></span>
-                <p>3~5회 방문</p>
-            </div>
-            <div class="use-word">
-                <span class="bullet color-4"></span>
-                <p>1~2회 방문</p>
-            </div>
-            <div class="use-word">
-                <span class="bullet color-5"></span>
-                <p>방문 기록 없음</p>
+            <div v-if="props.type === 'long' && props.legend" v-for="(time, idx) in props.legend" :key="idx" class="use-word">
+                <span class="bullet" :class="`color-${idx + 1}`"></span>
+                <p v-if="idx === 0" class="legend-text">누적 학습 시간 {{ time }}분 이상</p>
+                <p v-else-if="idx === props.legend.length - 1" class="legend-text">
+                    누적 학습 시간 {{ props.legend[props.legend.length - 1] }}분 이하
+                </p>
+                <p v-else class="legend-text">누적 학습 시간 {{ time }}~{{ props.legend[idx - 1] - 1 }}분</p>
             </div>
         </div>
     </div>
@@ -34,8 +32,17 @@
 
 <script setup>
 const { $Chart } = useNuxtApp();
-const props = defineProps(['type', 'chartData']);
+const props = defineProps({ type: String, chartData: Object, legend: Array });
 const chart = ref(null);
+
+// 얼마나 자주 범례
+const oftenLegends = [
+    { text: '10회 이상 방문' },
+    { text: '6~9회 방문' },
+    { text: '3~5회 방문' },
+    { text: '1~2회 방문' },
+    { text: '방문 기록 없음' }
+];
 
 const getTypeText = computed(() => {
     if (props.type === 'often') {

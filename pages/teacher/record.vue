@@ -1,13 +1,17 @@
 <template>
-    <!-- 생활기록부 메인 -->
-    <TeacherRecord />
-    <!-- <Empty /> -->
+    <template v-if="semesterInProgress">
+        <Empty v-if="semesterInProgress.currentSemester === 0" />
+        <TeacherRecord v-else />
+    </template>
 </template>
 
 <script setup>
+const apiRecordHistory = useApiRecordHistoryStore();
+const { semesterInProgress } = storeToRefs(apiRecordHistory);
 onBeforeMount(async () => {
     //토큰
-    useToken('teacher');
+    await useToken('teacher', 'record');
+    await apiRecordHistory.getSemesterInProgress();
 });
 </script>
 

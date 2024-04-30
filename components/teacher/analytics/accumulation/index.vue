@@ -3,19 +3,55 @@
         <div class="tableCarousel">
             <h3 class="bullet">
                 단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.
+                <!--                {{ lessonAccumulatedState }}-->
             </h3>
-            <i class="ico close_circle close position-absolute" @click="closeTable"></i>
+            <v-btn rounded flat class="close_button" @click="closeTable">
+                <i class="ico close_circle close position-absolute" />
+            </v-btn>
             <div class="box">
-                <!-- 왼쪽 테이블 영역 -->
+                <!--  왼쪽 테이블 영역-->
                 <div class="left-table">
-                    <v-data-table :headers="tableInfoHead" :items="tableInfo" item-value="number" class="color_gray type_center">
+                    <v-data-table
+                        :items-per-page="(currentPage + 1) * 5"
+                        :headers="tableInfoHead"
+                        :items="lessonAccumulatedState"
+                        item-value="number"
+                        class="color_gray type_center"
+                    >
+                        <template #item="{ item }">
+                            <tr>
+                                <td class="type_center">
+                                    <div variant="text">
+                                        {{ item.id }}
+                                    </div>
+                                </td>
+                                <td class="type_center">
+                                    <div variant="text">
+                                        {{ item.stuName }}
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
                     </v-data-table>
                 </div>
                 <!-- 캐러셀 영역 -->
-                <TableCarousel />
+                <TableCarousel :lessonAccumulatedState="lessonAccumulatedState" />
                 <!-- 오른쪽 테이블 영역 -->
                 <div class="right-table">
-                    <v-data-table :headers="tableAverageHead" :items="tableAverage" item-value="number" class="color_gray type_center">
+                    <v-data-table
+                        :items-per-page="(currentPage + 1) * 5"
+                        :headers="tableAvgInfoHead"
+                        :items="lessonAccumulatedState"
+                        item-value="number"
+                        class="color_gray type_center"
+                    >
+                        <template #item="{ item }">
+                            <tr>
+                                <td class="type_center">
+                                    <div variant="text">{{ item.avg }}%</div>
+                                </td>
+                            </tr>
+                        </template>
                     </v-data-table>
                 </div>
 
@@ -68,74 +104,45 @@
                 </div>
             </div>
             <div class="page_buttons">
-                <v-btn rounded flat class="secondary">5명 더보기 (1/4)</v-btn>
+                <v-btn rounded flat class="secondary" :disabled="renderAll" @click="currentPage = currentPage + 1"
+                    >{{ `5명 더 보기 (${currentPage + 1}/${Math.ceil(lessonAccumulatedState?.length / 5)})` }}
+                    <!--                  {{-->
+                    <!--                        Math.ceil(lessonAccumulatedState.length / 5)-->
+                    <!--                    }})-->
+                </v-btn>
             </div>
         </div>
     </v-sheet>
 </template>
 <script setup>
+const learnStore = useApiLearnStore();
 const lessonStore = useApiLessonStore();
-const { lessonCommonState } = storeToRefs(lessonStore);
-// 이름
+const { lessonAccumulatedState, lessonCommonState } = storeToRefs(lessonStore);
+const { currentPage } = storeToRefs(learnStore);
+console.log('lessonAccumulatedState : ', lessonAccumulatedState);
+
+// 왼쪽 테이블 header
 const tableInfoHead = [
     {
         title: '번호',
         sortable: false,
         key: 'number'
     },
-    { title: '이름', key: 'name' }
-];
-const tableInfo = [
-    {
-        number: 1,
-        name: '김아미'
-    },
-    {
-        number: 2,
-        name: '김아미'
-    },
-    {
-        number: 3,
-        name: '김아미'
-    },
-    {
-        number: 4,
-        name: '김아미'
-    },
-    {
-        number: 5,
-        name: '김아미'
-    }
+    { title: '이름', sortable: false, key: 'name' }
 ];
 
-// 평균 학업 성취율
-const tableAverageHead = [
+// 오른쪽 평균 성취율 테이블 header
+const tableAvgInfoHead = [
     {
         title: '평균 학업 성취율',
         sortable: false,
-        key: 'average'
+        key: 'number'
     }
 ];
 
-const tableAverage = [
-    {
-        average: '75%'
-    },
-    {
-        average: '75%'
-    },
-    {
-        average: '75%'
-    },
-    {
-        average: '75%'
-    },
-    {
-        average: '75%'
-    }
-];
 const closeTable = () => {
     lessonCommonState.value.selectedColorGroup = null;
     lessonCommonState.value.isExpand = false;
 };
+const renderAll = computed(() => currentPage.value + 1 === Math.ceil(lessonAccumulatedState.value?.length / 5));
 </script>

@@ -245,7 +245,7 @@ export const useApiLessonStore = defineStore(
                 method: 'get'
             });
             if (data.value) {
-                lessonAccumulatedState.value = data.value.data as Lesson;
+                lessonAccumulatedState.value = data.value.data;
             }
         };
 
@@ -264,7 +264,7 @@ export const useApiLessonStore = defineStore(
                 }
             });
             if (data.value) {
-                lessonAccumulatedState.value = data.value.data as Lesson;
+                lessonAccumulatedState.value = data.value.data;
             }
         };
 
@@ -273,6 +273,7 @@ export const useApiLessonStore = defineStore(
             lessonState,
             lessonPopupState,
             lessonFeedbackState,
+            lessonAccumulatedState,
             getLessonAchievementRate,
             getLessonLearnerStudent,
             getLessonChoiceStudent,

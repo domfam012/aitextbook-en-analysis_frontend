@@ -7,8 +7,8 @@
                 >회
             </p>
         </div>
-        <!-- 학생/교사 구분 user로 분기 -->
-        <div v-if="user === 'teacher'" class="d-flex align-center mgl30">
+        <!-- 학생/교사 구분 mode로 분기 -->
+        <div v-if="mode === 'teacher'" class="d-flex align-center mgl30">
             <p>오늘 학습한 내용은 <span>16</span>시 이후에 분석됩니다.</p>
             <v-btn flat rounded class="dark_blue size_xxs ml-2" @click="authStore.getAuthInfo()">
                 <i class="ico refresh ico_size_sm mr-1"></i>
@@ -24,7 +24,7 @@
 </template>
 <script setup>
 //학생/교사 구분값
-const user = useCookie('user');
+const mode = useCookie('mode');
 //로그인정보API
 const authStore = useAuthStore();
 const { authState } = storeToRefs(authStore);

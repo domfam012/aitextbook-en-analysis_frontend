@@ -20,9 +20,9 @@
                     @click="openModal({ type: 'vocaLearningStatus' })"
                     :values="[
                         [item.wrdUnknownCnt, '#B0B0B0', item.wrdUnknownCnt],
-                        [item.wrdLittleknowCnt, '#FFBF00', item.wrdLittleknowCnt],
+                        [item.wrdLittleknowCnt, '#FFBB00', item.wrdLittleknowCnt],
                         [item.wrdKnowCnt, '#42C5B1', item.wrdKnowCnt],
-                        [item.wrdTot, '#46A7E5', item.wrdTot]
+                        [item.wrdTot, '#0099FF', item.wrdTot]
                     ]"
                     :circle-value="{
                         correctRate: item.avgAnswrRt,

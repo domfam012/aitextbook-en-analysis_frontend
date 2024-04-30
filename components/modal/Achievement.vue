@@ -85,7 +85,7 @@
 </template>
 
 <script setup>
-const { mode } = storeToRefs(useApiUserStore());
+const mode = useCookie('mode');
 const { user } = storeToRefs(useApiUserStore());
 const selection = ref(0);
 const { modalData, closeModal } = useModalStore();

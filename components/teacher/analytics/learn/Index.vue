@@ -86,7 +86,6 @@ const select02Items = ref([
     { title: '많이 푼 순서', type: 'rankingOfSolvedTheWord' },
     { title: '많이 맞힌 순서', type: 'rankingOfHighCorrectAnswerRate' }
 ]);
-const select03Items = [{ title: '누적 차트', type: 'cumulativeRecord' }];
 const currentPage = ref(0);
 
 onMounted(async () => {
@@ -143,7 +142,9 @@ watch(
     () => formatDate.value,
     async () => {
         // !NOTE API 응답 Data 확인 가능한 일자 확인 요청중. 2024-04-24
-        await apiClassStore.getClassVocaRanking(depthTwo.value, formatDate.value);
+        if (depth1.value === 'Touch Voca') {
+            await apiClassStore.getClassVocaRanking(depth2.value.type, formatDate.value);
+        }
     }
 );
 </script>

@@ -6,7 +6,7 @@
 <script setup>
 onBeforeMount(async () => {
     //토큰
-    useToken('teacher');
+    useToken('teacher', 'analytics');
 });
 </script>
 

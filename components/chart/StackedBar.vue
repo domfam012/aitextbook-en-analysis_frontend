@@ -29,6 +29,7 @@
 const learnStore = useApiLearnStore();
 const lessonStore = useApiLessonStore();
 const { lessonState, lessonCommonState } = storeToRefs(lessonStore);
+const { currentPage } = storeToRefs(learnStore);
 const learners = [
     { level: 6, text: '미학습' },
     { level: 5, text: '느린 학습자' },
@@ -44,8 +45,6 @@ const learners = [
  * TODO: 컬러 그룹 파라미터 적용 필요
  */
 const handleClickColorGroup = async item => {
-    lessonCommonState.value.isExpand = true;
-    lessonCommonState.value.selectedColorGroup = item;
     // 학업성취율 탭에서 컬러그룹 선택 시
     if (lessonCommonState.value.tab === 'one') {
         // 컬러그룹에 맞는 성취율 테이블 API 호출
@@ -56,6 +55,9 @@ const handleClickColorGroup = async item => {
         // 컬러그룹에 맞는 단원별 누적 성취율 테이블 API 호출
         await lessonStore.getUnitAcademicAchievementRate();
     }
+    lessonCommonState.value.isExpand = true;
+    lessonCommonState.value.selectedColorGroup = item;
+    currentPage.value = 0;
 };
 
 /**

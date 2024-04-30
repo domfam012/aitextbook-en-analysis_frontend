@@ -14,7 +14,6 @@ interface Auth {
 export const useAuthStore = defineStore(
     'auth',
     () => {
-        const { mode } = storeToRefs(useApiUserStore());
         const config = useRuntimeConfig();
         const authenticated = ref(false);
         const userAuthenticate = async () => {
@@ -27,9 +26,12 @@ export const useAuthStore = defineStore(
         const logoutUser = async () => {
             const homeUrl = 'http://localhost:3000/';
             const token = useCookie('token');
+            const mode = useCookie('mode');
+            const type = useCookie('type');
 
             token.value = null;
             mode.value = undefined;
+            type.value = undefined;
 
             window.location.href = config.public.logoutUrl + homeUrl;
         };

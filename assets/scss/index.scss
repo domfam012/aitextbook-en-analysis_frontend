@@ -9,7 +9,6 @@
 @import 'foundations/common.scss';
 @import 'foundations/layout.scss';
 
-
 // components
 @import 'components/btn.scss';
 @import 'components/avatar.scss';
@@ -51,7 +50,7 @@
 @import 'components/incorrect_wrap.scss';
 @import 'components/record_wrap.scss';
 @import 'components/chart_contents.scss';
-
+@import 'components/no_data_wrap.scss';
 
 // pages
 @import 'pages/guide_contents.scss';

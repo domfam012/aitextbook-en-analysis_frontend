@@ -13,7 +13,7 @@ const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
 export const useApiRecordHistoryStore = defineStore(
     'apiRecordHistory',
     () => {
-        const { mode } = storeToRefs(useApiUserStore());
+        const mode = useCookie('mode');
         /**
          * [교사] 영역별 학업 성취율
          */
@@ -250,7 +250,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const semesterInProgress = ref<Record>();
         const getSemesterInProgress = async () => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/schoolReportsemesterInProgress`, {
+            const { data } = await useCustomFetch(`${basetUrl}/${mode.value}/dashboard/schoolReport/schoolReportsemesterInProgress`, {
                 method: 'get'
             });
 
@@ -324,20 +324,6 @@ export const useApiRecordHistoryStore = defineStore(
             }
         };
 
-        /**
-         * [학생] 학기 현재 진행중인 학기
-         */
-        const studentSemesterInProgress = ref<Record>();
-        const getStudentSemesterInProgress = async () => {
-            const { data } = await useCustomFetch(`${basetUrl}/student/dashboard/schoolReport/schoolReportsemesterInProgress`, {
-                method: 'get'
-            });
-
-            if (data.value) {
-                studentSemesterInProgress.value = data.value as Record;
-            }
-        };
-
         return {
             //[교사] 학습이력수집
             achievementByArea,
@@ -362,12 +348,11 @@ export const useApiRecordHistoryStore = defineStore(
             studentAchievementByUnit,
             studentDevelopment,
             studentLearningHistoryCollection,
-            studentSemesterInProgress,
+
             getStudentAchievementByArea,
             getStudentAchievementByUnit,
             getStudentDevelopment,
-            getStudentLearningHistoryCollection,
-            getStudentSemesterInProgress
+            getStudentLearningHistoryCollection
         };
     },
     {

@@ -39,7 +39,7 @@
     </template>
 </template>
 <script setup>
-const { mode } = storeToRefs(useApiUserStore());
+const mode = useCookie('mode');
 const { user } = storeToRefs(useApiUserStore());
 const { modalData, openModal } = useModalStore();
 const chartData = {

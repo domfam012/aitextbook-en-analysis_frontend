@@ -37,6 +37,8 @@
 </template>
 
 <script setup>
+const mode = useCookie('mode');
+const type = useCookie('type');
 const date = new Date();
 const year = date.getFullYear();
 const month = date.getMonth();
@@ -83,8 +85,10 @@ watch([comList, plnList, rptList], () => {
                 }
             },
             dates: comList.value
-        },
-        {
+        }
+    ];
+    if (mode.value === 'teacher' && type.value === 'record') {
+        attributes.value.push({
             key: '생활기록부 발행 기간',
             class: 'period',
             highlight: {
@@ -93,7 +97,7 @@ watch([comList, plnList, rptList], () => {
                 end: { fillMode: 'light' }
             },
             dates: rptList.value
-        }
-    ];
+        });
+    }
 });
 </script>

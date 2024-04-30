@@ -1,8 +1,9 @@
 <template>
     <v-data-table
         v-model:expanded="expanded"
+        :items-per-page="(currentPage + 1) * 5"
         :headers="AchievementHeaders"
-        :items="teacherColorMatchedGroupState.slice(0, props.currentPageCount)"
+        :items="teacherColorMatchedGroupState"
         item-value="name"
         class="color_mint type_center"
     >
@@ -31,7 +32,6 @@
         <template v-slot:expanded-row="{ columns, item, internalItem }">
             <tr>
                 <td :colspan="columns.length" class="table_panel">
-                    <template v-if="isPanel === 'studName'"> 이름 {{ internalItem.raw.studName }}</template>
                     <template v-if="isPanel === 'achvRtAvg'">
                         <TeacherAnalyticsAchievementStudy :item="item" />
                     </template>
@@ -54,11 +54,9 @@
 </template>
 
 <script setup>
-const props = defineProps(['currentPageCount']);
-
 const learnStore = useApiLearnStore();
 
-const { teacherColorMatchedGroupState } = storeToRefs(learnStore);
+const { teacherColorMatchedGroupState, currentPage } = storeToRefs(learnStore);
 const expanded = ref([]);
 const selectedIdx = ref({
     row: null,
@@ -68,7 +66,7 @@ const isPanel = ref(null);
 
 const AchievementHeaders = [
     { title: '번호', key: 'sessId', align: 'center', sortable: false },
-    { title: '이름', key: 'studName', align: 'center', sortable: false },
+    { title: '이름', key: 'studName', align: 'center', sortable: true },
     { title: '학업 성취율', key: 'achvRtAvg', align: 'center', sortable: false },
     { title: '필기노트', key: 'wrtngNoteCnt', align: 'center', sortable: false },
     { title: '드릴 학습 참여 건수', key: 'drillPrtcpCnt', align: 'center', sortable: false },

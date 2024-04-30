@@ -40,7 +40,9 @@ export const useApiCalendarStore = defineStore(
                 calendarState.value = data.value.data.dayLst as Calendar;
                 if (calendarState.value.length > 0) {
                     plnList.value = calendarState.value.filter(item => item.plnYn).map(data => new Date(data.dt));
+
                     comList.value = calendarState.value.filter(item => item.comYn).map(data => new Date(data.dt));
+
                     rptList.value = calendarState.value.filter(item => item.rptYn).map(data => new Date(data.dt));
                 }
             }

@@ -27,23 +27,6 @@ $contents-bg-teacher: $bg-default;
     }
 }
 
-.dashboard-area {
-    width: 100%;
-    padding: 3rem;
-    background: #f5f6fa;
-
-    &.student {
-        background: #334152;
-        border-top-right-radius: 2.5rem;
-    }
-    &.record {
-        padding: 2rem;
-        background-color: #ffffff;
-    }
-    ::-webkit-scrollbar {
-        background-color: transparent;
-    }
-}
 // scroll_bar
 ::-webkit-scrollbar {
     // border-radius: 5rem;

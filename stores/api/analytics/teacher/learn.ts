@@ -107,6 +107,7 @@ export const useApiLearnStore = defineStore(
         const writtenNoteState: Ref<WrittenNote[]> = ref([]);
         const aiCustomizedDataState: Ref<AiCustomizedData[]> = ref([]);
         const wordLearningState: Ref<WordLearning> = ref({});
+        const currentPage = ref(0);
         let autoSendYn: Ref<boolean | null> = ref(null);
 
         const learnState = ref<Learn>();
@@ -338,7 +339,8 @@ export const useApiLearnStore = defineStore(
             getLearnCuritalkLearningFrequency,
             getLearnCuritalkContents,
             getLearnCuritalk,
-            postLearnCuritalkUnexposedWords
+            postLearnCuritalkUnexposedWords,
+            currentPage
         };
     },
     {

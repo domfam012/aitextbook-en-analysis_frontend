@@ -6,10 +6,10 @@
                 <ChartDoughnut :type="'often'" :chartData="chartData1" />
             </v-list-item>
             <v-list-item class="chart">
-                <ChartDoughnut :type="'much'" :chartData="chartData2" />
+                <ChartDoughnut :type="'much'" :chartData="chartData2" :legend="muchLegendData" />
             </v-list-item>
             <v-list-item class="chart">
-                <ChartDoughnut :type="'long'" :chartData="chartData3" />
+                <ChartDoughnut :type="'long'" :chartData="chartData3" :legend="longLegendData" />
             </v-list-item>
         </v-list>
         <div v-if="!chartData1" class="card_no_data">
@@ -21,6 +21,12 @@
 <script setup>
 const apiClassStore = useApiTeacherClassStore();
 const { cumulativeRecordHowLongState, cumulativeRecordHowOftenState, cumulativeRecordHowMuchState } = apiClassStore;
+
+// 얼마나 많이 범례
+const muchLegendData = [45, 34, 21, 10];
+
+// 얼마나 오래 범례
+const longLegendData = [87, 60, 33, 6, 5];
 
 const chartData1 = ref({
     labels: ['1', '2', '3', '4', '5'],

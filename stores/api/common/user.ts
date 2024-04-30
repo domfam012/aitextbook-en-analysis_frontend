@@ -16,7 +16,6 @@ export const useApiUserStore = defineStore(
             soundVolume?: number;
         };
 
-        const mode = ref('');
         const user = ref<Item>();
         const getUser = async (value: string) => {
             const { data, error } = await useCustomFetch('https://aitextbookapi-stage.i-screammedia.com/' + value, {
@@ -38,7 +37,6 @@ export const useApiUserStore = defineStore(
         };
         return {
             user,
-            mode,
             getUser
         };
     },

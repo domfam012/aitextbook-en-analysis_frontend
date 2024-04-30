@@ -20,12 +20,18 @@
                         mandatory
                         @update:modelValue="handleChangeStudent"
                     >
-                        <template v-for="(item, idx) in studentList">
+                        <template v-for="(item, idx) in studentList?.sort((a, b) => a.writeFlag - b.writeFlag)">
                             <!-- !disabled 처리로 하면 안됨, 클릭은 가능해야함 (기획참고) -->
-                            <v-btn v-show="!isEditMode || idx === selectedStudentIndex" rounded flat height="4.6rem">
+                            <v-btn
+                                v-show="!isEditMode || idx === selectedStudentIndex"
+                                :class="[{ temp: item.writeFlag }]"
+                                rounded
+                                flat
+                                height="4.6rem"
+                            >
                                 <div class="avatar avatar-box">
                                     <div class="avatar-info">
-                                        <span class="info_number">{{ item.studId }}</span>
+                                        <span class="info_number">{{ item.number }}번</span>
                                         <span class="info_name">{{ item.studName }}</span>
                                     </div>
                                 </div>
@@ -53,7 +59,7 @@
 </template>
 
 <script setup>
-const { mode } = storeToRefs(useApiUserStore());
+const mode = useCookie('mode');
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const { completionStudent } = storeToRefs(useApiCompletionStore());
 const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
@@ -149,3 +155,13 @@ const handleEditMode = () => {
     }
 };
 </script>
+<style lang="scss" scoped>
+.temp {
+    background: #b0b0b0;
+    &,
+    .info_number,
+    .info_name {
+        color: #fff;
+    }
+}
+</style>

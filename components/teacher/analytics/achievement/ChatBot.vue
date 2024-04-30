@@ -20,7 +20,12 @@
                     <div class="curi-box">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/img_cuteTalk.svg" alt="프로필" class="avatar-item avatar-item-60 border-none" />
+                                <!--                                <v-img :src="useAsset('images/temp/img_pho_st01.png')" alt="프로필" class="avatar-item avatar-item-60 border-none" />-->
+                                <v-img
+                                    :src="useAsset('images/img_cuteTalk.svg')"
+                                    alt="프로필"
+                                    class="avatar-item avatar-item-60 border-none"
+                                />
                             </div>
                             <p class="ml-2 txt">How are you?</p>
                         </div>
@@ -28,7 +33,11 @@
                     <div class="student">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item avatar-item-60" />
+                                <v-img
+                                    :src="useAsset('images/temp/img_pho_st01.png')"
+                                    alt="아바타 이미지"
+                                    class="avatar-item avatar-item-60"
+                                />
                             </div>
                             <!-- .drag 영역표시에 따른  위치 변경-->
                             <p class="ml-2 txt mgr20">Not so mad <span class="drag" style="right: 1.2rem; width: 5.8rem"></span></p>
@@ -41,7 +50,11 @@
                     <div class="curi-box">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/img_cuteTalk.svg" alt="프로필" class="avatar-item avatar-item-60 border-none" />
+                                <v-img
+                                    :src="useAsset('images/img_cuteTalk.svg')"
+                                    alt="프로필"
+                                    class="avatar-item avatar-item-60 border-none"
+                                />
                             </div>
                             <p class="ml-2 txt">What is your name?</p>
                         </div>
@@ -49,7 +62,11 @@
                     <div class="student">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item avatar-item-60" />
+                                <v-img
+                                    :src="useAsset('images/temp/img_pho_st01.png')"
+                                    alt="아바타 이미지"
+                                    class="avatar-item avatar-item-60"
+                                />
                             </div>
                             <p class="ml-2 mgr20 txt">I`m 9살이야</p>
                         </div>
@@ -60,7 +77,11 @@
                     <div class="curi-box">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/img_cuteTalk.svg" alt="프로필" class="avatar-item avatar-item-60 border-none" />
+                                <v-img
+                                    :src="useAsset('images/img_cuteTalk.svg')"
+                                    alt="프로필"
+                                    class="avatar-item avatar-item-60 border-none"
+                                />
                             </div>
                             <p class="ml-2 txt">How are you? How are you? How are you? How are you?</p>
                         </div>
@@ -68,7 +89,11 @@
                     <div class="student">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item avatar-item-60" />
+                                <v-img
+                                    :src="useAsset('images/temp/img_pho_st01.png')"
+                                    alt="아바타 이미지"
+                                    class="avatar-item avatar-item-60"
+                                />
                             </div>
                             <!-- .drag 영역표시에 따른  위치 변경-->
                             <p class="ml-2 mgr20 txt">Thank you<span class="drag" style="right: 1.4rem; width: 4.9rem"></span></p>
@@ -81,7 +106,11 @@
                     <div class="curi-box">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/img_cuteTalk.svg" alt="프로필" class="avatar-item avatar-item-60 border-none" />
+                                <v-img
+                                    :src="useAsset('images/img_cuteTalk.svg')"
+                                    alt="프로필"
+                                    class="avatar-item avatar-item-60 border-none"
+                                />
                             </div>
                             <p class="ml-2 txt">What is your name?</p>
                         </div>
@@ -89,7 +118,11 @@
                     <div class="student">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item avatar-item-60" />
+                                <v-img
+                                    :src="useAsset('images/temp/img_pho_st01.png')"
+                                    alt="아바타 이미지"
+                                    class="avatar-item avatar-item-60"
+                                />
                             </div>
                             <p class="ml-2 mgr20 txt">I`m 9살이야</p>
                         </div>
@@ -100,7 +133,11 @@
                     <div class="curi-box">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/img_cuteTalk.svg" alt="프로필" class="avatar-item avatar-item-60 border-none" />
+                                <v-img
+                                    :src="useAsset('images/img_cuteTalk.svg')"
+                                    alt="프로필"
+                                    class="avatar-item avatar-item-60 border-none"
+                                />
                             </div>
                             <p class="ml-2 txt">How are you? How are you? How are you? How are you?</p>
                         </div>
@@ -108,7 +145,11 @@
                     <div class="student">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
-                                <v-img src="@/assets/images/temp/img_pho_st01.png" alt="아바타 이미지" class="avatar-item avatar-item-60" />
+                                <v-img
+                                    :src="useAsset('images/temp/img_pho_st01.png')"
+                                    alt="아바타 이미지"
+                                    class="avatar-item avatar-item-60"
+                                />
                             </div>
                             <!-- .drag 영역표시에 따른  위치 변경-->
                             <p class="ml-2 mgr20 txt">Thank you<span class="drag" style="right: 14px; width: 4.9rem"></span></p>

@@ -10,7 +10,7 @@ interface Record {}
 export const useApiCompletionStore = defineStore(
     'apiCompleteRecordList',
     () => {
-        const { mode } = storeToRefs(useApiUserStore());
+        const mode = useCookie('mode');
         const completionState = ref<RecordList>();
 
         /**
@@ -44,9 +44,10 @@ export const useApiCompletionStore = defineStore(
         /**
          * 생활기록부 > 발행현황 > 발행완료건수 > 부모님 발송 완료 처리
          */
-        const putCompletion = async () => {
+        const putCompletion = async params => {
             const { data } = await useCustomFetch('/teacher/dashboard/schoolReport/processingTheCompletionOfTheParentsShipment', {
-                method: 'put'
+                method: 'put',
+                body: JSON.stringify(params)
             });
             return data;
         };
