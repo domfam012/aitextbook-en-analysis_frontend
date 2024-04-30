@@ -444,7 +444,7 @@ const deleteBtn = async item => {
     });
     await useApiRecordHistoryStore().getLearningHistoryCollection(
         issuanceStatus.value.currentSemester,
-        learningHistoryCollectionStudent.value[0].studUuid
+        learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid
     );
 };
 // 데이터값을 시간 형식으로 변환하는 계산된 속성
