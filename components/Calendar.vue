@@ -7,13 +7,14 @@
             </v-btn>
             <DatePicker
                 v-model="selectedDate"
+                ref="calendarRef"
                 color="mustard"
                 class="my-calendar"
                 :attributes="props.student ? attributesStudent : attributes"
                 :select-attribute="selectAttribute"
                 :masks="{ title: 'YYYY년 MMM' }"
                 is-required
-                @dayclick="(a, b) => console.log(a, b)"
+                @did-move="handleCalendar($event[0].id)"
             >
             </DatePicker>
             <template v-if="props.student">
@@ -37,21 +38,22 @@
 </template>
 
 <script setup>
+// props
+const props = defineProps({ student: Boolean });
+
+// store
+const calendarStore = useApiCalendarStore();
+const { selectedDate, currentMonth, comList, plnList, rptList } = storeToRefs(calendarStore);
+
+// composable
 const mode = useCookie('mode');
 const type = useCookie('type');
+const dayjs = useDayjs();
+
+// state
 const date = new Date();
-const year = date.getFullYear();
-const month = date.getMonth();
+const calendarRef = ref(null);
 const attributes = ref([]);
-const calendarStore = useApiCalendarStore();
-const { calendarState, selectedDate, comList, plnList, rptList } = storeToRefs(calendarStore);
-const props = defineProps({ student: Boolean });
-const resetDatepicker = () => {
-    selectedDate.value = null;
-};
-onMounted(() => {
-    calendarStore.getCalendar();
-});
 const selectAttribute = ref({
     highlight: {
         style: {
@@ -64,7 +66,26 @@ const selectAttribute = ref({
     },
     selectedDate: selectedDate.value
 });
-watch([comList, plnList, rptList], () => {
+
+// 달력 초기화
+const resetDatepicker = async () => {
+    await handleCalendar(dayjs(date).format('YYYYMM'));
+    await calendarRef.value.move(date);
+    selectedDate.value = date;
+};
+
+// 최초 진입 시 이번 달 이벤트 조회
+onMounted(() => {
+    handleCalendar(dayjs(date).format('YYYY-MM'));
+});
+
+// 월별 이벤트 조회
+const handleCalendar = async date => {
+    const propsDate = date.split('-').join('');
+    await calendarStore.getCalendar(propsDate);
+
+    currentMonth.value = date;
+
     attributes.value = [
         {
             key: '수업 예정일',
@@ -99,5 +120,5 @@ watch([comList, plnList, rptList], () => {
             dates: rptList.value
         });
     }
-});
+};
 </script>

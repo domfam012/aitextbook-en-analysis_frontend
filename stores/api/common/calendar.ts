@@ -18,8 +18,9 @@ export const useApiCalendarStore = defineStore(
     () => {
         // 현재 날짜// 달력 정보
         const calendarState = ref<Calendar>();
+        const currentMonth = ref(null);
         const selectedDate = ref(new Date());
-        const formatDate = ref(dayjs(selectedDate.value).format('YYYY-MM-DD'));
+        const formatDate = computed(() => dayjs(selectedDate.value).format('YYYY-MM-DD'));
         const comList = ref([]);
         const plnList = ref([]);
         const rptList = ref([]);
@@ -61,13 +62,10 @@ export const useApiCalendarStore = defineStore(
             }
         };
 
-        watch(selectedDate, newValue => {
-            formatDate.value = dayjs(newValue).format('YYYY-MM-DD');
-        });
-
         return {
             calendarState,
             selectedDate,
+            currentMonth,
             formatDate,
             comList,
             plnList,

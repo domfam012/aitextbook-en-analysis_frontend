@@ -1,5 +1,5 @@
 <template>
-    <v-card v-if="comList.some(data => dayjs(data).format('YYYY-MM-DD') === formatDate)" elevation="0" max-height="54rem">
+    <v-card v-if="lessonState" elevation="0" max-height="54rem">
         <v-sheet class="dailyPerformance">
             <div class="lessonInfo">
                 <h3 class="title">
@@ -12,7 +12,7 @@
                 </h3>
                 <v-spacer />
                 <!-- 단원/차시 정보 -->
-                <template v-if="showLessonSelector">
+                <template v-if="lessonState">
                     <TeacherAnalyticsLessonSelector :current-page="currentPage" @page="handleGetAchievementRate" />
                 </template>
             </div>
@@ -51,7 +51,7 @@ const courseStore = useApiCourseStore();
 const lessonStore = useApiLessonStore();
 const calendarStore = useApiCalendarStore();
 const { teacherLearningSessionState } = storeToRefs(courseStore);
-const { lessonCommonState } = storeToRefs(lessonStore);
+const { lessonCommonState, lessonState } = storeToRefs(lessonStore);
 const { formatDate, comList, plnList } = storeToRefs(calendarStore);
 
 const currentPage = ref(0);
@@ -76,10 +76,8 @@ watch(
     () => formatDate.value,
     async () => {
         reset();
-        if (showLessonSelector.value) {
-            await handleGetSessionInfos();
-            await handleGetAchievementRate();
-        }
+        await handleGetSessionInfos();
+        await handleGetAchievementRate();
     }
 );
 
@@ -89,12 +87,8 @@ const reset = () => {
     lessonCommonState.value.isExpand = false;
 };
 
-const showLessonSelector = computed(() =>
-    [comList, plnList].some(list => list.value.some(data => dayjs(data).format('YYYY-MM-DD') === formatDate.value))
-);
-
 onMounted(async () => {
-    if (showLessonSelector.value) {
+    if (lessonState.value) {
         await handleGetSessionInfos();
         await handleGetAchievementRate();
     }

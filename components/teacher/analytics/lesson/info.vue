@@ -1,6 +1,6 @@
 <template>
     <v-sheet class="dailyPerformance">
-        <div class="tabs fluid" v-if="comList.some(data => dayjs(data).format('YYYY-MM-DD') === formatDate)">
+        <div class="tabs fluid" v-if="lessonState">
             <v-tabs v-model="lessonCommonState.tab" @update:model-value="updateTab">
                 <v-tab value="one"> 오늘의 학업 성취율 </v-tab>
                 <v-tab value="two"> 단원별 누적 성취율 </v-tab>
@@ -14,7 +14,7 @@
 const dayjs = useDayjs();
 const lessonStore = useApiLessonStore();
 const calendarStore = useApiCalendarStore();
-const { lessonCommonState } = storeToRefs(lessonStore);
+const { lessonCommonState, lessonState } = storeToRefs(lessonStore);
 const { formatDate, comList } = storeToRefs(calendarStore);
 const emit = defineEmits(['tab']);
 /**
