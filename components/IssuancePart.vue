@@ -419,33 +419,36 @@ const fetchStudentData = async () => {
     );
     await useApiTeacherClassStore().getClassColorBoard('perfection');
 };
-const mainViews = {
-    corsViewYn: corsViewYn.value,
-    drillViewYn: drillViewYn.value,
-    vocaViewYn: vocaViewYn.value,
-    curiViewYn: curiViewYn.value
-};
+const mainViews = computed(() => {
+    return {
+        corsViewYn: corsViewYn.value,
+        drillViewYn: drillViewYn.value,
+        vocaViewYn: vocaViewYn.value,
+        curiViewYn: curiViewYn.value
+    };
+});
 
-const views = {
-    corsViewYn: corsViewYn.value,
-    drillViewYn: drillViewYn.value,
-    vocaViewYn: vocaViewYn.value,
-    curiViewYn: curiViewYn.value,
-    wrdViewYn: wrdViewYn.value,
-    lrnTimeYn: lrnTimeYn.value,
-    wethrViewYn: wethrViewYn.value,
-    emtViewYn: emtViewYn.value
-};
+const views = computed(() => {
+    return {
+        corsViewYn: corsViewYn.value,
+        drillViewYn: drillViewYn.value,
+        vocaViewYn: vocaViewYn.value,
+        curiViewYn: curiViewYn.value,
+        wrdViewYn: wrdViewYn.value,
+        lrnTimeYn: lrnTimeYn.value,
+        wethrViewYn: wethrViewYn.value,
+        emtViewYn: emtViewYn.value
+    };
+});
 
 const handleZeroCount = item => {
     let zeroCount = 0;
-    for (const key in mainViews) {
-        if (mainViews[key] === '0') {
+    for (const key in mainViews.value) {
+        if (mainViews.value[key] === '0') {
             zeroCount++;
         }
     }
     if (item === 'corsViewYn' || item === 'drillViewYn' || item === 'vocaViewYn' || item === 'curiViewYn') {
-        console.log('@@@@', zeroCount);
         if (zeroCount >= 1) {
             openAlert({ message: '최대 2개 항목 이상 삭제가 불가능합니다.' });
             return true;
@@ -459,25 +462,19 @@ const deleteBtn = async item => {
         return;
     }
     if (item === 'reset') {
-        for (const key in views) {
-            views[key] = '1';
+        for (const key in views.value) {
+            views.value[key] = '1';
+            mainViews.value[key] = '1';
         }
-
         fetchStudentData();
     } else {
-        views[item] = '0';
+        views.value[item] = '0';
+        mainViews.value[item] = '0';
     }
     await useApiRecordHistoryStore().putLearningHistoryEdit({
         semId: user.value.semester,
         studUuid: learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid,
-        corsViewYn: corsViewYn.value,
-        drillViewYn: drillViewYn.value,
-        vocaViewYn: vocaViewYn.value,
-        curiViewYn: curiViewYn.value,
-        wrdViewYn: wrdViewYn.value,
-        lrnTimeYn: lrnTimeYn.value,
-        wethrViewYn: wethrViewYn.value,
-        emtViewYn: emtViewYn.value
+        ...views.value
     });
     await useApiRecordHistoryStore().getLearningHistoryCollection(
         issuanceStatus.value.currentSemester,
