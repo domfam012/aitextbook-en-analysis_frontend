@@ -385,7 +385,7 @@ const { openAlert } = useAlertStore();
 const toggleDeleteBtn = () => {
     deleteBtnVisible.value = !deleteBtnVisible.value;
 };
-console.log(learningHistoryCollection.value);
+
 onMounted(async () => {
     if (mode.value === 'student') {
         await useApiRecordHistoryStore().getAchievementByArea(user.value.semester, user.value.studentId);
@@ -451,7 +451,6 @@ const handleZeroCount = item => {
 };
 
 const deleteBtn = async item => {
-    console.log(item);
     if (handleZeroCount(item)) {
         return;
     }
@@ -463,7 +462,6 @@ const deleteBtn = async item => {
 
         fetchStudentData();
     } else {
-        console.log(views[item]);
         views[item] = '0';
     }
     await useApiRecordHistoryStore().putLearningHistoryEdit({
