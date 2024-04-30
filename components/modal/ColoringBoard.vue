@@ -466,16 +466,6 @@ const { modalData, openModal, closeModal } = useModalStore();
 
 const lessonApiStore = useApiLessonStore();
 const { remainingColorState, collectedColorState, lessonPopupState } = storeToRefs(lessonApiStore);
-const colorMode = ref('blue');
-
-const setColor = mode => {
-    colorMode.value = mode;
-};
-
-const togglePainted = index => {
-    if (grid.value[index].color === colorMode.value) grid.value[index].painted = !grid.value[index].painted;
-    grid.value[index].color = colorMode.value;
-};
 
 onMounted(() => {
     lessonApiStore.getPopupRemainColor();

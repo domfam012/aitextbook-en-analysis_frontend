@@ -1,6 +1,11 @@
 <template>
     <div class="colorboard" :class="{ paintable: props.paintable }">
-        <div v-for="cell in props.grid" :key="cell.id" :class="[{ grid: true, painted: cell.painted }, cell.color]"></div>
+        <div
+            v-for="cell in props.grid"
+            :key="cell.id"
+            :class="[{ grid: true, painted: cell.painted }, cell.color]"
+            @click="setColor(cell)"
+        ></div>
         <div v-if="stamp" class="board-stamp bg-white">
             <v-img :src="stampSrc" alt="어떻게 이렇게까지 잘하는 거지" />
         </div>
@@ -22,6 +27,10 @@ const props = defineProps({
     grid: { type: Array, default: [] },
     stamp: { type: Number, default: 0 }
 });
+
+const setColor = value => {
+    value.painted = !value.painted;
+};
 
 const stampSrc = computed(() => {
     switch (props.stamp) {
