@@ -33,7 +33,7 @@
                     </v-card-title>
                 </v-card-item>
                 <v-container fluid class="card_items gutter_3">
-                    <div class="card">
+                    <div v-show="corsViewYn === '1'" class="card">
                         <p class="title">
                             <i class="ico book2 ico_size_lg" />
                             교과서 학습
@@ -60,7 +60,7 @@
                             </v-card-text>
                         </v-card>
                     </div>
-                    <div class="card">
+                    <div v-show="drillViewYn === '1'" class="card">
                         <p class="title">
                             <i class="ico drill ico_size_lg" />
                             드릴 학습
@@ -90,7 +90,7 @@
                             </v-card-text>
                         </v-card>
                     </div>
-                    <div class="card">
+                    <div v-show="vocaViewYn === '1'" class="card">
                         <p class="title">
                             <i class="ico voca ico_size_lg" />
                             AI Touch Voca
@@ -120,7 +120,7 @@
                             </v-card-text>
                         </v-card>
                     </div>
-                    <div class="card">
+                    <div v-show="curiViewYn === '1'" class="card">
                         <p class="title">
                             <i class="ico chat ico_size_lg" />
                             AI CURI Talk
@@ -206,7 +206,7 @@
             </div>
             <div class="chart_wrap mgt40">
                 <!-- 단어 학습 진단 -->
-                <v-card elevation="0" class="type_record">
+                <v-card v-show="wrdViewYn === '1'" elevation="0" class="type_record">
                     <v-card-item>
                         <v-card-title>
                             <span>단어 학습 진단</span>
@@ -227,7 +227,7 @@
                 <!-- // 단어 학습 진단 -->
 
                 <!-- 누적 학습 시간 -->
-                <v-card elevation="0" class="type_record">
+                <v-card v-show="lrnTimeYn === '1'" elevation="0" class="type_record">
                     <v-card-item>
                         <v-card-title>
                             <span>요일별 평균 학습 시간</span>
@@ -236,7 +236,7 @@
                                 class="icon_only size_md"
                                 rounded
                                 flat
-                                @click="deleteBtn('exprsViewYn')"
+                                @click="deleteBtn('lrnTimeYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </v-card-title>
@@ -249,7 +249,7 @@
             </div>
             <div class="chart_wrap mgt40">
                 <!-- 감정 날씨_학기 총계 -->
-                <v-card elevation="0" class="type_record">
+                <v-card v-show="wethrViewYn === '1'" elevation="0" class="type_record">
                     <v-card-item>
                         <v-card-title>
                             <span>감정 날씨_학기 총계</span>
@@ -270,7 +270,7 @@
                 <!-- // 감정 날씨_학기 총계 -->
 
                 <!-- 학습 정서_학기 평균 -->
-                <v-card elevation="0" class="type_record">
+                <v-card v-show="emtViewYn === '1'" elevation="0" class="type_record">
                     <v-card-item>
                         <v-card-title>
                             <span>학습 정서_학기 평균</span>
@@ -373,7 +373,7 @@ const {
     vocaViewYn,
     curiViewYn,
     wrdViewYn,
-    exprsViewYn,
+    lrnTimeYn,
     wethrViewYn,
     emtViewYn
 } = storeToRefs(useApiRecordHistoryStore());
@@ -419,29 +419,36 @@ const fetchStudentData = async () => {
     );
     await useApiTeacherClassStore().getClassColorBoard('perfection');
 };
-const mainViews = {
-    corsViewYn: corsViewYn.value,
-    drillViewYn: drillViewYn.value,
-    vocaViewYn: vocaViewYn.value,
-    curiViewYn: curiViewYn.value
-};
+const mainViews = computed(() => {
+    return {
+        corsViewYn: corsViewYn.value,
+        drillViewYn: drillViewYn.value,
+        vocaViewYn: vocaViewYn.value,
+        curiViewYn: curiViewYn.value
+    };
+});
 
-const views = {
-    ...mainViews,
-    wrdViewYn: wrdViewYn.value,
-    exprsViewYn: exprsViewYn.value,
-    wethrViewYn: wethrViewYn.value,
-    emtViewYn: emtViewYn.value
-};
+const views = computed(() => {
+    return {
+        corsViewYn: corsViewYn.value,
+        drillViewYn: drillViewYn.value,
+        vocaViewYn: vocaViewYn.value,
+        curiViewYn: curiViewYn.value,
+        wrdViewYn: wrdViewYn.value,
+        lrnTimeYn: lrnTimeYn.value,
+        wethrViewYn: wethrViewYn.value,
+        emtViewYn: emtViewYn.value
+    };
+});
 
 const handleZeroCount = item => {
     let zeroCount = 0;
-    for (const key in mainViews) {
-        if (mainViews[key].value === '0') {
+    for (const key in mainViews.value) {
+        if (mainViews.value[key] === '0') {
             zeroCount++;
         }
     }
-    if (item === 'corsView' || item === 'drillView' || item === 'vocaView' || item === 'curiView') {
+    if (item === 'corsViewYn' || item === 'drillViewYn' || item === 'vocaViewYn' || item === 'curiViewYn') {
         if (zeroCount >= 1) {
             openAlert({ message: '최대 2개 항목 이상 삭제가 불가능합니다.' });
             return true;
@@ -454,27 +461,20 @@ const deleteBtn = async item => {
     if (handleZeroCount(item)) {
         return;
     }
-
     if (item === 'reset') {
-        for (const key in views) {
-            views[key] = '1';
+        for (const key in views.value) {
+            views.value[key] = '1';
+            mainViews.value[key] = '1';
         }
-
         fetchStudentData();
     } else {
-        views[item] = '0';
+        views.value[item] = '0';
+        mainViews.value[item] = '0';
     }
     await useApiRecordHistoryStore().putLearningHistoryEdit({
         semId: user.value.semester,
         studUuid: learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid,
-        corsViewYn: corsViewYn.value,
-        drillViewYn: drillViewYn.value,
-        vocaViewYn: vocaViewYn.value,
-        curiViewYn: curiViewYn.value,
-        wrdViewYn: wrdViewYn.value,
-        exprsViewYn: exprsViewYn.value,
-        wethrViewYn: wethrViewYn.value,
-        emtViewYn: emtViewYn.value
+        ...views.value
     });
     await useApiRecordHistoryStore().getLearningHistoryCollection(
         issuanceStatus.value.currentSemester,

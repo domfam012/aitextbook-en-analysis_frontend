@@ -8,8 +8,6 @@ const data = {
     httpCode: 200,
     message: '조회성공',
     data: {
-        semId: 0,
-        studUuid: 'string',
         corsViewYn: '1', // 교과서 학습
         drillViewYn: '1', // 드릴 학습
         vocaViewYn: '1', // AI VOCA
