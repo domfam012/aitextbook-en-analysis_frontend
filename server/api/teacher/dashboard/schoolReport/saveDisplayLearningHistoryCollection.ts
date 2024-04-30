@@ -10,15 +10,14 @@ const data = {
     data: {
         semId: 0,
         studUuid: 'string',
-        corsViewYn: '1',
-        drillViewYn: '1',
-        vocaViewYn: '1',
-        curiViewYn: '1',
-        achvViewYn: '1',
-        wrdViewYn: '1',
-        exprsViewYn: '1',
-        wethrViewYn: '1',
-        emtViewYn: '1'
+        corsViewYn: '1', // 교과서 학습
+        drillViewYn: '1', // 드릴 학습
+        vocaViewYn: '1', // AI VOCA
+        curiViewYn: '1', // AI CURY
+        wrdViewYn: '1', // 단어 학습 진단
+        exprsViewYn: '1', // 요일별 평균 학습 시간
+        wethrViewYn: '1', // 감정 날씨_학기 총계
+        emtViewYn: '1' // 학습 정서_학기 평균
     }
 };
 
