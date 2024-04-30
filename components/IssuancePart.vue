@@ -43,7 +43,7 @@
                                 rounded
                                 flat
                                 color="primary"
-                                @click="deleteBtn('corsView')"
+                                @click="deleteBtn('corsViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </p>
@@ -70,7 +70,7 @@
                                 rounded
                                 flat
                                 color="primary"
-                                @click="deleteBtn('drillView')"
+                                @click="deleteBtn('drillViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </p>
@@ -100,7 +100,7 @@
                                 rounded
                                 flat
                                 color="primary"
-                                @click="deleteBtn('vocaView')"
+                                @click="deleteBtn('vocaViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </p>
@@ -130,7 +130,7 @@
                                 rounded
                                 flat
                                 color="primary"
-                                @click="deleteBtn('curiView')"
+                                @click="deleteBtn('curiViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </p>
@@ -215,7 +215,7 @@
                                 class="icon_only size_md"
                                 rounded
                                 flat
-                                @click="deleteBtn('wrdView')"
+                                @click="deleteBtn('wrdViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </v-card-title>
@@ -236,7 +236,7 @@
                                 class="icon_only size_md"
                                 rounded
                                 flat
-                                @click="deleteBtn('exprsView')"
+                                @click="deleteBtn('exprsViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </v-card-title>
@@ -258,7 +258,7 @@
                                 class="icon_only size_md"
                                 rounded
                                 flat
-                                @click="deleteBtn('wethrView')"
+                                @click="deleteBtn('wethrViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </v-card-title>
@@ -279,7 +279,7 @@
                                 class="icon_only size_md"
                                 rounded
                                 flat
-                                @click="deleteBtn('emtView')"
+                                @click="deleteBtn('emtViewYn')"
                                 ><i class="ico tool_delete ico_size_10"
                             /></v-btn>
                         </v-card-title>
@@ -361,26 +361,32 @@ const { savePdf, printPage } = usePrintSave();
 const { user } = storeToRefs(useApiUserStore());
 const { completionState } = storeToRefs(useApiCompletionStore());
 const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
-const { learningHistoryCollection, dayChart, wordChart, emotionChart, weatherChart, radarChart } = storeToRefs(useApiRecordHistoryStore());
+const {
+    learningHistoryCollection,
+    dayChart,
+    wordChart,
+    emotionChart,
+    weatherChart,
+    radarChart,
+    corsViewYn,
+    drillViewYn,
+    vocaViewYn,
+    curiViewYn,
+    wrdViewYn,
+    exprsViewYn,
+    wethrViewYn,
+    emtViewYn
+} = storeToRefs(useApiRecordHistoryStore());
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const apiClassStore = useApiTeacherClassStore();
 const { colorBoardState } = storeToRefs(apiClassStore);
-const corsView = ref('1');
-const drillView = ref('1');
-const vocaView = ref('1');
-const curiView = ref('1');
-const achvView = ref('1');
-const wrdView = ref('1');
-const exprsView = ref('1');
-const wethrView = ref('1');
-const emtView = ref('1');
 const deleteBtnVisible = ref(false);
 const { openAlert } = useAlertStore();
 const toggleDeleteBtn = () => {
     deleteBtnVisible.value = !deleteBtnVisible.value;
 };
+console.log(learningHistoryCollection.value);
 onMounted(async () => {
-    console.log(mode.value);
     if (mode.value === 'student') {
         await useApiRecordHistoryStore().getAchievementByArea(user.value.semester, user.value.studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(user.value.semester, user.value.studentId);
@@ -414,19 +420,18 @@ const fetchStudentData = async () => {
     await useApiTeacherClassStore().getClassColorBoard('perfection');
 };
 const mainViews = {
-    corsView: corsView,
-    drillView: drillView,
-    vocaView: vocaView,
-    curiView: curiView
+    corsViewYn: corsViewYn.value,
+    drillViewYn: drillViewYn.value,
+    vocaViewYn: vocaViewYn.value,
+    curiViewYn: curiViewYn.value
 };
 
 const views = {
     ...mainViews,
-    achvView: achvView,
-    wrdView: wrdView,
-    exprsView: exprsView,
-    wethrView: wethrView,
-    emtView: emtView
+    wrdViewYn: wrdViewYn.value,
+    exprsViewYn: exprsViewYn.value,
+    wethrViewYn: wethrViewYn.value,
+    emtViewYn: emtViewYn.value
 };
 
 const handleZeroCount = item => {
@@ -446,29 +451,32 @@ const handleZeroCount = item => {
 };
 
 const deleteBtn = async item => {
+    console.log(item);
     if (handleZeroCount(item)) {
         return;
     }
 
     if (item === 'reset') {
         for (const key in views) {
-            views[key].value = '1';
+            views[key] = '1';
         }
+
         fetchStudentData();
     } else {
-        views[item].value = '0';
+        console.log(views[item]);
+        views[item] = '0';
     }
     await useApiRecordHistoryStore().putLearningHistoryEdit({
         semId: user.value.semester,
         studUuid: learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid,
-        corsViewYn: corsView.value,
-        drillViewYn: drillView.value,
-        vocaViewYn: vocaView.value,
-        curiViewYn: curiView.value,
-        wrdViewYn: wrdView.value,
-        exprsViewYn: exprsView.value,
-        wethrViewYn: wethrView.value,
-        emtViewYn: emtView.value
+        corsViewYn: corsViewYn.value,
+        drillViewYn: drillViewYn.value,
+        vocaViewYn: vocaViewYn.value,
+        curiViewYn: curiViewYn.value,
+        wrdViewYn: wrdViewYn.value,
+        exprsViewYn: exprsViewYn.value,
+        wethrViewYn: wethrViewYn.value,
+        emtViewYn: emtViewYn.value
     });
     await useApiRecordHistoryStore().getLearningHistoryCollection(
         issuanceStatus.value.currentSemester,

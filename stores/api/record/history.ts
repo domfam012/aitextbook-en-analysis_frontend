@@ -114,6 +114,14 @@ export const useApiRecordHistoryStore = defineStore(
         const dayChart = ref([]);
         const emotionChart = ref({});
         const weatherChart = ref({});
+        const corsViewYn = ref('');
+        const drillViewYn = ref('');
+        const vocaViewYn = ref('');
+        const curiViewYn = ref('');
+        const wrdViewYn = ref('');
+        const exprsViewYn = ref('');
+        const wethrViewYn = ref('');
+        const emtViewYn = ref('');
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
             const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/learningHistoryCollection`, {
@@ -126,6 +134,14 @@ export const useApiRecordHistoryStore = defineStore(
             if (data.value) {
                 learningHistoryCollection.value = data.value.data as Record;
                 const item = learningHistoryCollection.value;
+                corsViewYn.value = item.corsViewYn ? item.corsViewYn.toString() : '';
+                drillViewYn.value = item.drillViewYn ? item.drillViewYn.toString() : '';
+                vocaViewYn.value = item.vocaViewYn ? item.vocaViewYn.toString() : '';
+                curiViewYn.value = item.curiViewYn ? item.curiViewYn.toString() : '';
+                wrdViewYn.value = item.wrdViewYn ? item.wrdViewYn.toString() : '';
+                exprsViewYn.value = item.exprsViewYn ? item.exprsViewYn.toString() : '';
+                wethrViewYn.value = item.wethrViewYn ? item.wethrViewYn.toString() : '';
+                emtViewYn.value = item.emtViewYn ? item.emtViewYn.toString() : '';
                 wordChart.value = [
                     { value: item.wrdPrfctUndrsUseCnt, color: 'color-1', label: '잘이해하고 활용한 단어' },
                     { value: item.wrdExprsUndrsUnsdCnt, color: 'color-2', label: '이해했으나 활용하지 못한 단어' },
@@ -236,7 +252,6 @@ export const useApiRecordHistoryStore = defineStore(
          */
 
         const putLearningHistoryEdit = async (params: string) => {
-            console.log(params);
             const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection`, {
                 method: 'put',
                 body: JSON.stringify(params)
@@ -342,7 +357,14 @@ export const useApiRecordHistoryStore = defineStore(
             getLearningHistoryCollection,
             putLearningHistoryEdit,
             getSemesterInProgress,
-
+            corsViewYn,
+            drillViewYn,
+            vocaViewYn,
+            curiViewYn,
+            wrdViewYn,
+            exprsViewYn,
+            wethrViewYn,
+            emtViewYn,
             //[학생] 생활기록부
             studentAchievementByArea,
             studentAchievementByUnit,
