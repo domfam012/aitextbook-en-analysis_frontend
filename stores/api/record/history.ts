@@ -119,7 +119,7 @@ export const useApiRecordHistoryStore = defineStore(
         const vocaViewYn = ref('');
         const curiViewYn = ref('');
         const wrdViewYn = ref('');
-        const exprsViewYn = ref('');
+        const lrnTimeYn = ref('');
         const wethrViewYn = ref('');
         const emtViewYn = ref('');
         const learningHistoryCollection = ref<Record>();
@@ -139,7 +139,7 @@ export const useApiRecordHistoryStore = defineStore(
                 vocaViewYn.value = item.vocaViewYn ? item.vocaViewYn.toString() : '';
                 curiViewYn.value = item.curiViewYn ? item.curiViewYn.toString() : '';
                 wrdViewYn.value = item.wrdViewYn ? item.wrdViewYn.toString() : '';
-                exprsViewYn.value = item.exprsViewYn ? item.exprsViewYn.toString() : '';
+                lrnTimeYn.value = item.lrnTimeYn ? item.lrnTimeYn.toString() : '';
                 wethrViewYn.value = item.wethrViewYn ? item.wethrViewYn.toString() : '';
                 emtViewYn.value = item.emtViewYn ? item.emtViewYn.toString() : '';
                 wordChart.value = [
@@ -362,7 +362,7 @@ export const useApiRecordHistoryStore = defineStore(
             vocaViewYn,
             curiViewYn,
             wrdViewYn,
-            exprsViewYn,
+            lrnTimeYn,
             wethrViewYn,
             emtViewYn,
             //[학생] 생활기록부
