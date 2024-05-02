@@ -153,7 +153,7 @@
                             </div>
                             <!-- .drag 영역표시에 따른  위치 변경-->
                             <p class="ml-2 mgr20 txt">Thank you<span class="drag" style="right: 14px; width: 4.9rem"></span></p>
-                            <v-btn rounded flat class="primary" disabled>버튼</v-btn>
+                            <v-btn rounded flat class="primary size_md" disabled>버튼</v-btn>
                         </div>
                     </div>
                 </div>
@@ -169,8 +169,8 @@
                         미노출 등록 하시겠습니까?
                     </div>
                     <div class="dialog_btn_wrap mt-6">
-                        <v-btn @click="isActive.value = false" rounded flat class="secondary">취소</v-btn>
-                        <v-btn rounded flat class="primary" type="submit" @click="register = true">등록</v-btn>
+                        <v-btn @click="isActive.value = false" rounded flat class="secondary size_md">취소</v-btn>
+                        <v-btn rounded flat class="primary size_md" type="submit" @click="register = true">등록</v-btn>
                     </div>
                 </div>
             </template>
@@ -184,7 +184,7 @@
                     <p class="mgt10 desc">‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.</p>
                 </div>
                 <div class="dialog_btn_wrap mt-6">
-                    <v-btn rounded flat class="primary" type="submit" @click="(register = false), (dialog = false)">확인</v-btn>
+                    <v-btn rounded flat class="primary size_md" type="submit" @click="(register = false), (dialog = false)">확인</v-btn>
                 </div>
             </div>
         </v-dialog>

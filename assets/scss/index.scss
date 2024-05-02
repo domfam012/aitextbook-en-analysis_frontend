@@ -9,6 +9,7 @@
 @import 'foundations/common.scss';
 @import 'foundations/layout.scss';
 
+
 // components
 @import 'components/btn.scss';
 @import 'components/avatar.scss';
@@ -19,6 +20,7 @@
 @import 'components/title.scss';
 // @import 'components/selectbox.scss';
 @import 'components/page-indicator.scss';
+@import 'components/color_board';
 // @import 'components/checkbox-radio.scss';
 @import 'components/learningHistoryStats.scss';
 @import 'components/analytics.scss';
@@ -51,6 +53,8 @@
 @import 'components/record_wrap.scss';
 @import 'components/chart_contents.scss';
 @import 'components/no_data_wrap.scss';
+@import 'components/loading.scss';
+
 
 // pages
 @import 'pages/guide_contents.scss';

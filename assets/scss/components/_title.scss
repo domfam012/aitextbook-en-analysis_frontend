@@ -21,7 +21,8 @@
 .title {
     display: flex;
     align-items: center;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
+    margin-bottom:1.5rem;
 
     @include font_body4($font-weight-bold);
 

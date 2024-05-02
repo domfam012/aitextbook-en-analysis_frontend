@@ -165,63 +165,6 @@
     }
 }
 
-.stackedColumn {
-    .chart {
-        margin: 2rem auto 0;
-    }
-
-    .legend {
-        justify-content: center;
-        margin-top: 9.3rem;
-        height: 4rem;
-
-        .understand,
-        .listen,
-        .talk {
-            display: flex;
-            align-items: center;
-            margin-right: 2rem;
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-            font-weight: var(--weight-medium);
-
-            .bullet {
-                display: inline-block;
-                width: 1.6rem;
-                height: 1.6rem;
-                background: #46a7e5;
-                border-radius: 0.2rem;
-                margin-right: 1rem;
-
-                &:after {
-                    display: none;
-                }
-            }
-        }
-
-        .understand {
-            .bullet {
-                background: #46a7e5;
-            }
-        }
-
-        .listen {
-            .bullet {
-                background: #FD6E7F;
-            }
-        }
-
-        .talk {
-            margin-right: 0;
-
-            .bullet {
-                background: #8DBB2C;
-            }
-        }
-
-    }
-}
-
 .chart_multiple_radialbars {
     display: flex;
     flex-wrap: wrap;
@@ -244,7 +187,7 @@
         }
 
         .color-2 {
-            background-color: --shchme-color-learner;
+            background-color: $dashboard-color-mint;
         }
 
         .color-3 {
@@ -271,7 +214,10 @@
         padding: 0;
 
         .use-word {
-            justify-content: center;
+            // justify-content: center;
+            max-width: 50%;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 1rem;
         }
 
@@ -309,6 +255,34 @@
         &.type_single {
             justify-content: center;
         }
+
+        .color-1 {
+            background-color: $B500;
+        }
+
+        .color-2 {
+            background-color: $G400;
+        }
+
+        .color-3 {
+            background-color: $Y500;
+        }
+
+        p {
+            flex-shrink: 0;
+        }
+    }
+
+    .use-word {
+        margin-bottom: 0;
+    }
+}
+.chart_stacked_column {
+    .chart-bar {
+        display: inline-flex;
+        gap: 2rem;
+        margin-top: 3rem;
+        padding: 0;
 
         .color-1 {
             background-color: $B500;

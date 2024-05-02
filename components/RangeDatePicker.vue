@@ -10,10 +10,7 @@
             :masks="{ L: 'YYYY-MM-DD', title: 'YYYY년 MMM' }"
             @update:model-value="
                 val => {
-                    $emit('updateRange', {
-                        startDt: dayjs(val.start).format('YYYY-MM-DD'),
-                        endDt: dayjs(val.end).format('YYYY-MM-DD')
-                    });
+                    updateRange(val);
                 }
             "
         >
@@ -43,11 +40,33 @@
 
 <script setup>
 const dayjs = useDayjs();
+const { openAlert } = useAlertStore();
+
+const emit = defineEmits(['updateRagne']);
 
 const range = ref({
     start: null,
     end: null
 });
 
-const emit = ['updateRange'];
+const updateRange = val => {
+    console.log(val);
+    range.value.start = dayjs(val.start).format('YYYY-MM-DD');
+    range.value.end = dayjs(val.end).format('YYYY-MM-DD');
+
+    const startDate = dayjs(range.value.start);
+    const endDate = dayjs(range.value.end);
+    const differenceInDays = endDate.diff(startDate, 'days');
+
+    if (differenceInDays > 30) {
+        openAlert({
+            message: `정확한 분석을 위해 최대 30일까지 조회만 가능합니다.`
+        });
+    } else {
+        emit('updateRange', {
+            startDt: range.value.start,
+            endDt: range.value.end
+        });
+    }
+};
 </script>

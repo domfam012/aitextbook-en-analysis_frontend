@@ -17,6 +17,9 @@
     @include radius(.5rem);
     line-height: 0;
   }
+  .image_wrap{
+    background-color: $G50;
+  }
   .text_wrap {
     padding: 2rem 1.8rem;
     border-top: 1px solid $G400;

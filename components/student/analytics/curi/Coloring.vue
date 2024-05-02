@@ -11,15 +11,8 @@
                     class="px15 py15 cursor"
                     v-for="(item, index) in colorBoardState"
                     :key="index"
-                    @click="openModal({ type: 'coloring' })"
+                    @click="$event => handleClick(index)"
                 >
-                    <div class="avatar avatar-box">
-                        <v-img :src="avatar" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
-                        <div class="avatar-info">
-                            <span class="info_number">{{ item.studNo }}번</span>
-                            <span class="info_name">{{ item.studName }}</span>
-                        </div>
-                    </div>
                     <TeacherAnalyticsLearnColorBoard :stamp="item.stampId" :grid="item.dsgnUseInfo" class="mt-3" />
                 </v-list-item>
             </v-list>
@@ -32,18 +25,22 @@
         </div>
     </v-sheet>
     <Modal v-if="modalData?.type === 'coloring'">
-        <ModalColoringBoard v-if="modalData?.isOpen" />
+        <ModalColoringBoard v-if="modalData?.isOpen" :selected="selectedIndx" />
     </Modal>
 </template>
 
 <script setup>
-import avatar from '@/assets/images/temp/img_pho_st01.png';
 import coloringBoard from '@/assets/images/temp/img_coloring_board.png';
-import stamp01 from '@/assets/images/img_stamp_01.svg';
-import noImages from '@/assets/images/img_noImage.svg';
 
 const { modalData, openModal, closeModal } = useModalStore();
 const curiStore = useApiCuriStore();
 
 const { colorBoardState } = storeToRefs(curiStore);
+
+const selectedIndx = ref(null);
+
+const handleClick = index => {
+    selectedIndx.value = index;
+    openModal({ type: 'coloring' });
+};
 </script>

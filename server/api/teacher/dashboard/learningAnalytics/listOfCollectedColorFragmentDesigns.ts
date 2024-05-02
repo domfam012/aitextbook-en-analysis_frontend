@@ -20,1815 +20,1815 @@ const data = {
             dsgnUseInfo: [
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 }
             ],
@@ -1846,755 +1846,425 @@ const data = {
             dsgnUseInfo: [
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
@@ -2609,1052 +2279,1382 @@ const data = {
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'green'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'yellow'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'yellow'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'blue'
                 }
             ],
@@ -3672,1800 +3672,1800 @@ const data = {
             dsgnUseInfo: [
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'green'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'darkgreen'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'green'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'darkgreen'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: ''
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
-                    color: 'red'
-                },
-                {
-                    id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'red'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
 
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
-                    color: 'blue'
+                    painted: false,
+                    color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
+                    color: 'blue'
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: ''
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
+                    color: ''
+                },
+                {
+                    id: uuidv4(),
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'yellow'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'red'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'green'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'darkgreen'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {
                     id: uuidv4(),
-                    painted: true,
+                    painted: false,
                     color: 'blue'
                 },
                 {

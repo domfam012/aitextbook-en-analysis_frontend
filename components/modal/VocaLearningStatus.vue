@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="dialog_btn_wrap mgt30 gap1 d-flex justify-center">
-                    <v-btn rounded flat class="outlined" @click="closeModal">닫기</v-btn>
+                    <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
                 </div>
             </v-card>
         </v-dialog>

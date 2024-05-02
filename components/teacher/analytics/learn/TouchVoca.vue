@@ -5,7 +5,7 @@
             <v-list-item
                 v-for="(item, index) in renderAll ? vocaState : vocaState?.slice(0, currentPage * 3 + 3)"
                 :key="index"
-                class="chart"
+                class="chart cursor"
             >
                 <div class="avatar avatar-box" @click="openModal({ type: 'vocaLearningStatus' })">
                     <!-- !NOTE API 학생 정보 데이터 추가 요청중. 2024-04-12 (파라미터 변경될 수 있음.) -->
@@ -69,7 +69,6 @@
 </template>
 
 <script setup>
-import avatarSrc from '@/assets/images/temp/img_pho_st01.png';
 const apiClassStore = useApiTeacherClassStore();
 const { vocaState } = storeToRefs(apiClassStore);
 const { modalData, openModal } = useModalStore();

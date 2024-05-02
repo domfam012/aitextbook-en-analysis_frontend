@@ -1,20 +1,20 @@
 <template>
-    <div class="stackedColumn">
-        <div class="chart" style="width: 100%">
-            <canvas ref="chart" width="100%" height="49.3rem"></canvas>
-            <div class="legend d-flex">
-                <div class="understand">
-                    <span class="bullet"></span>
-                    이해
-                </div>
-                <div class="listen">
-                    <span class="bullet"></span>
-                    듣기
-                </div>
-                <div class="talk">
-                    <span class="bullet"></span>
-                    말하기
-                </div>
+    <div class="chart_stacked_column" >
+        <div class="chart_contents type_stacked_column">
+            <canvas ref="chart"></canvas>
+        </div>
+        <div class="chart-bar">
+            <div class="use-word">
+                <span class="bullet color-1"></span>
+                <p>이해</p>
+            </div>
+            <div class="use-word">
+                <span class="bullet color-2"></span>
+                <p>듣기</p>
+            </div>
+            <div class="use-word">
+                <span class="bullet color-3"></span>
+                <p>말하기</p>
             </div>
         </div>
     </div>
@@ -61,20 +61,25 @@ const chartOptions = ref({
     chartArea: {
         backgroundColor: '#F8F8F8'
     },
-    barThickness: 10, // 막대의 너비 조절
+    maintainAspectRatio: false,
     categorySpacing: 3,
+    barPercentage: 0.5,
     scales: {
         x: {
             grid: {
                 display: false
             },
             ticks: {
-                font: {
-                    weight: '500',
-                    size: 20,
-                    color: '#171717',
-                    family: '"NotoSansKR", sans-serif',
-                    lineHeight: '26px'
+                color: '#171717',
+                font: function(context){
+                    var height = context.chart.height;
+                    // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
+                    var size = Math.round(height / 25);
+                    return {
+                        family: 'NotoSansKR',
+                        size: size * 1.25, //20
+                        weight: 500,
+                    }
                 }
             }
         },
@@ -84,12 +89,17 @@ const chartOptions = ref({
             },
 
             ticks: {
-                font: {
-                    weight: '500',
-                    size: 16,
-                    color: '#171717',
-                    family: '"NotoSansKR", sans-serif',
-                    lineHeight: '22px'
+                padding: 10,
+                color: '#171717',
+                font: function(context){
+                    var height = context.chart.height;
+                    // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
+                    var size = Math.round(height / 25);
+                    return {
+                        family: 'NotoSansKR',
+                        size: size,
+                        weight: 500,
+                    }
                 }
             },
             suggestedMin: 0,

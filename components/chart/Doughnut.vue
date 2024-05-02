@@ -60,6 +60,7 @@ const chartOptions = ref({
     layout: {
         padding: 50
     },
+    maintainAspectRatio: false,
     plugins: {
         legend: {
             display: false
@@ -96,8 +97,8 @@ function drawLabel(chart, piece, index) {
     const dataValue = chart.data.datasets[0].data[index];
 
     // 텍스트 스타일 설정
-    ctx.fillStyle = '#000'; // 텍스트 색상
-    ctx.font = `bold 12px Arial`;
+    ctx.fillStyle = '#171717'; // 텍스트 색상
+    ctx.font = '700 1.6rem NotoSansKR';
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
 
@@ -114,7 +115,7 @@ function drawLabel(chart, piece, index) {
     ctx.fill();
 
     // 텍스트 그리기
-    ctx.fillStyle = '#000'; // 텍스트 색상
+    ctx.fillStyle = '#171717'; // 텍스트 색상
     ctx.fillText(value, posX, posY);
 
     const dataset = chart.data.datasets[0];

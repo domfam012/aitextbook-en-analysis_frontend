@@ -5,10 +5,10 @@
             <v-card class="dialog piece-xxxlg collectedColor">
                 <div class="tabs-top">
                     <div class="avatar avatar-box">
-                        <v-img :src="avatar" alt="아바타 이미지" class="avatar-item" />
+                        <v-img :src="useAsset('images/temp/img_pho_st01.png')" alt="아바타 이미지" class="avatar-item" />
                         <div class="avatar-info">
-                            <span class="info_number">{{ remainingColorState?.studNo }}번</span>
-                            <span class="info_name">{{ remainingColorState?.studName }}</span>
+                            <span class="info_number">{{ colorBoardState[selected]?.studNo }}번</span>
+                            <span class="info_name">{{ colorBoardState[selected]?.studName }}</span>
                         </div>
                     </div>
                     <div class="round_box_type ml-auto">
@@ -143,7 +143,7 @@
                                 </div>
                             </v-card>
                             <div class="dialog_btn_wrap mgt30">
-                                <v-btn rounded flat class="outlined" @click="closeModal">닫기</v-btn>
+                                <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
                                 <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
                             </div>
                         </v-window-item>
@@ -271,7 +271,7 @@
                                 </div>
                             </v-card>
                             <div class="dialog_btn_wrap mgt30">
-                                <v-btn rounded flat class="outlined" @click="closeModal">닫기</v-btn>
+                                <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
                                 <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
                             </div>
                         </v-window-item>
@@ -285,10 +285,90 @@
                     <h3 class="text-center mb30">학생에게 어떤 도장을 보낼까요?</h3>
                     <v-item-group mandatory class="d-flex flex-wrap gap3 py20" style="max-width: 57rem">
                         <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="useAsset('images/img_stamp_01.svg')" alt="참 잘했어요" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="useAsset('images/img_stamp_02.svg')" alt="정말 잘했어요" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="useAsset('images/img_stamp_03.svg')" alt="세상에 !!!" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="useAsset('images/img_stamp_04.svg')" alt="이미 최고의 경지" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
+                            <v-item v-slot="{ isSelected, toggle }">
+                                <v-card
+                                    class="d-flex align-center no-hover"
+                                    @click="toggle"
+                                    :class="isSelected ? 'checked' : ''"
+                                    min-width="100%"
+                                    min-height="100%"
+                                    flat
+                                    :ripple="false"
+                                    tile
+                                >
+                                    <v-img :src="useAsset('images/img_stamp_05.svg')" alt="어떻게 이렇게까지 잘하는 거지" />
+                                </v-card>
+                            </v-item>
+                        </div>
+                        <div class="item">
                             <!-- 선택이 되면 .checked 추가 -->
                             <v-item v-slot="{ isSelected, toggle }">
                                 <v-card
-                                    class="d-flex align-center no-hover checked"
+                                    class="d-flex align-center no-hover"
                                     :class="isSelected ? 'checked' : ''"
                                     @click="toggle"
                                     min-width="100%"
@@ -297,7 +377,7 @@
                                     :ripple="false"
                                     tile
                                 >
-                                    <v-img :src="stamp01" alt="참 잘했어요" />
+                                    <v-img :src="useAsset('images/img_stamp_01.svg')" alt="참 잘했어요" />
                                 </v-card>
                             </v-item>
                         </div>
@@ -313,7 +393,7 @@
                                     :ripple="false"
                                     tile
                                 >
-                                    <v-img :src="stamp02" alt="정말 잘했어요" />
+                                    <v-img :src="useAsset('images/img_stamp_02.svg')" alt="정말 잘했어요" />
                                 </v-card>
                             </v-item>
                         </div>
@@ -329,7 +409,7 @@
                                     :ripple="false"
                                     tile
                                 >
-                                    <v-img :src="stamp03" alt="세상에 !!!" />
+                                    <v-img :src="useAsset('images/img_stamp_03.svg')" alt="세상에 !!!" />
                                 </v-card>
                             </v-item>
                         </div>
@@ -345,7 +425,7 @@
                                     :ripple="false"
                                     tile
                                 >
-                                    <v-img :src="stamp04" alt="이미 최고의 경지" />
+                                    <v-img :src="useAsset('images/img_stamp_04.svg')" alt="이미 최고의 경지" />
                                 </v-card>
                             </v-item>
                         </div>
@@ -361,93 +441,13 @@
                                     :ripple="false"
                                     tile
                                 >
-                                    <v-img :src="stamp05" alt="어떻게 이렇게까지 잘하는 거지" />
-                                </v-card>
-                            </v-item>
-                        </div>
-                        <div class="item">
-                            <v-item v-slot="{ isSelected, toggle }">
-                                <v-card
-                                    class="d-flex align-center no-hover"
-                                    :class="isSelected ? 'checked' : ''"
-                                    @click="toggle"
-                                    min-width="100%"
-                                    min-height="100%"
-                                    flat
-                                    :ripple="false"
-                                    tile
-                                >
-                                    <v-img :src="stamp01" alt="참 잘했어요" />
-                                </v-card>
-                            </v-item>
-                        </div>
-                        <div class="item">
-                            <v-item v-slot="{ isSelected, toggle }">
-                                <v-card
-                                    class="d-flex align-center no-hover"
-                                    @click="toggle"
-                                    :class="isSelected ? 'checked' : ''"
-                                    min-width="100%"
-                                    min-height="100%"
-                                    flat
-                                    :ripple="false"
-                                    tile
-                                >
-                                    <v-img :src="stamp02" alt="정말 잘했어요" />
-                                </v-card>
-                            </v-item>
-                        </div>
-                        <div class="item">
-                            <v-item v-slot="{ isSelected, toggle }">
-                                <v-card
-                                    class="d-flex align-center no-hover"
-                                    @click="toggle"
-                                    :class="isSelected ? 'checked' : ''"
-                                    min-width="100%"
-                                    min-height="100%"
-                                    flat
-                                    :ripple="false"
-                                    tile
-                                >
-                                    <v-img :src="stamp03" alt="세상에 !!!" />
-                                </v-card>
-                            </v-item>
-                        </div>
-                        <div class="item">
-                            <v-item v-slot="{ isSelected, toggle }">
-                                <v-card
-                                    class="d-flex align-center no-hover"
-                                    @click="toggle"
-                                    :class="isSelected ? 'checked' : ''"
-                                    min-width="100%"
-                                    min-height="100%"
-                                    flat
-                                    :ripple="false"
-                                    tile
-                                >
-                                    <v-img :src="stamp04" alt="이미 최고의 경지" />
-                                </v-card>
-                            </v-item>
-                        </div>
-                        <div class="item">
-                            <v-item v-slot="{ isSelected, toggle }">
-                                <v-card
-                                    class="d-flex align-center no-hover"
-                                    @click="toggle"
-                                    :class="isSelected ? 'checked' : ''"
-                                    min-width="100%"
-                                    min-height="100%"
-                                    flat
-                                    :ripple="false"
-                                    tile
-                                >
-                                    <v-img :src="stamp05" alt="어떻게 이렇게까지 잘하는 거지" />
+                                    <v-img :src="useAsset('images/img_stamp_05.svg')" alt="어떻게 이렇게까지 잘하는 거지" />
                                 </v-card>
                             </v-item>
                         </div>
                     </v-item-group>
                     <div class="dialog_btn_wrap mgt30 gap1 d-flex justify-center">
-                        <v-btn rounded flat class="outlined" @click="stamp = false">닫기</v-btn>
+                        <v-btn rounded flat class="outlined size_md" @click="stamp = false">닫기</v-btn>
                         <v-btn rounded flat class="primary">피드백 도장 보내기</v-btn>
                     </div>
                 </v-sheet>
@@ -455,17 +455,31 @@
         </v-dialog>
     </div>
 </template>
-
 <script setup>
 const tab = ref('one');
 const stamp = ref(false);
 const page = ref(0);
 const resetPage = () => (page.value = 0);
 
+const props = defineProps(['selected']);
+
 const { modalData, openModal, closeModal } = useModalStore();
+
+const apiClassStore = useApiTeacherClassStore();
+const { colorBoardState } = storeToRefs(apiClassStore);
 
 const lessonApiStore = useApiLessonStore();
 const { remainingColorState, collectedColorState, lessonPopupState } = storeToRefs(lessonApiStore);
+const colorMode = ref('blue');
+
+const setColor = mode => {
+    colorMode.value = mode;
+};
+
+const togglePainted = index => {
+    if (grid.value[index].color === colorMode.value) grid.value[index].painted = !grid.value[index].painted;
+    grid.value[index].color = colorMode.value;
+};
 
 onMounted(() => {
     lessonApiStore.getPopupRemainColor();
@@ -474,13 +488,6 @@ onMounted(() => {
     lessonApiStore.getPopupCollectedColorDesigns();
     // lessonApiStore.getPopupSendFeedbackStamp();
 });
-import avatar from '@/assets/images/temp/img_pho_st01.png';
-
-import stamp01 from '@/assets/images/img_stamp_01.svg';
-import stamp02 from '@/assets/images/img_stamp_02.svg';
-import stamp03 from '@/assets/images/img_stamp_03.svg';
-import stamp04 from '@/assets/images/img_stamp_04.svg';
-import stamp05 from '@/assets/images/img_stamp_05.svg';
 </script>
 
 <style scoped lang="scss">

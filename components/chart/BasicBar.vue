@@ -1,6 +1,6 @@
 <template>
-    <div class="learningDiagnostics" :class="{ solid: solidColor }">
-        <div class="chart-bar">
+    <div class="learningDiagnostics">
+        <div class="chart-bar" :class="{ solid: solidColor }">
             <v-row no-gutters class="gap2">
                 <v-col>
                     <!-- 범례 -->
@@ -12,7 +12,7 @@
                 <v-col>
                     <div class="progress-background" v-for="(item, index) in item" :key="index">
                         <div class="progress-date" :class="[item.color, { white: item.value >= 70 }]" :style="`width: ${item.value}%`">
-                            <span>{{ item.value }}</span>
+                            <span>{{ item.value }} {{ props?.suffix }}</span>
                         </div>
                     </div>
                 </v-col>
@@ -31,6 +31,10 @@ const props = defineProps({
     item: {
         type: Array,
         default: false
+    },
+    suffix: {
+        type: String,
+        default: ''
     }
 });
 </script>

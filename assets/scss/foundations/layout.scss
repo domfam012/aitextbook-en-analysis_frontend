@@ -26,7 +26,11 @@ $contents-bg-teacher: $bg-default;
         background-color: transparent;
     }
 }
-
+.v-overlay-container {
+    ::-webkit-scrollbar {
+        background-color: transparent;
+    }
+}
 // scroll_bar
 ::-webkit-scrollbar {
     // border-radius: 5rem;

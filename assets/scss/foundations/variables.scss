@@ -11,7 +11,7 @@ $G800: #373737;
 $G900: #171717;
 
 //dark blue
-$DB50: #e8ebf1;
+$DB50: #E8EBF1;
 $DB100: #c3cedd;
 $DB200: #9daec6;
 $DB300: #788eaf;
@@ -23,28 +23,28 @@ $DB800: #264370;
 $DB900: #1e3257;
 
 //yello
-$Y50: #fff8e1;
-$Y100: #ffebb2;
-$Y200: #ffdf81;
-$Y300: #ffd44d;
-$Y400: #ffc825;
-$Y500: #ffbf00;
-$Y600: #ffb100;
-$Y700: #ff9e00;
-$Y800: #ff8d00;
-$Y900: #ff6d00;
+$Y50: #FFF7DD;
+$Y100: #FFF1CC;
+$Y200: #FFE499;
+$Y300: #FFD666;
+$Y400: #FFC933;
+$Y500: #FFBB00;
+$Y600: #FFA100;
+$Y700: #FF8800;
+$Y800: #FF6F00;
+$Y900: #FF5500;
 
 //blue
-$B50: #e3f5fc;
-$B100: #b7e4f8;
-$B200: #8bd2f3;
-$B300: #66c1ed;
-$B400: #51b3e9;
-$B500: #46a7e5;
-$B600: #4199d6;
-$B700: #3b86c2;
-$B800: #3675ae;
-$B900: #28568c;
+$B50: #DEF4FF;
+$B100: #CCEEFF;
+$B200: #99DBFF;
+$B300: #66C7FF;
+$B400: #33B1FF;
+$B500: #0099FF;
+$B600: #0088E5;
+$B700: #0074CC;
+$B800: #0062B2;
+$B900: #005299;
 
 //font-size
 $font-xlarge: 2.2rem;
@@ -91,6 +91,7 @@ $white: #fff;
 $dashboard-color-line: #A4C6D7;
 $dashboard-color-bg: #F3FBFF;
 $dashboard-color-danger: #DA170B;
+$dashboard-color-mint:#42C5B1;
 $violet: #DDDDE9;
 $font-color-violet: #4A4A5E;
 $line-color-violet: #BABADC;
@@ -186,10 +187,10 @@ $line-color-violet: #BABADC;
   --point-color-violet: #{$violet};
 
   /* scheme color */
-  --shchme-color-learner1: #42c5b1;
+  --shchme-color-learner1: #{$dashboard-color-mint};
   --shchme-color-learner2: #8dbb2c;
   --shchme-color-learner3: #{$Y500};
-  --shchme-color-learner4: #{$Y800};
+  --shchme-color-learner4: #{$Y900};
   --shchme-color-learner5: #fd6e7f;
   --shchme-color-learner6: #d5d5d5;
 

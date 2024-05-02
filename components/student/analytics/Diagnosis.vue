@@ -32,6 +32,7 @@
                     <div class="learningDiagnostics">
                         <h3 class="learn-title bullet-bot">단어 학습 진단</h3>
                         <ChartBasicBar
+                            suffix="개"
                             :item="[
                                 {
                                     value: wordDiagnosisState?.exprsPrfctUndrsUseCnt,
@@ -61,8 +62,10 @@
                 </v-col>
                 <v-col>
                     <div class="learningDiagnostics">
-                        <h3 class="learn-title bullet-bot">누적 학습 시간</h3>
+                        <h3 class="learn-title bullet-bot">요일별 누적 학습 시간</h3>
                         <ChartBasicBar
+                            :solidColor="true"
+                            suffix="분"
                             :item="[
                                 {
                                     value: cumulativeTimeState?.mondayLearnTime,

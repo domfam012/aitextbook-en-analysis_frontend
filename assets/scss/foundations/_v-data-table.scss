@@ -300,6 +300,9 @@
             .v-data-table__td {
                 border-left-color: $dashboard-color-line;
             }
+            .type_blue_underline{
+                font-weight: 700;
+            }
         }
 
         &.disabled {

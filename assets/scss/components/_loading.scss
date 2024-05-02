@@ -1,0 +1,27 @@
+.loading {
+	text-align: center;
+
+	strong {
+		display: block;
+		margin-bottom: 5rem;
+		color: $white;
+		font-size: 2.6rem;
+		line-height: 3.2rem;
+	}
+	.v-img {
+		margin: 0 auto;
+		width: 30rem;
+		height: 30rem;
+
+		img {
+			animation: loading 1.4s linear infinite;
+			transform-origin: center center;
+			transition: all 0.2s linear;
+		}
+	}
+}
+@keyframes loading {
+  100% {
+    transform: rotate(360deg);
+  }
+}

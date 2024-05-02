@@ -7,11 +7,16 @@
                     class="px15 py15"
                     v-for="(item, index) in renderAll ? colorBoardState : colorBoardState?.slice(0, currentPage * 3 + 3)"
                     :key="index"
-                    @click="openModal({ type: 'coloring' })"
+                    @click="$event => handleClick(index)"
                 >
                     <div class="box cursor">
                         <div class="avatar avatar-box">
-                            <v-img :src="avatarSrc" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
+                            <v-img
+                                :src="useAsset('images/temp/img_pho_st01.png')"
+                                alt="아바타 이미지"
+                                class="avatar-item"
+                                max-width="5rem"
+                            />
                             <div class="avatar-info">
                                 <span class="info_number">{{ item.studNo }}번</span>
                                 <span class="info_name">{{ item.studName }}</span>
@@ -34,11 +39,10 @@
         </div>
     </v-sheet>
     <Modal v-if="modalData?.type === 'coloring'">
-        <ModalColoringBoard v-if="modalData?.isOpen" />
+        <ModalColoringBoard :selected="selectedIndx" v-if="modalData?.isOpen" />
     </Modal>
 </template>
 <script setup>
-import avatarSrc from '@/assets/images/temp/img_pho_st01.png';
 const { modalData, openModal, closeModal } = useModalStore();
 const apiClassStore = useApiTeacherClassStore();
 const { colorBoardState } = storeToRefs(apiClassStore);
@@ -52,6 +56,14 @@ const props = defineProps({
         default: '완성도 Top 5'
     }
 });
+
+const selectedIndx = ref(null);
+
+const handleClick = index => {
+    selectedIndx.value = index;
+    openModal({ type: 'coloring' });
+};
+
 const emit = defineEmits(['page']);
 const renderAll = computed(() => props.currentPage + 1 === Math.ceil(colorBoardState.value?.length / 3));
 </script>

@@ -98,19 +98,18 @@
             justify-content: center;
         }
         .chart-bar {
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
             width: 90%;
         }
-        .chart_radar {
+        .chart_radar, .chart_stacked_column {
             margin-top: 2rem;
 
             .chart-bar {
                 justify-content: center;
-                margin-top: 2rem;
             }
 		}
         .chart_contents.type_radar {
-            width: 65.8rem;
             height: 45rem;
         }
     }
@@ -341,6 +340,12 @@
         .v-container {
             padding: 1.5rem 3rem;
         }
+    }
+    
+    // [교사] 생활 기록부 > 메인
+    canvas {
+        transition-duration: unset;
+        transition-timing-function: unset;
     }
 }
 

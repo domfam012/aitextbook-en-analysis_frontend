@@ -2,10 +2,8 @@
     <div class="extra">
         <p class="bullet">5점 만점 척도</p>
     </div>
-    <div class="columnBar mgt15">
-        <div class="chart">
-            <Bar :data="emotionChart" :options="chartOptions" :plugins="[plugin]"></Bar>
-        </div>
+    <div class="chart_contents type_column_bar">
+        <Bar :data="emotionChart" :options="chartOptions" :plugins="[plugin]"></Bar>
     </div>
 </template>
 
@@ -13,23 +11,28 @@
 import { Bar } from 'vue-chartjs';
 const { emotionChart } = storeToRefs(useApiRecordHistoryStore());
 const chartOptions = ref({
+    maintainAspectRatio: false,
     chartArea: {
         backgroundColor: '#F8F8F8'
     },
-    barThickness: 6, // 막대의 너비 조절
+    // barThickness: 6, // 막대의 너비 조절
     categorySpacing: 3,
+    barPercentage: 0.4,
     scales: {
         x: {
             grid: {
                 display: false
             },
             ticks: {
-                font: {
-                    weight: '500',
-                    size: 20,
-                    color: '#171717',
-                    family: '"NotoSansKR", sans-serif',
-                    lineHeight: '26px'
+                color: '#171717',
+                font: function(context){
+                    var height = context.chart.height;
+                    var size = Math.round(height / 25); // 1920에 16
+                    return {
+                        family: 'NotoSansKR',
+                        size: size * 1.25,
+                        weight: 500,
+                    }
                 },
                 autoSkip: false
             }
@@ -48,12 +51,17 @@ const chartOptions = ref({
                 lineWidth: 1
             },
             ticks: {
-                font: {
-                    weight: '500',
-                    size: 16,
-                    color: '#171717',
-                    family: '"NotoSansKR", sans-serif',
-                    lineHeight: '22px'
+                padding: 10,
+                color: '#171717',
+                font: function(context){
+                    var height = context.chart.height;
+                    // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
+                    var size = Math.round(height / 25);
+                    return {
+                        family: 'NotoSansKR',
+                        size: size,
+                        weight: 500,
+                    }
                 },
                 callback: function (value, index, values) {
                     // 레이블에 소수점 이하 값이 있는 경우에만 소수점을 표시합니다.
@@ -116,10 +124,3 @@ const plugin = {
     }
 };
 </script>
-
-<!-- 완료시 삭제 -->
-<style scoped>
-.columnBar {
-    background: #fff !important;
-}
-</style>

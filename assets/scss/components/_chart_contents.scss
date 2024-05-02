@@ -5,7 +5,8 @@
 
 	&.type_combination {
 		padding: 3rem 3rem 1rem;
-		// max-height: 66rem;
+		min-height: 40rem;
+		
 
 		&::before {
 			content: '정답율';
@@ -20,16 +21,9 @@
 		margin: 0 auto;
 		width: 33rem;
 		height: 33rem;
-
-		canvas {
-			width: 100%;
-			height: 100%;
-		}
 	}
 
 	&.type_donut {
-		margin: 0 auto;
-		width: 34.8rem;
 		height: 34.8rem;
 
 		.text_wrap {
@@ -52,23 +46,19 @@
 	}
 
 	&.type_simple_donut {
-		height: 30rem;
-
-		canvas {
-			width: 100%;
-			height: 100%;
-		}
+		height: 36.7rem;
 	}
 
 	&.type_radar {
-		margin: 0 auto;
-		// width: 47.8em;
 		height: 37rem;
+	}
 
-		canvas {
-			margin: 0 auto;
-			width: 100%;
-			height: 100%;
-		}
+	&.type_column_bar {
+		margin-top: 1.5rem;
+		height: 40.5rem;
+	}
+
+	&.type_stacked_column {
+		height: 45rem;
 	}
 }
