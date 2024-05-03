@@ -39,7 +39,9 @@ export const usePrintSave = () => {
     const printPage = async (type: string) => {
         const printElement = document.getElementById('pdf');
         try {
-            const canvas = await html2canvas(printElement);
+            const canvas = await html2canvas(printElement, {
+                scale: 2
+            });
             const imageData = canvas.toDataURL('image/png');
 
             const imgWidth = 210; // 가로(mm) (A4)

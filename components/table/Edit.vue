@@ -76,6 +76,9 @@ const handleSelectItem = (item, index) => {
  * 선택한 셀 초기화
  */
 const handleResetSelectedItem = async () => {
+    if (!qualificationByUnitStudentList.value[selectedStudentIndex.value]?.studUuid) {
+        return;
+    }
     await useApiRecordGradeStore().getPersonalListOfQualification({
         studUuid: qualificationByUnitStudentList.value[selectedStudentIndex.value].studUuid,
         semId: '1',

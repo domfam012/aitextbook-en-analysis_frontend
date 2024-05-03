@@ -5,6 +5,8 @@ interface RecordCount {}
  * [학생] 생활기록부
  */
 
+const baseUrl = `https://aidtenasis-api.i-screammedia.com/teacher/dashboard/schoolReport`;
+
 export const useApiRecordStore = defineStore(
     'apiRecord',
     () => {
@@ -16,7 +18,7 @@ export const useApiRecordStore = defineStore(
 
         const issuanceStatus = ref<RecordCount>();
         const getIssuanceStatus = async (semiId: String) => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollectionCount`, {
+            const { data } = await useCustomFetch(`${baseUrl}/learningHistoryCollectionCount`, {
                 method: 'get',
                 params: semiId
             });

@@ -21,7 +21,6 @@
                         @update:modelValue="handleChangeStudent"
                     >
                         <template v-for="(item, idx) in studentList?.sort((a, b) => a.writeFlag - b.writeFlag)">
-                            <!-- !disabled 처리로 하면 안됨, 클릭은 가능해야함 (기획참고) -->
                             <v-btn
                                 v-show="!isEditMode || idx === selectedStudentIndex"
                                 :class="[{ temp: item.writeFlag }]"
@@ -66,8 +65,12 @@ const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRe
 const { isEditMode, qualificationByUnitStudentList, personalListOfQualification } = storeToRefs(useApiRecordGradeStore());
 
 const handleChangeStudent = async () => {
-    const studentId = studentList.value[selectedStudentIndex.value].studUuid;
+    const studentId = studentList.value[selectedStudentIndex.value]?.studUuid;
     const studentSemId = issuanceStatus.value.currentSemester;
+
+    if (!studentId) {
+        return;
+    }
 
     // 학생 선택 이벤트
     if (clampType.value === 'clamp_left') {
@@ -86,7 +89,7 @@ const handleChangeStudent = async () => {
     } else if (clampType.value === 'clamp_right') {
         await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
-        await useApiCompletionStore().getStudentDevelopmetnList(studentId);
+        await useApiCompletionStore().getStudentDevelopmentList(studentId);
         await useApiTeacherClassStore().getClassColorBoard('perfection');
     }
 };
@@ -114,6 +117,10 @@ const cancelMode = () => {
  * 저장 버튼
  */
 const handleSubmit = async () => {
+    const studentId = studentList.value[selectedStudentIndex.value]?.studUuid;
+    if (!studentId) {
+        return;
+    }
     if (isEditMode.value) {
         await useApiRecordGradeStore().putSaveTextEdits(
             personalListOfQualification.value
@@ -153,7 +160,12 @@ const handleEditMode = () => {
             element.editSentence = element.sentence;
         });
     } else {
-        isEditMode.value = true;
+        const studentId = studentList.value[selectedStudentIndex.value]?.studUuid;
+        if (!studentId) {
+            return;
+        } else {
+            isEditMode.value = true;
+        }
     }
 };
 </script>

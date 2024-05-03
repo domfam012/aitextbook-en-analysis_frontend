@@ -6,7 +6,7 @@ interface Record {}
  * [교사] 생활기록부_단원별평어작성
  */
 
-const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
+const baseUrl = `https://aidtenasis-api.i-screammedia.com/teacher/dashboard/schoolReport`;
 
 export const useApiRecordGradeStore = defineStore(
     'apiRecordGrade',
@@ -18,7 +18,7 @@ export const useApiRecordGradeStore = defineStore(
          */
         const individualEditsSearch = ref<StudentList>();
         const getIndividualEditsSearch = async () => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/individualEditsSearch`, {
+            const { data } = await useCustomFetch(`${baseUrl}/individualEditsSearch`, {
                 method: 'get'
             });
 
@@ -33,7 +33,7 @@ export const useApiRecordGradeStore = defineStore(
         const personalListOfQualification = ref<StudentList>();
 
         const getPersonalListOfQualification = async (params: object) => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/personalListOfQualification`, {
+            const { data } = await useCustomFetch(`${baseUrl}/personalListOfQualification`, {
                 method: 'get',
                 query: params
             });
@@ -49,7 +49,7 @@ export const useApiRecordGradeStore = defineStore(
          */
         const qualificationByUnit = ref<StudentList>();
         const getQualificationByUnit = async () => {
-            const { data } = await useCustomFetch('/teacher/dashboard/schoolReport/qualificationByUnit', {
+            const { data } = await useCustomFetch(`${baseUrl}/qualificationByUnit`, {
                 method: 'get'
             });
 
@@ -63,7 +63,7 @@ export const useApiRecordGradeStore = defineStore(
          */
         const qualificationByUnitStudentList = ref<StudentList>();
         const getQualificationByUnitStudentList = async () => {
-            const { data } = await useCustomFetch('/teacher/dashboard/schoolReport/qualificationByUnitStudentList', {
+            const { data } = await useCustomFetch(`${baseUrl}/qualificationByUnitStudentList`, {
                 method: 'get'
             });
 
@@ -76,7 +76,7 @@ export const useApiRecordGradeStore = defineStore(
          * [교사] 개인별 평어 저장
          */
         const putSaveIndividualEdits = async (params: Record) => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/dashboard/schoolReport/saveIndividualEdits`, {
+            const { data } = await useCustomFetch(`${baseUrl}/saveIndividualEdits`, {
                 method: 'put',
                 body: JSON.stringify(params)
             });
@@ -86,7 +86,7 @@ export const useApiRecordGradeStore = defineStore(
          * [교사] 텍스트 편집 저장
          */
         const putSaveTextEdits = async (params: Record) => {
-            const { data } = await useCustomFetch(`${basetUrl}/teacher/teacher/dashboard/schoolReport/saveTextEdits`, {
+            const { data } = await useCustomFetch(`${baseUrl}/saveTextEdits`, {
                 method: 'put',
                 body: JSON.stringify(params)
             });

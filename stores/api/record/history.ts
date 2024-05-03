@@ -8,7 +8,7 @@ interface RecordList {}
  * [학생] 생활기록부
  */
 
-const basetUrl = `https://aidtenasis-api.i-screammedia.com`;
+const baseUrl = `https://aidtenasis-api.i-screammedia.com`;
 
 export const useApiRecordHistoryStore = defineStore(
     'apiRecordHistory',
@@ -20,7 +20,7 @@ export const useApiRecordHistoryStore = defineStore(
         const radarChart = ref({});
         const achievementByArea = ref<Record>();
         const getAchievementByArea = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
+            const { data } = await useCustomFetch(`${baseUrl}/${mode.value}/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get',
                 query: {
                     semId: semiId,
@@ -38,12 +38,12 @@ export const useApiRecordHistoryStore = defineStore(
                             type: 'radar',
                             label: '학생',
                             data: [
-                                item.achvLstnnRt,
-                                item.achvSpkngRt,
-                                item.achvWritngRt,
-                                item.achvPrsntRt,
-                                item.achvViewRt,
-                                item.achvRedngRt
+                                item?.achvLstnnRt,
+                                item?.achvSpkngRt,
+                                item?.achvWritngRt,
+                                item?.achvPrsntRt,
+                                item?.achvViewRt,
+                                item?.achvRedngRt
                             ],
                             borderWidth: 3,
                             borderColor: '#46A7E5',
@@ -55,12 +55,12 @@ export const useApiRecordHistoryStore = defineStore(
                             type: 'radar',
                             label: '반 평균',
                             data: [
-                                item.classLstnnRt,
-                                item.classSpkngRt,
-                                item.classWritngRt,
-                                item.classPrsntRt,
-                                item.classViewRt,
-                                item.classRedngRt
+                                item?.classLstnnRt,
+                                item?.classSpkngRt,
+                                item?.classWritngRt,
+                                item?.classPrsntRt,
+                                item?.classViewRt,
+                                item?.classRedngRt
                             ],
                             borderWidth: 3,
                             borderColor: '#B0B0B0',
@@ -72,12 +72,12 @@ export const useApiRecordHistoryStore = defineStore(
                             type: 'radar',
                             label: '지역 평균',
                             data: [
-                                item.areaLstnnRt,
-                                item.areaSpkngRt,
-                                item.areaPrsntRt,
-                                item.areaWritngRt,
-                                item.areaViewRt,
-                                item.areaRedngRt
+                                item?.areaLstnnRt,
+                                item?.areaSpkngRt,
+                                item?.areaPrsntRt,
+                                item?.areaWritngRt,
+                                item?.areaViewRt,
+                                item?.areaRedngRt
                             ],
                             borderWidth: 3,
                             borderColor: '#FFBF00',
@@ -95,7 +95,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const achievementByUnit = ref<Record>();
         const getAchievementByUnit = async params => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
+            const { data } = await useCustomFetch(`${baseUrl}/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
                 method: 'get',
                 query: params
             });
@@ -124,7 +124,7 @@ export const useApiRecordHistoryStore = defineStore(
         const emtViewYn = ref('');
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/learningHistoryCollection`, {
+            const { data } = await useCustomFetch(`${baseUrl}/${mode.value}/dashboard/schoolReport/learningHistoryCollection`, {
                 method: 'get',
                 query: {
                     semId: semiId,
@@ -245,7 +245,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const learningHistoryCollectionStudent = ref<StudentList>();
         const getLearningHistoryCollectionStudent = async () => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollectionStudent`, {
+            const { data } = await useCustomFetch(`${baseUrl}/teacher/dashboard/schoolReport/learningHistoryCollectionStudent`, {
                 method: 'get'
             });
 
@@ -259,7 +259,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
 
         const putLearningHistoryEdit = async (params: string) => {
-            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection`, {
+            const { data } = await useCustomFetch(`${baseUrl}/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection`, {
                 method: 'put',
                 body: JSON.stringify(params)
             });
@@ -272,7 +272,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const semesterInProgress = ref<Record>();
         const getSemesterInProgress = async () => {
-            const { data } = await useCustomFetch(`${basetUrl}/${mode.value}/dashboard/schoolReport/schoolReportsemesterInProgress`, {
+            const { data } = await useCustomFetch(`${baseUrl}/${mode.value}/dashboard/schoolReport/schoolReportsemesterInProgress`, {
                 method: 'get'
             });
 
@@ -286,7 +286,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const studentAchievementByArea = ref<Record>();
         const getStudentAchievementByArea = async (params: string) => {
-            const { data } = await useCustomFetch(`${basetUrl}/student/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
+            const { data } = await useCustomFetch(`${baseUrl}/student/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get',
                 query: params
             });
@@ -302,7 +302,7 @@ export const useApiRecordHistoryStore = defineStore(
         const studentAchievementByUnit = ref<Record>();
         const getStudentAchievementByUnit = async (params: string) => {
             const queryString = new URLSearchParams(params).toString();
-            const { data } = await useCustomFetch(`${basetUrl}/student/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
+            const { data } = await useCustomFetch(`${baseUrl}/student/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
                 method: 'get',
                 query: params
             });
@@ -318,7 +318,7 @@ export const useApiRecordHistoryStore = defineStore(
         const studentDevelopment = ref<Record>();
         const getStudentDevelopment = async (params: string) => {
             const { data } = await useCustomFetch(
-                `${basetUrl}/student/dashboard/schoolReport/developmentalProgressInEachUnitOfTheCurriculum`,
+                `${baseUrl}/student/dashboard/schoolReport/developmentalProgressInEachUnitOfTheCurriculum`,
                 {
                     method: 'get',
                     query: params
@@ -336,7 +336,7 @@ export const useApiRecordHistoryStore = defineStore(
         const studentLearningHistoryCollection = ref<Record>();
         const getStudentLearningHistoryCollection = async (params: string) => {
             const queryString = new URLSearchParams(params).toString();
-            const { data } = await useCustomFetch(`${basetUrl}/student/dashboard/schoolReport/learningHistoryCollection`, {
+            const { data } = await useCustomFetch(`${baseUrl}/student/dashboard/schoolReport/learningHistoryCollection`, {
                 method: 'get',
                 query: params
             });

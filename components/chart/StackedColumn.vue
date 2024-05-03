@@ -22,7 +22,7 @@
 
 <script setup>
 const { $Chart } = useNuxtApp();
-const chart = ref(document.getElementsByTagName('canvas'));
+const chart = ref(null);
 
 const chartData = ref({
     labels: ['Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Lesson 6'],

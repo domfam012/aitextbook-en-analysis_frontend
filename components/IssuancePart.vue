@@ -385,7 +385,7 @@
 const mode = useCookie('mode');
 const { savePdf, printPage } = usePrintSave();
 const { user } = storeToRefs(useApiUserStore());
-const { completionState } = storeToRefs(useApiCompletionStore());
+const { completionState, completionStudent } = storeToRefs(useApiCompletionStore());
 const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
 const {
     learningHistoryCollection,
@@ -416,7 +416,7 @@ onMounted(async () => {
     if (mode.value === 'student') {
         await useApiRecordHistoryStore().getAchievementByArea(user.value.semester, user.value.studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(user.value.semester, user.value.studentId);
-        await useApiCompletionStore().getStudentDevelopmetnList(user.value.studentId);
+        await useApiCompletionStore().getStudentDevelopmentList(user.value.studentId);
         await useApiTeacherClassStore().getClassColorBoard('perfection');
     } else {
         if (clampType.value === 'clamp_left') {
@@ -424,17 +424,25 @@ onMounted(async () => {
         }
         if (clampType.value === 'clamp_right') {
             await useApiCompletionStore().getStudentList();
+            if (!completionStudent.value[0]?.studUuid) {
+                return;
+            }
             await useApiRecordHistoryStore().getLearningHistoryCollection(
                 issuanceStatus.value.currentSemester,
-                learningHistoryCollectionStudent.value[0].studUuid
+                completionStudent.value[0].studUuid
             );
-            await useApiCompletionStore().getStudentDevelopmetnList(learningHistoryCollectionStudent.value[0].studUuid);
+            await useApiCompletionStore().getStudentDevelopmentList(completionStudent.value[0].studUuid);
             await useApiTeacherClassStore().getClassColorBoard('perfection');
         }
     }
 });
 const fetchStudentData = async () => {
     await useApiRecordHistoryStore().getLearningHistoryCollectionStudent();
+
+    if (!learningHistoryCollectionStudent.value[selectedStudentIndex.value]?.studUuid) {
+        return;
+    }
+
     await useApiRecordHistoryStore().getAchievementByArea(
         issuanceStatus.value.currentSemester,
         learningHistoryCollectionStudent.value[selectedStudentIndex.value].studUuid
@@ -484,6 +492,9 @@ const handleZeroCount = item => {
 };
 
 const deleteBtn = async item => {
+    if (!learningHistoryCollectionStudent.value[selectedStudentIndex.value]?.studUuid) {
+        return;
+    }
     if (handleZeroCount(item)) {
         return;
     }
