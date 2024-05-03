@@ -5,7 +5,7 @@
                 <div class="box d-flex d-flex align-center">
                     <div class="info">
                         <v-select
-                            v-model="select"
+                            v-model="depth1"
                             :items="learningLessonsState"
                             item-title="chName"
                             item-value="chName"
@@ -18,7 +18,7 @@
                         </v-select>
                         <v-select
                             v-model="depth2"
-                            :items="select.sessionList"
+                            :items="depth1.sessionList"
                             item-title="sessName"
                             item-value="sessName"
                             return-object
@@ -46,53 +46,24 @@ import dayjs from 'dayjs';
 const props = defineProps({
     currentPage: {
         type: Number,
-        required: true
+        required: Boolean
     }
 });
 const { openModal } = useModalStore();
 const todayStore = useApiTodayStore();
 const calendarStore = useApiCalendarStore();
 const { selectedDate } = storeToRefs(calendarStore);
-const { learningLessonsState } = storeToRefs(todayStore);
+const { learningLessonsState, selectLessonState, selectState } = storeToRefs(todayStore);
 
-const select = ref({
-    state: 'Digital World 1',
-    chName: 'Digital World 1',
-    sessionList: [
-        {
-            chId: 316,
-            sessId: 630,
-            sessName: '1차시',
-            bookPageCount: 100
-        },
-        {
-            chId: 315,
-            sessId: 629,
-            sessName: '2차시',
-            bookPageCount: 110
-        },
-        {
-            chId: 314,
-            sessId: 628,
-            sessName: '3차시',
-            bookPageCount: 120
-        }
-    ]
-});
-
-const depth2 = ref({
-    chId: 314,
-    sessId: 628,
-    sessName: '1차시',
-    bookPageCount: 100
-});
+const depth1 = ref(selectState);
+const depth2 = ref(selectLessonState);
 
 /**
  * 단원 선택
  */
 const changeDepth1 = () => {
     // 2depth에 선택한 단원의 첫번쨰 차시 선택되도록 변경
-    depth2.value = select.value.sessionList[0];
+    depth2.value = depth1.value.sessionList[0];
 };
 
 /**

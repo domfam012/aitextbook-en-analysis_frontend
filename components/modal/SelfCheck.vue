@@ -94,9 +94,9 @@
                                         :class="{ active: point === item.selfCheck }"
                                         variant="text"
                                         color="transparent"
-                                        v-for="point in 5"
-                                        :key="point"
-                                        ><i class="ico" :class="`imoji${point}`"
+                                        v-for="(point, index) in imojiList"
+                                        :key="index"
+                                        ><i class="ico" :class="`imoji${index + 1}`"
                                     /></v-chip>
                                 </div>
                             </div>
@@ -116,6 +116,7 @@ const { modalData, closeModal } = useModalStore();
 
 const filter = ref('session');
 const isSession = computed(() => filter.value === 'session');
+const imojiList = ref([5, 4, 3, 2, 1]);
 
 const handleFilter = type => {
     filter.value = type;

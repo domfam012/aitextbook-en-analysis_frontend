@@ -1,5 +1,5 @@
 <template>
-    <v-card v-if="lessonState" elevation="0" max-height="54rem">
+    <v-card v-if="teacherLearningSessionState.length > 0 && dayjs(formatDate).isBefore(dayjs())" elevation="0" max-height="54rem">
         <v-sheet class="dailyPerformance">
             <div class="lessonInfo">
                 <h3 class="title">
@@ -12,7 +12,7 @@
                 </h3>
                 <v-spacer />
                 <!-- 단원/차시 정보 -->
-                <template v-if="lessonState">
+                <template v-if="teacherLearningSessionState.length > 0">
                     <TeacherAnalyticsLessonSelector :current-page="currentPage" @page="handleGetAchievementRate" />
                 </template>
             </div>
@@ -35,7 +35,7 @@
             <v-card-text>
                 <div class="card_no_data">
                     <i class="ico no_class_data ico_size_25" />
-                    <p v-if="plnList.some(data => dayjs(data).format('YYYY-MM-DD') === formatDate)" elevation="0" height="54rem">
+                    <p v-if="teacherLearningSessionState.length > 0 && dayjs(formatDate).isAfter(dayjs())" elevation="0" height="54rem">
                         예정된 수업이 <span class="text_err">{{ teacherLearningSessionState.length }}건</span> 있습니다.
                     </p>
                     <p v-else>선택한 날에는 수업이 배정되어 있지 않습니다.</p>
@@ -52,7 +52,7 @@ const lessonStore = useApiLessonStore();
 const calendarStore = useApiCalendarStore();
 const { teacherLearningSessionState } = storeToRefs(courseStore);
 const { lessonCommonState, lessonState } = storeToRefs(lessonStore);
-const { formatDate, comList, plnList } = storeToRefs(calendarStore);
+const { formatDate } = storeToRefs(calendarStore);
 
 const currentPage = ref(0);
 const handleGetSessionInfos = async () => {
@@ -77,7 +77,7 @@ watch(
     async () => {
         reset();
         await handleGetSessionInfos();
-        await handleGetAchievementRate();
+        if (teacherLearningSessionState.value.length > 0) await handleGetAchievementRate();
     }
 );
 
@@ -88,9 +88,7 @@ const reset = () => {
 };
 
 onMounted(async () => {
-    if (lessonState.value) {
-        await handleGetSessionInfos();
-        await handleGetAchievementRate();
-    }
+    await handleGetSessionInfos();
+    if (teacherLearningSessionState.value.length > 0) await handleGetAchievementRate();
 });
 </script>

@@ -21,20 +21,20 @@ const chartOptions = ref({
                 return value;
             },
             textAlign: 'center',
-            font: function(context){
+            font: function (context) {
                 var height = context.chart.height;
                 // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                 var size = Math.round(height / 20);
                 return {
                     family: 'NotoSansKR',
                     size: size * 1.25, // 1920에 20
-                    weight: 700,
-                }
+                    weight: 700
+                };
             }
         },
 
         legend: {
-            labels: function(context){
+            labels: function (context) {
                 var height = context.chart.height;
                 // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                 var size = Math.round(height / 20);
@@ -48,8 +48,8 @@ const chartOptions = ref({
                     },
                     boxWidth: size,
                     boxHeight: size,
-                    padding: size * 0.625, //10
-                }
+                    padding: size * 0.625 //10
+                };
             },
             position: 'right'
         }

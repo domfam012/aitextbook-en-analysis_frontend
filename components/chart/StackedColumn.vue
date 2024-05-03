@@ -1,5 +1,5 @@
 <template>
-    <div class="chart_stacked_column" >
+    <div class="chart_stacked_column">
         <div class="chart_contents type_stacked_column">
             <canvas ref="chart"></canvas>
         </div>
@@ -33,8 +33,7 @@ const chartData = ref({
             data: [3, 11, 6, 10, 10, 13],
             backgroundColor: '#46A7E5',
             stack: 'word',
-            categoryPercentage: 1.0,
-            barThickness: 65
+            categoryPercentage: 1.0
         },
         {
             type: 'bar',
@@ -42,8 +41,7 @@ const chartData = ref({
             data: [3, 11, 6, 10, 10, 13],
             backgroundColor: '#FD6E7F',
             stack: 'word',
-            categoryPercentage: 1.0,
-            barThickness: 65
+            categoryPercentage: 1.0
         },
         {
             type: 'bar',
@@ -51,8 +49,7 @@ const chartData = ref({
             data: [3, 11, 6, 10, 10, 13],
             backgroundColor: '#8DBB2C',
             stack: 'word',
-            categoryPercentage: 1.0,
-            barThickness: 65
+            categoryPercentage: 1.0
         }
     ]
 });
@@ -71,15 +68,15 @@ const chartOptions = ref({
             },
             ticks: {
                 color: '#171717',
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                     var size = Math.round(height / 25);
                     return {
                         family: 'NotoSansKR',
                         size: size * 1.25, //20
-                        weight: 500,
-                    }
+                        weight: 500
+                    };
                 }
             }
         },
@@ -91,15 +88,15 @@ const chartOptions = ref({
             ticks: {
                 padding: 10,
                 color: '#171717',
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                     var size = Math.round(height / 25);
                     return {
                         family: 'NotoSansKR',
                         size: size,
-                        weight: 500,
-                    }
+                        weight: 500
+                    };
                 }
             },
             suggestedMin: 0,

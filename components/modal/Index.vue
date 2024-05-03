@@ -8,7 +8,13 @@
             </div>
             <div class="dialog_btn_wrap">
                 <slot name="footer">
-                    <v-btn v-if="modalData.buttonLabels[0]" rounded flat class="secondary" @click="closeModalAndEmit">
+                    <v-btn
+                        v-if="modalData.buttonLabels[0]"
+                        rounded
+                        flat
+                        :class="[modalData.buttonLabels.length === 1 ? 'primary' : 'secondary']"
+                        @click="closeModalAndEmit"
+                    >
                         {{ modalData.buttonLabels[0] }}
                     </v-btn>
                     <v-btn v-if="modalData.buttonLabels[1]" class="primary" flat rounded @click="$emit('handleAction')">

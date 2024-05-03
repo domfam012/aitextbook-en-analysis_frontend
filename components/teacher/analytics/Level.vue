@@ -37,9 +37,9 @@
                         <v-btn
                             rounded
                             flat
-                            class="primary"
+                            class="primary size_md"
                             :disabled="selected.length === 0"
-                            @click="openModal({ type: 'encourage', buttonLabels: ['아니오', '예'], closeBtnClass: false })"
+                            @click="openModal({ type: 'encourage', buttonLabels: ['취소', '확인'], closeBtnClass: false })"
                             >독려 메시지 보내기</v-btn
                         >
                     </div>
@@ -47,7 +47,17 @@
             </v-sheet>
 
             <Modal v-if="modalData.type === 'encourage'" @handle-action="sendMessage">
-                <p>선택한 학생에게 <em class="font-color-orange">AI Level Test</em>독려 메시지를<br />보내시겠습니까?</p>
+                <p>선택한 학생에게 <em class="font-color-orange">AI Level Test </em>독려 메시지를<br />보내시겠습니까?</p>
+            </Modal>
+            <Modal v-if="modalData.type === 'alert'">
+                <div class="d-flex align-center flex-wrap justify-center mb-1">
+                    <div v-for="(item, index) in selected" :key="index">
+                        <span class="num font-color-blue font-weight-extrabold mr-1">{{ item.studentNumber }}</span
+                        >{{ item.studentName }}
+                        <em v-if="index !== selected.length - 1" class="mx-1">,</em>
+                    </div>
+                </div>
+                <p>AI Level Test 독려 메시지를 보냈습니다.</p>
             </Modal>
         </div>
     </v-card>
@@ -65,9 +75,10 @@ onMounted(() => {
 
 const sendMessage = () => {
     closeModal();
-    // TODO 독려 메시지 보내기 API 연동
-    selected.value = [];
-    openAlert({ message: 'AI Level Test 독려 메시지를 보냈습니다.' });
+    openModal({ type: 'alert' });
+
+    setTimeout(() => {
+        closeModal();
+    }, 2000);
 };
 </script>
-<style></style>

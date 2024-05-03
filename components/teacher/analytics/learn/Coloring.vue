@@ -39,7 +39,7 @@
         </div>
     </v-sheet>
     <Modal v-if="modalData?.type === 'coloring'">
-        <ModalColoringBoard :selected="selectedIndx" v-if="modalData?.isOpen" />
+        <ModalColoringBoard :selected="selectedIndx" v-if="modalData?.isOpen" isTeacher="true" />
     </Modal>
 </template>
 <script setup>

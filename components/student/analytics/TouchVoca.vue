@@ -13,7 +13,19 @@
             <v-card-text class="px30 py20">
                 <div class="box">
                     <div class="chart_multiple_radialbars">
-                        <ChartMultipleRadialbars :values="values" :circle-value="circleValue" />
+                        <ChartMultipleRadialbars
+                            v-if="touchVocaGraph && Object.keys(touchVocaGraph).length > 0"
+                            :values="[
+                                [touchVocaGraph?.wrdUnknownCnt, 'gray', 2],
+                                [touchVocaGraph?.wrdLittleknowCnt, '#FFBB00', 3],
+                                [touchVocaGraph?.wrdKnowCnt, '#42C5B1', 4],
+                                [touchVocaGraph?.wrdTot, '#0099FF', 5]
+                            ]"
+                            :circle-value="{
+                                correctRate: touchVocaGraph?.avgAnswrRt,
+                                totalCount: touchVocaGraph?.wrdTot
+                            }"
+                        />
                         <div class="chart-bar type_single">
                             <div class="use-word">
                                 <span class="bullet color-1"></span>
@@ -43,15 +55,6 @@
 </template>
 <script setup>
 const { modalData, openModal } = useModalStore();
-const values = [
-    [20, 'gray', 2],
-    [40, 'orange', 3],
-    [50, 'lightgreen', 4],
-    [60, '#0099FF', 5]
-];
-
-const circleValue = {
-    correctRate: 95,
-    totalCount: 36
-};
+const todayStore = useApiTodayStore();
+const { touchVocaGraph } = storeToRefs(todayStore);
 </script>

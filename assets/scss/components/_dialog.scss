@@ -73,10 +73,9 @@ $attach-box-bg: $bg-blue;
             }
         }
     }
-
-
+    
     &.collectedColor {
-        padding: 3rem;
+        padding: 1rem 3rem 3rem;
         width: max-content;
 
         .v-card__underlay {
@@ -112,85 +111,47 @@ $attach-box-bg: $bg-blue;
             }
         }
 
-        .tabs-top {
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            border-bottom: 1px solid #171717;
-
-            .avatar {
-                position: absolute;
-                bottom: 1.2rem;
-            }
-        }
-
         .content {
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem;
+            // justify-content: space-between;
+            align-items: stretch;
+            padding: 2rem 2rem 1rem; // 2rem;
             width: calc(100% - 22rem);
             background: #f8f8f8;
 
+            .v-window {
+                flex-grow: 1;
+            }
+
             .v-carousel {
                 padding-bottom: 4.8rem;
-
-                .v-window__container {
-                    max-height: 49.4rem;
-                }
-
-                .v-window-item {
-                    >div {
-                        height: fit-content;
-                        overflow: unset;
-                    }
-                }
-
-                .v-window__controls {
+            }
+            .v-window__container {
+                position: static;
+                max-height: 49.5rem; // 49.4rem;
+            }
+            .v-window-item {
+                >div {
                     height: fit-content;
-                    top: unset;
-                    left: unset;
-                    right: 0;
-                    bottom: -4.8rem;
-                    padding: 0;
-                    max-width: 17.4rem;
-                }
-
-
-            }
-
-            .colorboard {
-                position: relative;
-            }
-
-            .board-stamp {
-                position: absolute;
-                right: 1.15rem;
-                bottom: 1rem;
-                width: 16rem;
-                border-radius: 100%;
-
-                .v-responsive {
                     overflow: unset;
                 }
-
-                img {
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 104%;
-                    height: 104%;
-                }
             }
-
-
+            .v-window__controls {
+                height: fit-content;
+                top: unset;
+                left: unset;
+                right: 0;
+                bottom: 0.7rem; //-4.8rem;
+                padding: 0;
+                max-width: 17.4rem;
+            }
             .collect-color {
-                min-width: 49.4rem;
-                min-height: 49.4rem;
-                max-width: 49.4rem;
-                max-height: 49.4rem;
+                min-width: 49.5rem; // 49.4rem;
+                min-height: 49.5rem; // 49.4rem;
+                max-width: 49.5rem; // 49.4rem;
+                max-height: 49.5rem; // 49.4rem;
 
                 img {
                     width: 100%;
@@ -198,17 +159,16 @@ $attach-box-bg: $bg-blue;
                     object-fit: contain;
                 }
             }
+        }
+        .indicator {
+            position: absolute;
+            bottom: 2.1rem; // 3.8rem;
+            right: 6.5rem;
+            width: auto;
+            height: auto;
 
-            .indicator {
-                position: absolute;
-                bottom: 3.8rem;
-                right: 6.5rem;
-                width: auto;
-                height: auto;
-
-                .txt_wrap {
-                    margin: 0;
-                }
+            .txt_wrap {
+                margin: 0;
             }
         }
 
@@ -279,6 +239,32 @@ $attach-box-bg: $bg-blue;
                     height: calc(100% - 23rem);
                     overflow: auto;
                 }
+            }
+        }
+        .colorboard {
+            grid-template-columns: repeat(19, 1fr);
+	        grid-template-rows: repeat(19, 1fr);
+            width: 49.4rem;
+            height: 49.4rem;
+        }
+
+        .board-stamp {
+            position: absolute;
+            right: 1.15rem;
+            bottom: 1rem;
+            width: 16rem;
+            border-radius: 100%;
+
+            .v-responsive {
+                overflow: unset;
+            }
+
+            img {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 104%;
+                height: 104%;
             }
         }
     }
@@ -400,6 +386,39 @@ $attach-box-bg: $bg-blue;
     }
 }
 
+// [팝업] 개인별 숫자 색칠판 현황
+.collectedColor {
+    .tabs {
+        > .d-flex {
+            align-items: flex-end;
+            position: relative;
+            margin-bottom: 2rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: $G800;
+            }
+        }
+    }
+    .v-tabs {
+        margin-left: auto;
+        width: 45rem;
+    }
+
+    .avatar-box {
+        padding-top: 1.3rem;
+        padding-bottom: 1.2rem;
+    }
+    .content {
+        max-width: 53.4rem;
+    }
+}
+
 .dialog_header {
     flex-shrink: 0;
     width: 100%;
@@ -472,9 +491,11 @@ $attach-box-bg: $bg-blue;
         }
 
         .v-item-group {
-            >div {
-                width: 9rem !important;
-                height: 9rem !important;
+            .item {
+                flex-grow: 1;
+                flex-basis: 15%;
+                // width: 9rem;
+                height: 9rem;
                 cursor: pointer;
 
                 img {
@@ -591,9 +612,10 @@ $attach-box-bg: $bg-blue;
     }
 
     .contents {
-        max-height: 58.6rem;
+        // max-height: 58.6rem;
         overflow-y: auto;
         overflow-x: hidden;
+        height: 58.6rem;
     }
 
     .title_box {
@@ -609,10 +631,11 @@ $attach-box-bg: $bg-blue;
     }
 
     .inner_box {
+        flex-grow: 1;
         margin-bottom: 2rem;
         padding: 0 0 0 3rem;
-        overflow-y: auto;
-        min-height: 33.4rem;
+        // overflow-y: auto;
+        // min-height: 33.4rem;
     }
 
     .v-list {
@@ -702,35 +725,27 @@ $attach-box-bg: $bg-blue;
         margin-top: 2rem;
         padding: 0 3rem 2rem;
 
-        .v-slide-group {
-            .v-slide-group__content {
-                justify-content: center;
-            }
+        .v-slide-group__content {
+            justify-content: center;
+            gap: 1rem;
         }
-
         .v-chip {
-            padding: 0.4rem;
+            justify-content: center;
+            padding: 0.2rem;
             margin: 0;
             width: 4.4rem;
-            height: 4.4rem;
-            border: 2px solid #fff;
-
-            &~.v-chip {
-                margin-left: 1rem;
-            }
+            --v-chip-height: 4.4rem;
 
             .ico {
                 width: 3.3rem;
                 height: 3.3rem;
             }
-
             &.active {
                 border: 2px solid #FFC100;
             }
         }
     }
 }
-
 .curiTalkInfo {
     .accrue {
         height: 3.6rem;
@@ -805,6 +820,22 @@ $attach-box-bg: $bg-blue;
             &:last-child {
                 vertical-align: top;
             }
+        }
+    }
+    
+    .board-stamp {
+        width: 16rem;
+        height: 16rem;
+        @include radius(100%);
+        background-color: $white;
+    }
+}
+.modalSelfCheck {
+    .class-box {
+        .contents {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
         }
     }
 }

@@ -12,7 +12,16 @@
                 <v-col>
                     <div class="progress-background" v-for="(item, index) in item" :key="index">
                         <div class="progress-date" :class="[item.color, { white: item.value >= 70 }]" :style="`width: ${item.value}%`">
-                            <span>{{ item.value }} {{ props?.suffix }}</span>
+                            <p>
+                                {{ item.value }}
+                                <template v-if="suffix === '분'">
+                                    <span v-if="item.value >= 60">{{ suffix }}({{ Math.floor(item.value / 60) }}시간)</span>
+                                    <span v-else>{{ suffix }}</span>
+                                </template>
+                                <template v-else>
+                                    <span v-if="item.value >= 70">{{ suffix }}</span>
+                                </template>
+                            </p>
                         </div>
                     </div>
                 </v-col>

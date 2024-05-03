@@ -112,6 +112,12 @@
         .chart_contents.type_radar {
             height: 45rem;
         }
+        .colorboard {
+            grid-template-columns: repeat(26, 1fr);
+	        grid-template-rows: repeat(18, 1fr);
+            width: 63rem;
+            height: 44.4rem;
+        }
     }
 
     &.box_contents {

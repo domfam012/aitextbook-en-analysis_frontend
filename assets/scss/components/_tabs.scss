@@ -4,9 +4,11 @@
     .v-slide-group {
       display: flex;
     }
-    .v-btn {
-      flex-grow: 1;
-      flex-basis: 33.3%;
+    .v-tabs {
+      .v-btn {
+        flex-grow: 1;
+        flex-basis: 33.3%;
+      }
     }
   }
   .v-slide-group {
@@ -15,8 +17,8 @@
   .v-tabs--density-default {
     --v-tabs-height: 5.5rem;
   }
-  .v-tab.v-tab {
-    &.v-btn {
+  .v-tabs {
+    .v-btn {
       color: $G700;
       &:first-of-type {
         @include radius(.5rem 0 0 0);
@@ -24,31 +26,33 @@
       &:last-of-type {
         @include radius(0 .5rem 0 0);
       }
-    }
-    &.v-tab--selected {
-      color: $white;
+      &.v-tab--selected {
+        color: $white;
+      }
     }
   }
   .v-slide-group__container {
     border-bottom: 1px solid $G800;
   }
 
-  .v-btn {
-    border: 1px solid $G200;
-    border-bottom-color: transparent;
-    background-color: $white;
-    font-weight: 700;
-
-    &:not(:first-of-type) {
-      border-left-color: transparent;
+  .v-tabs {
+    .v-btn {
+      border: 1px solid $G200;
+      border-bottom-color: transparent;
+      background-color: $white;
+      font-weight: 700;
+  
+      &:not(:first-of-type) {
+        border-left-color: transparent;
+      }
     }
-  }
-  .v-tab--selected {
-    border-color: transparent;
-    background-color: $G900;
-
-    .v-tab__slider {
-      display: none;
+    .v-tab--selected {
+      border-color: transparent;
+      background-color: $G900;
+  
+      .v-tab__slider {
+        display: none;
+      }
     }
   }
 }

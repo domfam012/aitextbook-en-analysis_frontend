@@ -37,25 +37,24 @@
                                 {
                                     value: wordDiagnosisState?.exprsPrfctUndrsUseCnt,
                                     color: 'color-1',
-                                    label: '완벽하게 이해하고 활용한 단어'
+                                    label: '잘이해하고 활용한 단어'
                                 },
                                 {
                                     value: wordDiagnosisState?.exprsExprsUndrsUnsdCnt,
                                     color: 'color-2',
-                                    label: '이해하지만 활용하지 못한 단어'
+                                    label: '이해했으나 활용하지 못한 단어'
                                 },
                                 {
                                     value: wordDiagnosisState?.exprsWrongExprsUndrsCnt,
                                     color: 'color-3',
-                                    label: '잘못 이해하고 활용한 단어'
+                                    label: '조금만 더학습하면 좋을 단어'
                                 },
                                 {
                                     value: wordDiagnosisState?.exprsSplngWrongKnowCnt,
                                     color: 'color-4',
-                                    label: '철자를 잘못 알고 있는 단어'
+                                    label: '더열심히 학습해야 할 단어'
                                 },
-                                { value: wordDiagnosisState?.exprsUnknownCnt, color: 'color-5', label: '아예 모르는 단어' },
-                                { value: wordDiagnosisState?.exprsLrnTotCnt, color: 'color-6', label: '학습한 누적 단어 개수' }
+                                { value: wordDiagnosisState?.exprsLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
                             ]"
                         />
                     </div>

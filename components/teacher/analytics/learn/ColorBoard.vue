@@ -1,7 +1,7 @@
 <template>
     <div class="colorboard" :class="{ paintable: props.paintable }">
         <div v-for="cell in props.grid" :key="cell.id" :class="[{ grid: true, painted: cell.painted }, cell.color]"></div>
-        <div v-if="stamp" class="board-stamp bg-white">
+        <div v-if="stamp" class="board-stamp">
             <v-img :src="stampSrc" alt="어떻게 이렇게까지 잘하는 거지" />
         </div>
     </div>

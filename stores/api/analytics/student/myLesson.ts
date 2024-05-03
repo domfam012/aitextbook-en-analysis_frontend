@@ -111,49 +111,92 @@ export const useApiMyLessonStore = defineStore(
         };
 
         /**
-         * 영역별 학업 성취도
+         * 날짜별 영역별 학업성취도 그래프
          * 그래프 통계
          * GET
-         * /student/dashboard/learningAnalytics/academicAchievementByArea
          **/
-        const getMyLessonAcademicAchievementByArea = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/academicAchievementByArea`, {
+        const achivementGraphState = ref();
+        const getMyLessonAcademicAchievementByArea = async (date: string) => {
+            const { data } = await useCustomFetch(`${defaultUrl}/academicAchievementByArea?date=${date}`, {
                 method: 'get'
             });
+
             if (data.value) {
-                myLessonState.value = data.value.data as MyLesson;
+                achivementGraphState.value = data.value.data;
+                const item = achivementGraphState.value;
+                achivementGraphState.value = {
+                    labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
+                    datasets: [
+                        {
+                            type: 'radar',
+                            label: '학생',
+                            data: [
+                                item.achvLstnnRt,
+                                item.achvSpkngRt,
+                                item.achvWritngRt,
+                                item.achvPrsntRt,
+                                item.achvViewRt,
+                                item.achvRedngRt
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#46A7E5',
+                            pointStyle: 'circle',
+                            pointBackgroundColor: '#46A7E5',
+                            backgroundColor: 'rgba(81, 179, 233,0.2)'
+                        },
+                        {
+                            type: 'radar',
+                            label: '반 평균',
+                            data: [
+                                item.classLstnnRt,
+                                item.classSpkngRt,
+                                item.classWritngRt,
+                                item.classPrsntRt,
+                                item.classViewRt,
+                                item.classRedngRt
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#B0B0B0',
+                            pointStyle: 'circle',
+                            pointBackgroundColor: '#B0B0B0',
+                            backgroundColor: 'transparent'
+                        },
+                        {
+                            type: 'radar',
+                            label: '지역 평균',
+                            data: [
+                                item.areaLstnnRt,
+                                item.areaSpkngRt,
+                                item.areaPrsntRt,
+                                item.areaWritngRt,
+                                item.areaViewRt,
+                                item.areaRedngRt
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#FFBF00',
+                            pointStyle: 'circle',
+                            pointBackgroundColor: '#FFBF00',
+                            backgroundColor: 'transparent'
+                        }
+                    ]
+                };
             }
         };
 
         /**
-         * 영역별 학업 성취도 팝업
+         * 영역별 학업 성취도 팝업 날짜 목록
          * 날짜 목록
          * GET
          **/
-        const getMyLessonAcademicAchievementByAreaData = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/academicAchievementByArea/date`, {
+        const dateListState = ref();
+        const getMyLessonAcademicAchievementByAreaDate = async (recentDay: number) => {
+            const { data } = await useCustomFetch(`${defaultUrl}/academicAchievementByArea/date?recentDay=${recentDay}`, {
                 method: 'get'
             });
             if (data.value) {
-                myLessonState.value = data.value.data as MyLesson;
+                dateListState.value = data.value.data as MyLesson;
             }
         };
-
-        /**
-         * 영역별 학업 성취도 팝업
-         * 날짜 클릭 > 상세 학업성취도 그래프
-         * /student/dashboard/learningAnalytics/academicAchievementByArea
-         * GET
-         * TODO : 동일한 URL 확인 필요
-         **/
-        // const getMyLessonAcademicAchievementByArea = async () => {
-        //     const { data } = await useCustomFetch(`${defaultUrl}/academicAchievementByArea`, {
-        //         method: 'get'
-        //     });
-        //     if (data.value) {
-        //         myLessonState.value = data.value.data as MyLesson;
-        //     }
-        // };
 
         /**
          * 성취 기준 모아보기 팝업
@@ -173,6 +216,8 @@ export const useApiMyLessonStore = defineStore(
         };
 
         return {
+            achivementGraphState,
+            dateListState,
             myLessonState,
             wordDiagnosisState,
             cumulativeTimeState,
@@ -182,7 +227,7 @@ export const useApiMyLessonStore = defineStore(
             getMyLessonProgressLearningHistory,
             getMyLessonNoteDetail,
             getMyLessonAcademicAchievementByArea,
-            getMyLessonAcademicAchievementByAreaData,
+            getMyLessonAcademicAchievementByAreaDate,
             getMyLessonAchievementCriteria
         };
     },

@@ -27,7 +27,7 @@
                                 </td>
                                 <td class="type_center">
                                     <div variant="text">
-                                        {{ item.stuName }}
+                                        {{ item.studName }}
                                     </div>
                                 </td>
                             </tr>
@@ -35,7 +35,17 @@
                     </v-data-table>
                 </div>
                 <!-- 캐러셀 영역 -->
-                <TableCarousel :lessonAccumulatedState="lessonAccumulatedState" />
+                <TableCarousel
+                    @panel="
+                        (row, column) => {
+                            rowIndex = row;
+                            columnIndex = column;
+                        }
+                    "
+                    :lessonAccumulatedState="lessonAccumulatedState"
+                    :rowIndex="rowIndex"
+                    :columnIndex="columnIndex"
+                />
                 <!-- 오른쪽 테이블 영역 -->
                 <div class="right-table">
                     <v-data-table
@@ -48,18 +58,15 @@
                         <template #item="{ item }">
                             <tr>
                                 <td class="type_center">
-                                    <div variant="text">{{ item.avg }}%</div>
+                                    <div variant="text">{{ item.achvRtAvgTot }}%</div>
                                 </td>
                             </tr>
                         </template>
                     </v-data-table>
                 </div>
 
-                <!-- 패널 영역 -->
-                <!-- top값은 해당 클릭된 영역 기준으로 변경 -->
-                <!-- 해당화면 display: none 처리 해당화면 확인시 제거 -->
-                <div class="customized" style="top: 26.4rem; display: none">
-                    <div class="contents d-flex align-center" style="top: 26.4rem; display: none">
+                <div v-if="rowIndex !== null" class="customized" :style="{ top: `${19.4 + 7 * rowIndex}rem` }">
+                    <div class="contents d-flex align-center">
                         <div class="left">
                             <div class="box d-flex align-center">
                                 <img src="@/assets/images/img_character.svg" alt="캐릭터" />
@@ -106,9 +113,6 @@
             <div class="page_buttons">
                 <v-btn rounded flat class="secondary" :disabled="renderAll" @click="currentPage = currentPage + 1"
                     >{{ `5명 더 보기 (${currentPage + 1}/${Math.ceil(lessonAccumulatedState?.length / 5)})` }}
-                    <!--                  {{-->
-                    <!--                        Math.ceil(lessonAccumulatedState.length / 5)-->
-                    <!--                    }})-->
                 </v-btn>
             </div>
         </div>
@@ -119,7 +123,8 @@ const learnStore = useApiLearnStore();
 const lessonStore = useApiLessonStore();
 const { lessonAccumulatedState, lessonCommonState } = storeToRefs(lessonStore);
 const { currentPage } = storeToRefs(learnStore);
-console.log('lessonAccumulatedState : ', lessonAccumulatedState);
+const rowIndex = ref(null);
+const columnIndex = ref(null);
 
 // 왼쪽 테이블 header
 const tableInfoHead = [

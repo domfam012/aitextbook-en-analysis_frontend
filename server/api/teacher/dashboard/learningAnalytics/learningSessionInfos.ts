@@ -1,6 +1,14 @@
 //해당일 학습 차시 리스트( 차시명, 교과서 쪽수)
 
-const data = {
+const data0 = {
+    dataSize: 0,
+    timestamp: '2024-04-10T14:34:46.632925874',
+    httpCode: 200,
+    message: '조회성공',
+    data: []
+};
+
+const data1 = {
     dataSize: 3,
     timestamp: '2024-04-10T14:34:46.632925874',
     httpCode: 200,
@@ -54,12 +62,22 @@ const data = {
 export default defineEventHandler(async event => {
     if (event.req.method === 'GET') {
         const { date } = getQuery(event);
-
-        data.data = data.data.map((item, index) => {
-            const sessionName = `${date.split('-')[2] + index} 차시`;
-            return { ...item, sessionName };
-        });
-
-        return data;
+        const dateList = [
+            '2024-04-03',
+            '2024-04-04',
+            '2024-04-16',
+            '2024-04-26',
+            '2024-05-01',
+            '2024-05-03',
+            '2024-05-04',
+            '2024-05-16',
+            '2024-05-26',
+            '2024-06-01'
+        ];
+        if (dateList.includes(date)) {
+            return data1;
+        } else {
+            return data0;
+        }
     }
 });

@@ -44,11 +44,12 @@ import dayjs from 'dayjs';
 
 const todayStore = useApiTodayStore();
 const calendarStore = useApiCalendarStore();
+const lessonStore = useApiMyLessonStore();
 
 const { selectLessonState } = storeToRefs(todayStore);
 const { selectedDate } = storeToRefs(calendarStore);
 
-const formatDate = ref(dayjs(selectedDate.value).format('YYYY-MM-DD'));
+const { formatDate } = storeToRefs(calendarStore);
 
 const selected = ref('진도 학습');
 const items = ref(['진도 학습', 'AI CURI Talk!']);
@@ -58,8 +59,23 @@ const items = ref(['진도 학습', 'AI CURI Talk!']);
  * @returns {Promise<any>}
  */
 const getLessons = async () => {
-    const formatDate = ref(dayjs(selectedDate.value).format('YYYY-MM-DD'));
     return await todayStore.getSelDayLearningLessons(formatDate.value);
+};
+
+/**
+ * 선택된 날짜 영역별 성취율
+ * @returns {Promise<any>}
+ */
+const getAchievement = async () => {
+    return await lessonStore.getMyLessonAcademicAchievementByArea(formatDate.value);
+};
+
+/**
+ * 오늘의 Touch VOCA 그래프 통계
+ * @returns {Promise<any>}
+ */
+const getTouchVoca = async () => {
+    return await todayStore.getTodayTouchVoca(formatDate.value);
 };
 
 /**
@@ -67,7 +83,6 @@ const getLessons = async () => {
  * @returns {Promise<void>}
  */
 const handleText = async () => {
-    const formatDate = ref(dayjs(selectedDate.value).format('YYYY-MM-DD'));
     await todayStore.getTodayChapterLearningStatus({
         date: formatDate,
         chId: selectLessonState.value.chId,
@@ -77,10 +92,16 @@ const handleText = async () => {
 
 onMounted(async () => {
     await getLessons();
+    await getAchievement();
+    await getTouchVoca();
 });
 
 // 날짜 선택 변경 시
-watch(selectedDate, getLessons);
+watch(selectedDate, () => {
+    getLessons();
+    getAchievement();
+    getTouchVoca();
+});
 
 // 단원/차시 변경 시
 watch(selectLessonState, handleText);

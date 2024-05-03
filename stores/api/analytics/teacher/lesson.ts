@@ -30,6 +30,21 @@ export interface Lesson {
     data: AchievementRate;
 }
 
+export interface IndividualLesson {
+    lesson: number;
+    achievementRate: number;
+    groupId: number;
+    stamp: number;
+}
+
+export interface IndividualUnitAcademicAchievementRate {
+    id: number;
+    studUuid: string;
+    studName: string;
+    achvRtAvgTot: number;
+    lessons: IndividualLesson[];
+}
+
 export interface AssignmentProps {
     data: {
         assignment: string;
@@ -76,7 +91,7 @@ export const useApiLessonStore = defineStore(
         const lessonFeedbackState = ref<Lesson>();
 
         // 단원별 누적 성취율
-        const lessonAccumulatedState = ref<Lesson>();
+        const lessonAccumulatedState: Ref<IndividualUnitAcademicAchievementRate[]> = ref([]);
 
         /**
          * 오늘의학업 성취율
@@ -180,12 +195,9 @@ export const useApiLessonStore = defineStore(
          * POST
          */
         const getPopupSendFeedbackStamp = async (stempData: LessonProps) => {
-            const { data } = await useCustomFetch(`${defaultUrl}/sendFeedbackStamp`, {
-                method: 'post',
-                body: JSON.stringify(stempData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+            const { dsgnId, stampId } = stempData;
+            const { data } = await useCustomFetch(`${defaultUrl}/sendFeedbackStamp?dsgnId=${dsgnId}&stampId=${stampId}`, {
+                method: 'post'
             });
             if (data.value) {
                 lessonFeedbackState.value = data.value.data as Lesson;

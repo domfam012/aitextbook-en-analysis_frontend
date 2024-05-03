@@ -51,6 +51,7 @@ export const useApiTodayStore = defineStore(
         const learningLessonsState: Ref<SelDayLearningLessons> = ref([]);
         const chapterLearningStatusState: Ref<TodayChapterLearningStatus[]> = ref([]);
         const selectLessonState: Ref<SessionList> = ref({});
+        const selectState: Ref<SelDayLearningLessons> = ref({});
 
         /**
          * 달력 선택일 학습 단원, 차시 목록 조회
@@ -60,12 +61,13 @@ export const useApiTodayStore = defineStore(
             if (date) {
                 selectDate = `date=${date}`;
             }
-            const { data } = await useCustomFetch(`${defaultUrl}/selDayLearningLessons?date=${selectDate}`, {
+            const { data } = await useCustomFetch(`${defaultUrl}/selDayLearningLessons?${selectDate}`, {
                 method: 'get'
             });
             if (data.value) {
                 // 단원, 차시 목록 저장
                 learningLessonsState.value = data.value.data;
+                selectState.value = data.value.data[0];
                 // 선택한 날짜의 첫번째 단원의 첫번째 차시
                 const defaultLesson = data.value.data[0].sessionList[0];
                 selectLessonState.value = defaultLesson;
@@ -106,7 +108,7 @@ export const useApiTodayStore = defineStore(
          * GET
          **/
         const getTodayChapterAchievementCriteriaQuestion = async (sessionId: Number) => {
-            const { data } = await useCustomFetch(`${defaultUrl}/chapterAchievementCriteriaQuestion`, {
+            const { data } = await useCustomFetch(`${defaultUrl}/chapterAchievementCriteriaQuestion?sessId=${sessionId}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -133,15 +135,16 @@ export const useApiTodayStore = defineStore(
         };
 
         /**
-         * 오늘의 Touch VOCA    그래프 통계
+         * 오늘의 Touch VOCA 그래프 통계
          * GET
          **/
-        const getTodayTouchVoca = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/todayTouchVoca`, {
+        const touchVocaGraph = ref();
+        const getTodayTouchVoca = async (date: string) => {
+            const { data } = await useCustomFetch(`${defaultUrl}/todayTouchVoca?date=${date}`, {
                 method: 'get'
             });
             if (data.value) {
-                todayState.value = data.value.data as Today;
+                touchVocaGraph.value = data.value.data as Today;
             }
         };
 
@@ -149,8 +152,9 @@ export const useApiTodayStore = defineStore(
          *    Touch VOCA 학습 팝업
          *    GET
          */
-        const getTodayTouchVocaLearning = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/touchVocaLearning`, {
+        const getTodayTouchVocaLearning = async (recent: number) => {
+            console.log(recent);
+            const { data } = await useCustomFetch(`${defaultUrl}/touchVocaLearning?recentDay=${recent}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -161,9 +165,11 @@ export const useApiTodayStore = defineStore(
         return {
             todayState,
             questionState,
+            touchVocaGraph,
             learningLessonsState,
             chapterLearningStatusState,
             selectLessonState,
+            selectState,
             getSelDayLearningLessons,
             getTodayChapterLearningStatus,
             getTodayChapterAchievementCriteriaQuestion,

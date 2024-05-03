@@ -174,17 +174,19 @@ export const useApiRecordHistoryStore = defineStore(
                                 anchor: 'end',
                                 align: 'end',
                                 offset: 10,
-                                font: {
-                                    weight: 500,
-                                    size: 20,
-                                    lineHeight: '26px',
-                                    family: '"NotoSansKR", sans-serif'
+                                font: function (context) {
+                                    var height = context.chart.height;
+                                    // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
+                                    var size = Math.round(height / 25);
+                                    return {
+                                        family: 'NotoSansKR',
+                                        size: size * 1.25, // 1920에 20
+                                        weight: 500
+                                    };
                                 }
                             },
                             backgroundColor: ['#42C5B1', '#46A7E5', '#636DC4', '#FD6E7F', '#B0B0B0', '#FFBF00'],
-                            stack: 'word',
-                            categoryPercentage: 1,
-                            barThickness: 40
+                            stack: 'word'
                         }
                     ]
                 };
@@ -220,13 +222,18 @@ export const useApiRecordHistoryStore = defineStore(
                                 display: 'true',
                                 color: '#171717',
                                 align: 'middle',
-                                font: {
-                                    family: 'NotoSansKR',
-                                    size: '20',
-                                    weight: '700'
+                                textAlign: 'center',
+                                font: function (context) {
+                                    var height = context.chart.height;
+                                    // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
+                                    var size = Math.round(height / 20);
+                                    return {
+                                        family: 'NotoSansKR',
+                                        size: size * 1.25, // 1920에 20
+                                        weight: 700
+                                    };
                                 }
-                            },
-                            spacing: 5
+                            }
                         }
                     ]
                 };

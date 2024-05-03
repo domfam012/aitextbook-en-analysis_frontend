@@ -11,9 +11,9 @@
                     class="color_gray type_center carousel__item"
                     disable-sort
                 >
-                    <template v-slot:item="{ item }">
+                    <template v-slot:item="{ item, internalItem }">
                         <tr class="carousel_mid_tr">
-                            <td :class="getDisableClass(item[`unit${String(index + 1).padStart(2, '0')}`])">
+                            <td :class="getDisableClass(item[0][`lesson${String(index + 1).padStart(2, '0')}`])">
                                 <!--  .emblem_01 미학습,
                                   .emblem_02 느린 학습자,
                                   .emblem_03 조금 느린 학습자,
@@ -21,43 +21,43 @@
                                   .emblem_04 조금 빠른 학습자,
                                   .emblem_05 빠른 학습자
                             -->
-
                                 <i
                                     class="emblem"
                                     :class="{
                                         emblem_04:
-                                            item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 4 ||
-                                            item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 6,
-                                        emblem_05: item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 5,
-                                        emblem_03: item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 3,
-                                        emblem_02: item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 2,
-                                        emblem_01: item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 1
+                                            item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 4 ||
+                                            item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 6,
+                                        emblem_05: item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 5,
+                                        emblem_03: item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 3,
+                                        emblem_02: item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 2,
+                                        emblem_01: item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 1
                                     }"
-                                    v-if="item[`unit${String(index + 1).padStart(2, '0')}`]"
+                                    v-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`]"
                                 />
                                 <div class="carousel_mid_tr_wrap_btn">
                                     <v-btn
-                                        v-if="item[`unit${String(index + 1).padStart(2, '0')}`]"
+                                        v-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`]"
                                         variant="text"
                                         :ripple="false"
                                         size="small"
-                                        :class="getClass(item[`unit${String(index + 1).padStart(2, '0')}`])"
+                                        @click="panelToggle(internalItem, index)"
+                                        :class="getClass(item[0][`lesson${String(index + 1).padStart(2, '0')}`])"
                                     >
-                                        <span v-if="item[`unit${String(index + 1).padStart(2, '0')}`]?.status !== 1">{{
-                                            addPercentIfNumber(item[`unit${String(index + 1).padStart(2, '0')}`])
+                                        <span v-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status !== 1">{{
+                                            addPercentIfNumber(item[0][`lesson${String(index + 1).padStart(2, '0')}`])
                                         }}</span>
-                                        <span v-else-if="item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 1">미학습</span>
+                                        <span v-else-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 1">미학습</span>
                                     </v-btn>
                                     <i
-                                        v-if="item[`unit${String(index + 1).padStart(2, '0')}`]"
+                                        v-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`]"
                                         class="ico"
                                         :class="{
-                                            stamp_complete: item[`unit${String(index + 1).padStart(2, '0')}`]?.stamp === 1,
-                                            stamp_wait: item[`unit${String(index + 1).padStart(2, '0')}`]?.stamp === 2
+                                            stamp_complete: item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.stamp === 1,
+                                            stamp_wait: item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.stamp === 2
                                         }"
                                     />
-                                    <i class="ico list" v-if="item[`unit${String(index + 1).padStart(2, '0')}`]?.status === 6" />
-                                    <span v-else-if="item[`unit${String(index + 1).padStart(2, '0')}`] === undefined">학습대기</span>
+                                    <i class="ico list" v-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`]?.status === 6" />
+                                    <span v-else-if="item[0][`lesson${String(index + 1).padStart(2, '0')}`] === undefined">학습대기</span>
                                 </div>
                             </td>
                         </tr>
@@ -74,9 +74,10 @@
 <script setup>
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Navigation, Slide } from 'vue3-carousel';
+
 const learnStore = useApiLearnStore();
 const { currentPage } = storeToRefs(learnStore);
-
+const emit = defineEmits(['panel']);
 const breakpoints = {
     // // 700px and up
     // 800: {
@@ -90,8 +91,8 @@ const breakpoints = {
     }
 };
 
-const props = defineProps(['lessonAccumulatedState']);
-// 캐러셀영역
+const props = defineProps(['lessonAccumulatedState', 'rowIndex', 'columnIndex']);
+const tableContent = props.lessonAccumulatedState.map(student => student.lessons);
 
 /**
  * 동적으로 head 렌더링
@@ -100,216 +101,8 @@ const props = defineProps(['lessonAccumulatedState']);
 const tableUnitHead = Array.from({ length: 10 }, (_, index) => ({
     title: `${index + 1}단원`,
     sortable: false,
-    key: `unit${String(index + 1).padStart(2, '0')}`
+    key: `lesson${String(index + 1).padStart(2, '0')}`
 }));
-
-// 캐러셀 테이블 다음과 같은 형태로 데이터 컨버팅 필요 (lessonAccumulatedState)
-const tableContent = [
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 2,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 2,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    },
-    {
-        unit01: {
-            percent: 91,
-            status: 5,
-            stamp: 1
-        },
-        unit02: {
-            percent: 92,
-            status: 6,
-            stamp: 3
-        },
-        unit03: {
-            percent: 93,
-            status: 1,
-            stamp: 2
-        }
-    }
-];
 
 // 숫자일경우 under_Line 글자인경우 X
 const getClass = value => {
@@ -320,7 +113,7 @@ const getClass = value => {
 // 숫자일경우 disabled
 const getDisableClass = value => {
     if (value) {
-        if (typeof value.percent === 'number') {
+        if (typeof value.achvRtAvgTot === 'number') {
             return '';
         }
     } else {
@@ -331,11 +124,19 @@ const getDisableClass = value => {
 // 숫자일경우 %추가
 const addPercentIfNumber = value => {
     if (value) {
-        if (typeof value.percent === 'number') {
-            return `${value.percent}%`;
+        if (typeof value.achvRtAvgTot === 'number') {
+            return `${value.achvRtAvgTot}%`;
         }
     } else {
         return '학습대기';
+    }
+};
+
+const panelToggle = (row, column) => {
+    if (props.rowIndex === row.index && props.columnIndex === column) {
+        emit('panel', null, null);
+    } else {
+        emit('panel', row.index, column);
     }
 };
 </script>

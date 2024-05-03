@@ -20,7 +20,13 @@
                     }}</v-list-item>
                 </v-list>
                 <v-chip-group selected-class="active" mandatory v-model="selection" @update:model-value="registerSelfCheck">
-                    <v-chip class="px-1 py-1" variant="text" color="transparent" v-for="(item, index) in 5" :key="item" :value="item"
+                    <v-chip
+                        class="px-1 py-1"
+                        variant="text"
+                        color="transparent"
+                        v-for="(item, index) in imojiList"
+                        :key="index"
+                        :value="item"
                         ><i class="ico" :class="`imoji${index + 1}`"></i>{{ item }}</v-chip
                     >
                 </v-chip-group>
@@ -34,7 +40,7 @@
 <script setup>
 const props = defineProps({
     /**
-     * 차시 정보
+     * 차시 정보 -> 현재 프롭스로 관리하고 있지만 , 전역 store로 관리 예정
      */
     sessionInfo: { type: Number, default: 1 },
     /**
@@ -42,6 +48,8 @@ const props = defineProps({
      */
     chId: { type: Number, default: 1 }
 });
+
+const imojiList = ref([5, 4, 3, 2, 1]);
 
 const { modalData, openModal } = useModalStore();
 
@@ -61,6 +69,6 @@ const registerSelfCheck = async () => {
 };
 
 onMounted(() => {
-    apiTodayStore.getTodayChapterAchievementCriteriaQuestion();
+    apiTodayStore.getTodayChapterAchievementCriteriaQuestion(props.sessionInfo);
 });
 </script>

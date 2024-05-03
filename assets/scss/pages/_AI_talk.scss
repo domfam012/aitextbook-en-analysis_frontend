@@ -99,33 +99,4 @@
   .v-list-item__content {
     flex-direction: column;
   }
-
-  .colorboard {
-    position: relative;
-  }
-
-  .board-stamp {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    width: 6.5rem;
-    height: 6.5rem;
-    border-radius: 100%;
-
-
-    .v-responsive {
-      overflow: unset;
-    }
-
-    img {
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 104%;
-      height: 104%;
-    }
-  }
-
-
-
 }

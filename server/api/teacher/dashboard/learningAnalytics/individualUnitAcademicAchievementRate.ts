@@ -9,480 +9,480 @@ const data = {
         {
             id: 1,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '김아미',
-            avg: 75,
+            studName: '김아미',
+            achvRtAvgTot: 75,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 2,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '장영실',
-            avg: 80,
+            studName: '장영실',
+            achvRtAvgTot: 80,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 3,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '권율',
-            avg: 85,
+            studName: '권율',
+            achvRtAvgTot: 85,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 4,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '장보고',
-            avg: 75,
+            studName: '장보고',
+            achvRtAvgTot: 75,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 5,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '이순신',
-            avg: 95,
+            studName: '이순신',
+            achvRtAvgTot: 95,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 6,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '김아무개',
-            avg: 65,
+            studName: '김아무개',
+            achvRtAvgTot: 65,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 7,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '박아미',
-            avg: 75,
+            studName: '박아미',
+            achvRtAvgTot: 75,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 8,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '김영실',
-            avg: 80,
+            studName: '김영실',
+            achvRtAvgTot: 80,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 9,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '오권율',
-            avg: 85,
+            studName: '오권율',
+            achvRtAvgTot: 85,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 10,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '박보고',
-            avg: 75,
+            studName: '박보고',
+            achvRtAvgTot: 75,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 11,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '장순신',
-            avg: 95,
+            studName: '장순신',
+            achvRtAvgTot: 95,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         },
         {
             id: 12,
             studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
-            stuName: '최아무개',
-            avg: 65,
+            studName: '최아무개',
+            achvRtAvgTot: 65,
             lessons: [
                 {
-                    lesson: 1,
-                    achievementRate: 90
-                },
-                {
-                    lesson: 2,
-                    achievementRate: 65
-                },
-                {
-                    lesson: 3,
-                    achievementRate: 34
-                },
-                {
-                    lesson: 4,
-                    achievementRate: 45
-                },
-                {
-                    lesson: 5,
-                    achievementRate: 94
-                },
-                {
-                    lesson: 6,
-                    achievementRate: 76
-                },
-                {
-                    lesson: 7,
-                    achievementRate: 91
-                },
-                {
-                    lesson: 8,
-                    achievementRate: 90
+                    lesson01: {
+                        achvRtAvgTot: 91,
+                        status: 5,
+                        stamp: 2
+                    },
+                    lesson02: {
+                        achvRtAvgTot: 92,
+                        status: 6,
+                        stamp: 3
+                    },
+                    lesson03: {
+                        achvRtAvgTot: 93,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson04: {
+                        achvRtAvgTot: 94,
+                        status: 2,
+                        stamp: 2
+                    },
+                    lesson05: {
+                        achvRtAvgTot: 95,
+                        status: 3,
+                        stamp: 2
+                    },
+                    lesson06: {
+                        achvRtAvgTot: 96,
+                        status: 3,
+                        stamp: 2
+                    }
                 }
             ]
         }

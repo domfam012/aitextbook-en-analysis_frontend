@@ -1,6 +1,6 @@
 <template>
     <v-sheet class="dailyPerformance">
-        <div class="tabs fluid" v-if="lessonState">
+        <div class="tabs fluid" v-if="teacherLearningSessionState.length > 0">
             <v-tabs v-model="lessonCommonState.tab" @update:model-value="updateTab">
                 <v-tab value="one"> 오늘의 학업 성취율 </v-tab>
                 <v-tab value="two"> 단원별 누적 성취율 </v-tab>
@@ -11,11 +11,11 @@
     </v-sheet>
 </template>
 <script setup>
-const dayjs = useDayjs();
 const lessonStore = useApiLessonStore();
-const calendarStore = useApiCalendarStore();
-const { lessonCommonState, lessonState } = storeToRefs(lessonStore);
-const { formatDate, comList } = storeToRefs(calendarStore);
+const courseStore = useApiCourseStore();
+const { teacherLearningSessionState } = storeToRefs(courseStore);
+const { lessonCommonState, l } = storeToRefs(lessonStore);
+
 const emit = defineEmits(['tab']);
 /**
  * 탭 변경 시 API 호출

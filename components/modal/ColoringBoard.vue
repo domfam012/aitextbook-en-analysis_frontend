@@ -3,23 +3,24 @@
         <!-- 숫자색칠판 완성하기 팝업 -->
         <v-dialog v-model="modalData.isOpen" width="auto">
             <v-card class="dialog piece-xxxlg collectedColor">
-                <div class="tabs-top">
-                    <div class="avatar avatar-box">
-                        <v-img :src="useAsset('images/temp/img_pho_st01.png')" alt="아바타 이미지" class="avatar-item" />
-                        <div class="avatar-info">
-                            <span class="info_number">{{ colorBoardState[selected]?.studNo }}번</span>
-                            <span class="info_name">{{ colorBoardState[selected]?.studName }}</span>
+                <div class="tabs fluid">
+                    <div class="d-flex">
+                        <div class="avatar avatar-box" v-if="colorBoardState">
+                            <v-img :src="useAsset('images/temp/img_pho_st01.png')" alt="아바타 이미지" class="avatar-item" />
+                            <div class="avatar-info">
+                                <span class="info_number">{{ colorBoardState[selected]?.studNo }}번</span>
+                                <span class="info_name">{{ colorBoardState[selected]?.studName }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="round_box_type ml-auto">
-                        <v-tabs color="transparent" v-model="tab" @update:model-value="resetPage">
+                        <div v-else>
+                            <span class="font-header2">숫자 색칠판 완성하기</span>
+                        </div>
+                        <v-tabs v-model="tab" @update:model-value="resetPage">
                             <v-tab value="one" class="color_piece" valiant="outlined">남은 색깔 조각</v-tab>
                             <v-tab value="two" class="color_piece" valiant="outlined">수집한 색깔 조각</v-tab>
                         </v-tabs>
                     </div>
-                </div>
-                <div class="ma-0 pa-0 w-100">
-                    <v-window v-model="tab" class="tabs-item">
+                    <v-window v-model="tab">
                         <v-window-item value="one">
                             <v-card height="fit-content" :elevation="0" class="rounded-0">
                                 <div class="d-flex">
@@ -63,7 +64,7 @@
                                             </template>
 
                                             <v-carousel-item v-for="(item, index) in lessonPopupState" :key="index">
-                                                <v-card max-height="49.4rem" :elevation="0" class="rounded-0">
+                                                <v-card max-height="49.5rem" :elevation="0" class="rounded-0">
                                                     <TeacherAnalyticsLearnColorBoard :grid="item?.dsgnUseInfo" :paintable="true" />
                                                 </v-card>
                                             </v-carousel-item>
@@ -118,19 +119,20 @@
                                                     </div>
                                                 </div>
                                             </v-list-item>
-                                            <v-list-item>
+                                            <!-- Note : 비행기 도안에 제시하기 사용하지 않는 것으로 확인  -->
+                                            <!-- <v-list-item>
                                                 <div class="text-center">
-                                                    <p class="name">'쓰기' 색깔 조각</p>
+                                                    <p class="name">'제시하기' 색깔 조각</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_05"></i>
                                                         <em>X</em>
                                                         <span>{{ remainingColorState?.colorWritngCnt }}개</span>
                                                     </div>
                                                 </div>
-                                            </v-list-item>
+                                            </v-list-item> -->
                                             <v-list-item>
                                                 <div class="text-center">
-                                                    <p class="name">'제시하기' 색깔 조각</p>
+                                                    <p class="name">'쓰기' 색깔 조각</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_06"></i>
                                                         <em>X</em>
@@ -144,7 +146,7 @@
                             </v-card>
                             <div class="dialog_btn_wrap mgt30">
                                 <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
-                                <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
+                                <v-btn rounded flat class="primary" @click="stamp = true" v-if="isTeacher">피드백 도장 보내기</v-btn>
                             </div>
                         </v-window-item>
 
@@ -272,7 +274,6 @@
                             </v-card>
                             <div class="dialog_btn_wrap mgt30">
                                 <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
-                                <v-btn rounded flat class="primary" @click="stamp = true">피드백 도장 보내기</v-btn>
                             </div>
                         </v-window-item>
                     </v-window>
@@ -283,7 +284,7 @@
             <div class="feedbackStampList" v-if="stamp">
                 <v-sheet class="px40 py40">
                     <h3 class="text-center mb30">학생에게 어떤 도장을 보낼까요?</h3>
-                    <v-item-group mandatory class="d-flex flex-wrap gap3 py20" style="max-width: 57rem">
+                    <v-item-group v-model="selectedStamp" mandatory class="d-flex flex-wrap gap3 py20" style="width: 57rem">
                         <div class="item">
                             <v-item v-slot="{ isSelected, toggle }">
                                 <v-card
@@ -447,8 +448,8 @@
                         </div>
                     </v-item-group>
                     <div class="dialog_btn_wrap mgt30 gap1 d-flex justify-center">
-                        <v-btn rounded flat class="outlined size_md" @click="stamp = false">닫기</v-btn>
-                        <v-btn rounded flat class="primary">피드백 도장 보내기</v-btn>
+                        <v-btn rounded flat class="outlined size_md" @click="stamp = false">취소</v-btn>
+                        <v-btn rounded flat class="primary" @click="sendStamp" v-if="isTeacher">피드백 도장 보내기</v-btn>
                     </div>
                 </v-sheet>
             </div>
@@ -461,7 +462,9 @@ const stamp = ref(false);
 const page = ref(0);
 const resetPage = () => (page.value = 0);
 
-const props = defineProps(['selected']);
+const props = defineProps(['selected', 'isTeacher']);
+
+const selectedStamp = ref(0);
 
 const { modalData, openModal, closeModal } = useModalStore();
 
@@ -486,42 +489,10 @@ onMounted(() => {
     lessonApiStore.getPopupCollectedColor();
     lessonApiStore.getPopupRemainColorDesign();
     lessonApiStore.getPopupCollectedColorDesigns();
-    // lessonApiStore.getPopupSendFeedbackStamp();
 });
+
+const sendStamp = () => {
+    console.log(lessonPopupState?.value[page.value]);
+    useApiLessonStore().getPopupSendFeedbackStamp({ dsgnId: lessonPopupState?.value[page.value].dsgnId, stampId: selectedStamp.value });
+};
 </script>
-
-<style scoped lang="scss">
-.colorboard {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.grid {
-    width: 2.6rem;
-    height: 2.6rem;
-    border: 0.5px solid #171717;
-    cursor: pointer;
-}
-
-.painted {
-    border: 1px solid black;
-    &.blue {
-        background: #46a7e5;
-    }
-
-    &.green {
-        background: #81b01b;
-    }
-
-    &.darkgreen {
-        background: #0a8;
-    }
-    &.red {
-        background: #fd6e7f;
-    }
-    &.yellow {
-        background: #ffd44d;
-    }
-}
-</style>

@@ -18,6 +18,7 @@
                         return-object
                         single-line
                         hide-details
+                        @update:model-value="handleGetTouchVoca"
                     ></v-select>
                     <h1>Touch VOCA 학습이력</h1>
                 </div>
@@ -26,7 +27,7 @@
             <div class="dialog_body">
                 <div class="chart_combination">
                     <!-- 차트영역 입니다. -->
-                    <ChartCombination :chartData="chartData" />
+                    <ChartCombination v-if="isReady" :chartData="chartData" />
                 </div>
             </div>
         </v-card>
@@ -34,83 +35,16 @@
 </template>
 
 <script setup>
-const { modalData, closeModal } = useModalStore();
-// const chartData = {
-//     labels: ['9월 11일', '9월 12일', '9월 13일', '9월 14일', '9월 15일', '9월 16일', '9월 17일'],
-//     datasets: [
-//         {
-//             type: 'line',
-//             data: [95, 92, 88, 76, 91, 90, 86],
-//             order: 1,
-//             borderWidth: 2,
-//             borderColor: 'green',
-//             pointStyle: 'circle',
-//             pointBackgroundColor: 'green',
-//             pointRadius: 4, // 데이터 레이블 설정,
-//             datalabels: {
-//                 display: 'true',
-//                 color: 'black',
-//                 align: 'top',
-//                 formatter: function (value, context) {
-//                     return value + '%';
-//                 },
-//                 backgroundColor: 'white',
-//                 borderColor: 'black',
-//                 borderWidth: 1,
-//                 borderRadius: 5,
-//                 textAlign: 'center',
-//                 offset: 10
-//             }
-//         },
-//         {
-//             type: 'bar',
-//             label: '응시한 단어 수',
-//             data: [70, 33, 78, 75, 54, 84, 57],
-//             backgroundColor: '#324d7e',
-//             stack: 'total',
-//             order: 2,
-//             barPercentage: 0.35,
-//             categoryPercentage: 1.0
-//         },
-//         {
-//             type: 'bar',
-//             label: '알고 있는 단어 수',
-//             data: [70 / 3, 11, 26, 25, 18, 28, 19],
-//             backgroundColor: '#80c7fd',
-//             stack: 'word',
-//             order: 2,
-//             barPercentage: 2.5,
-//             categoryPercentage: 0.5
-//         },
-//         {
-//             type: 'bar',
-//             label: '조금 알거나 모르는 단어 수',
-//             data: [70 / 3, 11, 26, 25, 18, 28, 19],
-//             backgroundColor: '#ffc008',
-//             stack: 'word',
-//             order: 2,
-//             barPercentage: 2.5,
-//             categoryPercentage: 0.5
-//         },
-//         {
-//             type: 'bar',
-//             label: '모르는 단어 수',
-//             data: [70 / 3, 11, 26, 25, 18, 28, 19],
-//             backgroundColor: '#ffa503',
-//             stack: 'word',
-//             order: 2,
-//             barPercentage: 2.5,
-//             categoryPercentage: 0.5
-//         }
-//     ]
-// };
+import dayjs from 'dayjs';
 
-const chartData = {
-    labels: ['9월 11일', '9월 12일', '9월 13일', '9월 14일', '9월 15일', '9월 16일', '9월 17일'],
+const { modalData, closeModal } = useModalStore();
+
+const chartData = ref({
+    labels: [],
     datasets: [
         {
             type: 'line',
-            data: [95, 92, 88, 76, 91, 90, 86],
+            data: [],
             order: 1,
             borderWidth: 2,
             borderColor: '#139D42',
@@ -130,22 +64,22 @@ const chartData = {
                 borderRadius: 5,
                 textAlign: 'center',
                 offset: 10,
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                     var size = Math.round(height / 40);
                     return {
                         family: 'NotoSansKR',
                         size: size * 1.25, // 1920에 20
-                        weight: 700,
-                    }
-                },
+                        weight: 700
+                    };
+                }
             }
         },
         {
             type: 'bar',
             label: '응시한 단어 수',
-            data: [70, 33, 78, 75, 54, 84, 57],
+            data: [],
             backgroundColor: '#324d7e',
             stack: 'total',
             order: 2,
@@ -155,7 +89,7 @@ const chartData = {
         {
             type: 'bar',
             label: '알고 있는 단어 수',
-            data: [70 / 3, 11, 26, 25, 18, 28, 19],
+            data: [],
             backgroundColor: '#80c7fd',
             stack: 'word',
             order: 2,
@@ -165,7 +99,7 @@ const chartData = {
         {
             type: 'bar',
             label: '조금 알거나 모르는 단어 수',
-            data: [70 / 3, 11, 26, 25, 18, 28, 19],
+            data: [],
             backgroundColor: '#ffc008',
             stack: 'word',
             order: 2,
@@ -175,7 +109,7 @@ const chartData = {
         {
             type: 'bar',
             label: '모르는 단어 수',
-            data: [70 / 3, 11, 26, 25, 18, 28, 19],
+            data: [],
             backgroundColor: '#ffa503',
             stack: 'word',
             order: 2,
@@ -183,8 +117,57 @@ const chartData = {
             categoryPercentage: 0.3
         }
     ]
-};
+});
+
 const touchVoca = ref(true);
-const select = ref({ state: '최근 7일' });
-const items = ref([{ state: '최근 7일' }, { state: '최근 15일' }, { state: '최근 20일' }]);
+const select = ref({ state: '최근 7일', value: 7 });
+const items = ref([
+    { state: '최근 7일', value: 7 },
+    { state: '최근 15일', value: 15 },
+    { state: '최근 30일', value: 30 }
+]);
+const isReady = ref(false);
+
+const apiTodayStore = useApiTodayStore();
+const calendarStore = useApiCalendarStore();
+
+const { formatDate } = storeToRefs(calendarStore);
+const { todayState } = storeToRefs(apiTodayStore);
+
+const handleGetTouchVoca = async () => {
+    await apiTodayStore.getTodayTouchVocaLearning(select.value.value);
+    await calcRecentSelectDate();
+    await mapDataSet();
+    isReady.value = true;
+};
+
+const calcRecentSelectDate = async () => {
+    const currentDate = new Date(formatDate.value);
+    const sevenDaysAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const dateList = [];
+    for (let i = 0; i < select.value.value; i++) {
+        const date = new Date(sevenDaysAgo.getTime() + i * 24 * 60 * 60 * 1000);
+        const formatDate = dayjs(date).format('M월 D일');
+        dateList.push(formatDate);
+    }
+    dateList.value = dateList;
+    chartData.value.labels = dateList;
+};
+
+const mapDataSet = async () => {
+    const avgList = todayState?.value?.map(item => item.avgAnswrRt);
+    const wrdTotList = todayState?.value?.map(item => item.wrdTot);
+    const wrdKnowCntList = todayState?.value?.map(item => item.wrdKnowCnt);
+    const wrdLittleknowCntList = todayState?.value?.map(item => item.wrdLittleknowCnt);
+    const wrdUnknownCntList = todayState?.value?.map(item => item.wrdUnknownCnt);
+    chartData.value.datasets[0].data = avgList;
+    chartData.value.datasets[1].data = wrdTotList;
+    chartData.value.datasets[2].data = wrdKnowCntList;
+    chartData.value.datasets[3].data = wrdLittleknowCntList;
+    chartData.value.datasets[4].data = wrdUnknownCntList;
+};
+
+onMounted(async () => {
+    await handleGetTouchVoca();
+});
 </script>

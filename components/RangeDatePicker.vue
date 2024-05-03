@@ -58,7 +58,7 @@ const updateRange = val => {
     const endDate = dayjs(range.value.end);
     const differenceInDays = endDate.diff(startDate, 'days');
 
-    if (differenceInDays > 30) {
+    if (differenceInDays > 29) {
         openAlert({
             message: `정확한 분석을 위해 최대 30일까지 조회만 가능합니다.`
         });
