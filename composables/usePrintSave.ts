@@ -2,7 +2,9 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 export const usePrintSave = () => {
     const savePdf = async (type: string) => {
-        html2canvas(document.getElementById('pdf')).then(canvas => {
+        html2canvas(document.getElementById('pdf'), {
+            scale: 2
+        }).then(canvas => {
             // 캔버스를 이미지로 변환
             const imgData = canvas.toDataURL('image/png');
 
