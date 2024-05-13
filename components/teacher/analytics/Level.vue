@@ -20,6 +20,7 @@
                                         hide-details
                                         class="default"
                                         density="compact"
+                                        :ripple="false"
                                     ></v-checkbox>
                                 </p>
                             </v-list-item-action>
@@ -52,12 +53,12 @@
             <Modal v-if="modalData.type === 'alert'">
                 <div class="d-flex align-center flex-wrap justify-center mb-1">
                     <div v-for="(item, index) in selected" :key="index">
-                        <span class="num font-color-blue font-weight-extrabold mr-1">{{ item.studentNumber }}</span
-                        >{{ item.studentName }}
+                        <span class="num font-color-blue font-weight-extrabold mr-1">{{ item.studentNumber }}번</span>{{ item.studentName }}
                         <em v-if="index !== selected.length - 1" class="mx-1">,</em>
                     </div>
                 </div>
                 <p>AI Level Test 독려 메시지를 보냈습니다.</p>
+                <!--  post 호출 함수  -->
             </Modal>
         </div>
     </v-card>
@@ -74,6 +75,7 @@ onMounted(() => {
 });
 
 const sendMessage = () => {
+    apiEncourageStore.postEncourage(selected.value);
     closeModal();
     openModal({ type: 'alert' });
 

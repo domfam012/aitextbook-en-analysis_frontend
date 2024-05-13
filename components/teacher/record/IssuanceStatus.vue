@@ -3,7 +3,7 @@
         <v-card-item>
             <v-card-title>
                 <ul class="divider_group">
-                    <li>3학년 {{ issuanceStatus?.currentSemester }}학기</li>
+                    <li>3학년 {{ semesterInProgress?.currentSemester === 9 ? 1 : 2 }}학기</li>
                     <li>
                         AI 수학 생활기록부 발행 현황 :
                         <span class="font-color-yellow">총 {{ issuanceStatus?.schoolReportCount }}명</span>
@@ -66,6 +66,8 @@
     </v-card>
 </template>
 <script setup>
+//현재학기
+const { semesterInProgress } = storeToRefs(useApiRecordHistoryStore());
 const { issuanceStatus, clampType, selectedStudentIndex } = storeToRefs(useApiRecordStore());
 const { isEditMode } = storeToRefs(useApiRecordGradeStore());
 
@@ -76,6 +78,7 @@ const changeClamp = clamp => {
 };
 
 onMounted(async () => {
-    await useApiRecordStore().getIssuanceStatus('');
+    // 목록 (학습 이력, 단원별 평어 작성, 발행 완료 건수) API 호출 시 currentSemester: 현재 학기 전달
+    await useApiRecordStore().getIssuanceStatus(semesterInProgress.value?.currentSemester);
 });
 </script>

@@ -1,11 +1,32 @@
-// TODO: 재정의 필요
-interface MyLesson {
-    success: boolean;
-    dataSize: number;
-    timestamp: string;
-    data: {
-        name: string;
-    };
+export interface SectionList {
+    sessId: number;
+    curriculumSectionId: number;
+    nameEng: string;
+    nameKor: string;
+}
+
+export interface Chapter {
+    dt: string;
+    sessId: number;
+    flflmRt: number;
+    totLrnSs: number;
+    chName: string;
+    step: string;
+    absncReviewYn: boolean;
+}
+
+export interface MyLesson {
+    progressDenominator: number; // 완료한 학습차시 분모
+    progressMolecule: number; // 완료한 학습차시 분자
+    totalLeaningTimeHours: number; // 누적학습시간 (시간)
+    totalLeaningTimeMinutes: number; // 누적학습시간(분)
+    chapterList: Chapter[];
+    sectionList: SectionList[];
+}
+
+export interface lessonDetailState {
+    sctnId: number;
+    sketchUrl: string;
 }
 
 interface DiagnosticParams {
@@ -28,9 +49,14 @@ const defaultUrl = `/student/dashboard/learningAnalytics`;
 export const useApiMyLessonStore = defineStore(
     'apiMyLesson',
     () => {
-        const myLessonState = ref<MyLesson>();
+        const myLessonState: Ref<MyLesson> = ref();
+        const lessonDetailState: Ref<lessonDetailState[]> = ref();
         const wordDiagnosisState = ref();
         const cumulativeTimeState = ref();
+        const selectedDateState = ref({
+            start: null,
+            end: null
+        });
         /**
          * 단어 학습 진단 통계
          * GET
@@ -85,13 +111,16 @@ export const useApiMyLessonStore = defineStore(
         /**
          * 진도학습이력 팝업 목록
          * GET
-         **/
-        const getMyLessonProgressLearningHistory = async () => {
+         * @param month 월 선택값(1~12), 전체학기 : 파라미터없이 호출
+         */
+        const getMyLessonProgressLearningHistory = async (month: number) => {
             const { data } = await useCustomFetch(`${defaultUrl}/progressLearningHistory`, {
-                method: 'get'
+                method: 'get',
+                params: { month }
             });
+
             if (data.value) {
-                myLessonState.value = data.value.data as MyLesson;
+                myLessonState.value = data.value.data;
             }
         };
 
@@ -99,14 +128,16 @@ export const useApiMyLessonStore = defineStore(
          * 진도학습이력 팝업
          * 노트 상세
          * GET
-         * TODO: 현재 URL 존재하지 않음
-         **/
-        const getMyLessonNoteDetail = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/`, {
-                method: 'get'
+         * @param chId 단원
+         * @param sessId 차시
+         */
+        const getMyLessonNoteDetail = async (chId: number, sessId: number) => {
+            const { data } = await useCustomFetch(`${defaultUrl}/progressLearningHistory/notes`, {
+                method: 'get',
+                params: { chId, sessId }
             });
             if (data.value) {
-                myLessonState.value = data.value.data as MyLesson;
+                lessonDetailState.value = data.value.data;
             }
         };
 
@@ -148,29 +179,29 @@ export const useApiMyLessonStore = defineStore(
                             type: 'radar',
                             label: '반 평균',
                             data: [
-                                item.classLstnnRt,
-                                item.classSpkngRt,
-                                item.classWritngRt,
-                                item.classPrsntRt,
-                                item.classViewRt,
-                                item.classRedngRt
+                                item.avgAchvLstnnRtClass,
+                                item.avgAchvSpkngRtClass,
+                                item.avgAchvWritngRtClass,
+                                item.avgAchvPrsntRtClass,
+                                item.avgAchvViewRtClass,
+                                item.avgAchvRedngRtClass
                             ],
                             borderWidth: 3,
-                            borderColor: '#B0B0B0',
+                            borderColor: '#909090',
                             pointStyle: 'circle',
-                            pointBackgroundColor: '#B0B0B0',
+                            pointBackgroundColor: '#909090',
                             backgroundColor: 'transparent'
                         },
                         {
                             type: 'radar',
                             label: '지역 평균',
                             data: [
-                                item.areaLstnnRt,
-                                item.areaSpkngRt,
-                                item.areaPrsntRt,
-                                item.areaWritngRt,
-                                item.areaViewRt,
-                                item.areaRedngRt
+                                item.avgAchvLstnnRtArea,
+                                item.avgAchvSpkngRtArea,
+                                item.avgAchvPrsntRtArea,
+                                item.avgAchvWritngRtArea,
+                                item.avgAchvViewRtArea,
+                                item.avgAchvRedngRtArea
                             ],
                             borderWidth: 3,
                             borderColor: '#FFBF00',
@@ -199,6 +230,22 @@ export const useApiMyLessonStore = defineStore(
         };
 
         /**
+         * 학습한 최신단원 목록 조회
+         * GET
+         */
+
+        // 최근 수업 단원 목록
+        const recentLssnLst = ref();
+        const getLearningRecentLessons = async () => {
+            const { data } = await useCustomFetch(`${defaultUrl}/learningRecentLessons`, {
+                method: 'get'
+            });
+            if (data.value) {
+                recentLssnLst.value = data.value.data;
+            }
+        };
+
+        /**
          * 성취 기준 모아보기 팝업
          * GET
          */
@@ -211,7 +258,7 @@ export const useApiMyLessonStore = defineStore(
                 method: 'get'
             });
             if (data.value) {
-                myLessonState.value = data.value as MyLesson;
+                myLessonState.value = data.value.data as MyLesson;
             }
         };
 
@@ -221,6 +268,8 @@ export const useApiMyLessonStore = defineStore(
             myLessonState,
             wordDiagnosisState,
             cumulativeTimeState,
+            lessonDetailState,
+            selectedDateState,
             getMyLessonWordDiagnostics,
             getMyLessonRepresentationDiagnostics,
             getMyLessonCumulativeLearningTime,
@@ -228,7 +277,9 @@ export const useApiMyLessonStore = defineStore(
             getMyLessonNoteDetail,
             getMyLessonAcademicAchievementByArea,
             getMyLessonAcademicAchievementByAreaDate,
-            getMyLessonAchievementCriteria
+            getMyLessonAchievementCriteria,
+            recentLssnLst,
+            getLearningRecentLessons
         };
     },
     {

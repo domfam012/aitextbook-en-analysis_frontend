@@ -38,6 +38,11 @@ export interface ChapterLearningStatus {
     sessId: number;
 }
 
+interface FivePoint {
+    chId: number;
+    sessId: number;
+    selfCheckScale: number;
+}
 const defaultUrl = `/student/dashboard/learningAnalytics`;
 
 /**
@@ -67,9 +72,9 @@ export const useApiTodayStore = defineStore(
             if (data.value) {
                 // 단원, 차시 목록 저장
                 learningLessonsState.value = data.value.data;
-                selectState.value = data.value.data[0];
+                selectState.value = data.value.data?.[0];
                 // 선택한 날짜의 첫번째 단원의 첫번째 차시
-                const defaultLesson = data.value.data[0].sessionList[0];
+                const defaultLesson = data.value.data?.[0].sessionList[0];
                 selectLessonState.value = defaultLesson;
             }
 
@@ -82,10 +87,7 @@ export const useApiTodayStore = defineStore(
          * SessionList;
          */
         const updateSelectLessons = (item: SessionList) => {
-            console.log('item 11111 : ', item);
             const rawData = toRaw(item);
-            console.log('rawData : ', rawData);
-
             selectLessonState.value = rawData;
         };
 
@@ -120,15 +122,14 @@ export const useApiTodayStore = defineStore(
          *    오늘의 진도학습을 스스로 점검해 볼까요? > 5점 척도 스마일 체크 저장
          *    POST
          **/
-        const postTodayFivePointScale = async (TodayData: TodayProps) => {
-            // TODO:URL 미정 - 변경 필요
-            const { data } = await useCustomFetch(`${defaultUrl}/fivePointScale`, {
-                method: 'post',
-                body: JSON.stringify(TodayData),
-                headers: {
-                    'Content-Type': 'application/json'
+        const postTodayFivePointScale = async (params: FivePoint) => {
+            const { chId, sessId, selfCheckScale } = params;
+            const { data } = await useCustomFetch(
+                `${defaultUrl}/fivePointScale?chId=${chId}&sessId=${sessId}8&selfCheckScale=${selfCheckScale}`,
+                {
+                    method: 'post'
                 }
-            });
+            );
             if (data.value) {
                 todayState.value = data.value.data as Today;
             }
@@ -153,7 +154,6 @@ export const useApiTodayStore = defineStore(
          *    GET
          */
         const getTodayTouchVocaLearning = async (recent: number) => {
-            console.log(recent);
             const { data } = await useCustomFetch(`${defaultUrl}/touchVocaLearning?recentDay=${recent}`, {
                 method: 'get'
             });

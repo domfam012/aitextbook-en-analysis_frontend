@@ -36,26 +36,25 @@
     <Modal v-if="modalData.type === 'aiCuri'"> <ModalCuriTalkInfo /> </Modal>
 </template>
 <script setup>
-const tab = ref(null);
-const calendarStore = useApiCalendarStore();
 const dayjs = useDayjs();
+const tab = ref(null);
+
+const calendarStore = useApiCalendarStore();
+const curiStore = useApiCuriStore();
 
 const { modalData, openModal, closeModal } = useModalStore();
 const { formatDate } = storeToRefs(calendarStore);
 
-const curiStore = useApiCuriStore();
 const handleGetData = async () => {
     switch (tab.value) {
         case 'tab1':
-            await curiStore.getCuriCollectedColorDesign(formatDate.value);
+            await curiStore.getCuriNumColorFragmentDesign();
             break;
         case 'tab2':
-            await curiStore.getCuriComplimentExpression(formatDate.value);
-            console.log('큐리가 칭찬한 표현');
+            await curiStore.getCuriComplimentExpression();
             break;
         case 'tab3':
-            await curiStore.getCuriRegretfulExpression(formatDate.value);
-            console.log('큐리가 아쉬워한 표현');
+            await curiStore.getCuriRegretfulExpression();
             break;
         default:
             break;

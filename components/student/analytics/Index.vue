@@ -40,15 +40,11 @@
     </div>
 </template>
 <script setup>
-import dayjs from 'dayjs';
-
 const todayStore = useApiTodayStore();
 const calendarStore = useApiCalendarStore();
 const lessonStore = useApiMyLessonStore();
 
 const { selectLessonState } = storeToRefs(todayStore);
-const { selectedDate } = storeToRefs(calendarStore);
-
 const { formatDate } = storeToRefs(calendarStore);
 
 const selected = ref('진도 학습');
@@ -84,7 +80,7 @@ const getTouchVoca = async () => {
  */
 const handleText = async () => {
     await todayStore.getTodayChapterLearningStatus({
-        date: formatDate,
+        date: formatDate.value,
         chId: selectLessonState.value.chId,
         sessId: selectLessonState.value.sessId
     });
@@ -96,13 +92,20 @@ onMounted(async () => {
     await getTouchVoca();
 });
 
-// 날짜 선택 변경 시
-watch(selectedDate, () => {
-    getLessons();
-    getAchievement();
-    getTouchVoca();
-});
+watch(
+    () => formatDate.value,
+    async () => {
+        await getLessons();
+        await getAchievement();
+        await getTouchVoca();
+    }
+);
 
 // 단원/차시 변경 시
-watch(selectLessonState, handleText);
+watch(
+    () => selectLessonState.value,
+    async () => {
+        if (selectLessonState.value !== undefined) await handleText();
+    }
+);
 </script>

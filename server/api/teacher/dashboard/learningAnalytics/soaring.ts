@@ -16,12 +16,11 @@ const data = {
             studName: '홍길동',
             studNo: 1,
             dsgnPrgrsRt: 0,
-            dsgnUseInfo: 'string',
             dsgnUseColorCnt: 0,
             stampId: 1,
             startDt: '2024-04-17',
             endDt: '2024-04-17',
-            areaBaseArr: [
+            dsgnUseInfo: [
                 {
                     id: uuidv4(),
                     painted: true,
@@ -1848,12 +1847,11 @@ const data = {
             studName: '김길동',
             studNo: 2,
             dsgnPrgrsRt: 0,
-            dsgnUseInfo: 'string',
             dsgnUseColorCnt: 0,
-            stampId: 0,
+            stampId: null,
             startDt: '2024-04-17',
             endDt: '2024-04-17',
-            areaBaseArr: [
+            dsgnUseInfo: [
                 {
                     id: uuidv4(),
                     painted: false,
@@ -3680,12 +3678,11 @@ const data = {
             studName: '이길동',
             studNo: 3,
             dsgnPrgrsRt: 0,
-            dsgnUseInfo: 'string',
             dsgnUseColorCnt: 0,
-            stampId: 0,
+            stampId: null,
             startDt: '2024-04-17',
             endDt: '2024-04-17',
-            areaBaseArr: [
+            dsgnUseInfo: [
                 {
                     id: uuidv4(),
                     painted: true,
@@ -5512,12 +5509,11 @@ const data = {
             studName: '박길동',
             studNo: 4,
             dsgnPrgrsRt: 0,
-            dsgnUseInfo: 'string',
             dsgnUseColorCnt: 0,
-            stampId: 0,
+            stampId: null,
             startDt: '2024-04-17',
             endDt: '2024-04-17',
-            areaBaseArr: [
+            dsgnUseInfo: [
                 {
                     id: uuidv4(),
                     painted: true,
@@ -7344,12 +7340,11 @@ const data = {
             studUuid: 'string',
             dsgnId: 0,
             dsgnPrgrsRt: 0,
-            dsgnUseInfo: 'string',
             dsgnUseColorCnt: 0,
-            stampId: 0,
+            stampId: null,
             startDt: '2024-04-17',
             endDt: '2024-04-17',
-            areaBaseArr: [
+            dsgnUseInfo: [
                 {
                     id: uuidv4(),
                     painted: false,

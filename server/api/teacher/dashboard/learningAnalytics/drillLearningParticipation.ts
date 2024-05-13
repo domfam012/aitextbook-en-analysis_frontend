@@ -27,7 +27,7 @@ const data = {
             etlDttm: '2024-03-20T16:27:03',
             stampId: 1,
             fileName: '파일명1',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         },
         {
             dt: null,
@@ -49,7 +49,7 @@ const data = {
             etlDttm: '2024-03-21T17:40:08',
             stampId: 2,
             fileName: '파일명2',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         },
         {
             dt: null,
@@ -71,7 +71,7 @@ const data = {
             etlDttm: '2024-03-21T17:07:35',
             stampId: 3,
             fileName: '파일명3',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         },
         {
             dt: null,
@@ -93,7 +93,7 @@ const data = {
             etlDttm: '2024-03-21T17:07:35',
             stampId: 3,
             fileName: '파일명3',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         },
         {
             dt: null,
@@ -115,7 +115,7 @@ const data = {
             etlDttm: '2024-03-21T17:07:35',
             stampId: 2,
             fileName: '파일명3',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         },
         {
             dt: null,
@@ -137,7 +137,7 @@ const data = {
             etlDttm: '2024-03-21T17:07:35',
             stampId: 2,
             fileName: '파일명3',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         },
         {
             dt: null,
@@ -159,7 +159,7 @@ const data = {
             etlDttm: '2024-03-21T17:07:35',
             stampId: 1,
             fileName: '파일명3',
-            imgSrc: '/images/temp/img_bk_thumb.png'
+            imgSrc: 'images/temp/img_bk_thumb.png'
         }
     ]
 };

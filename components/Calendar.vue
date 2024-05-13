@@ -1,5 +1,5 @@
 <template>
-    <v-card elevation="0" max-width="42rem" max-height="54rem">
+    <v-card elevation="0" max-width="42rem" max-height="54rem" class="calendar_wrap">
         <div class="datepicker">
             <v-btn @click="resetDatepicker" flat rounded size="x-small" class="reset_btn">
                 <i class="ico calendar_refresh"></i>
@@ -33,6 +33,7 @@
                     </span>
                 </div>
             </template>
+            <p class="notice" v-if="mode === 'teacher' && type === 'record'">생활기록부 작성 기간이 10일 남았습니다.</p>
         </div>
     </v-card>
 </template>
@@ -57,8 +58,9 @@ const attributes = ref([]);
 const selectAttribute = ref({
     highlight: {
         style: {
-            backgroundColor: '#fff',
-            border: '1px solid #000'
+            backgroundColor: 'transparent',
+            border: '2px solid #1E3257',
+            zIndex: '10'
         },
         contentStyle: {
             color: '#000000'
@@ -93,6 +95,9 @@ const handleCalendar = async date => {
             highlight: {
                 style: {
                     backgroundColor: '#D5D5D5'
+                },
+                contentStyle: {
+                    color: '#000000'
                 }
             },
             dates: plnList.value

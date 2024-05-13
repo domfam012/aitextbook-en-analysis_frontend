@@ -13,16 +13,16 @@ const data = {
             count: 4,
             imgSrc: [
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 }
             ]
         },
@@ -32,10 +32,10 @@ const data = {
             count: 2,
             imgSrc: [
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 }
             ]
         },
@@ -45,22 +45,22 @@ const data = {
             count: 6,
             imgSrc: [
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 }
             ]
         },
@@ -70,19 +70,19 @@ const data = {
             count: 5,
             imgSrc: [
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 }
             ]
         },
@@ -92,13 +92,13 @@ const data = {
             count: 3,
             imgSrc: [
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 },
                 {
-                    img: '/images/temp/img_bk_thumb.png'
+                    img: 'images/temp/img_bk_thumb.png'
                 }
             ]
         }

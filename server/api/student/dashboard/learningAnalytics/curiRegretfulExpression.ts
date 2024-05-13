@@ -7,8 +7,8 @@ const data = {
     timestamp: '2024-03-29 01:33:02',
     data: {
         wrongSpelling: [
-            { incorrect: 'moning(x)', correct: 'morning (o)' },
-            { incorrect: 'moning(x)', correct: 'morning (o)' }
+            { incorrect: 'moning', correct: 'mor' },
+            { incorrect: 'moning', correct: 'mor' }
         ],
         wrongExpression: [
             'good night 은 무조건 헤어질 때 하는 인사가 아니에요.',

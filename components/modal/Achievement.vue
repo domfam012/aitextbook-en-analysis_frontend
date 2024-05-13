@@ -27,13 +27,13 @@
             <div class="dialog_body">
                 <v-slide-group v-model="selectedDate" show-arrows class="type_rounded" @update:model-value="getAchievement">
                     <v-slide-group-item v-slot="{ isSelected, toggle }" v-for="(item, index) in dateListState" :key="index">
-                        <v-btn rounded flat :class="isSelected ? 'active' : undefined" @click="toggle">{{
+                        <v-btn rounded flat :class="{ active: isSelected }" @click="toggle">{{
                             dayjs(item.strYmd).format('M월 DD일 dd요일')
                         }}</v-btn>
                     </v-slide-group-item>
                 </v-slide-group>
 
-                <div class="chart_radar">
+                <div class="chart_radar w-100 h-100">
                     <ChartRadar v-if="Object.keys(achivementGraphState).length > 0" :radar-chart="achivementGraphState" />
                     <!-- !NOTE 차트 라벨부분 입니다.-->
                     <div class="chart-bar">
@@ -62,7 +62,7 @@ const mode = useCookie('mode');
 const { user } = storeToRefs(useApiUserStore());
 const apiLessonStore = useApiMyLessonStore();
 const { achivementGraphState } = storeToRefs(useApiMyLessonStore());
-
+const { formatDate } = storeToRefs(useApiCalendarStore());
 const { dateListState } = storeToRefs(apiLessonStore);
 const { modalData, closeModal } = useModalStore();
 const dayjs = useDayjs();
@@ -75,18 +75,18 @@ const items = ref([
     { state: '최근 20일', value: 20 }
 ]);
 
-const selectedDate = ref();
+const selectedDate = ref(null);
 
-const getDateList = () => {
-    apiLessonStore.getMyLessonAcademicAchievementByAreaDate(select.value.value);
+const getDateList = async () => {
+    await apiLessonStore.getMyLessonAcademicAchievementByAreaDate(select.value.value);
 };
 
-const getAchievement = () => {
-    apiLessonStore.getMyLessonAcademicAchievementByArea(dateListState.value[selectedDate.value].strYmd);
+const getAchievement = async () => {
+    await apiLessonStore.getMyLessonAcademicAchievementByArea(dateListState?.value[selectedDate.value]?.strYmd || formatDate.value);
 };
 
-onMounted(() => {
-    getDateList();
-    getAchievement();
+onMounted(async () => {
+    await getDateList();
+    await getAchievement();
 });
 </script>

@@ -3,31 +3,70 @@
     grid-template-columns: repeat(19, 1fr);
     grid-template-rows: repeat(19, 1fr);
     position: relative;
-    padding-top: 1px;
-    padding-left: 1px;
-    width: 24.2rem;
-    height: 24rem;
+	padding-top: 1px;
+	padding-left: 1px;
+    width: 49.4rem;
+    height: 49.4rem;
+    
+    &.paintable {
+        .grid {
+            cursor: pointer;
 
-    // &.paintable {
-    //     max-width: 49.5rem; // 49.4rem;
-    //     max-height: 49.5rem; // 49.4rem;
-    //     // height: 51.3rem;
-    //     height: 100%;
-    //     .grid {
-    //         width: 2.6rem;
-    //         height: 2.6rem;
-    //     }
-    // }
+            &::after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include font_body4($font-color: $G700, $line-height: 1);
+                transform: translate(-50%, -50%);
+            }
+            &.painted {
+                &::after {
+                    content: none;
+                }
+            }
+        }
+        .blue {
+            &::after {
+                content: '1';
+            }
+        }
+        .yellow {
+            &::after {
+                content: '2';
+            }
+        }
+        .red {
+            &::after {
+                content: '3';
+            }
+        }
+        .green {
+            &::after {
+                content: '4';
+            }
+        }
+        .darkgreen {
+            &::after {
+                content: '5';
+            }
+        }
+    }
 
     .grid {
-        margin-left: -1px;
-        margin-top: -1px;
-        border: 1px solid $G800;
-        // cursor: pointer;
-    }
+        position: relative;
+		margin-left: -1px;
+		margin-top: -1px;
+		border: 1px solid $G800;
+	}
     .painted {
         &.blue {
             background-color: $B500;
+        }
+        &.yellow {
+            background-color: $Y300;
+        }
+        &.red {
+            background-color: var(--shchme-color-learner5);
         }
         &.green {
             background-color: var(--point-color-green);
@@ -35,22 +74,17 @@
         &.darkgreen {
             background-color: var(--point-color-darkgreen);
         }
-        &.red {
-            background-color: var(--shchme-color-learner5);
-        }
-        &.yellow {
-            background-color: $Y300;
-        }
     }
 }
 .board-stamp {
     position: absolute;
     right: 1rem;
     bottom: 1rem;
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 16rem;
+    height: 16rem;
     border-radius: 100%;
-
+    background-color: $white;
+    
     .v-responsive {
         overflow: unset;
     }

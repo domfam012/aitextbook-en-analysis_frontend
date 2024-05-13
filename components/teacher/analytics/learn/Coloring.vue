@@ -2,29 +2,33 @@
     <v-sheet class="px30 py30 colorLessonInfo">
         <!-- 데이터 있을 때 -->
         <div v-if="colorBoardState?.length > 0" class="inner">
-            <v-list class="d-flex px30 py-0">
-                <v-list-item
-                    class="px15 py15"
-                    v-for="(item, index) in renderAll ? colorBoardState : colorBoardState?.slice(0, currentPage * 3 + 3)"
-                    :key="index"
-                    @click="$event => handleClick(index)"
-                >
-                    <div class="box cursor">
-                        <div class="avatar avatar-box">
-                            <v-img
-                                :src="useAsset('images/temp/img_pho_st01.png')"
-                                alt="아바타 이미지"
-                                class="avatar-item"
-                                max-width="5rem"
-                            />
-                            <div class="avatar-info">
-                                <span class="info_number">{{ item.studNo }}번</span>
-                                <span class="info_name">{{ item.studName }}</span>
-                            </div>
-                        </div>
-                        <TeacherAnalyticsLearnColorBoard :stamp="item.stampId" :grid="item.areaBaseArr" class="mt-3" />
-                    </div>
-                </v-list-item>
+            <v-list class="px30 py-0">
+                <v-list-group>
+                    <v-row class="row-container">
+                        <v-col
+                            v-for="(item, index) in renderAll ? colorBoardState : colorBoardState?.slice(0, currentPage * 3 + 3)"
+                            :key="index"
+                            @click="$event => handleClick(index)"
+                        >
+                            <v-list-item class="px15 py15">
+                                <div class="box cursor">
+                                    <div class="avatar avatar-box">
+                                        <v-img src="" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
+                                        <div class="avatar-info">
+                                            <span class="info_number">{{ item.studId }}번</span>
+                                            <span class="info_name">{{ item.studName }}</span>
+                                        </div>
+                                    </div>
+                                    <TeacherAnalyticsLearnColorBoard
+                                        :stamp="item.stampId"
+                                        :grid="JSON.parse(item.dsgnUseInfo)"
+                                        class="mt-3"
+                                    />
+                                </div>
+                            </v-list-item>
+                        </v-col>
+                    </v-row>
+                </v-list-group>
             </v-list>
             <div class="bottom_btn_wrap text-center">
                 <v-btn rounded flat class="secondary mgt30" :disabled="renderAll" @click="emit('page', currentPage + 1)">
@@ -39,7 +43,7 @@
         </div>
     </v-sheet>
     <Modal v-if="modalData?.type === 'coloring'">
-        <ModalColoringBoard :selected="selectedIndx" v-if="modalData?.isOpen" isTeacher="true" />
+        <ModalColoringBoard :selected="selectedIndx" v-if="modalData?.isOpen" />
     </Modal>
 </template>
 <script setup>

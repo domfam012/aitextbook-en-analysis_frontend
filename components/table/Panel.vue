@@ -4,27 +4,28 @@
         :items-per-page="(currentPage + 1) * 5"
         :headers="AchievementHeaders"
         :items="teacherColorMatchedGroupState"
-        item-value="name"
+        item-key="studId"
+        item-value="studUuid"
         class="color_mint type_center"
     >
-        <template #item="{ columns, internalItem, item }">
+        <template #item="{ columns, internalItem, item, index }">
             <tr>
-                <td v-for="(column, index) in columns" :key="column.key" class="type_center">
+                <td v-for="(column, idx) in columns" :key="'a' + item.studId" class="type_center">
                     <v-btn
-                        @click="handleExpandPanel(index, internalItem, column.key)"
+                        @click="handleExpandPanel(idx, internalItem, column.key)"
                         variant="text"
                         v-if="column.title !== '성취 기준 자기채점' && column.title !== '번호' && column.title !== '이름'"
                         :class="{ type_blue_underline: column.title !== '번호' && column.title !== '이름' }"
                     >
-                        {{ getItemValue(item, column, index) }}
+                        {{ getItemValue(item, column, idx) }}
                     </v-btn>
                     <div variant="text" v-else-if="column.title === '번호' || column.title === '이름'">
-                        {{ getItemValue(item, column, index) }}
+                        {{ getItemValue(item, column, idx) }}
                     </div>
                     <span
                         v-if="column.title === '성취 기준 자기채점'"
                         class="ico table_center ico_size_10"
-                        :class="getItemValue(item, column, index) > 2 ? 'type_complete' : 'type_uncompleted'"
+                        :class="getItemValue(item, column, idx) > 2 ? 'type_complete' : 'type_uncompleted'"
                     ></span>
                 </td>
             </tr>
@@ -65,7 +66,7 @@ const selectedIdx = ref({
 const isPanel = ref(null);
 
 const AchievementHeaders = [
-    { title: '번호', key: 'sessId', align: 'center', sortable: false },
+    { title: '번호', key: 'studId', align: 'center', sortable: false },
     { title: '이름', key: 'studName', align: 'center', sortable: true },
     { title: '학업 성취율', key: 'achvRtAvg', align: 'center', sortable: false },
     { title: '필기노트', key: 'wrtngNoteCnt', align: 'center', sortable: false },
@@ -74,7 +75,6 @@ const AchievementHeaders = [
     { title: '챗봇 학습', key: 'chtLrnCnt', align: 'center', sortable: false },
     { title: '성취 기준 자기채점', key: 'achvBaseScale', align: 'center', sortable: false }
 ];
-
 /**
  * 렌더링 분기처리
  * @param item
@@ -84,9 +84,6 @@ const AchievementHeaders = [
  */
 const getItemValue = (item, column, index) => {
     let value = item[column.key];
-    if (column.title === '번호') {
-        value = index + 1;
-    }
     if (column.title === '챗봇 학습') {
         value += '회';
     }

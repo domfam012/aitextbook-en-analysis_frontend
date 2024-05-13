@@ -42,11 +42,11 @@ const props = defineProps({
     /**
      * 차시 정보 -> 현재 프롭스로 관리하고 있지만 , 전역 store로 관리 예정
      */
-    sessionInfo: { type: Number, default: 1 },
+    sessionInfo: { type: Number, default: 628 },
     /**
      *
      */
-    chId: { type: Number, default: 1 }
+    chId: { type: Number, default: 314 }
 });
 
 const imojiList = ref([5, 4, 3, 2, 1]);
@@ -59,7 +59,6 @@ const apiTodayStore = useApiTodayStore();
 const { questionState } = storeToRefs(apiTodayStore);
 
 const registerSelfCheck = async () => {
-    console.log(selection.value);
     const data = await apiTodayStore.postTodayFivePointScale({
         chId: props.chId,
         sessId: props.sessionInfo,

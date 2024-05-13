@@ -7,4 +7,17 @@
 		flex: 1 1 40%;
 		max-width: 64rem;
 	}
+	.colorboard {
+		grid-template-columns: repeat(26, 1fr);
+		grid-template-rows: repeat(18, 1fr);
+		width: 63rem;
+		height: 44.4rem;
+		&.paintable {
+			.grid {
+				&::after {
+					font-size: $font-medium;
+				}
+			}
+		}
+	}
 }

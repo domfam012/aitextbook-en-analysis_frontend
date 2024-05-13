@@ -25,7 +25,7 @@
                             @update:model-value="handleGetAchievement"
                         ></v-select>
                     </div>
-                    의 성취 기준 모아보기
+                    성취 기준 모아보기
                 </div>
             </v-card-title>
             <div class="mgt20">
@@ -75,7 +75,7 @@
                                 </div>
                                 <v-list variant="flat" class="pa-0" density="compact">
                                     <v-list-item-subtitle v-for="(achievement, index) in item.achievementList" :key="index">{{
-                                        achievement
+                                        achievement.content
                                     }}</v-list-item-subtitle>
                                 </v-list>
                             </div>
@@ -123,9 +123,9 @@ const handleFilter = type => {
     handleGetAchievement();
 };
 
-const select = ref({ state: 'Lesson 1', value: 1 });
+const select = ref({ state: 'Lesson1', value: 1 });
 const items = ref([
-    { state: 'Lesson 1', value: 1 },
+    { state: 'Lesson1', value: 1 },
     { state: 'Lesson 2', value: 2 },
     { state: 'Lesson 3', value: 3 },
     { state: 'Lesson 4', value: 4 },
@@ -136,7 +136,7 @@ const myLessonStore = useApiMyLessonStore();
 const { myLessonState } = storeToRefs(myLessonStore);
 
 const handleGetAchievement = async () => {
-    myLessonStore.getMyLessonAchievementCriteria(select.value.value, filter.value);
+    myLessonStore.getMyLessonAchievementCriteria(317, filter.value);
 };
 
 onMounted(() => {

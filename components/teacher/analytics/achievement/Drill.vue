@@ -3,7 +3,7 @@
         <div class="card_items">
             <div class="item" v-for="item in drillLearningListState" :key="drillLearningListState.name">
                 <div class="image_wrap" :class="'stamp_0' + item.stampId">
-                    <v-img :src="item.imgSrc" alt="가족사진 이미지" />
+                    <v-img :src="useAsset(item.imgSrc)" alt="가족사진 이미지" />
                 </div>
                 <div class="text_wrap">
                     <p>{{ item.fileName }}</p>

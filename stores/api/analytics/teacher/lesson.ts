@@ -45,16 +45,30 @@ export interface IndividualUnitAcademicAchievementRate {
     lessons: IndividualLesson[];
 }
 
-export interface AssignmentProps {
-    data: {
-        assignment: string;
-    };
-}
-
 export interface AchievementRateProps {
     date: string;
     chId: number;
     sessId?: number;
+}
+
+export interface QuestionByDifficultState {
+    semId: number;
+    clssUuid: string;
+    tchrUuid: string;
+    chId: number;
+    studUuid: string;
+    questionWordCount: number; //단어 문제 수
+    questionExpressCount: number; // 표현 문제 수
+    questionSituationCount: number; // 상황 문제 수
+    questionTotalCount: number; // 총 문항 수
+    questionWordPoint: number; // 단어 문제 배점
+    questionExpressPoint: number; // 표현 문제 배점
+    questionSituationPoint: number; // 상황 문제 배점
+}
+
+export interface AssignmentProps {
+    chId: number;
+    studUuid: string;
 }
 
 /**
@@ -66,8 +80,13 @@ interface LessonProps {
     };
 }
 
-const defaultUrl = '/teacher/dashboard/learningAnalytics';
+export interface QuestionsByDifficultyLevel {
+    chId: number;
+    studUuid: string;
+    questionTotalCount: number;
+}
 
+const defaultUrl = '/teacher/dashboard/learningAnalytics';
 /**
  * 성취율 (교사용 > 학습분석 > 오늘의 학업 성취율 / 단원별 누적 성취율 / 팝업)
  */
@@ -92,6 +111,13 @@ export const useApiLessonStore = defineStore(
 
         // 단원별 누적 성취율
         const lessonAccumulatedState: Ref<IndividualUnitAcademicAchievementRate[]> = ref([]);
+        const questionByDifficultState: Ref<QuestionByDifficultState> = ref({});
+        const assignmentState: Ref<String> = ref(null);
+        const studentCollectedColorBoardState = ref();
+        const collectedColorState = ref();
+        const remainingColorState = ref<Lesson>();
+
+        const { user } = storeToRefs(useApiUserStore());
 
         /**
          * 오늘의학업 성취율
@@ -135,15 +161,16 @@ export const useApiLessonStore = defineStore(
             }
         };
 
-        const collectedColorState = ref();
-        const remainingColorState = ref<Lesson>();
         /**
          * 오늘의학업 성취율 > 개인별 숫자 색칠판 현황 팝업 > 남은색깔조각 개수
          * GET
          */
-        const getPopupRemainColor = async () => {
+        const getPopupRemainColor = async (studUuid: string) => {
             const { data } = await useCustomFetch(`${defaultUrl}/numberOfColorPiecesRemaining`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: studUuid
+                }
             });
             if (data.value) {
                 remainingColorState.value = data.value.data as Lesson;
@@ -155,9 +182,14 @@ export const useApiLessonStore = defineStore(
          * 오늘의학업 성취율 > 개인별 숫자 색칠판 현황 팝업 > 남은 색깔조각 도안 정보
          * GET
          */
-        const getPopupRemainColorDesign = async () => {
+        //  api 수정 필요,
+        const getPopupRemainColorDesign = async (studUuid: string = ``, dsgnId: number) => {
             const { data } = await useCustomFetch(`${defaultUrl}/remainingColorFragmentDesign`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: studUuid,
+                    dsgnId: 1
+                }
             });
             if (data.value) {
                 lessonPopupState.value = data.value.data as Lesson;
@@ -168,9 +200,12 @@ export const useApiLessonStore = defineStore(
          * 오늘의학업 성취율 > 개인별 숫자 색칠판 현황 팝업 > 수집한색깔조각 개수
          * GET
          */
-        const getPopupCollectedColor = async () => {
+        const getPopupCollectedColor = async (studUuid: string = ``) => {
             const { data } = await useCustomFetch(`${defaultUrl}/numberOfColorPiecesCollected`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: studUuid
+                }
             });
             if (data.value) {
                 collectedColorState.value = data.value.data as Lesson;
@@ -181,9 +216,13 @@ export const useApiLessonStore = defineStore(
          * 오늘의학업 성취율 > 개인별 숫자 색칠판 현황 팝업 > 수집한색깔조각 전체 도안 정보
          * GET
          */
-        const getPopupCollectedColorDesigns = async () => {
+        const getPopupCollectedColorDesigns = async (studUuid: string) => {
             const { data } = await useCustomFetch(`${defaultUrl}/listOfCollectedColorFragmentDesigns`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: studUuid,
+                    dsgnId: 1
+                }
             });
             if (data.value) {
                 lessonPopupState.value = data.value.data as Lesson;
@@ -195,9 +234,14 @@ export const useApiLessonStore = defineStore(
          * POST
          */
         const getPopupSendFeedbackStamp = async (stempData: LessonProps) => {
-            const { dsgnId, stampId } = stempData;
-            const { data } = await useCustomFetch(`${defaultUrl}/sendFeedbackStamp?dsgnId=${dsgnId}&stampId=${stampId}`, {
-                method: 'post'
+            const { dsgnId, stampId, studUuid } = stempData;
+            const { data } = await useCustomFetch(`${defaultUrl}/sendFeedbackStamp`, {
+                method: 'post',
+                query: {
+                    dsgnId,
+                    stampId,
+                    studUuid
+                }
             });
             if (data.value) {
                 lessonFeedbackState.value = data.value.data as Lesson;
@@ -238,9 +282,10 @@ export const useApiLessonStore = defineStore(
          * 단원별 누적 성취율 테이블
          * GET
          */
-        const getUnitAcademicAchievementRate = async () => {
+        const getUnitAcademicAchievementRate = async (achvGroupId: string) => {
             const { data } = await useCustomFetch(`${defaultUrl}/individualUnitAcademicAchievementRate`, {
-                method: 'get'
+                method: 'get',
+                params: { achvGroupId }
             });
             if (data.value) {
                 lessonAccumulatedState.value = data.value.data;
@@ -251,13 +296,13 @@ export const useApiLessonStore = defineStore(
          * 단원별 누적 성취율 > 개인별 단원 학업성취율 > 맞춤 단원평가 출제 > 난이도별 문항조회
          * GET
          */
-
-        const getQuestionsByDifficultyLevel = async () => {
+        const getQuestionsByDifficultyLevel = async (chId: number, studUuid: number) => {
             const { data } = await useCustomFetch(`${defaultUrl}/questionsByDifficultyLevel`, {
-                method: 'get'
+                method: 'get',
+                params: { chId, studUuid }
             });
             if (data.value) {
-                lessonAccumulatedState.value = data.value.data;
+                questionByDifficultState.value = data.value.data;
             }
         };
 
@@ -270,13 +315,14 @@ export const useApiLessonStore = defineStore(
         const postAssignment = async (assignment: AssignmentProps) => {
             const { data } = await useCustomFetch(`${defaultUrl}/assignment`, {
                 method: 'post',
-                body: JSON.stringify(assignment),
+                params: assignment,
+                // body: JSON.stringify(assignment),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
             if (data.value) {
-                lessonAccumulatedState.value = data.value.data;
+                assignmentState.value = data.value.data;
             }
         };
 
@@ -286,6 +332,7 @@ export const useApiLessonStore = defineStore(
             lessonPopupState,
             lessonFeedbackState,
             lessonAccumulatedState,
+            questionByDifficultState,
             getLessonAchievementRate,
             getLessonLearnerStudent,
             getLessonChoiceStudent,
@@ -303,7 +350,8 @@ export const useApiLessonStore = defineStore(
             getAccumulatedAchievementRateByUnit,
             getUnitAcademicAchievementRate,
             getQuestionsByDifficultyLevel,
-            postAssignment
+            postAssignment,
+            studentCollectedColorBoardState
         };
     },
     {

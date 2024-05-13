@@ -8,7 +8,7 @@ const data = {
     data: [
         {
             id: 1,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'aa294ecc-0e2b-4fa9-8baa-111111111113',
             studName: '김아미',
             achvRtAvgTot: 75,
             lessons: [
@@ -30,8 +30,8 @@ const data = {
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -48,30 +48,30 @@ const data = {
         },
         {
             id: 2,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'bb294ecc-0e2b-4fa9-8baa-222222222224',
             studName: '장영실',
             achvRtAvgTot: 80,
             lessons: [
                 {
                     lesson01: {
                         achvRtAvgTot: 91,
-                        status: 5,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson02: {
                         achvRtAvgTot: 92,
-                        status: 6,
-                        stamp: 3
+                        status: 3,
+                        stamp: 1
                     },
                     lesson03: {
                         achvRtAvgTot: 93,
                         status: 3,
-                        stamp: 2
+                        stamp: 1
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -88,7 +88,7 @@ const data = {
         },
         {
             id: 3,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'cc294ecc-0e2b-4fa9-8baa-333333333335',
             studName: '권율',
             achvRtAvgTot: 85,
             lessons: [
@@ -105,13 +105,13 @@ const data = {
                     },
                     lesson03: {
                         achvRtAvgTot: 93,
-                        status: 3,
+                        status: 2,
                         stamp: 2
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -128,14 +128,14 @@ const data = {
         },
         {
             id: 4,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'dd294ecc-0e2b-4fa9-8baa-444444444446',
             studName: '장보고',
             achvRtAvgTot: 75,
             lessons: [
                 {
                     lesson01: {
                         achvRtAvgTot: 91,
-                        status: 5,
+                        status: 2,
                         stamp: 2
                     },
                     lesson02: {
@@ -146,12 +146,12 @@ const data = {
                     lesson03: {
                         achvRtAvgTot: 93,
                         status: 3,
-                        stamp: 2
+                        stamp: 1
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -160,7 +160,7 @@ const data = {
                     },
                     lesson06: {
                         achvRtAvgTot: 96,
-                        status: 3,
+                        status: 1,
                         stamp: 2
                     }
                 }
@@ -168,7 +168,7 @@ const data = {
         },
         {
             id: 5,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'ee294ecc-0e2b-4fa9-8baa-555555555557',
             studName: '이순신',
             achvRtAvgTot: 95,
             lessons: [
@@ -186,29 +186,29 @@ const data = {
                     lesson03: {
                         achvRtAvgTot: 93,
                         status: 3,
-                        stamp: 2
+                        stamp: 1
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
                         status: 3,
-                        stamp: 2
+                        stamp: 1
                     },
                     lesson06: {
                         achvRtAvgTot: 96,
                         status: 3,
-                        stamp: 2
+                        stamp: 1
                     }
                 }
             ]
         },
         {
             id: 6,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'ff294ecc-0e2b-4fa9-8baa-666666666668',
             studName: '김아무개',
             achvRtAvgTot: 65,
             lessons: [
@@ -230,8 +230,8 @@ const data = {
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -248,7 +248,7 @@ const data = {
         },
         {
             id: 7,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'gg294ecc-0e2b-4fa9-8baa-777777777779',
             studName: '박아미',
             achvRtAvgTot: 75,
             lessons: [
@@ -270,8 +270,8 @@ const data = {
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -288,7 +288,7 @@ const data = {
         },
         {
             id: 8,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'hh294ecc-0e2b-4fa9-8baa-888888888880',
             studName: '김영실',
             achvRtAvgTot: 80,
             lessons: [
@@ -310,8 +310,8 @@ const data = {
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -328,7 +328,7 @@ const data = {
         },
         {
             id: 9,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'ii294ecc-0e2b-4fa9-8baa-999999999991',
             studName: '오권율',
             achvRtAvgTot: 85,
             lessons: [
@@ -350,8 +350,8 @@ const data = {
                     },
                     lesson04: {
                         achvRtAvgTot: 94,
-                        status: 2,
-                        stamp: 2
+                        status: 6,
+                        stamp: 3
                     },
                     lesson05: {
                         achvRtAvgTot: 95,
@@ -368,7 +368,7 @@ const data = {
         },
         {
             id: 10,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'jj294ecc-0e2b-4fa9-8baa-000000000002',
             studName: '박보고',
             achvRtAvgTot: 75,
             lessons: [
@@ -408,7 +408,7 @@ const data = {
         },
         {
             id: 11,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'kk294ecc-0e2b-4fa9-8baa-aaaaaaaaaaaa',
             studName: '장순신',
             achvRtAvgTot: 95,
             lessons: [
@@ -448,7 +448,7 @@ const data = {
         },
         {
             id: 12,
-            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            studUuid: 'll294ecc-0e2b-4fa9-8baa-bbbbbbbbbbbb',
             studName: '최아무개',
             achvRtAvgTot: 65,
             lessons: [

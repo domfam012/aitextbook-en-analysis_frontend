@@ -12,8 +12,12 @@
             <div class="card_items type_wrap">
                 <div class="item" v-for="index in item.imgSrc" :key="index">
                     <div class="image_wrap">
-                        <v-img :src="index.img" alt="가족사진 이미지" />
+                        <v-img :src="useAsset(index.img)" alt="가족사진 이미지" />
                     </div>
+                    <!-- !NOTE 이미지가 없는 경우 -->
+                    <!-- <div class="image_wrap no_image">
+                        <p>문제 이미지가 없습니다.</p>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -57,11 +57,17 @@ const getTypeText = computed(() => {
 });
 
 const chartOptions = ref({
+    hover: {
+        mode: null
+    },
     layout: {
         padding: 50
     },
     maintainAspectRatio: false,
     plugins: {
+        tooltip: {
+            enabled: false
+        },
         legend: {
             display: false
         },

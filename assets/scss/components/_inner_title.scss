@@ -12,6 +12,9 @@
 			font-weight: $font-weight-bold;
 		}
 	}
+	h4 {
+		@include font_body4();
+	}
 	.buttons {
 		margin-left: auto;
 	}

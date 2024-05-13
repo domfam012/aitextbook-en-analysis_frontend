@@ -27,8 +27,11 @@ $v-btn-default-height: 3.6rem;
     text-transform: none !important;
     padding: 0 4rem;
 
-    .v-btn__overlay {
-        background-color: transparent;
+    // .v-btn__overlay {
+    //     background-color: transparent;
+    // }
+    &.v-btn--variant-text .v-btn__overlay {
+        background: transparent;
     }
 
     // .v-btn__content {
@@ -39,7 +42,6 @@ $v-btn-default-height: 3.6rem;
    * 높이 값은 제한 없이 padding으로 조절
    */
     &.v-btn--size-large {
-        // min-height: 5.6rem;
         --v-btn-height: 5.6rem;
         min-width: 16rem;
         height: auto;
@@ -48,16 +50,12 @@ $v-btn-default-height: 3.6rem;
     }
 
     &.v-btn--size-default {
-        // min-height: 4rem;
         --v-btn-height: 4rem;
-        // min-width: 14rem;
         padding: 0 2rem;
         @include font_body3($font-weight-medium);
-        height: $v-btn-default-height;
     }
 
     &.v-btn--size-small {
-        // min-height: 3.6rem;
         --v-btn-height: 3.6rem;
         min-width: 11rem;
         height: auto;
@@ -66,7 +64,6 @@ $v-btn-default-height: 3.6rem;
     }
 
     &.v-btn--size-x-small {
-        // min-height: 3.2rem;
         --v-btn-height: 3.2rem;
         min-width: 8rem;
         height: auto;
@@ -154,6 +151,9 @@ $v-btn-default-height: 3.6rem;
         &.dark_blue {
             background: $DB900;
             color: $white;
+        }
+        .v-btn__overlay {
+            opacity: 0;
         }
     }
 

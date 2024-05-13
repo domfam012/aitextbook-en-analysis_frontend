@@ -8,8 +8,6 @@ interface RecordList {}
  * [학생] 생활기록부
  */
 
-const baseUrl = `https://aidtenasis-api.i-screammedia.com`;
-
 export const useApiRecordHistoryStore = defineStore(
     'apiRecordHistory',
     () => {
@@ -20,7 +18,7 @@ export const useApiRecordHistoryStore = defineStore(
         const radarChart = ref({});
         const achievementByArea = ref<Record>();
         const getAchievementByArea = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`${baseUrl}/${mode.value}/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
+            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get',
                 query: {
                     semId: semiId,
@@ -38,12 +36,12 @@ export const useApiRecordHistoryStore = defineStore(
                             type: 'radar',
                             label: '학생',
                             data: [
-                                item?.achvLstnnRt,
-                                item?.achvSpkngRt,
-                                item?.achvWritngRt,
-                                item?.achvPrsntRt,
-                                item?.achvViewRt,
-                                item?.achvRedngRt
+                                item?.achvLstnnRt || 0,
+                                item?.achvSpkngRt || 0,
+                                item?.achvWritngRt || 0,
+                                item?.achvPrsntRt || 0,
+                                item?.achvViewRt || 0,
+                                item?.achvRedngRt || 0
                             ],
                             borderWidth: 3,
                             borderColor: '#46A7E5',
@@ -55,29 +53,29 @@ export const useApiRecordHistoryStore = defineStore(
                             type: 'radar',
                             label: '반 평균',
                             data: [
-                                item?.classLstnnRt,
-                                item?.classSpkngRt,
-                                item?.classWritngRt,
-                                item?.classPrsntRt,
-                                item?.classViewRt,
-                                item?.classRedngRt
+                                item?.classLstnnRt || 0,
+                                item?.classSpkngRt || 0,
+                                item?.classWritngRt || 0,
+                                item?.classPrsntRt || 0,
+                                item?.classViewRt || 0,
+                                item?.classRedngRt || 0
                             ],
                             borderWidth: 3,
-                            borderColor: '#B0B0B0',
+                            borderColor: '#909090',
                             pointStyle: 'circle',
-                            pointBackgroundColor: '#B0B0B0',
+                            pointBackgroundColor: '#909090',
                             backgroundColor: 'transparent'
                         },
                         {
                             type: 'radar',
                             label: '지역 평균',
                             data: [
-                                item?.areaLstnnRt,
-                                item?.areaSpkngRt,
-                                item?.areaPrsntRt,
-                                item?.areaWritngRt,
-                                item?.areaViewRt,
-                                item?.areaRedngRt
+                                item?.areaLstnnRt || 0,
+                                item?.areaSpkngRt || 0,
+                                item?.areaPrsntRt || 0,
+                                item?.areaWritngRt || 0,
+                                item?.areaViewRt || 0,
+                                item?.areaRedngRt || 0
                             ],
                             borderWidth: 3,
                             borderColor: '#FFBF00',
@@ -95,9 +93,12 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const achievementByUnit = ref<Record>();
         const getAchievementByUnit = async params => {
-            const { data } = await useCustomFetch(`${baseUrl}/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
                 method: 'get',
-                query: params
+                query: {
+                    semiId: 9,
+                    studUuid: `3e61b5aa-d5d5-471c-9ada-fc1140e6f559`
+                }
             });
 
             if (data.value) {
@@ -106,7 +107,7 @@ export const useApiRecordHistoryStore = defineStore(
         };
 
         /**
-         * [교사] 학습 이력 수집
+         * [교사/학생] 학습 이력 수집
          * API 연동 완료
          */
 
@@ -122,26 +123,27 @@ export const useApiRecordHistoryStore = defineStore(
         const lrnTimeYn = ref('');
         const wethrViewYn = ref('');
         const emtViewYn = ref('');
+        const colorViewYn = ref('');
         const learningHistoryCollection = ref<Record>();
         const getLearningHistoryCollection = async (semiId: String, studUuid: String) => {
-            const { data } = await useCustomFetch(`${baseUrl}/${mode.value}/dashboard/schoolReport/learningHistoryCollection`, {
+            const modeQueryData = mode.value === 'teacher' ? { semId: semiId, studUuid: studUuid } : { semId: semiId };
+            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/learningHistoryCollection`, {
                 method: 'get',
-                query: {
-                    semId: semiId,
-                    studUuid: studUuid
-                }
+                query: modeQueryData
             });
+
             if (data.value) {
                 learningHistoryCollection.value = data.value.data as Record;
                 const item = learningHistoryCollection.value;
-                corsViewYn.value = item.corsViewYn ? item.corsViewYn.toString() : '';
-                drillViewYn.value = item.drillViewYn ? item.drillViewYn.toString() : '';
-                vocaViewYn.value = item.vocaViewYn ? item.vocaViewYn.toString() : '';
-                curiViewYn.value = item.curiViewYn ? item.curiViewYn.toString() : '';
-                wrdViewYn.value = item.wrdViewYn ? item.wrdViewYn.toString() : '';
-                lrnTimeYn.value = item.lrnTimeYn ? item.lrnTimeYn.toString() : '';
-                wethrViewYn.value = item.wethrViewYn ? item.wethrViewYn.toString() : '';
-                emtViewYn.value = item.emtViewYn ? item.emtViewYn.toString() : '';
+                corsViewYn.value = item.corsViewYn.toString();
+                drillViewYn.value = item.drillViewYn.toString();
+                vocaViewYn.value = item.vocaViewYn.toString();
+                curiViewYn.value = item.curiViewYn.toString();
+                wrdViewYn.value = item.wrdViewYn.toString();
+                lrnTimeYn.value = item.lrnTimeYn.toString();
+                wethrViewYn.value = item.wethrViewYn.toString();
+                emtViewYn.value = item.emtViewYn.toString();
+                colorViewYn.value = item.colorViewYn.toString();
                 wordChart.value = [
                     { value: item.wrdPrfctUndrsUseCnt, color: 'color-1', label: '잘이해하고 활용한 단어' },
                     { value: item.wrdExprsUndrsUnsdCnt, color: 'color-2', label: '이해했으나 활용하지 못한 단어' },
@@ -185,7 +187,7 @@ export const useApiRecordHistoryStore = defineStore(
                                     };
                                 }
                             },
-                            backgroundColor: ['#42C5B1', '#46A7E5', '#636DC4', '#FD6E7F', '#B0B0B0', '#FFBF00'],
+                            backgroundColor: ['#42C5B1', '#46A7E5', '#636DC4', '#FD6E7F', '#909090', '#FFBF00'],
                             stack: 'word'
                         }
                     ]
@@ -245,7 +247,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const learningHistoryCollectionStudent = ref<StudentList>();
         const getLearningHistoryCollectionStudent = async () => {
-            const { data } = await useCustomFetch(`${baseUrl}/teacher/dashboard/schoolReport/learningHistoryCollectionStudent`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/learningHistoryCollectionStudent`, {
                 method: 'get'
             });
 
@@ -259,9 +261,23 @@ export const useApiRecordHistoryStore = defineStore(
          */
 
         const putLearningHistoryEdit = async (params: string) => {
-            const { data } = await useCustomFetch(`${baseUrl}/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/schoolReport/saveDisplayLearningHistoryCollection`, {
                 method: 'put',
-                body: JSON.stringify(params)
+                query: {
+                    semId: params.semId,
+                    studUuid: params.studUuid,
+                    exprsViewYn: params.exprsViewYn,
+                    corsViewYn: params.corsViewYn,
+                    drillViewYn: params.drillViewYn,
+                    vocaViewYn: params.vocaViewYn,
+                    curiViewYn: params.curiViewYn,
+                    achvViewYn: params.achvViewYn,
+                    wrdViewYn: params.wrdViewYn,
+                    wethrViewYn: params.wethrViewYn,
+                    emtViewYn: params.emtViewYn,
+                    colorViewYn: params.colorViewYn,
+                    lrnTimeYn: params.lrnTimeYn
+                }
             });
 
             return { data };
@@ -272,7 +288,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const semesterInProgress = ref<Record>();
         const getSemesterInProgress = async () => {
-            const { data } = await useCustomFetch(`${baseUrl}/${mode.value}/dashboard/schoolReport/schoolReportsemesterInProgress`, {
+            const { data } = await useCustomFetch(`/${mode.value}/dashboard/schoolReport/schoolReportsemesterInProgress`, {
                 method: 'get'
             });
 
@@ -286,7 +302,7 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const studentAchievementByArea = ref<Record>();
         const getStudentAchievementByArea = async (params: string) => {
-            const { data } = await useCustomFetch(`${baseUrl}/student/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
+            const { data } = await useCustomFetch(`/student/dashboard/schoolReport/academicAchievementByAreaThisSemester`, {
                 method: 'get',
                 query: params
             });
@@ -302,7 +318,7 @@ export const useApiRecordHistoryStore = defineStore(
         const studentAchievementByUnit = ref<Record>();
         const getStudentAchievementByUnit = async (params: string) => {
             const queryString = new URLSearchParams(params).toString();
-            const { data } = await useCustomFetch(`${baseUrl}/student/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
+            const { data } = await useCustomFetch(`/student/dashboard/schoolReport/academicAchievementByUnitAndArea`, {
                 method: 'get',
                 query: params
             });
@@ -317,32 +333,13 @@ export const useApiRecordHistoryStore = defineStore(
          */
         const studentDevelopment = ref<Record>();
         const getStudentDevelopment = async (params: string) => {
-            const { data } = await useCustomFetch(
-                `${baseUrl}/student/dashboard/schoolReport/developmentalProgressInEachUnitOfTheCurriculum`,
-                {
-                    method: 'get',
-                    query: params
-                }
-            );
-
-            if (data.value) {
-                studentDevelopment.value = data.value.data as Record;
-            }
-        };
-
-        /**
-         * [학생] 학습 이력 수집
-         */
-        const studentLearningHistoryCollection = ref<Record>();
-        const getStudentLearningHistoryCollection = async (params: string) => {
-            const queryString = new URLSearchParams(params).toString();
-            const { data } = await useCustomFetch(`${baseUrl}/student/dashboard/schoolReport/learningHistoryCollection`, {
+            const { data } = await useCustomFetch(`/student/dashboard/schoolReport/developmentalProgressInEachUnitOfTheCurriculum`, {
                 method: 'get',
                 query: params
             });
 
             if (data.value) {
-                studentLearningHistoryCollection.value = data.value.data as StudentList;
+                studentDevelopment.value = data.value.data as Record;
             }
         };
 
@@ -372,16 +369,14 @@ export const useApiRecordHistoryStore = defineStore(
             lrnTimeYn,
             wethrViewYn,
             emtViewYn,
+            colorViewYn,
             //[학생] 생활기록부
             studentAchievementByArea,
             studentAchievementByUnit,
             studentDevelopment,
-            studentLearningHistoryCollection,
-
             getStudentAchievementByArea,
             getStudentAchievementByUnit,
-            getStudentDevelopment,
-            getStudentLearningHistoryCollection
+            getStudentDevelopment
         };
     },
     {

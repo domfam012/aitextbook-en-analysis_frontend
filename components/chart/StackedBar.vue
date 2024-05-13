@@ -4,17 +4,38 @@
         <div class="colorGroup mgt30">
             <div class="result_distribution">
                 <!-- width 값은 max-width: 1100값을 기준으로 백분률 값 -->
-                <div
-                    v-for="(count, item, index) in lessonState"
-                    :key="index"
-                    :class="'learner' + (6 - index)"
-                    :style="{ width: calculateWidth(count) + '%' }"
-                >
-                    <div class="count_box" @click="handleClickColorGroup(item)">
-                        <i class="ico learner6"></i>
-                        <span>{{ count }}</span>
+                <template v-if="Array.isArray(lessonState)">
+                    <div
+                        v-for="(count, item, index) in lessonState[0]"
+                        :key="index"
+                        :class="'learner' + (6 - index)"
+                        :style="{
+                            width: calculateWidth(count, lessonState[0].totalCount) + '%',
+                            display: item === 'totalCount' ? 'none' : 'inherit'
+                        }"
+                    >
+                        <div class="count_box" @click="handleClickColorGroup(item)" v-if="count > 0 && item !== 'totalCount'">
+                            <i class="ico learner6"></i>
+                            <span>{{ count }}</span>
+                        </div>
                     </div>
-                </div>
+                </template>
+                <template v-else>
+                    <div
+                        v-for="(count, item, index) in lessonState"
+                        :key="index"
+                        :class="'learner' + (6 - index)"
+                        :style="{
+                            width: calculateWidth(count, lessonState.totalCount) + '%',
+                            display: item === 'totalCount' ? 'none' : 'inherit'
+                        }"
+                    >
+                        <div class="count_box" @click="handleClickColorGroup(item)" v-if="count > 0 && item !== 'totalCount'">
+                            <i class="ico learner6"></i>
+                            <span>{{ count }}</span>
+                        </div>
+                    </div>
+                </template>
             </div>
             <v-list class="mgt30 d-flex justify-end" bg-color="transparent" density="compact">
                 <v-list-item v-for="(learner, index) in learners" :key="index"
@@ -28,8 +49,12 @@
 <script setup>
 const learnStore = useApiLearnStore();
 const lessonStore = useApiLessonStore();
+const courseStore = useApiCourseStore();
+
 const { lessonState, lessonCommonState } = storeToRefs(lessonStore);
 const { currentPage } = storeToRefs(learnStore);
+const { teacherLearningSessionState } = storeToRefs(courseStore);
+
 const learners = [
     { level: 6, text: '미학습' },
     { level: 5, text: '느린 학습자' },
@@ -45,15 +70,41 @@ const learners = [
  * TODO: 컬러 그룹 파라미터 적용 필요
  */
 const handleClickColorGroup = async item => {
+    let achvGroupId = '00';
+    if (item === 'slowStudentCount') {
+        achvGroupId = '01';
+    }
+    if (item === 'littleSlowStudentCount') {
+        achvGroupId = '02';
+    }
+    if (item === 'middleStudentCount') {
+        achvGroupId = '03';
+    }
+    if (item === 'littleFastStudentCount') {
+        achvGroupId = '04';
+    }
+    if (item === 'fastStudentCount') {
+        achvGroupId = '05';
+    }
+    if (item === 'noLeaningStudentCount') {
+        achvGroupId = '00';
+    }
+
+    const lessonState = teacherLearningSessionState.value[0];
     // 학업성취율 탭에서 컬러그룹 선택 시
     if (lessonCommonState.value.tab === 'one') {
         // 컬러그룹에 맞는 성취율 테이블 API 호출
-        await learnStore.getLearnColorMatchedStudentGroups({ studUuid: 11, semId: 22, sessId: 33, chId: 44 });
+        await learnStore.getLearnColorMatchedStudentGroups({
+            achvGroupId: achvGroupId,
+            semId: lessonState.semId,
+            sessId: lessonState.sessId,
+            chId: lessonState.chId
+        });
     }
     // TODO: 단원별 누적 성취율 탭에서 컬러그룹 선택 시
     if (lessonCommonState.value.tab === 'two') {
         // 컬러그룹에 맞는 단원별 누적 성취율 테이블 API 호출
-        await lessonStore.getUnitAcademicAchievementRate();
+        await lessonStore.getUnitAcademicAchievementRate(achvGroupId);
     }
     lessonCommonState.value.isExpand = true;
     lessonCommonState.value.selectedColorGroup = item;
@@ -65,8 +116,7 @@ const handleClickColorGroup = async item => {
  * @param count
  * @returns {number}
  */
-const calculateWidth = count => {
-    const totalCount = Object.values(lessonState.value).reduce((acc, cur) => acc + cur, 0);
+const calculateWidth = (count, totalCount) => {
     return (count / totalCount) * 100;
 };
 </script>

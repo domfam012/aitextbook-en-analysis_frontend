@@ -56,23 +56,23 @@
             .v-btn {
                 padding: 0.6rem 0;
                 border-radius: 5rem;
-
+    
                 &~.v-btn {
                     margin-top: 1rem;
                 }
-
                 &.v-btn--active {
                     background: #1E3257;
-
+                    .info_number {
+                        color: #98D4F0;
+                    }
                     .info_name {
                         color: #fff;
                     }
                 }
-
                 &--disabled {
                     background: #B0B0B0;
                     opacity: 1;
-
+    
                     .info_number,
                     .info_name {
                         color: #fff;
@@ -81,7 +81,6 @@
             }
         }
     }
-
 }
 
 .grade {

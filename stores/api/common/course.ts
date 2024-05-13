@@ -53,12 +53,9 @@ export const useApiCourseStore = defineStore(
          * query : ex) 2024-04-08
          */
         const getLearningSessionInfos = async (date: string) => {
-            let dateUrl = '';
-            if (date) {
-                dateUrl = `?date=${date}`;
-            }
-            const { data } = await useCustomFetch(`${defaultUrl}/learningSessionInfos${dateUrl}`, {
-                method: 'get'
+            const { data } = await useCustomFetch(`${defaultUrl}/learningSessionInfos`, {
+                method: 'get',
+                params: { date }
             });
 
             if (data.value.data) {

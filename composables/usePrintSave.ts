@@ -47,7 +47,6 @@ export const usePrintSave = () => {
             const imgWidth = 210; // 가로(mm) (A4)
             const pageHeight = imgWidth * 1.414; // 세로 길이 (A4)
             const imgHeight = (canvas.height * imgWidth) / canvas.width;
-            console.log(imgHeight);
             const printContent = `<html style="padding:0; margin:0"><body style="padding:0; margin:0"><img src="${imageData}" style="width:100%;"></body></html>`;
 
             const windowContent = '<!DOCTYPE html>';

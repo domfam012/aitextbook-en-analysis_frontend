@@ -24,7 +24,7 @@ const dayLst1 = {
             ddNm: '03일',
             dyNm: '수요일',
             plnYn: false,
-            comYn: true,
+            comYn: false,
             rptYn: false
         },
         {
@@ -33,7 +33,7 @@ const dayLst1 = {
             ddNm: '04일',
             dyNm: '목요일',
             plnYn: false,
-            comYn: true,
+            comYn: false,
             rptYn: false
         },
         {
@@ -141,7 +141,7 @@ const dayLst1 = {
             ddNm: '16일',
             dyNm: '화요일',
             plnYn: false,
-            comYn: true,
+            comYn: false,
             rptYn: false
         },
         {
@@ -231,7 +231,7 @@ const dayLst1 = {
             ddNm: '26일',
             dyNm: '금요일',
             plnYn: false,
-            comYn: true,
+            comYn: false,
             rptYn: false
         },
         {
@@ -280,7 +280,7 @@ const dayLst2 = {
             ddNm: '01일',
             dyNm: '월요일',
             plnYn: false,
-            comYn: true,
+            comYn: false,
             rptYn: false
         },
         {
@@ -298,7 +298,7 @@ const dayLst2 = {
             ddNm: '03일',
             dyNm: '수요일',
             plnYn: false,
-            comYn: true,
+            comYn: false,
             rptYn: false
         },
         {
@@ -306,7 +306,7 @@ const dayLst2 = {
             dtNm: '2024년 04월 04일',
             ddNm: '04일',
             dyNm: '목요일',
-            plnYn: true,
+            plnYn: false,
             comYn: false,
             rptYn: false
         },
@@ -352,7 +352,7 @@ const dayLst2 = {
             ddNm: '09일',
             dyNm: '화요일',
             plnYn: false,
-            comYn: false,
+            comYn: true,
             rptYn: false
         },
         {
@@ -360,7 +360,7 @@ const dayLst2 = {
             dtNm: '2024년 04월 10일',
             ddNm: '10일',
             dyNm: '수요일',
-            plnYn: false,
+            plnYn: true,
             comYn: false,
             rptYn: false
         },
@@ -414,7 +414,7 @@ const dayLst2 = {
             dtNm: '2024년 04월 16일',
             ddNm: '16일',
             dyNm: '화요일',
-            plnYn: true,
+            plnYn: false,
             comYn: false,
             rptYn: false
         },
@@ -504,7 +504,7 @@ const dayLst2 = {
             dtNm: '2024년 04월 26일',
             ddNm: '26일',
             dyNm: '금요일',
-            plnYn: true,
+            plnYn: false,
             comYn: false,
             rptYn: false
         },

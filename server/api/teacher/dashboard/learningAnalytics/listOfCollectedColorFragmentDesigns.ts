@@ -3659,7 +3659,7 @@ const data = {
                 }
             ],
             dsgnUseColorCnt: 90,
-            stampId: 1,
+            stampId: null,
             etlDttm: null
         },
         {
@@ -5485,7 +5485,7 @@ const data = {
                 }
             ],
             dsgnUseColorCnt: 90,
-            stampId: 1,
+            stampId: null,
             etlDttm: null
         }
     ]

@@ -246,15 +246,16 @@
     .learner6 {
         .count_box {
             .ico {
-                filter: brightness(0) saturate(100%) invert(82%) sepia(1%) saturate(1674%) hue-rotate(316deg) brightness(91%) contrast(77%);
+                // filter: brightness(0) saturate(100%) invert(82%) sepia(1%) saturate(1674%) hue-rotate(316deg) brightness(91%) contrast(77%);
+                filter: brightness(0) saturate(100%) invert(62%) sepia(3%) saturate(155%) hue-rotate(36deg) brightness(93%) contrast(82%);
             }
 
             span {
-                color: $G400;
+                color: $G500;//$G400
             }
 
             &::after {
-                background: $G400;
+                background: $G500;//$G400
             }
         }
     }

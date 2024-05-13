@@ -9,9 +9,12 @@ interface Learn {
 }
 
 interface LearnProps {
-    data: {
-        test: string;
-    };
+    // date:string;
+    studentSentenceId: number; // 학생 표현 ID
+    selectedWord: string; // 선택한 단어
+    chId: number;
+    sessId: number;
+    studUuid: string;
 }
 
 export interface TeacherColorMatchedGroup {
@@ -23,6 +26,7 @@ export interface TeacherColorMatchedGroup {
     tchrUuid: string;
     // 학생UUID
     studUuid: string;
+    studId: string;
     //  단원ID
     chId: number;
     //  차시ID
@@ -61,6 +65,20 @@ export interface StudentInfoProps {
     semId: number;
 }
 
+export interface CuritalkContentProps {
+    date: string;
+    chId: number;
+    sessId: number;
+    studUuid: string;
+}
+
+export interface AchvGroupProps {
+    achvGroupId: string;
+    chId: number;
+    sessId: number;
+    semId: number;
+}
+
 export interface WrittenNote {
     title: string;
     description: string;
@@ -94,6 +112,18 @@ export interface WordLearning {
     totalWordLearningCount: WordCount;
 }
 
+export interface CuritalkSentence {
+    curiTalkSentenceId: number; // 큐리톡 id
+    curiTalkSentence: string; // string 큐리톡의 표현과 문장
+    studentSentenceId: number; // 학생의 표현과 문장 id
+    studentSentence: string; //
+}
+
+export interface CuritalkContents {
+    curiTalkLearningCount: number;
+    contents: CuritalkSentence[];
+}
+
 const defaultUrl = `/teacher/dashboard/learningAnalytics`;
 
 /**
@@ -108,23 +138,22 @@ export const useApiLearnStore = defineStore(
         const aiCustomizedDataState: Ref<AiCustomizedData[]> = ref([]);
         const wordLearningState: Ref<WordLearning> = ref({});
         const currentPage = ref(0);
-        let autoSendYn: Ref<boolean | null> = ref(null);
-
+        const curitalkContentsState: Ref<CuritalkContents> = ref(null);
         const learnState = ref<Learn>();
 
         /**
          * [교사용] 학습 결과 > 학습 분석 > 오늘의 학업성취율 테이블
          *  스스로학습 > 색깔에 맞는 학생 그룹 목록 노출
          *  GET
-         * @param studUuid 학생 uuid -> 변경되어야 함
+         * @param achvGroupId 컬러그룹ID
          * @param semId 학기ID
          * @param sessId 차시ID
          * @param chId 단원ID
          */
-        const getLearnColorMatchedStudentGroups = async ({ studUuid, semId, sessId, chId }: StudentInfoProps) => {
-            const params = `studUuid=${studUuid}&semId=${semId}&sessId=${sessId}&chId=${chId}`;
-            const { data } = await useCustomFetch(`${defaultUrl}/colorMatchedStudentGroups?${params}`, {
-                method: 'get'
+        const getLearnColorMatchedStudentGroups = async ({ achvGroupId, semId, sessId, chId }: AchvGroupProps) => {
+            const { data } = await useCustomFetch(`${defaultUrl}/colorMatchedStudentGroups`, {
+                method: 'get',
+                params: { achvGroupId, semId, sessId, chId }
             });
             if (data.value) {
                 teacherColorMatchedGroupState.value = data.value.data;
@@ -141,9 +170,9 @@ export const useApiLearnStore = defineStore(
                 method: 'get',
                 params: { chId, sessId, achvRt, studUuid }
             });
+
             if (data.value) {
-                aiCustomizedDataState.value = data.value.data.contentsList;
-                autoSendYn.value = data.value.data.autoSendYn;
+                aiCustomizedDataState.value = data.value.data;
             }
         };
 
@@ -161,23 +190,13 @@ export const useApiLearnStore = defineStore(
         };
 
         /**
-         * 자동/수정 출제방식 변경
-         * @param item
-         */
-        const changeAutoSendSettingType = (item: boolean) => {
-            autoSendYn.value = item;
-        };
-
-        /**
          *  스스로학습 > 색깔에 맞는 학생 그룹 목록 > 학업성취율 > AI 맞춤자료 보내기
-         *  TODO: Request body 부정확함 -> 확인 후 변경 필요
          *  POST
          **/
-        const postLearnAiCustomizedData = async (LearnData: any) => {
-            // TODO:URL 미정 - 변경 필요
+        const postLearnAiCustomizedData = async (learnData: any) => {
             const { data } = await useCustomFetch(`${defaultUrl}/aiCustomizedData`, {
                 method: 'post',
-                body: JSON.stringify(LearnData),
+                body: JSON.stringify(learnData),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -277,12 +296,13 @@ export const useApiLearnStore = defineStore(
          *  스스로학습 > 색깔에 맞는 학생 그룹 목록 > 챗봇학습 > 큐리톡 내용 조회(큐리)
          *  GET
          **/
-        const getLearnCuritalkContents = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/curitalkContents`, {
-                method: 'get'
+        const getLearnCuritalkContents = async ({ date, chId, sessId, studUuid }: CuritalkContentProps) => {
+            const { data } = await useCustomFetch(`${defaultUrl}/curitalkLearningFrequency`, {
+                method: 'get',
+                params: { date, chId, sessId, studUuid }
             });
             if (data.value) {
-                learnState.value = data.value.data as Learn;
+                curitalkContentsState.value = data.value.data;
             }
         };
 
@@ -295,7 +315,7 @@ export const useApiLearnStore = defineStore(
                 method: 'get'
             });
             if (data.value) {
-                learnState.value = data.value.data as Learn;
+                learnState.value = data.value.data;
             }
         };
 
@@ -303,18 +323,17 @@ export const useApiLearnStore = defineStore(
          *  스스로학습 > 색깔에 맞는 학생 그룹 목록 > 챗봇학습 > 큐리톡 미노출 단어 등록
          *  POST
          */
-        const postLearnCuritalkUnexposedWords = async (LearnData: LearnProps) => {
-            // TODO:URL 미정 - 변경 필요
-            const { data } = await useCustomFetch(`${defaultUrl}/curitalkUnexposedWords`, {
+        const postLearnCuritalkUnexposedWords = async ({ studUuid, studentSentenceId, selectedWord, chId, sessId }: LearnProps) => {
+            await useCustomFetch(`${defaultUrl}/curitalkUnexposedWords`, {
                 method: 'post',
-                body: JSON.stringify(LearnData),
+                body: JSON.stringify({ studUuid, studentSentenceId, selectedWord, chId, sessId }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
-            if (data.value) {
-                learnState.value = data.value.data as Learn;
-            }
+            // if (data.value) {
+            //     learnState.value = data.value.data;
+            // }
         };
 
         return {
@@ -323,9 +342,8 @@ export const useApiLearnStore = defineStore(
             drillLearningListState,
             writtenNoteState,
             aiCustomizedDataState,
-            autoSendYn,
             wordLearningState,
-            changeAutoSendSettingType,
+            curitalkContentsState,
             getLearnColorMatchedStudentGroups,
             getLearnAiCustomizedData,
             getLearnAutoSendSettings,

@@ -30,8 +30,16 @@ export default defineNuxtConfig({
         storesDirs: ['./stores/**']
     },
 
+    plugins: [
+        {
+            src: '@/plugins/v-calendar',
+            mode: 'client'
+        }
+    ],
+
     runtimeConfig: {
         public: {
+            envMode: process.env.PUBLIC_ENV_MODE,
             apiBase: process.env.PUBLIC_API_BASE,
             loginUrl: process.env.PUBLIC_LOGIN_URL,
             logoutUrl: process.env.PUBLIC_LOGOUT_URL

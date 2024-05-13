@@ -1,7 +1,14 @@
 <template>
     <div class="notice d-flex align-center">
         <div class="box d-flex d-flex align-center">
-            <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-sm" @click="handlePrevLesson">
+            <v-btn
+                flat
+                rounded
+                size="small"
+                class="icon_only icon_only-transparent icon_only-sm"
+                :disabled="props.currentPage === 0"
+                click="handlePrevLesson"
+            >
                 <div class="size_sm">
                     <i class="ico size_5 left_24"></i>
                     <span class="blind">이전</span>
@@ -11,7 +18,14 @@
                 <p class="name">{{ teacherLearningSessionState[currentPage]?.chName }}</p>
                 <p class="kind">{{ teacherLearningSessionState[currentPage]?.sessionName }}</p>
             </div>
-            <v-btn flat rounded size="small" class="icon_only icon_only-transparent icon_only-sm" @click="handleNextLesson">
+            <v-btn
+                flat
+                rounded
+                size="small"
+                class="icon_only icon_only-transparent icon_only-sm"
+                :disabled="props.currentPage === teacherLearningSessionState.length - 1"
+                @click="handleNextLesson"
+            >
                 <div class="size_sm">
                     <i class="ico size_5 right_24"></i>
                     <span class="blind">다음</span>

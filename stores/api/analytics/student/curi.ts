@@ -13,9 +13,8 @@ interface CuriProps {
         test: string;
     };
 }
-
+import { v4 as uuidv4 } from 'uuid';
 const defaultUrl = `/student/dashboard/learningAnalytics`;
-
 /**
  * 학습분석 > AI Curi Talk
  */
@@ -24,8 +23,13 @@ export const useApiCuriStore = defineStore(
     () => {
         const curiState = ref<Curi>();
         const colorBoardState = ref();
+        const studentColorBoardState = ref();
+        const studentCollectedColorBoardState = ref();
         const calendarStore = useApiCalendarStore();
         const { formatDate } = storeToRefs(calendarStore);
+        const studnetCollectedColorState = ref();
+        const studentRemainingColorState = ref();
+        const { user } = storeToRefs(useApiUserStore());
 
         /**
          * 숫자 색칠판    학습분석
@@ -35,7 +39,10 @@ export const useApiCuriStore = defineStore(
          **/
         const getCuriNumColorFragmentDesign = async () => {
             const { data } = await useCustomFetch(`${defaultUrl}/numColorFragmentDesign`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: user.value.studentId
+                }
             });
             if (data.value) {
                 curiState.value = data.value.data as Curi;
@@ -81,13 +88,33 @@ export const useApiCuriStore = defineStore(
          **/
         const getCuriNumberOfColorPiecesCollected = async () => {
             const { data } = await useCustomFetch(`${defaultUrl}/numberOfColorPiecesCollected`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: user.value.studentId
+                }
             });
             if (data.value) {
-                curiState.value = data.value.data as Curi;
+                studnetCollectedColorState.value = data.value.data as Curi;
             }
         };
 
+        /**
+         * 숫자 색칠판 팝업
+         *  AI CURI Talk
+         *  숫자 색칠판 완성하기 팝업 > 남은색깔 조각 > 색깔조각 개수
+         *  GET
+         **/
+        const getCuriNumberOfColorPiecesRemaining = async () => {
+            const { data } = await useCustomFetch(`${defaultUrl}/numberOfColorPiecesRemaining`, {
+                method: 'get',
+                query: {
+                    studUuid: user.value.studentId
+                }
+            });
+            if (data.value) {
+                studentRemainingColorState.value = data.value.data as Curi;
+            }
+        };
         /**
          * 숫자 색칠판 팝업
          *  AI CURI Talk
@@ -95,15 +122,15 @@ export const useApiCuriStore = defineStore(
          *  GET
          **/
         const getCuriCollectedColorDesign = async (date: string) => {
-            let dateUrl = '';
-            if (date) {
-                dateUrl = `?date=${date}`;
-            }
-            const { data } = await useCustomFetch(`${defaultUrl}/collectedColorFragmentDesign${dateUrl}`, {
-                method: 'get'
+            const { data } = await useCustomFetch(`${defaultUrl}/collectedColorFragmentDesign`, {
+                method: 'get',
+                query: {
+                    studUuid: user.value.studentId,
+                    dsgnId: 1
+                }
             });
             if (data.value) {
-                colorBoardState.value = data.value.data as Curi;
+                studentCollectedColorBoardState.value = data.value.data as Curi;
             }
         };
 
@@ -122,7 +149,7 @@ export const useApiCuriStore = defineStore(
                 }
             });
             if (data.value) {
-                curiState.value = data.value.data as Curi;
+                studentColorBoardState.value = data.value.data as Curi;
             }
         };
 
@@ -135,25 +162,18 @@ export const useApiCuriStore = defineStore(
          **/
         const getCuriRemainingColorDesign = async () => {
             const { data } = await useCustomFetch(`${defaultUrl}/remainingColorFragmentDesign`, {
-                method: 'get'
+                method: 'get',
+                query: {
+                    studUuid: user.value.studentId,
+                    dsgnId: 1
+                }
             });
             if (data.value) {
-                curiState.value = data.value.data as Curi;
-            }
-        };
-
-        /**
-         * 숫자 색칠판 팝업
-         *  AI CURI Talk
-         *  숫자 색칠판 완성하기 팝업 > 남은색깔 조각 > 색깔조각 개수
-         *  GET
-         **/
-        const getCuriNumberOfColorPiecesRemaining = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/numberOfColorPiecesRemaining`, {
-                method: 'get'
-            });
-            if (data.value) {
-                curiState.value = data.value.data as Curi;
+                studentColorBoardState.value = data.value.data as Curi;
+                studentColorBoardState.value[0].dsgnUseInfo = JSON.parse(studentColorBoardState.value[0].dsgnUseInfo);
+                studentColorBoardState.value[0].dsgnUseInfo.forEach(element => {
+                    element.id = uuidv4();
+                });
             }
         };
 
@@ -168,7 +188,6 @@ export const useApiCuriStore = defineStore(
             if (period) {
                 periodUrl = `?period=${period}`;
             }
-            console.log(periodUrl);
             const { data } = await useCustomFetch(`${defaultUrl}/aiCuriTalkAtAGlance${periodUrl}`, {
                 method: 'get'
             });
@@ -179,6 +198,10 @@ export const useApiCuriStore = defineStore(
 
         return {
             colorBoardState,
+            studentColorBoardState,
+            studentCollectedColorBoardState,
+            studnetCollectedColorState,
+            studentRemainingColorState,
             curiState,
             getCuriNumColorFragmentDesign,
             getCuriComplimentExpression,

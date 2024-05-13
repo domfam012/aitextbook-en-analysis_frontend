@@ -158,7 +158,7 @@
                 }
 
                 &.emblem_03 {
-                    border-top: 2.2rem solid #ff8d00;
+                    border-top: 2.2rem solid $dashboard-color-orange;
                 }
 
                 &.emblem_04 {
@@ -382,5 +382,8 @@
         .v-btn.v-btn--size-small {
             min-width: auto;
         }
+    }
+    .v-btn--variant-text {
+        width: 100%;
     }
 }

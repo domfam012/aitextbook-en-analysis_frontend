@@ -1,7 +1,7 @@
 <template>
     <div class="date_picker_slot">
         <vc-date-picker
-            v-model="range"
+            v-model="selectedDateState"
             is-range
             :model-config="{
                 type: 'string',
@@ -27,13 +27,6 @@
                     </div>
                 </div>
             </template>
-            <template #footer>
-                <div class="footer_text">
-                    <p>
-                        <span>{{ footerText }}</span>
-                    </p>
-                </div>
-            </template>
         </vc-date-picker>
     </div>
 </template>
@@ -41,31 +34,27 @@
 <script setup>
 const dayjs = useDayjs();
 const { openAlert } = useAlertStore();
+const apiMyLessonStore = useApiMyLessonStore();
+const { selectedDateState } = storeToRefs(apiMyLessonStore);
 
-const emit = defineEmits(['updateRagne']);
-
-const range = ref({
-    start: null,
-    end: null
-});
+const emit = defineEmits(['updateRange']);
 
 const updateRange = val => {
-    console.log(val);
-    range.value.start = dayjs(val.start).format('YYYY-MM-DD');
-    range.value.end = dayjs(val.end).format('YYYY-MM-DD');
+    selectedDateState.value.start = dayjs(val.start).format('YYYY-MM-DD');
+    selectedDateState.value.end = dayjs(val.end).format('YYYY-MM-DD');
 
-    const startDate = dayjs(range.value.start);
-    const endDate = dayjs(range.value.end);
+    const startDate = dayjs(selectedDateState.value.start);
+    const endDate = dayjs(selectedDateState.value.end);
     const differenceInDays = endDate.diff(startDate, 'days');
 
-    if (differenceInDays > 29) {
+    if (differenceInDays > 30) {
         openAlert({
             message: `정확한 분석을 위해 최대 30일까지 조회만 가능합니다.`
         });
     } else {
         emit('updateRange', {
-            startDt: range.value.start,
-            endDt: range.value.end
+            startDt: selectedDateState.value.start,
+            endDt: selectedDateState.value.end
         });
     }
 };

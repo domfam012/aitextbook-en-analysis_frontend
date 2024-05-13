@@ -1,14 +1,26 @@
 <template>
-    <div class="colorboard" :class="{ paintable: props.paintable }">
-        <div v-for="cell in props.grid" :key="cell.id" :class="[{ grid: true, painted: cell.painted }, cell.color]"></div>
+    <div class="colorboard" :class="{ paintable: props.paintable }" @dragover="e => e.preventDefault()">
+        <div
+            v-for="(cell, index) in isEdit ? studentColorBoardState[0].dsgnUseInfo : props.grid"
+            :id="cell.id"
+            :key="cell.id"
+            :class="[{ grid: true, painted: cell.painted }, cell.color]"
+            :draggable="cell.painted"
+            @dragenter.prevent
+            @dragover.prevent
+            @dragstart="handleDragStart($event, cell)"
+            @drop="handleDrop($event, cell)"
+            @click="setColor(cell, index)"
+        ></div>
+
         <div v-if="stamp" class="board-stamp">
-            <v-img :src="stampSrc" alt="어떻게 이렇게까지 잘하는 거지" />
+            <v-img :src="stampSrc" alt="도장이미지" />
         </div>
     </div>
 </template>
 <script setup>
 import { v4 as uuidv4 } from 'uuid';
-
+const mode = useCookie('mode');
 const props = defineProps({
     paintable: { type: Boolean, default: false },
     grid: {
@@ -1829,8 +1841,19 @@ const props = defineProps({
             }
         ]
     },
-    stamp: { type: Number, default: 0 }
+    page: {
+        type: Number
+    },
+    selectedColor: {
+        type: String
+    },
+    stamp: { type: Number, default: 0 },
+    isEdit: { type: Boolean, default: false }
 });
+const studentCuriApiStore = useApiCuriStore();
+
+const { studentColorBoardState, studnetCollectedColorState, studentRemainingColorState, studentCollectedColorBoardState } =
+    storeToRefs(studentCuriApiStore);
 
 const stampSrc = computed(() => {
     switch (props.stamp) {
@@ -1863,7 +1886,123 @@ const stampSrc = computed(() => {
             return useAsset('images/img_stamp_10.svg');
 
         default:
-            return ''; // Return a default value or handle error case
+            return '';
     }
 });
+
+const handleDragStart = (event, item) => {
+    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.setData('itemID', item.id);
+};
+const handleDrop = (event, endedItem) => {
+    const startedItemID = event.dataTransfer.getData('itemID');
+    const findItem = studentColorBoardState.value[props.page].dsgnUseInfo.find(item => item.id === startedItemID);
+    if (findItem.color === endedItem.color) {
+        findItem.painted = false;
+        endedItem.painted = true;
+    }
+};
+
+const setColor = (value, index) => {
+    if (props.isEdit && !props.stamp && mode.value === 'student') {
+        switch (props.selectedColor) {
+            case 'blue':
+                if (value.color === 'blue') {
+                    if (
+                        studentRemainingColorState.value[0].colorLstnnCnt === 0 &&
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted === true
+                    ) {
+                        studentRemainingColorState.value[0].colorLstnnCnt += 1;
+
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                    } else if (studentRemainingColorState.value[0].colorLstnnCnt > 0) {
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted
+                            ? (studentRemainingColorState.value[0].colorLstnnCnt -= 1)
+                            : (studentRemainingColorState.value[0].colorLstnnCnt += 1);
+                    }
+                }
+                break;
+            case 'red':
+                if (value.color === 'red') {
+                    if (
+                        studentRemainingColorState.value[0].colorViewCnt === 0 &&
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted === true
+                    ) {
+                        studentRemainingColorState.value[0].colorViewCnt += 1;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                    } else if (studentRemainingColorState.value[0].colorViewCnt > 0) {
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted
+                            ? (studentRemainingColorState.value[0].colorViewCnt -= 1)
+                            : (studentRemainingColorState.value[0].colorViewCnt += 1);
+                    }
+                }
+                break;
+
+            case 'yellow':
+                if (value.color === 'yellow') {
+                    if (
+                        studentRemainingColorState.value[0].colorRedngCnt === 0 &&
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted === true
+                    ) {
+                        studentRemainingColorState.value[0].colorRedngCnt += 1;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                    } else if (studentRemainingColorState.value[0].colorRedngCnt > 0) {
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted
+                            ? (studentRemainingColorState.value[0].colorRedngCnt -= 1)
+                            : (studentRemainingColorState.value[0].colorRedngCnt += 1);
+                    }
+                }
+                break;
+
+            case 'green':
+                if (value.color === 'green') {
+                    if (
+                        studentRemainingColorState.value[0].colorSpkngCnt === 0 &&
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted === true
+                    ) {
+                        studentRemainingColorState.value[0].colorSpkngCnt += 1;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                    } else if (studentRemainingColorState.value[0].colorSpkngCnt > 0) {
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted
+                            ? (studentRemainingColorState.value[0].colorSpkngCnt -= 1)
+                            : (studentRemainingColorState.value[0].colorSpkngCnt += 1);
+                    }
+                }
+                break;
+
+            case 'darkgreen':
+                if (value.color === 'darkgreen') {
+                    if (
+                        studentRemainingColorState.value[0].colorWritngCnt === 0 &&
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted === true
+                    ) {
+                        studentRemainingColorState.value[0].colorWritngCnt += 1;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                    } else if (studentRemainingColorState.value[0].colorWritngCnt > 0) {
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted =
+                            !studentColorBoardState.value[props.page].dsgnUseInfo[index].painted;
+                        studentColorBoardState.value[props.page].dsgnUseInfo[index].painted
+                            ? (studentRemainingColorState.value[0].colorWritngCnt -= 1)
+                            : (studentRemainingColorState.value[0].colorWritngCnt += 1);
+                    }
+                }
+                break;
+        }
+    }
+};
 </script>

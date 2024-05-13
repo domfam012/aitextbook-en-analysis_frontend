@@ -31,22 +31,22 @@
             <!-- 단어 영역 -->
             <v-list class="word" :style="word ? 'display: block' : 'display: none'" bg-color="transparent">
                 <v-list-item>
-                    <template v-for="item in wordLearningState.knownWordsCount.word">
+                    <template v-for="item in wordLearningState.knownWordsCount?.word">
                         <p>{{ item }}</p>
                     </template>
                 </v-list-item>
                 <v-list-item>
-                    <template v-for="item in wordLearningState.somewhatKnownWordsCount.word">
+                    <template v-for="item in wordLearningState.somewhatKnownWordsCount?.word">
+                        <p>{{ item + 'aaa' }}</p>
+                    </template>
+                </v-list-item>
+                <v-list-item>
+                    <template v-for="item in wordLearningState.unknownWordsCount?.word">
                         <p>{{ item }}</p>
                     </template>
                 </v-list-item>
                 <v-list-item>
-                    <template v-for="item in wordLearningState.unknownWordsCount.word">
-                        <p>{{ item }}</p>
-                    </template>
-                </v-list-item>
-                <v-list-item>
-                    <template v-for="item in wordLearningState.totalWordLearningCount.word">
+                    <template v-for="item in wordLearningState.totalWordLearningCount?.word">
                         <p>{{ item }}</p>
                     </template>
                 </v-list-item>

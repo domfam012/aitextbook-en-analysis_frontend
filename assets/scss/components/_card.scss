@@ -1,8 +1,4 @@
 .v-card {
-    &.v-theme--light {
-        border-radius: 1rem;
-    }
-
     min-width: 42rem;
     // min-height: 54rem; // 240404 yhj 수정
     overflow: unset;
@@ -54,6 +50,10 @@
         &.fill-#{$key} {
             background-color: $value;
         }
+    }
+
+    &.v-theme--light {
+        border-radius: 1rem;
     }
 
     &.type_record {
@@ -112,12 +112,6 @@
         .chart_contents.type_radar {
             height: 45rem;
         }
-        .colorboard {
-            grid-template-columns: repeat(26, 1fr);
-	        grid-template-rows: repeat(18, 1fr);
-            width: 63rem;
-            height: 44.4rem;
-        }
     }
 
     &.box_contents {
@@ -173,6 +167,10 @@
             margin-top: .5rem;
             @include font_header($font-color: $font-color-violet, $font-size: $font-xlarge, $line-height: 2.8rem);
         }
+    }
+
+    &.calendar_wrap {
+        overflow: inherit;
     }
 
     .v-card-text {
@@ -339,10 +337,28 @@
             background-color: inherit;
             border: 0;
         }
-        .colorLessonInfo .inner {
-            min-height: auto;
+        .colorLessonInfo {
+            .inner {
+                min-height: auto;
+            }
+            .v-list-item {
+                flex-basis: 33.3%;
+                .box {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                &:first-child {
+                    .box {
+                        margin-left: 0;
+                    }
+                }
+                &:nth-child(3) {
+                    .box {
+                        margin-right: 0;
+                    }
+                }
+            }
         }
-
         .v-container {
             padding: 1.5rem 3rem;
         }

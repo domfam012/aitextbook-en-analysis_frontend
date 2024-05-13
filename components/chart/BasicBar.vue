@@ -11,7 +11,11 @@
                 </v-col>
                 <v-col>
                     <div class="progress-background" v-for="(item, index) in item" :key="index">
-                        <div class="progress-date" :class="[item.color, { white: item.value >= 70 }]" :style="`width: ${item.value}%`">
+                        <div
+                            class="progress-date"
+                            :class="[item.color, { white: item.value >= 70 }]"
+                            :style="`width: ${item.value <= 100 ? item.value : 100}%`"
+                        >
                             <p>
                                 {{ item.value }}
                                 <template v-if="suffix === '분'">
@@ -20,6 +24,7 @@
                                 </template>
                                 <template v-else>
                                     <span v-if="item.value >= 70">{{ suffix }}</span>
+                                    <span v-else>{{ suffix }}</span>
                                 </template>
                             </p>
                         </div>

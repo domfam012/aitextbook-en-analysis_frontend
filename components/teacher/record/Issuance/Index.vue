@@ -21,6 +21,7 @@
                         @update:modelValue="handleChangeStudent"
                     >
                         <template v-for="(item, idx) in studentList?.sort((a, b) => a.writeFlag - b.writeFlag)">
+                            <!-- !disabled 처리로 하면 안됨, 클릭은 가능해야함 (기획참고) -->
                             <v-btn
                                 v-show="!isEditMode || idx === selectedStudentIndex"
                                 :class="[{ temp: item.writeFlag }]"
@@ -50,9 +51,16 @@
         <div v-if="clampType === 'clamp_center'" class="mgt30 gap1 d-flex justify-center position-relative">
             <v-btn @click="cancelMode" rounded flat size="large" class="outlined">취소</v-btn>
             <v-btn @click="handleSubmit" rounded flat size="large" class="primary">저장</v-btn>
-            <v-btn @click="handleEditMode" rounded flat size="large" class="primary position-absolute" style="right: 0">{{
-                isEditMode ? '편집 초기화' : '텍스트 편집'
-            }}</v-btn>
+            <v-btn
+                @click="handleEditMode"
+                rounded
+                flat
+                size="large"
+                class="primary position-absolute"
+                :disabled="personalListOfQualification?.filter(data => data.selectedFlag).length === 0"
+                style="right: 0"
+                >{{ isEditMode ? '편집 초기화' : '텍스트 편집' }}</v-btn
+            >
         </div>
     </div>
 </template>
@@ -61,16 +69,14 @@
 const mode = useCookie('mode');
 const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStore());
 const { completionStudent } = storeToRefs(useApiCompletionStore());
-const { clampType, issuanceStatus, selectedStudentIndex } = storeToRefs(useApiRecordStore());
-const { isEditMode, qualificationByUnitStudentList, personalListOfQualification } = storeToRefs(useApiRecordGradeStore());
+const { clampType, selectedStudentIndex } = storeToRefs(useApiRecordStore());
+const { isEditMode, qualificationByUnitStudentList, personalListOfQualification, unitType } = storeToRefs(useApiRecordGradeStore());
+//현재학기
+const { semesterInProgress } = storeToRefs(useApiRecordHistoryStore());
+const studentSemId = semesterInProgress.value.currentSemester;
 
 const handleChangeStudent = async () => {
-    const studentId = studentList.value[selectedStudentIndex.value]?.studUuid;
-    const studentSemId = issuanceStatus.value.currentSemester;
-
-    if (!studentId) {
-        return;
-    }
+    const studentId = studentList.value[selectedStudentIndex.value].studUuid;
 
     // 학생 선택 이벤트
     if (clampType.value === 'clamp_left') {
@@ -81,15 +87,15 @@ const handleChangeStudent = async () => {
         // [교사] 개인별 평어 목록
         await useApiRecordGradeStore().getPersonalListOfQualification({
             studUuid: qualificationByUnitStudentList.value[selectedStudentIndex.value]?.studUuid,
-            semId: '1',
-            divisionCode: 'A',
+            semId: studentSemId,
+            divisionCode: unitType.value,
             orderLEsson: 'asc',
             orderLevel: 'desc'
         });
     } else if (clampType.value === 'clamp_right') {
         await useApiRecordHistoryStore().getAchievementByArea(studentSemId, studentId);
         await useApiRecordHistoryStore().getLearningHistoryCollection(studentSemId, studentId);
-        await useApiCompletionStore().getStudentDevelopmentList(studentId);
+        await useApiCompletionStore().getStudentDevelopmetnList(studentId);
         await useApiTeacherClassStore().getClassColorBoard('perfection');
     }
 };
@@ -117,19 +123,15 @@ const cancelMode = () => {
  * 저장 버튼
  */
 const handleSubmit = async () => {
-    const studentId = studentList.value[selectedStudentIndex.value]?.studUuid;
-    if (!studentId) {
-        return;
-    }
     if (isEditMode.value) {
         await useApiRecordGradeStore().putSaveTextEdits(
             personalListOfQualification.value
-                .filter(data => data.flag)
+                .filter(data => data.selectedFlag)
                 .map(data => {
                     return {
-                        semId: issuanceStatus.value.currentSemester,
+                        semId: String(semesterInProgress.value.currentSemester),
                         studUuid: studentList.value[selectedStudentIndex.value]?.studUuid,
-                        chId: data.chId,
+                        chId: String(data.chId),
                         lrnGrwthIssue: data.sentence
                     };
                 })
@@ -138,10 +140,10 @@ const handleSubmit = async () => {
     } else {
         await useApiRecordGradeStore().putSaveIndividualEdits(
             personalListOfQualification.value
-                .filter(data => data.flag)
+                .filter(data => data.selectedFlag)
                 .map(data => {
                     return {
-                        semId: issuanceStatus.value.currentSemester,
+                        semId: semesterInProgress.value.currentSemester,
                         studUuid: studentList.value[selectedStudentIndex.value]?.studUuid,
                         evaluationSentenceId: data.evaluationSentenceId
                     };
@@ -160,12 +162,7 @@ const handleEditMode = () => {
             element.editSentence = element.sentence;
         });
     } else {
-        const studentId = studentList.value[selectedStudentIndex.value]?.studUuid;
-        if (!studentId) {
-            return;
-        } else {
-            isEditMode.value = true;
-        }
+        isEditMode.value = true;
     }
 };
 </script>

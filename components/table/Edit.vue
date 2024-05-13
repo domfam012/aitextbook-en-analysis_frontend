@@ -7,7 +7,7 @@
             >
             <v-data-table
                 :headers="achievementHeaders"
-                :items="isEditMode ? personalListOfQualification.filter(data => data.flag) : personalListOfQualification"
+                :items="isEditMode ? personalListOfQualification.filter(data => data.selectedFlag) : personalListOfQualification"
                 item-value="number"
                 expand-on-click
                 class="color_gray type_center"
@@ -37,10 +37,10 @@
                                 clear-icon="mdi-close-circle"
                             ></v-textarea>
                         </template>
-                        <td v-else :class="item.flag && 'active'" @click="handleSelectItem(item, index)">
+                        <td v-else :class="item.selectedFlag && 'active'" @click="handleSelectItem(item, index)">
                             <div class="edit_text_wrap">
                                 <span>{{ item.sentence }}</span>
-                                <span>{{ item.count }}명</span>
+                                <span>{{ item.studentCount }}명</span>
                             </div>
                         </td>
                     </tr>
@@ -51,8 +51,10 @@
 </template>
 
 <script setup>
-const { isEditMode, personalListOfQualification, qualificationByUnitStudentList } = storeToRefs(useApiRecordGradeStore());
+const { isEditMode, personalListOfQualification, qualificationByUnitStudentList, unitType } = storeToRefs(useApiRecordGradeStore());
 const { selectedStudentIndex } = storeToRefs(useApiRecordStore());
+//현재학기
+const { semesterInProgress } = storeToRefs(useApiRecordHistoryStore());
 
 const itemPerPage = 25;
 const achievementHeaders = [
@@ -65,10 +67,10 @@ const achievementHeaders = [
  * 셀 선택 & 취소
  */
 const handleSelectItem = (item, index) => {
-    if (item.flag) {
-        item.flag = false;
+    if (item.selectedFlag) {
+        item.selectedFlag = false;
     } else {
-        item.flag = true;
+        item.selectedFlag = true;
     }
 };
 
@@ -76,13 +78,10 @@ const handleSelectItem = (item, index) => {
  * 선택한 셀 초기화
  */
 const handleResetSelectedItem = async () => {
-    if (!qualificationByUnitStudentList.value[selectedStudentIndex.value]?.studUuid) {
-        return;
-    }
     await useApiRecordGradeStore().getPersonalListOfQualification({
         studUuid: qualificationByUnitStudentList.value[selectedStudentIndex.value].studUuid,
-        semId: '1',
-        divisionCode: 'A',
+        semId: semesterInProgress.value.currentSemester,
+        divisionCode: unitType.value,
         orderLEsson: 'asc',
         orderLevel: 'desc'
     });

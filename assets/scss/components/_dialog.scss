@@ -159,6 +159,11 @@ $attach-box-bg: $bg-blue;
                     object-fit: contain;
                 }
             }
+            &.has_title {
+                .v-window__container {
+                    margin-bottom: 4rem;
+                }
+            }
         }
         .indicator {
             position: absolute;
@@ -231,6 +236,19 @@ $attach-box-bg: $bg-blue;
                     font-weight: var(--weight-bold);
                 }
             }
+
+            .line_colunm {
+                .v-list-item__content {
+                    flex-direction: column;
+                    .name {
+                        text-align: center;
+                    }
+                }
+            }
+            .btn_brush {
+                --v-btn-height: auto;
+                padding: 0;
+            }
         }
 
         .tabs-item {
@@ -241,31 +259,8 @@ $attach-box-bg: $bg-blue;
                 }
             }
         }
-        .colorboard {
-            grid-template-columns: repeat(19, 1fr);
-	        grid-template-rows: repeat(19, 1fr);
-            width: 49.4rem;
-            height: 49.4rem;
-        }
-
-        .board-stamp {
-            position: absolute;
-            right: 1.15rem;
-            bottom: 1rem;
-            width: 16rem;
-            border-radius: 100%;
-
-            .v-responsive {
-                overflow: unset;
-            }
-
-            img {
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                width: 104%;
-                height: 104%;
-            }
+        .inner_title {
+            margin-bottom: 1rem;
         }
     }
 
@@ -356,15 +351,15 @@ $attach-box-bg: $bg-blue;
                 }
 
                 .know {
-                    color: #42C5B1
+                    color: #42C5B1;
                 }
 
                 .know-little {
-                    color: #FFBF00
+                    color: #FFBF00;
                 }
 
                 .not {
-                    color: #FF8D00
+                    color: $dashboard-color-orange;
                 }
             }
         }

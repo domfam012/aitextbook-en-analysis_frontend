@@ -35,26 +35,26 @@
                             suffix="개"
                             :item="[
                                 {
-                                    value: wordDiagnosisState?.exprsPrfctUndrsUseCnt,
+                                    value: wordDiagnosisState?.wrdPrfctUndrsUseCnt,
                                     color: 'color-1',
                                     label: '잘이해하고 활용한 단어'
                                 },
                                 {
-                                    value: wordDiagnosisState?.exprsExprsUndrsUnsdCnt,
+                                    value: wordDiagnosisState?.wrdExprsUndrsUnsdCnt,
                                     color: 'color-2',
                                     label: '이해했으나 활용하지 못한 단어'
                                 },
                                 {
-                                    value: wordDiagnosisState?.exprsWrongExprsUndrsCnt,
+                                    value: wordDiagnosisState?.wrdWrongExprsUndrsCnt,
                                     color: 'color-3',
                                     label: '조금만 더학습하면 좋을 단어'
                                 },
                                 {
-                                    value: wordDiagnosisState?.exprsSplngWrongKnowCnt,
+                                    value: wordDiagnosisState?.wrdSplngWrongKnowCnt,
                                     color: 'color-4',
                                     label: '더열심히 학습해야 할 단어'
                                 },
-                                { value: wordDiagnosisState?.exprsLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
+                                { value: wordDiagnosisState?.wrdLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
                             ]"
                         />
                     </div>
@@ -103,9 +103,15 @@ const items = ref([
     { state: '최근 30일', value: 30 }
 ]);
 const apiMyLessonStore = useApiMyLessonStore();
-const { wordDiagnosisState, cumulativeTimeState } = storeToRefs(apiMyLessonStore);
+const { wordDiagnosisState, cumulativeTimeState, selectedDateState } = storeToRefs(apiMyLessonStore);
+
+const dayjs = useDayjs();
 
 const handleGetData = () => {
+    selectedDateState.value = {
+        start: dayjs(new Date(new Date().setDate(new Date().getDate() - select.value.value))).format('YYYY-MM-DD'),
+        end: dayjs(new Date()).format('YYYY-MM-DD')
+    };
     apiMyLessonStore.getMyLessonCumulativeLearningTime({ recent: select.value.value });
     apiMyLessonStore.getMyLessonWordDiagnostics({ recent: select.value.value });
 };

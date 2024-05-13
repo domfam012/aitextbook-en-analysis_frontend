@@ -16,7 +16,7 @@
                         <ChartMultipleRadialbars
                             v-if="touchVocaGraph && Object.keys(touchVocaGraph).length > 0"
                             :values="[
-                                [touchVocaGraph?.wrdUnknownCnt, 'gray', 2],
+                                [touchVocaGraph?.wrdUnknownCnt, '#909090', 2],
                                 [touchVocaGraph?.wrdLittleknowCnt, '#FFBB00', 3],
                                 [touchVocaGraph?.wrdKnowCnt, '#42C5B1', 4],
                                 [touchVocaGraph?.wrdTot, '#0099FF', 5]
@@ -40,7 +40,7 @@
                                 <p>조금 알거나 모르는 단어 수</p>
                             </div>
                             <div class="use-word">
-                                <span class="bullet color-4"></span>
+                                <span class="bullet color-6"></span>
                                 <p>모르는 단어 수</p>
                             </div>
                         </div>

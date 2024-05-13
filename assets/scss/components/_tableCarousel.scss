@@ -27,6 +27,14 @@
 
     .v-table {
         .v-table__wrapper>table {
+            thead {
+                tr {
+                    th {
+                        padding: 0 1.6rem;
+                    }
+                }
+            }
+
             tbody {
                 tr {
                     td {
@@ -61,13 +69,77 @@
     padding: 0 10.25rem;
     // max-width: 116.5rem;
 
+    .carousel_mid {
+        .carousel__viewport {
+            position: relative;
+
+            &::after,
+            &::before {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 1px;
+                height: 100%;
+                background-color: #b0b0b0;
+                z-index: 10;
+            }
+
+            &::after {
+                right: 0;
+            }
+
+            &::before {
+                left: 0;
+            }
+        }
+
+        .carousel__slide {
+            position: relative;
+
+            &~.carousel__slide {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 1px;
+                    height: calc(100% - 5rem);
+                    background-color: #b0b0b0;
+                }
+            }
+
+            .v-table {
+
+                th,
+                td {
+                    border: 0;
+                }
+
+                th {
+                    border-left: 1px solid white;
+                }
+            }
+        }
+
+        .carousel__slide--visible {
+            td {
+                border-bottom: 1px solid #b0b0b0 !important;
+            }
+
+            &:not(:last-child) {
+                border-left: none;
+            }
+        }
+    }
+
     &::before,
     &::after {
         content: "";
         position: absolute;
         top: 0;
         height: 100%;
-        background: #fff;
+        // background: #fff;
         z-index: 1;
     }
 
@@ -83,7 +155,7 @@
 
     .ico {
         position: absolute;
-        right: 1.47rem;
+        right: 1rem;
         top: 50%;
         transform: translateY(-50%);
 
@@ -94,7 +166,7 @@
         }
 
         &.list {
-            cursor: pointer;
+            right: 1.5rem;
         }
     }
 
@@ -112,13 +184,16 @@
         }
 
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: 1px solid #D5D5D5;
             border-radius: 100%;
+            background-repeat: no-repeat;
+            background-size: 1.7rem 2.8rem;
         }
     }
 
@@ -126,7 +201,8 @@
         left: -8.1rem;
 
         &::after {
-            background: url('@/assets/images/icon/ico_arrow_left_black.svg') no-repeat center;
+            background-image: url('@/assets/images/icon/ico_arrow_left_black.svg');
+            background-position: center right 55%;
         }
     }
 
@@ -134,10 +210,21 @@
         right: -8.1rem;
 
         &::after {
-            background: url('@/assets/images/icon/ico_arrow_right_black.svg') no-repeat center;
+            background-image: url('@/assets/images/icon/ico_arrow_right_black.svg');
+            background-position: center left 55%;
         }
     }
+
+    .v-table>.v-table__wrapper>table>tbody>tr>td {
+        --v-table-row-height: 7rem;
+    }
+
+    .v-btn.v-btn--density-default {
+        position: static;
+        width: 100%;
+    }
 }
+
 
 .right-table {
     flex-shrink: 0;
@@ -219,7 +306,7 @@
                 font-weight: var(--weight-bold);
                 text-align: center;
 
-                border: 1px solid #46A7E5;
+                border: 1px solid $G500;
                 border-radius: 0.5rem;
 
                 &::-webkit-outer-spin-button,
@@ -236,7 +323,7 @@
 
             .total {
                 input {
-                    background-color: #46A7E5;
+                    background-color: $G500;
                     color: #fff;
                 }
             }

@@ -2,11 +2,42 @@
 // API 작업 실제 종료일 2024-04-09
 
 const data = {
-    success: true,
-    dataSize: 1,
-    timestamp: '2024-03-29 01:33:02',
+    dataSize: 2,
+    timestamp: '2024-05-08T19:34:26.418086306',
+    httpCode: 200,
+    message: '조회성공',
     data: {
-        name: '큐리톡 내용 조회(큐리) API'
+        curiTalkLearningCount: 2, // 큐리톡 학습횟수 (integer)
+        contents: [
+            {
+                curiTalkSentenceId: 1, // 큐리톡 id
+                curiTalkSentence: 'How are you?', // string 큐리톡의 표현과 문장
+                studentSentenceId: 1, // 학생의 표현과 문장 id
+                studentSentence: 'Not so mad', // string 학생의 표현과 문장
+                selectedSentence: 'mad' // 등록된 큐리톡 단어
+            },
+            {
+                curiTalkSentenceId: 2,
+                curiTalkSentence: 'What is your name?',
+                studentSentenceId: 2,
+                studentSentence: 'Thank you',
+                selectedSentence: 'you'
+            },
+            {
+                curiTalkSentenceId: 3,
+                curiTalkSentence: 'What is your color?',
+                studentSentenceId: 3,
+                studentSentence: 'red',
+                selectedSentence: null
+            },
+            {
+                curiTalkSentenceId: 4,
+                curiTalkSentence: 'what did you do yesterday',
+                studentSentenceId: 4,
+                studentSentence: 'I was at home',
+                selectedSentence: 'home'
+            }
+        ]
     }
 };
 

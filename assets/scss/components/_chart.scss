@@ -38,7 +38,7 @@
     }
 
     .color-4 {
-        background-color: #ff8d00;
+        background-color: $dashboard-color-orange;
     }
 
     .color-5 {
@@ -46,7 +46,7 @@
     }
 
     .color-6 {
-        background-color: #b0b0b0;
+        background-color: #909090;//#b0b0b0
     }
 
     &.solid {
@@ -218,23 +218,23 @@
         }
 
         .color-1 {
-            background-color: --shchme-color-learner1;
+            background-color: $dashboard-color-mint;
         }
 
         .color-2 {
-            background-color: --shchme-color-learner3;
+            background-color: $Y500;
         }
 
         .color-3 {
-            background-color: --shchme-color-learner4;
+            background-color: $dashboard-color-orange;
         }
 
         .color-4 {
-            background-color: --shchme-color-learner5;
+            background-color: --shchme-color-learner;
         }
 
         .color-5 {
-            background-color: $G400;
+            background-color: $G500;
         }
     }
 }
@@ -257,7 +257,7 @@
         }
 
         .color-2 {
-            background-color: $G400;
+            background-color: $G500;//$G400
         }
 
         .color-3 {
@@ -285,11 +285,11 @@
         }
 
         .color-2 {
-            background-color: $G400;
+            background-color: var(--shchme-color-learner5);
         }
 
         .color-3 {
-            background-color: $Y500;
+            background-color: var(--shchme-color-learner2);
         }
 
         p {

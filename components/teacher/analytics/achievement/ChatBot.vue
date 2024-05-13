@@ -3,11 +3,17 @@
         <div class="top d-flex align-center">
             <div class="mgr30">
                 <!-- 활성화 일경우 .cuteTalk_active -->
-                <p class="ico cuteTalk_active">1</p>
-                <p class="ico cuteTalk_basis">2</p>
-                <p class="ico cuteTalk_basis">3</p>
-                <p class="ico cuteTalk_basis">4</p>
-                <p class="ico cuteTalk_basis">5</p>
+                <p
+                    v-for="n in 5"
+                    :key="n"
+                    class="ico"
+                    :class="{
+                        cuteTalk_active: curitalkContentsState?.curiTalkLearningCount === n,
+                        cuteTalk_basis: curitalkContentsState?.curiTalkLearningCount !== n
+                    }"
+                >
+                    {{ n }}
+                </p>
             </div>
             <h3 class="bullet">
                 학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.
@@ -15,7 +21,7 @@
         </div>
         <v-sheet class="bottom mgt20">
             <div class="chat-list">
-                <div v-for="(item, index) in temp" :key="index" class="group d-flex align-center">
+                <div v-for="(item, index) in curitalkContentsState?.resultList" :key="index" class="group d-flex align-center">
                     <div class="curi-box">
                         <div class="d-flex align-center">
                             <div class="avatar avatar-box">
@@ -25,7 +31,7 @@
                                     class="avatar-item avatar-item-60 border-none"
                                 />
                             </div>
-                            <p class="ml-2 txt">{{ item.curi }}</p>
+                            <p class="ml-2 txt">{{ item.curiTalkSentence }}</p>
                         </div>
                     </div>
                     <div class="student">
@@ -37,11 +43,15 @@
                                     class="avatar-item avatar-item-60"
                                 />
                             </div>
-
-                            <p :ref="`textContainers[${index}]`" @mouseup="handleMouseUp(index)" class="ml-2 txt mgr20">
-                                {{ item.student }}
+                            <p
+                                :ref="`textContainers[${index}]`"
+                                @mouseup="handleMouseUp(index)"
+                                class="ml-2 txt mgr20"
+                                :id="'sentence' + item.studentSentenceId"
+                            >
+                                {{ item.studentSentence }}
                             </p>
-                            <v-btn v-if="isTextSelected[index]" rounded flat class="primary" @click="openRegisterModal(index)"
+                            <v-btn v-if="isTextSelected[index]" rounded flat class="primary" @click="openRegisterModal(index, item)"
                                 >미노출 등록</v-btn
                             >
                         </div>
@@ -61,28 +71,46 @@
     </div>
 </template>
 <script setup>
+const props = defineProps({ item: Object });
 const { modalData, openModal } = useModalStore();
-const textContainers = ref([null, null, null]);
+const learnStore = useApiLearnStore();
+const calendarStore = useApiCalendarStore();
+const { formatDate } = storeToRefs(calendarStore);
+const { curitalkContentsState } = storeToRefs(learnStore);
+
 const isTextSelected = ref([false, false, false]);
 const registerIndex = ref(0);
-const temp = ref([
-    {
-        curi: 'How are you?',
-        student: 'Not so mad'
-    },
-    {
-        curi: 'What is your name?',
-        student: 'I`m 9살이야'
-    },
-    {
-        curi: 'How are you? How are you? How are you? How are you?',
-        student: 'Thank you'
-    }
-]);
+const selectedSentenceId = ref(null);
 
-onMounted(() => {
-    // TODO API 호출 및 초기 진입 시 드래그 처리
+// API 호출 및 초기 진입 시 드래그 처리
+onMounted(async () => {
+    const { chId, sessId, studUuid } = props.item;
+    await learnStore.getLearnCuritalkContents({ date: formatDate.value, chId, sessId, studUuid });
+    markSelectedText();
 });
+
+const markSelectedText = () => {
+    curitalkContentsState.value.resultList.forEach(item => {
+        const selectedText = item.selectedSentence;
+        if (selectedText) {
+            const sentence = document.getElementById('sentence' + item.studentSentenceId);
+            const words = sentence.textContent.split(' ');
+            //새로운 문장 내용을 구성하여 이전 내용을 대체
+            let newSentenceHTML = '';
+            words.forEach((word, index) => {
+                if (word === selectedText) {
+                    const spanHTML = `<span class="text-drag text-register">${word}</span>`;
+                    newSentenceHTML += (index === 0 ? '' : ' ') + spanHTML;
+                } else {
+                    newSentenceHTML += (index === 0 ? '' : ' ') + word;
+                }
+            });
+            // 현재 문장을 비우고 새 HTML 내용을 삽입
+            sentence.textContent = ''; // 기존 텍스트 비우기
+            sentence.insertAdjacentHTML('afterbegin', newSentenceHTML); // 요소의 첫 번째 자식 요소 바로 앞에 html을 삽입 (afterbegin)
+        }
+    });
+};
 
 const handleMouseUp = index => {
     const selection = window.getSelection();
@@ -105,18 +133,32 @@ const wrapSelectedTextWithSpan = index => {
     range.insertNode(span);
 };
 
-const openRegisterModal = index => {
+const openRegisterModal = (index, item) => {
     openModal({ type: 'text-register', buttonLabels: ['취소', '등록'] });
     registerIndex.value = index;
+    selectedSentenceId.value = item.studentSentenceId;
 };
-const register = () => {
-    // TODO 등록 API 호출
+const register = async () => {
     if (true) {
         //성공 시나리오
+        const { chId, sessId, studUuid } = props.item;
         const dragElements = document.querySelectorAll(`.text-drag-${registerIndex.value}`);
+
+        let selectedWord = '';
         dragElements.forEach(element => {
             element.classList.add('text-register');
+            selectedWord = element.innerHTML;
         });
+
+        // 미노출 단어 등록 API 호출
+        await learnStore.postLearnCuritalkUnexposedWords({
+            studentSentenceId: selectedSentenceId.value,
+            selectedWord,
+            chId,
+            sessId,
+            studUuid
+        });
+
         isTextSelected.value[registerIndex.value] = false;
         openModal({ type: 'text-register-success', buttonLabels: ['확인'] });
     } else {
@@ -124,16 +166,3 @@ const register = () => {
     }
 };
 </script>
-<style>
-/* TODO 퍼블리싱 작업 */
-.text-drag {
-    height: 3.8rem;
-    background: #2ac0aa;
-    border-radius: 1rem;
-    z-index: -1;
-}
-.text-register {
-    background: black !important;
-    color: white;
-}
-</style>

@@ -28,7 +28,7 @@ export const useApiEncourageStore = defineStore(
          * AI 진단평가 > 독려메세지 대상 조회
          */
         const getEncourage = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/encouragementMessageTarget`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/encouragementMessageTarget`, {
                 method: 'get'
             });
             if (data.value) {

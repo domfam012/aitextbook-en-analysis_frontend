@@ -19,8 +19,6 @@ interface ClassProps {
         test: string;
     };
 }
-const ANALITICS_URL = 'dashboard/learningAnalytics';
-const defaultUrl = `/teacher/${ANALITICS_URL}`;
 
 /**
  * 독려메시지
@@ -48,7 +46,7 @@ export const useApiTeacherClassStore = defineStore(
          * GET
          **/
         const getClassColorBoard = async (type: string) => {
-            const { data } = await useCustomFetch(`${defaultUrl}/${type}`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/${type}`, {
                 method: 'get'
             });
             if (data.value) {
@@ -61,7 +59,7 @@ export const useApiTeacherClassStore = defineStore(
          * GET
          **/
         const getClassVocaRanking = async (type: string, date: string) => {
-            const { data } = await useCustomFetch(`${defaultUrl}/${type}`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/${type}`, {
                 method: 'get',
                 query: {
                     date: date
@@ -77,7 +75,7 @@ export const useApiTeacherClassStore = defineStore(
          * GET
          **/
         const getClassVocaIndividualStatus = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/individualWordLearningStatus`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/individualWordLearningStatus`, {
                 method: 'get'
             });
             if (data.value) {
@@ -89,7 +87,7 @@ export const useApiTeacherClassStore = defineStore(
          * 누적학습기록 > 얼마나 자주
          **/
         const getClassCumulativeRecordOften = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/howOften`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/howOften`, {
                 method: 'get'
             });
             if (data.value) {
@@ -101,7 +99,7 @@ export const useApiTeacherClassStore = defineStore(
          * 누적학습기록 > 얼마나 많이
          **/
         const getClassCumulativeRecordOMany = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/howMuch`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/howMuch`, {
                 method: 'get'
             });
             if (data.value) {
@@ -113,7 +111,7 @@ export const useApiTeacherClassStore = defineStore(
          * 누적학습기록 > 얼마나 오래
          */
         const getClassCumulativeRecordOLong = async () => {
-            const { data } = await useCustomFetch(`${defaultUrl}/howLong`, {
+            const { data } = await useCustomFetch(`/teacher/dashboard/learningAnalytics/howLong`, {
                 method: 'get'
             });
 

@@ -1,0 +1,16 @@
+.no_image {
+  position: relative;
+  height: 21rem;
+
+  p {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding-top: 11rem;
+    background: url('@/assets/images/img_no_image.svg') no-repeat top center/ 10rem;
+    @include font_body3();
+    text-align: center;
+    transform: translateY(-50%);
+  }
+}

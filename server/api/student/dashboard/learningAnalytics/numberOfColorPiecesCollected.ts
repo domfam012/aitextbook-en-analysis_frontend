@@ -6,23 +6,23 @@ const data = {
     success: true,
     dataSize: 1,
     timestamp: '2024-03-29 01:33:02',
-    data: {
-        dt: '2024-04-03T08:58:22.438Z',
-        semId: 0,
-        studName: '홍길동',
-        studNo: 2,
-        clssUuid: 'string',
-        tchrUuid: 'string',
-        studUuid: 'string',
-        hstTyp: 'string',
-        colorLstnnCnt: 0,
-        colorSpkngCnt: 0,
-        colorRedngCnt: 0,
-        colorWritngCnt: 0,
-        colorViewCnt: 0,
-        colorPrsntCnt: 0,
-        etlDttm: '2024-04-03T08:58:22.439Z'
-    }
+    data: [
+        {
+            dt: null,
+            semId: 9,
+            clssUuid: 'ffb159c8-adbf-11ee-a85f-6045bd452244',
+            tchrUuid: '38ed0aa3-b79a-11eb-b9bd-a0d3c1f90e3c',
+            studUuid: 'ba294ecc-0e2b-4fa9-8baa-111111111113',
+            hstTyp: '01',
+            colorLstnnCnt: 32,
+            colorSpkngCnt: 30,
+            colorRedngCnt: 28,
+            colorWritngCnt: 26,
+            colorViewCnt: 24,
+            colorPrsntCnt: 22,
+            etlDttm: null
+        }
+    ]
 };
 
 export default defineEventHandler(() => {
