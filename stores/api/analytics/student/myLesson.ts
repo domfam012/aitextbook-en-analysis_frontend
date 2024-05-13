@@ -162,12 +162,12 @@ export const useApiMyLessonStore = defineStore(
                             type: 'radar',
                             label: '학생',
                             data: [
-                                item.achvLstnnRt,
-                                item.achvSpkngRt,
-                                item.achvWritngRt,
-                                item.achvPrsntRt,
-                                item.achvViewRt,
-                                item.achvRedngRt
+                                item?.achvLstnnRt || 0,
+                                item?.achvSpkngRt || 0,
+                                item?.achvWritngRt || 0,
+                                item?.achvPrsntRt || 0,
+                                item?.achvViewRt || 0,
+                                item?.achvRedngRt || 0
                             ],
                             borderWidth: 3,
                             borderColor: '#46A7E5',
@@ -179,12 +179,12 @@ export const useApiMyLessonStore = defineStore(
                             type: 'radar',
                             label: '반 평균',
                             data: [
-                                item.avgAchvLstnnRtClass,
-                                item.avgAchvSpkngRtClass,
-                                item.avgAchvWritngRtClass,
-                                item.avgAchvPrsntRtClass,
-                                item.avgAchvViewRtClass,
-                                item.avgAchvRedngRtClass
+                                item?.avgAchvLstnnRtClass || 0,
+                                item?.avgAchvSpkngRtClass || 0,
+                                item?.avgAchvWritngRtClass || 0,
+                                item?.avgAchvPrsntRtClass || 0,
+                                item?.avgAchvViewRtClass || 0,
+                                item?.avgAchvRedngRtClass || 0
                             ],
                             borderWidth: 3,
                             borderColor: '#909090',
@@ -196,12 +196,12 @@ export const useApiMyLessonStore = defineStore(
                             type: 'radar',
                             label: '지역 평균',
                             data: [
-                                item.avgAchvLstnnRtArea,
-                                item.avgAchvSpkngRtArea,
-                                item.avgAchvPrsntRtArea,
-                                item.avgAchvWritngRtArea,
-                                item.avgAchvViewRtArea,
-                                item.avgAchvRedngRtArea
+                                item?.avgAchvLstnnRtArea || 0,
+                                item?.avgAchvSpkngRtArea || 0,
+                                item?.avgAchvPrsntRtArea || 0,
+                                item?.avgAchvWritngRtArea || 0,
+                                item?.avgAchvViewRtArea || 0,
+                                item?.avgAchvRedngRtArea || 0
                             ],
                             borderWidth: 3,
                             borderColor: '#FFBF00',
@@ -225,7 +225,7 @@ export const useApiMyLessonStore = defineStore(
                 method: 'get'
             });
             if (data.value) {
-                dateListState.value = data.value.data as MyLesson;
+                dateListState.value = data.value.data.reverse() as MyLesson;
             }
         };
 

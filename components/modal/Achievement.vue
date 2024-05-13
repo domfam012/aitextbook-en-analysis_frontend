@@ -67,7 +67,6 @@ const { dateListState } = storeToRefs(apiLessonStore);
 const { modalData, closeModal } = useModalStore();
 const dayjs = useDayjs();
 
-const achievement = ref(true);
 const select = ref({ state: '최근 7일', value: 7 });
 const items = ref([
     { state: '최근 7일', value: 7 },
@@ -88,5 +87,10 @@ const getAchievement = async () => {
 onMounted(async () => {
     await getDateList();
     await getAchievement();
+    const today = dayjs().format('YYYY-MM-DD');
+    const todayIndex = dateListState.value.findIndex(item => item.strYmd === today);
+    if (todayIndex !== -1) {
+        selectedDate.value = todayIndex;
+    }
 });
 </script>
