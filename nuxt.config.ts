@@ -6,7 +6,10 @@ export default defineNuxtConfig({
 
     css: ['@/assets/scss/index.scss'],
 
-    modules: ['vuetify-nuxt-module', '@pinia/nuxt', 'nuxt3-localforage', 'dayjs-nuxt'],
+    modules: ['@nuxtjs/i18n', 'vuetify-nuxt-module', '@pinia/nuxt', 'nuxt3-localforage', 'dayjs-nuxt'],
+    i18n: {
+        vueI18n: './i18n.config.js'
+    },
     dayjs: {
         locales: ['en', 'ko'],
         plugins: ['relativeTime', 'utc', 'timezone'],
