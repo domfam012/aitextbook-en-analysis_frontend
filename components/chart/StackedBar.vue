@@ -50,18 +50,19 @@
 const learnStore = useApiLearnStore();
 const lessonStore = useApiLessonStore();
 const courseStore = useApiCourseStore();
+const { t } = useI18n();
 
 const { lessonState, lessonCommonState } = storeToRefs(lessonStore);
 const { currentPage } = storeToRefs(learnStore);
 const { teacherLearningSessionState } = storeToRefs(courseStore);
 
 const learners = [
-    { level: 6, text: '미학습' },
-    { level: 5, text: '느린 학습자' },
-    { level: 4, text: '조금 느린 학습자' },
-    { level: 3, text: '중간 학습자' },
-    { level: 2, text: '조금 빠른 학습자' },
-    { level: 1, text: '빠른 학습자' }
+    { level: 6, text: t('chart.stackedBar.learners.level6') },
+    { level: 5, text: t('chart.stackedBar.learners.level5') },
+    { level: 4, text: t('chart.stackedBar.learners.level4') },
+    { level: 3, text: t('chart.stackedBar.learners.level3') },
+    { level: 2, text: t('chart.stackedBar.learners.level2') },
+    { level: 1, text: t('chart.stackedBar.learners.level1') }
 ];
 
 /**

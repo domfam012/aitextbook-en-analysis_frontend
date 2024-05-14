@@ -1,6 +1,6 @@
 <template>
     <div class="extra">
-        <p class="bullet">5점 만점 척도</p>
+        <p class="bullet">{{ t('chart.columnBar.scale') }}</p>
     </div>
     <div class="chart_contents type_column_bar">
         <Bar :data="emotionChart" :options="chartOptions" :plugins="[plugin]"></Bar>
@@ -9,6 +9,7 @@
 
 <script setup>
 import { Bar } from 'vue-chartjs';
+const { t } = useI18n();
 const { emotionChart } = storeToRefs(useApiRecordHistoryStore());
 const chartOptions = ref({
     maintainAspectRatio: false,
@@ -25,14 +26,14 @@ const chartOptions = ref({
             },
             ticks: {
                 color: '#171717',
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     var size = Math.round(height / 25); // 1920에 16
                     return {
                         family: 'NotoSansKR',
                         size: size * 1.25,
-                        weight: 500,
-                    }
+                        weight: 500
+                    };
                 },
                 autoSkip: false
             }
@@ -53,15 +54,15 @@ const chartOptions = ref({
             ticks: {
                 padding: 10,
                 color: '#171717',
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                     var size = Math.round(height / 25);
                     return {
                         family: 'NotoSansKR',
                         size: size,
-                        weight: 500,
-                    }
+                        weight: 500
+                    };
                 },
                 callback: function (value, index, values) {
                     // 레이블에 소수점 이하 값이 있는 경우에만 소수점을 표시합니다.

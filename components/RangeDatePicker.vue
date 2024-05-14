@@ -36,6 +36,7 @@ const dayjs = useDayjs();
 const { openAlert } = useAlertStore();
 const apiMyLessonStore = useApiMyLessonStore();
 const { selectedDateState } = storeToRefs(apiMyLessonStore);
+const { t } = useI18n();
 
 const emit = defineEmits(['updateRange']);
 
@@ -49,7 +50,7 @@ const updateRange = val => {
 
     if (differenceInDays > 30) {
         openAlert({
-            message: `정확한 분석을 위해 최대 30일까지 조회만 가능합니다.`
+            message: t('common.rageDatePicker.warningMsg')
         });
     } else {
         emit('updateRange', {

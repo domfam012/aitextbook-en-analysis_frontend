@@ -3,7 +3,7 @@
         <div class="chart_contents type_donut">
             <canvas ref="chart" width="348" height="348"></canvas>
             <div class="text_wrap">
-                <span>얼마나</span>
+                <span>{{ t('chart.doughnut.how') }}</span>
                 <strong>{{ getTypeText }}</strong>
             </div>
         </div>
@@ -14,23 +14,33 @@
             </div>
             <div v-if="props.type === 'much'" v-for="(count, index) in props.legend" :key="index" class="use-word">
                 <span class="bullet" :class="`color-${index + 1}`"></span>
-                <p v-if="count === Number.MAX_SAFE_INTEGER" class="legend-text">색깔 조각 {{ props.legend.length }}개 이상</p>
-                <p v-else-if="index === props.legend.length - 1" class="legend-text">색깔 조각 {{ count }}개 미만</p>
-                <p v-else class="legend-text">색깔 조각 {{ count }}~{{ props.legend[index + 1] - 1 }}개</p>
+                <p v-if="count === Number.MAX_SAFE_INTEGER" class="legend-text">
+                    {{ t('chart.doughnut.colorPiece') }} {{ props.legend.length }}{{ t('chart.doughnut.numOrMore') }}
+                </p>
+                <p v-else-if="index === props.legend.length - 1" class="legend-text">
+                    {{ t('chart.doughnut.colorPiece') }} {{ count }}{{ t('chart.doughnut.lessThanNum') }}
+                </p>
+                <p v-else class="legend-text">{{ t('chart.doughnut.colorPiece') }} {{ count }}~{{ props.legend[index + 1] - 1 }}개</p>
             </div>
             <div v-if="props.type === 'long'" v-for="(time, idx) in props.legend" :key="idx" class="use-word">
                 <span class="bullet" :class="`color-${idx + 1}`"></span>
-                <p v-if="idx === 0" class="legend-text">누적 학습 시간 {{ time }}분 이상</p>
-                <p v-else-if="idx === props.legend.length - 1" class="legend-text">
-                    누적 학습 시간 {{ props.legend[props.legend.length - 1] }}분 이하
+                <p v-if="idx === 0" class="legend-text">
+                    {{ t('chart.doughnut.cumulativeLearningTime') }} {{ time }}{{ t('chart.doughnut.minutesOrMore') }}
                 </p>
-                <p v-else class="legend-text">누적 학습 시간 {{ time }}~{{ props.legend[idx - 1] - 1 }}분</p>
+                <p v-else-if="idx === props.legend.length - 1" class="legend-text">
+                    {{ t('chart.doughnut.cumulativeLearningTime') }} {{ props.legend[props.legend.length - 1]
+                    }}{{ t('chart.doughnut.minutesOrLess') }}
+                </p>
+                <p v-else class="legend-text">
+                    {{ t('chart.doughnut.cumulativeLearningTime') }} {{ time }}~{{ props.legend[idx - 1] - 1 }}{{ t('common.unit.min') }}
+                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+const { t } = useI18n();
 const { $Chart } = useNuxtApp();
 const props = defineProps({
     type: String,
@@ -41,13 +51,13 @@ const chart = ref(null);
 
 const getTypeText = computed(() => {
     if (props.type === 'often') {
-        return '자주';
+        return t('chart.doughnut.often');
     }
     if (props.type === 'much') {
-        return '많이';
+        return t('chart.doughnut.much');
     }
     if (props.type === 'long') {
-        return '오래';
+        return t('chart.doughnut.long');
     }
 });
 

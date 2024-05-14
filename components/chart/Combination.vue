@@ -8,6 +8,7 @@
 const props = defineProps({
     chartData: Object
 });
+
 const { $Chart } = useNuxtApp();
 const chart = ref(null);
 const chartOptions = ref({
@@ -20,15 +21,15 @@ const chartOptions = ref({
             },
             ticks: {
                 color: '#171717',
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                     var size = Math.round(height / 40);
                     return {
                         family: 'NotoSansKR',
                         size: size,
-                        weight: 500,
-                    }
+                        weight: 500
+                    };
                 }
             }
         },
@@ -50,15 +51,15 @@ const chartOptions = ref({
             },
             ticks: {
                 color: '#171717',
-                font: function(context){
+                font: function (context) {
                     var height = context.chart.height;
                     // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                     var size = Math.round(height / 40);
                     return {
                         family: 'NotoSansKR',
                         size: size,
-                        weight: 500,
-                    }
+                        weight: 500
+                    };
                 },
                 padding: 20,
                 callback: value => {
@@ -75,7 +76,7 @@ const chartOptions = ref({
         },
 
         legend: {
-            labels: function(context){
+            labels: function (context) {
                 var height = context.chart.height;
                 // var size의 값이 최소 사이즈시 12가 되도록 잡아 주세요.
                 var size = Math.round(height / 40);
@@ -92,8 +93,8 @@ const chartOptions = ref({
                     },
                     boxWidth: size,
                     boxHeight: size,
-                    padding: size * 1.25,
-                }
+                    padding: size * 1.25
+                };
             },
             onClick: null,
             position: 'bottom'

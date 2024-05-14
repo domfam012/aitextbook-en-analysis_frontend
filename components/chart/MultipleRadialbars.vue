@@ -8,6 +8,7 @@ const props = defineProps({
     values: Array, // values는 배열 형태의 Props
     circleValue: Object // circleValue는 객체 형태의 Props
 });
+const { t } = useI18n();
 
 // datasets 예시 [[값, 색상, 마커 값], [...]]
 // const values = [
@@ -104,7 +105,7 @@ const redraw = () => {
         ctx.font = `bold ${10 * ratio}px Arial`;
         ctx.fillText('%', centerX + 10, centerY - 10);
         ctx.font = `bold ${10 * ratio}px Arial`;
-        ctx.fillText(props.circleValue.totalCount + '개', centerX, centerY + 8 * ratio);
+        ctx.fillText(props.circleValue.totalCount + t('common.unit.num'), centerX, centerY + 8 * ratio);
     };
     // 애니메이션 함수
     const animate = () => {

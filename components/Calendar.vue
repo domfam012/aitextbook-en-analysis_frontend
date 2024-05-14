@@ -3,7 +3,7 @@
         <div class="datepicker">
             <v-btn @click="resetDatepicker" flat rounded size="x-small" class="reset_btn">
                 <i class="ico calendar_refresh"></i>
-                <span class="blind">새로고침</span>
+                <span class="blind"> {{ t('common.button.refresh') }}</span>
             </v-btn>
             <DatePicker
                 v-model="selectedDate"
@@ -12,7 +12,7 @@
                 class="my-calendar"
                 :attributes="props.student ? attributesStudent : attributes"
                 :select-attribute="selectAttribute"
-                :masks="{ title: 'YYYY년 MMM' }"
+                :masks="{ title: t('common.calendar.masks') }"
                 is-required
                 @did-move="handleCalendar($event[0].id)"
             >
@@ -33,7 +33,7 @@
                     </span>
                 </div>
             </template>
-            <p class="notice" v-if="mode === 'teacher' && type === 'record'">생활기록부 작성 기간이 10일 남았습니다.</p>
+            <p class="notice" v-if="mode === 'teacher' && type === 'record'">{{ t('common.calendar.notice') }}</p>
         </div>
     </v-card>
 </template>
@@ -50,6 +50,7 @@ const { selectedDate, currentMonth, comList, plnList, rptList } = storeToRefs(ca
 const mode = useCookie('mode');
 const type = useCookie('type');
 const dayjs = useDayjs();
+const { t } = useI18n();
 
 // state
 const date = new Date();
@@ -90,7 +91,7 @@ const handleCalendar = async date => {
 
     attributes.value = [
         {
-            key: '수업 예정일',
+            key: t('common.calendar.scheduledClass'),
             class: 'unsubmission',
             highlight: {
                 style: {
@@ -103,7 +104,7 @@ const handleCalendar = async date => {
             dates: plnList.value
         },
         {
-            key: '수업 완료일',
+            key: t('common.calendar.completedClass'),
             class: 'submission',
             highlight: {
                 style: {
@@ -115,7 +116,7 @@ const handleCalendar = async date => {
     ];
     if (mode.value === 'teacher' && type.value === 'record') {
         attributes.value.push({
-            key: '생활기록부 발행 기간',
+            key: t('common.calendar.issuePeriod'),
             class: 'period',
             highlight: {
                 start: { fillMode: 'light' },

@@ -2,9 +2,9 @@
     <!-- 테이블 -->
     <div class="grade">
         <v-card>
-            <v-btn v-if="!isEditMode" @click="handleResetSelectedItem" rounded flat size="x-small" class="primary position-absolute"
-                >선택 초기화</v-btn
-            >
+            <v-btn v-if="!isEditMode" @click="handleResetSelectedItem" rounded flat size="x-small" class="primary position-absolute">{{
+                t('table.edit.reset')
+            }}</v-btn>
             <v-data-table
                 :headers="achievementHeaders"
                 :items="isEditMode ? personalListOfQualification.filter(data => data.selectedFlag) : personalListOfQualification"
@@ -40,7 +40,7 @@
                         <td v-else :class="item.selectedFlag && 'active'" @click="handleSelectItem(item, index)">
                             <div class="edit_text_wrap">
                                 <span>{{ item.sentence }}</span>
-                                <span>{{ item.studentCount }}명</span>
+                                <span>{{ item.studentCount }}{{ t('common.unit.person') }}</span>
                             </div>
                         </td>
                     </tr>
@@ -53,14 +53,16 @@
 <script setup>
 const { isEditMode, personalListOfQualification, qualificationByUnitStudentList, unitType } = storeToRefs(useApiRecordGradeStore());
 const { selectedStudentIndex } = storeToRefs(useApiRecordStore());
+const { t } = useI18n();
+
 //현재학기
 const { semesterInProgress } = storeToRefs(useApiRecordHistoryStore());
 
 const itemPerPage = 25;
 const achievementHeaders = [
-    { title: 'Lesson', key: 'chNumber' },
-    { title: '수준', key: 'levelName' },
-    { title: '교과 학습 발달 사항', key: 'text', sortable: false }
+    { title: t('table.edit.headers.lesson'), key: 'chNumber' },
+    { title: t('table.edit.headers.level'), key: 'levelName' },
+    { title: t('table.edit.headers.developments'), key: 'text', sortable: false }
 ];
 
 /**

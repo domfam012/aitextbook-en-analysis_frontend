@@ -21,10 +21,13 @@
             "scale": "5점 만점 척도"
         },
         "doughnut": {
+            "often": "자주",
+            "much": "많이",
+            "long": "오래",
             "how": "얼마나",
             "colorPiece": "색깔 조각",
             "numOrMore": "개 이상",
-            "lessThanNUm": "개 미만",
+            "lessThanNum": "개 미만",
             "cumulativeLearningTime": "누적 학습 시간",
             "minutesOrMore": "분 이상",
             "minutesOrLess": "분 이하"
@@ -40,7 +43,7 @@
                 "level6": "미학습"
             }
         },
-        "stackedColumnBar": {
+        "stackedColumn": {
             "understanding": "이해",
             "listening": "듣기",
             "speaking": "말하기"
@@ -74,7 +77,8 @@
     "table": {
         "carousel": {
             "unlearning": "미학습",
-            "waitLearning": "학습대기"
+            "waitLearning": "학습대기",
+            "unit": "단원"
         },
         "edit": {
             "reset": "선택 초기화",
@@ -102,9 +106,11 @@
             "content2": "시 이후에 분석됩니다."
         },
         "calendar": {
+            "notice": "생활기록부 작성 기간이 10일 남았습니다.",
+            "masks": "YYYY년 MMM",
             "scheduledClass": "수업 예정일",
             "completedClass": "수업 완료일",
-            "IssuePeriod": "생활기록부 발행 기간"
+            "issuePeriod": "생활기록부 발행 기간"
         },
         "empty": {
             "studentRecord": "생활 기록부",

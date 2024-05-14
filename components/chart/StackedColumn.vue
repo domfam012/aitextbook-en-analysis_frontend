@@ -6,15 +6,15 @@
         <div class="chart-bar">
             <div class="use-word">
                 <span class="bullet color-1"></span>
-                <p>이해</p>
+                <p>{{ t('chart.stackedColumn.understanding') }}</p>
             </div>
             <div class="use-word">
                 <span class="bullet color-2"></span>
-                <p>듣기</p>
+                <p>{{ t('chart.stackedColumn.listening') }}</p>
             </div>
             <div class="use-word">
                 <span class="bullet color-3"></span>
-                <p>말하기</p>
+                <p>{{ t('chart.stackedColumn.speaking') }}</p>
             </div>
         </div>
     </div>
@@ -22,6 +22,8 @@
 
 <script setup>
 const { $Chart } = useNuxtApp();
+const { t } = useI18n();
+
 const chart = ref(document.getElementsByTagName('canvas'));
 
 const chartData = ref({
@@ -29,7 +31,7 @@ const chartData = ref({
     datasets: [
         {
             type: 'bar',
-            label: '이해',
+            label: t('chart.stackedColumn.understanding'),
             data: [3, 11, 6, 10, 10, 13],
             backgroundColor: '#46A7E5',
             stack: 'word',
@@ -37,7 +39,7 @@ const chartData = ref({
         },
         {
             type: 'bar',
-            label: '듣기',
+            label: t('chart.stackedColumn.listening'),
             data: [3, 11, 6, 10, 10, 13],
             backgroundColor: '#FD6E7F',
             stack: 'word',
@@ -45,7 +47,7 @@ const chartData = ref({
         },
         {
             type: 'bar',
-            label: '말하기',
+            label: t('chart.stackedColumn.speaking'),
             data: [3, 11, 6, 10, 10, 13],
             backgroundColor: '#8DBB2C',
             stack: 'word',

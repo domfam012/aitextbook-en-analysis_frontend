@@ -44,7 +44,7 @@
                                         }"
                                     >
                                         <span v-if="item[idx]?.emblem !== '00'">{{ addPercentIfNumber(item[idx]) }}</span>
-                                        <span v-else-if="item[idx]?.emblem === '00'">미학습</span>
+                                        <span v-else-if="item[idx]?.emblem === '00'">{{ t('table.carousel.unlearning') }}</span>
                                         <i
                                             v-if="item[idx]"
                                             class="ico"
@@ -56,7 +56,7 @@
                                         <!-- 과제보내기 가능  -->
                                         <i class="ico list" v-if="item[idx]?.stamp === 3" />
                                     </v-btn>
-                                    <span v-else-if="item[idx] === undefined">학습대기 </span>
+                                    <span v-else-if="item[idx] === undefined">{{ t('table.carousel.waitLearning') }} </span>
                                 </div>
                             </td>
                         </tr>
@@ -73,6 +73,7 @@
 <script setup>
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Navigation, Slide } from 'vue3-carousel';
+const { t } = useI18n();
 
 const learnStore = useApiLearnStore();
 const { currentPage } = storeToRefs(learnStore);
@@ -102,7 +103,7 @@ const studentInfo = props.lessonAccumulatedState.map(student => student.studentI
  * @type {{sortable: boolean, title: string, key: string}[]}
  */
 const tableUnitHead = Array.from({ length: lessonAccumulatedState.value.chapterCount }, (_, index) => ({
-    title: `${index + 1}단원`,
+    title: `${index + 1}${t('table.carousel.unit')}`,
     sortable: false,
     key: `lesson${index}`
 }));
@@ -131,7 +132,7 @@ const addPercentIfNumber = value => {
             return `${value.achvRtAvg}%`;
         }
     } else {
-        return '학습대기';
+        return t('table.carousel.unlearning');
     }
 };
 

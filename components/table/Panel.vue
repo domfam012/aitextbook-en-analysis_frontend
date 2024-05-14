@@ -14,16 +14,22 @@
                     <v-btn
                         @click="handleExpandPanel(idx, internalItem, column.key)"
                         variant="text"
-                        v-if="column.title !== '성취 기준 자기채점' && column.title !== '번호' && column.title !== '이름'"
-                        :class="{ type_blue_underline: column.title !== '번호' && column.title !== '이름' }"
+                        v-if="
+                            column.title !== t('table.panel.achvBaseScale') &&
+                            column.title !== t('table.panel.studId') &&
+                            column.title !== t('table.panel.studName')
+                        "
+                        :class="{
+                            type_blue_underline: column.title !== t('table.panel.studId') && column.title !== t('table.panel.studName')
+                        }"
                     >
                         {{ getItemValue(item, column, idx) }}
                     </v-btn>
-                    <div variant="text" v-else-if="column.title === '번호' || column.title === '이름'">
+                    <div variant="text" v-else-if="column.title === t('table.panel.studId') || column.title === t('table.panel.studName')">
                         {{ getItemValue(item, column, idx) }}
                     </div>
                     <span
-                        v-if="column.title === '성취 기준 자기채점'"
+                        v-if="column.title === t('table.panel.achvBaseScale')"
                         class="ico table_center ico_size_10"
                         :class="getItemValue(item, column, idx) > 2 ? 'type_complete' : 'type_uncompleted'"
                     ></span>
@@ -56,6 +62,7 @@
 
 <script setup>
 const learnStore = useApiLearnStore();
+const { t } = useI18n();
 
 const { teacherColorMatchedGroupState, currentPage } = storeToRefs(learnStore);
 const expanded = ref([]);
@@ -66,14 +73,14 @@ const selectedIdx = ref({
 const isPanel = ref(null);
 
 const AchievementHeaders = [
-    { title: '번호', key: 'studId', align: 'center', sortable: false },
-    { title: '이름', key: 'studName', align: 'center', sortable: true },
-    { title: '학업 성취율', key: 'achvRtAvg', align: 'center', sortable: false },
-    { title: '필기노트', key: 'wrtngNoteCnt', align: 'center', sortable: false },
-    { title: '드릴 학습 참여 건수', key: 'drillPrtcpCnt', align: 'center', sortable: false },
-    { title: '단어 학습', key: 'wrdLrnCnt', align: 'center', sortable: false },
-    { title: '챗봇 학습', key: 'chtLrnCnt', align: 'center', sortable: false },
-    { title: '성취 기준 자기채점', key: 'achvBaseScale', align: 'center', sortable: false }
+    { title: t('table.panel.studId'), key: 'studId', align: 'center', sortable: false },
+    { title: t('table.panel.studName'), key: 'studName', align: 'center', sortable: true },
+    { title: t('table.panel.achvRtAvg'), key: 'achvRtAvg', align: 'center', sortable: false },
+    { title: t('table.panel.wrtngNoteCnt'), key: 'wrtngNoteCnt', align: 'center', sortable: false },
+    { title: t('table.panel.drillPrtcpCnt'), key: 'drillPrtcpCnt', align: 'center', sortable: false },
+    { title: t('table.panel.wrdLrnCnt'), key: 'wrdLrnCnt', align: 'center', sortable: false },
+    { title: t('table.panel.chtLrnCnt'), key: 'chtLrnCnt', align: 'center', sortable: false },
+    { title: t('table.panel.achvBaseScale'), key: 'achvBaseScale', align: 'center', sortable: false }
 ];
 /**
  * 렌더링 분기처리
@@ -84,10 +91,10 @@ const AchievementHeaders = [
  */
 const getItemValue = (item, column, index) => {
     let value = item[column.key];
-    if (column.title === '챗봇 학습') {
-        value += '회';
+    if (column.title === t('table.panel.chtLrnCnt')) {
+        value += t('common.unit.cnt');
     }
-    if (column.title === '학업 성취율') {
+    if (column.title === t('table.panel.achvRtAvg')) {
         value += '%';
     }
     return value;
