@@ -16,16 +16,161 @@
         },
         "noDataText": "해당 데이터가 없습니다."
     },
-    "chart": {},
-    "modal": {},
-    "table": {},
+    "chart": {
+        "columnBar": {
+            "scale": "5점 만점 척도"
+        },
+        "doughnut": {
+            "how": "얼마나",
+            "colorPiece": "색깔 조각",
+            "numOrMore": "개 이상",
+            "lessThanNUm": "개 미만",
+            "cumulativeLearningTime": "누적 학습 시간",
+            "minutesOrMore": "분 이상",
+            "minutesOrLess": "분 이하"
+        },
+        "stackedBar": {
+            "title": "각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.",
+            "learners": {
+                "level1": "빠른 학습자",
+                "level2": "조금 빠른 학습자",
+                "level3": "중간 학습자",
+                "level4": "조금 느린 학습자",
+                "level5": "느린 학습자",
+                "level6": "미학습"
+            }
+        },
+        "stackedColumnBar": {
+            "understanding": "이해",
+            "listening": "듣기",
+            "speaking": "말하기"
+        }
+    },
+    "modal": {
+        "achievement": {
+            "my": "나의",
+            "achievementArea": "영역별 학업 성취율",
+            "student": "학생",
+            "classAverage": "반 평균",
+            "regionalAverage": "지역 평균",
+            "last7day": "최근 7일",
+            "last15day": "최근 15일",
+            "last20day": "최근 20일"
+        },
+        "coloringBoard": {
+            "title": "숫자 색칠판 완성하기",
+            "tab1": "수집한 색깔 조각",
+            "tab2": "남은 색깔 조각",
+            "teacherStamp": "선생님의 도장이 찍힌 도안은 색깔 조각을 옮길 수 없습니다.",
+            "listenColorPieces": "'듣기' 색깔 조각",
+            "readColorPieces": "'읽기' 색깔 조각",
+            "viewColorPieces": "'보기' 색깔 조각",
+            "talkingColorPieces": "'말하기' 색깔 조각",
+            "writeColorPieces": "'쓰기' 색깔 조각",
+            "feedbackStamp": "피드백 도장 보내기",
+            "studentStamp": "학생에게 어떤 도장을 보낼까요?"
+        }
+    },
+    "table": {
+        "carousel": {
+            "unlearning": "미학습",
+            "waitLearning": "학습대기"
+        },
+        "edit": {
+            "reset": "선택 초기화",
+            "headers": {
+                "lesson": "Lesson",
+                "level": "수준",
+                "developments": "교과 학습 발달 사항"
+            }
+        },
+        "panel": {
+            "studId": "번호",
+            "studName": "이름",
+            "achvRtAvg": "학업 성취율",
+            "wrtngNoteCnt": "필기노트",
+            "drillPrtcpCnt": "드릴 학습 참여 건수",
+            "wrdLrnCnt": "단어 학습",
+            "chtLrnCnt": "챗봇 학습",
+            "achvBaseScale": "성취 기준 자기채점"
+        }
+    },
     "common": {
-        "authInfo": {},
-        "calendar": {},
-        "empty": {}
+        "authInfo": {
+            "title": "오늘 로그인 횟수",
+            "content": "오늘 학습한 내용은",
+            "content2": "시 이후에 분석됩니다."
+        },
+        "calendar": {
+            "scheduledClass": "수업 예정일",
+            "completedClass": "수업 완료일",
+            "IssuePeriod": "생활기록부 발행 기간"
+        },
+        "empty": {
+            "studentRecord": "생활 기록부",
+            "content": "2024년 {currentSemester}학기 생활 기록부가 발행 전입니다.",
+            "button": "2024년 1학기 생활 기록부 불러오기"
+        },
+        "rangeDatePicker": {
+            "warningMsg": "정확한 분석을 위해 최대 30일까지 조회만 가능합니다."
+        },
+        "button": {
+            "cancel": "취소",
+            "save": "저장",
+            "refresh": "새로고침",
+            "prev": "이전",
+            "next": "다음",
+            "close": "닫기",
+            "reset": "초기화"
+        },
+        "unit": {
+            "hour": "시간",
+            "min": "분",
+            "no": "번",
+            "cnt": "회",
+            "person": "명",
+            "case": "건",
+            "num": "개"
+        }
     },
     "analytics": {},
     "record": {
-        "issuancePart": {}
+        "issuanceStatus": {},
+        "issuance": {
+            "grade": {},
+            "index": {}
+        },
+        "issuancePart": {
+            "button": {
+                "savePDF": "PDF 저장",
+                "print": "인쇄"
+            },
+            "title": {
+                "numOfLoginsAndTotalLearningTime": "로그인 횟수와 총 학습 시간",
+                "areaAchievementRate": "영역별 학업 성취율",
+                "unitAchievementRate": "단원별 학업 성취율",
+                "dayAverageLearningTime": "요일별 평균 학습 시간",
+                "emotionalWeather": "감정 날씨_학기 총계",
+                "learningSentiment": "학습 정서_학기 평균",
+                "unitDevelopment": "단원별 교과 학습 발달 사항",
+                "behavioralDevelopmentEvaluation": "담임 선생님의 행동 발달 평가 내용"
+            },
+            "textbookLearning": "교과서 학습",
+            "totalLearningTime": "총 학습 시간",
+            "drillLearning": "드릴 학습",
+            "AITouchVoca": "AI Touch Voca",
+            "AICURITalk": "AI CURI Talk",
+            "inquiryPeriod": "조회 기간: 학기 초 ~ 학기 말",
+            "halfAverage": "반 평균",
+            "regionalAverage": "지역 평균",
+            "behaviorContent": {
+                "first": "준법정신이 투철하여 학교 규칙을 엄격히 준수함.",
+                "second": "학교 규칙을 지키면서도 자발적으로 동기부여를 받아야 함을 이해하고 있음.",
+                "third": "자기중심적인 사고가 강하지만, 다른 사람의 의견을 존중하고 받아들일 수 있는 자세를 함양해야 함.",
+                "fourth": "교우관계 개선을 위해 협력과 공동 작업을 통해 다른 사람과의 협력능력을 향상시켜야 함.",
+                "fifth": "이기적인 행동을 줄이기 위해 함께 하는 즐거움과 공동 성취감을 강조하는 활동을 도입해야 함."
+            },
+            "warningMsg": "최대 2개 항목 이상 삭제가 불가능합니다."
+        }
     }
 }
