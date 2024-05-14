@@ -3,7 +3,7 @@
         <v-card class="dialog px30 py20" width="167.5rem" height="83rem">
             <div class="dialog_header">
                 <div class="inline_wrap gap1">
-                    <h1>나의</h1>
+                    <h1>{{ t('modal.achievement.my') }}</h1>
                     <v-select
                         v-model="select"
                         :items="items"
@@ -19,7 +19,7 @@
                         single-line
                         hide-details
                     ></v-select>
-                    <h1>진도 학습 이력</h1>
+                    <h1>{{ t('modal.progressInfo.progressHistory') }}</h1>
                 </div>
                 <v-btn class="icon_close" @click="closeModal"><i class="ico close_30 ico_size_lg"></i></v-btn>
             </div>
@@ -27,12 +27,12 @@
                 <div class="table_wrap scrollable_container">
                     <div class="inline_wrap">
                         <div class="inner_header">
-                            <span>완료한 학습 차시:</span>
+                            <span>{{ t('modal.progressInfo.lessonCompleted') }}</span>
                             <span class="font-color-orange">{{ myLessonState?.progressMolecule }}</span>
                             <span class="font-weight-bold">/{{ myLessonState?.progressDenominator }}</span>
                         </div>
                         <div class="extra">
-                            <span>누적 학습시간:</span>
+                            <span>{{ t('modal.progressInfo.cumulativeTime') }}</span>
                             <span class="font-weight-bold"
                                 >{{ myLessonState?.totalLeaningTimeHours }}:{{ myLessonState?.totalLeaningTimeMinutes }}</span
                             >
@@ -53,7 +53,9 @@
                                     <td>{{ item.sessId }}</td>
                                     <td>
                                         <div class="buttons gap05" v-if="item.writingNoteCount > 0">
-                                            <v-btn rounded flat size="small" class="color_green">차시 복습</v-btn>
+                                            <v-btn rounded flat size="small" class="color_green">{{
+                                                t('modal.progressInfo.afterClass')
+                                            }}</v-btn>
                                             <!-- !NOTE 노트 업로드 시 class="button_note"에 .upload 추가 됩니다. -->
                                             <v-btn
                                                 rounded
@@ -61,11 +63,13 @@
                                                 size="small"
                                                 class="button_note"
                                                 @click="expandPanel(toggleExpand, internalItem, item.sessId, item.chId)"
-                                                >노트</v-btn
+                                                >{{ t('modal.progressInfo.note') }}</v-btn
                                             >
                                         </div>
                                         <div class="buttons gap05" v-if="item.absncReviewYn">
-                                            <v-btn rounded flat size="small" class="color_red">결석 복습</v-btn>
+                                            <v-btn rounded flat size="small" class="color_red">{{
+                                                t('modal.progressInfo.absenceReview')
+                                            }}</v-btn>
                                         </div>
                                     </td>
 
@@ -119,6 +123,7 @@
 </template>
 <script setup>
 import dayjs from 'dayjs';
+const { t } = useI18n();
 const lessonStore = useApiMyLessonStore();
 const { myLessonState, lessonDetailState } = storeToRefs(lessonStore);
 
@@ -127,17 +132,17 @@ const { modalData, closeModal } = useModalStore();
 
 const expanded = ref([]);
 
-const select = ref({ state: '학기 전체' }); // 선택된 셀렉트 초기값
-const items = ref([{ state: '학기 전체' }]); // 전체 셀렉트
+const select = ref({ state: t('modal.progressInfo.wholeSemester') }); // 선택된 셀렉트 초기값
+const items = ref([{ state: t('modal.progressInfo.wholeSemester') }]); // 전체 셀렉트
 
 const lessonHeaders = [
-    { title: 'Lesson', key: 'chName', align: 'center', sortable: false, width: '18%' },
-    { title: '차시', key: 'sessId', align: 'center', sortable: false, width: '6%' },
-    { title: '학습 바로가기', key: 'noteYn', align: 'center', sortable: false, width: '15%' },
-    { title: '학습내용', key: 'sectionList', align: 'center', sortable: false, width: '30%' },
-    { title: '학습날짜', key: 'date', align: 'center', sortable: false, width: '10%' },
-    { title: '학습한 시간', key: 'time', align: 'center', sortable: false, width: '10%' },
-    { title: '완료율', key: 'percent', align: 'center', sortable: false, width: '6%' }
+    { title: t('modal.progressInfo.chName'), key: 'chName', align: 'center', sortable: false, width: '18%' },
+    { title: t('modal.progressInfo.sessId'), key: 'sessId', align: 'center', sortable: false, width: '6%' },
+    { title: t('modal.progressInfo.noteYn'), key: 'noteYn', align: 'center', sortable: false, width: '15%' },
+    { title: t('modal.progressInfo.sectionList'), key: 'sectionList', align: 'center', sortable: false, width: '30%' },
+    { title: t('modal.progressInfo.date'), key: 'date', align: 'center', sortable: false, width: '10%' },
+    { title: t('modal.progressInfo.time'), key: 'time', align: 'center', sortable: false, width: '10%' },
+    { title: t('modal.progressInfo.percent'), key: 'percent', align: 'center', sortable: false, width: '6%' }
 ];
 
 const expandPanel = async (expand, item, sessId, chId) => {
@@ -166,7 +171,7 @@ const getCurrentAndLastMonth = () => {
 };
 
 const changeSelectMonth = async () => {
-    if (select.value.state === '학기 전체') {
+    if (select.value.state === t('modal.progressInfo.wholeSemester')) {
         await lessonStore.getMyLessonProgressLearningHistory();
     } else {
         await lessonStore.getMyLessonProgressLearningHistory(select.value.state.replace(/월$/, ''));

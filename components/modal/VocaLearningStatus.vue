@@ -12,7 +12,7 @@
                         <span class="info_name">늘푸른하늘</span>
                     </div>
                 </div>
-                <h3><span class="date">2024년 03월 02일</span>에 학습한 Touch VOCA</h3>
+                <h3><span class="date">2024년 03월 02일</span>{{ t('modal.vocaLearnigStatus.touchVoca') }}</h3>
             </div>
             <div class="bot">
                 <div class="box">
@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="dialog_btn_wrap mgt30 gap1 d-flex justify-center">
-                <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
+                <v-btn rounded flat class="outlined size_md" @click="closeModal">{{ t('common.button.close') }}</v-btn>
             </div>
         </v-card>
     </v-dialog>
@@ -127,7 +127,7 @@
 
 <script setup>
 const props = defineProps(['isOpen']);
-
+const { t } = useI18n();
 const { modalData, closeModal } = useModalStore();
 
 const apiClassStore = useApiTeacherClassStore();

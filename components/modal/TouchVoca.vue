@@ -3,7 +3,7 @@
         <v-card class="dialog pda20" width="138rem" height="80rem">
             <div class="dialog_header">
                 <div class="inline_wrap gap1">
-                    <h1>나의</h1>
+                    <h1>{{ t('modal.achievement.my') }}</h1>
                     <v-select
                         v-model="select"
                         :items="items"
@@ -20,7 +20,7 @@
                         hide-details
                         @update:model-value="handleGetTouchVoca"
                     ></v-select>
-                    <h1>Touch VOCA 학습이력</h1>
+                    <h1>{{ t('modal.touchVoca.touchVocaLearningHistory') }}</h1>
                 </div>
                 <v-btn class="icon_close" @click="closeModal"><i class="ico close_30 ico_size_lg"></i></v-btn>
             </div>
@@ -36,7 +36,7 @@
 
 <script setup>
 import dayjs from 'dayjs';
-
+const { t } = useI18n();
 const { modalData, closeModal } = useModalStore();
 
 const chartData = ref({
@@ -78,7 +78,7 @@ const chartData = ref({
         },
         {
             type: 'bar',
-            label: '응시한 단어 수',
+            label: t('modal.touchVoca.barText1'),
             data: [],
             backgroundColor: '#324d7e',
             stack: 'total',
@@ -88,7 +88,7 @@ const chartData = ref({
         },
         {
             type: 'bar',
-            label: '알고 있는 단어 수',
+            label: t('modal.touchVoca.barText2'),
             data: [],
             backgroundColor: '#80c7fd',
             stack: 'word',
@@ -98,7 +98,7 @@ const chartData = ref({
         },
         {
             type: 'bar',
-            label: '조금 알거나 모르는 단어 수',
+            label: t('modal.touchVoca.barText3'),
             data: [],
             backgroundColor: '#ffc008',
             stack: 'word',
@@ -108,7 +108,7 @@ const chartData = ref({
         },
         {
             type: 'bar',
-            label: '모르는 단어 수',
+            label: t('modal.touchVoca.barText4'),
             data: [],
             backgroundColor: '#ffa503',
             stack: 'word',
@@ -120,11 +120,11 @@ const chartData = ref({
 });
 
 const touchVoca = ref(true);
-const select = ref({ state: '최근 7일', value: 7 });
+const select = ref({ state: t('modal.achievement.last7day'), value: 7 });
 const items = ref([
-    { state: '최근 7일', value: 7 },
-    { state: '최근 15일', value: 15 },
-    { state: '최근 30일', value: 30 }
+    { state: t('modal.achievement.last7day'), value: 7 },
+    { state: t('modal.achievement.last15day'), value: 15 },
+    { state: t('modal.touchVoca.last30day'), value: 30 }
 ]);
 const isReady = ref(false);
 

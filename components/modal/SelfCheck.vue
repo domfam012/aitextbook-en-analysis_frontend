@@ -25,7 +25,7 @@
                             @update:model-value="handleGetAchievement"
                         ></v-select>
                     </div>
-                    성취 기준 모아보기
+                    {{ t('modal.selfCheck.compilationCollect') }}
                 </div>
             </v-card-title>
             <div class="mgt20">
@@ -40,13 +40,13 @@
                             @click="() => handleFilter('session')"
                         >
                             <i class="ico ico_size_6 mgr5" :class="isSession ? 'descending_white' : 'descending_black'"></i>
-                            단원별
+                            {{ t('modal.selfCheck.unit') }}
                         </v-btn>
                     </v-item>
                     <v-item>
                         <v-btn rounded flat size="small" :class="!isSession ? 'primary' : 'secondary'" @click="() => handleFilter('date')">
                             <i class="ico ico_size_6 mgr5" :class="!isSession ? 'descending_white' : 'descending_black'"></i>
-                            날짜별
+                            {{ t('modal.selfCheck.date') }}
                         </v-btn>
                     </v-item>
                 </v-item-group>
@@ -55,7 +55,7 @@
                     <div class="group" v-for="(item, index) in myLessonState" :key="index">
                         <div class="title_box">
                             <div class="flag flag_position">
-                                <span>{{ index + 1 }}차시</span>
+                                <span>{{ index + 1 }}{{ t('modal.progressInfo.sessId') }}</span>
                             </div>
                         </div>
                         <div class="contents">
@@ -71,7 +71,7 @@
                             <!-- 성취기준 -->
                             <div class="achieve_box">
                                 <div class="tit">
-                                    <span class="box_bg">성취 기준</span>
+                                    <span class="box_bg">{{ t('modal.selfCheck.achievementCriteria') }}</span>
                                 </div>
                                 <v-list variant="flat" class="pa-0" density="compact">
                                     <v-list-item-subtitle v-for="(achievement, index) in item.achievementList" :key="index">{{
@@ -111,7 +111,7 @@
 <script setup>
 import { ref } from 'vue';
 const dayjs = useDayjs();
-
+const { t } = useI18n();
 const { modalData, closeModal } = useModalStore();
 
 const filter = ref('session');

@@ -7,16 +7,16 @@
                     <div class="avatar avatar-box" v-if="colorBoardState">
                         <v-img :src="useAsset('images/temp/img_pho_st01.png')" alt="아바타 이미지" class="avatar-item" />
                         <div class="avatar-info">
-                            <span class="info_number">{{ colorBoardState[selected]?.studId }}번</span>
+                            <span class="info_number">{{ colorBoardState[selected]?.studId }}{{ t('common.unit.no') }}</span>
                             <span class="info_name">{{ colorBoardState[selected]?.studName }}</span>
                         </div>
                     </div>
                     <div v-else>
-                        <span class="font-header2">숫자 색칠판 완성하기</span>
+                        <span class="font-header2">{{ t('modal.coloringBoard.title') }}</span>
                     </div>
                     <v-tabs v-model="tab" @update:model-value="resetPage">
-                        <v-tab value="one" class="color_piece" valiant="outlined">수집한 색깔 조각</v-tab>
-                        <v-tab value="two" class="color_piece" valiant="outlined">남은 색깔 조각</v-tab>
+                        <v-tab value="one" class="color_piece" valiant="outlined">{{ t('modal.coloringBoard.tab1') }}</v-tab>
+                        <v-tab value="two" class="color_piece" valiant="outlined">{{ t('modal.coloringBoard.tab2') }}</v-tab>
                     </v-tabs>
                 </div>
                 <v-window v-model="tab">
@@ -36,7 +36,7 @@
                                     >
                                         <!-- Note. 텍스트가 있을 시 추가합니다. -->
                                         <div class="inner_title" v-if="mode === 'student'">
-                                            <h4 class="bullet text-left">선생님의 도장이 찍힌 도안은 색깔 조각을 옮길 수 없습니다</h4>
+                                            <h4 class="bullet text-left">{{ t('modal.coloringBoard.teacherStamp') }}</h4>
                                         </div>
                                         <template v-slot:prev="{ props }">
                                             <v-btn
@@ -48,7 +48,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 left_24"></i>
-                                                    <span class="blind">이전</span>
+                                                    <span class="blind">{{ t('common.button.prev') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -62,7 +62,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 right_24"></i>
-                                                    <span class="blind">다음</span>
+                                                    <span class="blind">{{ t('common.button.next') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -91,7 +91,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 left_24"></i>
-                                                    <span class="blind">이전</span>
+                                                    <span class="blind">{{ t('common.button.prev') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -105,7 +105,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 right_24"></i>
-                                                    <span class="blind">다음</span>
+                                                    <span class="blind">{{ t('common.button.next') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -138,53 +138,68 @@
                                     <v-list bg-color="transparent" v-if="mode === 'teacher'">
                                         <!-- v-btn으로 변경건, v-list-item에 클래스 추가 -->
                                         <v-list-item class="line_colunm">
-                                            <p class="name">'듣기' 색깔 조각</p>
+                                            <p class="name">{{ t('modal.coloringBoard.listenColorPieces') }}</p>
                                             <v-btn flat rounded class="btn_brush">
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_01"></i>
                                                     <em>X</em>
-                                                    <span>{{ collectedColorState && collectedColorState[0].colorLstnnCnt }}개</span>
+                                                    <span
+                                                        >{{ collectedColorState && collectedColorState[0].colorLstnnCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </v-btn>
                                         </v-list-item>
                                         <v-list-item class="line_colunm">
-                                            <p class="name">'읽기' 색깔 조각</p>
+                                            <p class="name">{{ t('modal.coloringBoard.readColorPieces') }}</p>
                                             <v-btn flat rounded class="btn_brush">
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_02"></i>
                                                     <em>X</em>
-                                                    <span>{{ collectedColorState && collectedColorState[0].colorRedngCnt }}개</span>
+                                                    <span
+                                                        >{{ collectedColorState && collectedColorState[0].colorRedngCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </v-btn>
                                         </v-list-item>
                                         <v-list-item class="line_colunm">
-                                            <p class="name">'보기' 색깔 조각</p>
+                                            <p class="name">{{ t('modal.coloringBoard.viewColorPieces') }}</p>
                                             <v-btn flat rounded class="btn_brush">
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_03"></i>
                                                     <em>X</em>
-                                                    <span>{{ collectedColorState && collectedColorState[0].colorViewCnt }}개</span>
+                                                    <span
+                                                        >{{ collectedColorState && collectedColorState[0].colorViewCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </v-btn>
                                         </v-list-item>
                                         <v-list-item class="line_colunm">
-                                            <p class="name">'말하기' 색깔 조각</p>
+                                            <p class="name">{{ t('modal.coloringBoard.talkingColorPieces') }}</p>
                                             <v-btn flat rounded class="btn_brush">
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_04"></i>
                                                     <em>X</em>
-                                                    <span>{{ collectedColorState && collectedColorState[0].colorSpkngCnt }}개</span>
+                                                    <span
+                                                        >{{ collectedColorState && collectedColorState[0].colorSpkngCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </v-btn>
                                         </v-list-item>
 
                                         <v-list-item class="line_colunm">
-                                            <p class="name">'쓰기' 색깔 조각</p>
+                                            <p class="name">{{ t('modal.coloringBoard.writeColorPieces') }}</p>
                                             <v-btn flat rounded class="btn_brush">
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_06"></i>
                                                     <em>X</em>
-                                                    <span>{{ collectedColorState && collectedColorState[0].colorWritngCnt }}개</span>
+                                                    <span
+                                                        >{{ collectedColorState && collectedColorState[0].colorWritngCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </v-btn>
                                         </v-list-item>
@@ -194,7 +209,7 @@
                                         <v-list bg-color="transparent">
                                             <v-list-item @click="selectedColor = 'blue'">
                                                 <div class="text-center">
-                                                    <p class="name">'듣기' 색깔 조각</p>
+                                                    <p class="name">{{ t('modal.coloringBoard.listenColorPieces') }}</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_01"></i>
                                                         <em>X</em>
@@ -209,7 +224,7 @@
                                             </v-list-item>
                                             <v-list-item @click="selectedColor = 'yellow'">
                                                 <div class="text-center">
-                                                    <p class="name">'읽기' 색깔 조각</p>
+                                                    <p class="name">{{ t('modal.coloringBoard.readColorPieces') }}</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_02"></i>
                                                         <em>X</em>
@@ -224,7 +239,7 @@
                                             </v-list-item>
                                             <v-list-item @click="selectedColor = 'red'">
                                                 <div class="text-center">
-                                                    <p class="name">'보기' 색깔 조각</p>
+                                                    <p class="name">{{ t('modal.coloringBoard.viewColorPieces') }}</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_03"></i>
                                                         <em>X</em>
@@ -239,7 +254,7 @@
                                             </v-list-item>
                                             <v-list-item @click="selectedColor = 'green'">
                                                 <div class="text-center">
-                                                    <p class="name">'말하기' 색깔 조각</p>
+                                                    <p class="name">{{ t('modal.coloringBoard.talkingColorPieces') }}</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_04"></i>
                                                         <em>X</em>
@@ -254,7 +269,7 @@
                                             </v-list-item>
                                             <v-list-item @click="selectedColor = 'darkgreen'">
                                                 <div class="text-center">
-                                                    <p class="name">'쓰기' 색깔 조각</p>
+                                                    <p class="name">{{ t('modal.coloringBoard.writeColorPieces') }}</p>
                                                     <div class="brush_num">
                                                         <i class="ico ico_size_9_half brush_06"></i>
                                                         <em>X</em>
@@ -283,7 +298,7 @@
                             </div>
                         </v-card>
                         <div class="dialog_btn_wrap mgt30">
-                            <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
+                            <v-btn rounded flat class="outlined size_md" @click="closeModal">{{ t('common.button.close') }}</v-btn>
                         </div>
                     </v-window-item>
                     <v-window-item value="two">
@@ -309,7 +324,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 left_24"></i>
-                                                    <span class="blind">이전</span>
+                                                    <span class="blind">{{ t('common.button.prev') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -323,7 +338,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 right_24"></i>
-                                                    <span class="blind">다음</span>
+                                                    <span class="blind">{{ t('common.button.next') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -352,7 +367,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 left_24"></i>
-                                                    <span class="blind">이전</span>
+                                                    <span class="blind">{{ t('common.button.prev') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -366,7 +381,7 @@
                                             >
                                                 <div class="ico_outer size_sm">
                                                     <i class="ico size_5 right_24"></i>
-                                                    <span class="blind">다음</span>
+                                                    <span class="blind">{{ t('common.button.next') }}</span>
                                                 </div>
                                             </v-btn>
                                         </template>
@@ -398,58 +413,73 @@
                                     <v-list bg-color="transparent">
                                         <v-list-item @click="selectedColor = 'blue'">
                                             <div class="text-center">
-                                                <p class="name">'듣기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.listenColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_01"></i>
                                                     <em>X</em>
                                                     <span>
-                                                        <span>{{ remainingColorState && remainingColorState[0].colorLstnnCnt }}개</span>
+                                                        <span
+                                                            >{{ remainingColorState && remainingColorState[0].colorLstnnCnt
+                                                            }}{{ t('common.unit.num') }}</span
+                                                        >
                                                     </span>
                                                 </div>
                                             </div>
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'yellow'">
                                             <div class="text-center">
-                                                <p class="name">'읽기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.readColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_02"></i>
                                                     <em>X</em>
                                                     <span>
-                                                        <span>{{ remainingColorState && remainingColorState[0].colorRedngCnt }}개</span>
+                                                        <span
+                                                            >{{ remainingColorState && remainingColorState[0].colorRedngCnt
+                                                            }}{{ t('common.unit.num') }}</span
+                                                        >
                                                     </span>
                                                 </div>
                                             </div>
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'red'">
                                             <div class="text-center">
-                                                <p class="name">'보기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.viewColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_03"></i>
                                                     <em>X</em>
                                                     <span>
-                                                        <span>{{ remainingColorState && remainingColorState[0].colorViewCnt }}개</span>
+                                                        <span
+                                                            >{{ remainingColorState && remainingColorState[0].colorViewCnt
+                                                            }}{{ t('common.unit.num') }}</span
+                                                        >
                                                     </span>
                                                 </div>
                                             </div>
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'green'">
                                             <div class="text-center">
-                                                <p class="name">'말하기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.talkingColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_04"></i>
                                                     <em>X</em>
-                                                    <span>{{ remainingColorState && remainingColorState[0].colorSpkngCnt }}개</span>
+                                                    <span
+                                                        >{{ remainingColorState && remainingColorState[0].colorSpkngCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </div>
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'darkgreen'">
                                             <div class="text-center">
-                                                <p class="name">'쓰기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.writeColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_06"></i>
                                                     <em>X</em>
 
-                                                    <span>{{ remainingColorState && remainingColorState[0].colorWritngCnt }}개</span>
+                                                    <span
+                                                        >{{ remainingColorState && remainingColorState[0].colorWritngCnt
+                                                        }}{{ t('common.unit.num') }}</span
+                                                    >
                                                 </div>
                                             </div>
                                         </v-list-item>
@@ -469,7 +499,7 @@
                                     <v-list bg-color="transparent">
                                         <v-list-item @click="selectedColor = 'blue'">
                                             <div class="text-center">
-                                                <p class="name">'듣기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.listenColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_01"></i>
                                                     <em>X</em>
@@ -485,7 +515,7 @@
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'yellow'">
                                             <div class="text-center">
-                                                <p class="name">'읽기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.readColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_02"></i>
                                                     <em>X</em>
@@ -501,7 +531,7 @@
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'red'">
                                             <div class="text-center">
-                                                <p class="name">'보기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.viewColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_03"></i>
                                                     <em>X</em>
@@ -517,7 +547,7 @@
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'green'">
                                             <div class="text-center">
-                                                <p class="name">'말하기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.talkingColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_04"></i>
                                                     <em>X</em>
@@ -533,7 +563,7 @@
                                         </v-list-item>
                                         <v-list-item @click="selectedColor = 'darkgreen'">
                                             <div class="text-center">
-                                                <p class="name">'쓰기' 색깔 조각</p>
+                                                <p class="name">{{ t('modal.coloringBoard.writeColorPieces') }}</p>
                                                 <div class="brush_num">
                                                     <i class="ico ico_size_9_half brush_06"></i>
                                                     <em>X</em>
@@ -562,10 +592,12 @@
                             </div>
                         </v-card>
                         <div class="dialog_btn_wrap mgt30">
-                            <v-btn rounded flat class="outlined size_md" @click="closeModal">닫기</v-btn>
-                            <v-btn rounded flat class="primary size_md" v-if="mode === 'student'">저장</v-btn>
+                            <v-btn rounded flat class="outlined size_md" @click="closeModal">{{ t('common.button.close') }}</v-btn>
+                            <v-btn rounded flat class="primary size_md" v-if="mode === 'student'">{{ t('common.button.save') }}</v-btn>
 
-                            <v-btn rounded flat class="primary" @click="stamp = true" v-if="mode === 'teacher'">피드백 도장 보내기</v-btn>
+                            <v-btn rounded flat class="primary" @click="stamp = true" v-if="mode === 'teacher'">{{
+                                t('modal.coloringBoard.feedbackStamp')
+                            }}</v-btn>
                         </div>
                     </v-window-item>
                 </v-window>
@@ -575,7 +607,7 @@
         <!-- 피드백 도장 보내기 -->
         <div class="feedbackStampList" v-if="stamp">
             <v-sheet class="px40 py40">
-                <h3 class="text-center mb30">학생에게 어떤 도장을 보낼까요?</h3>
+                <h3 class="text-center mb30">{{ t('modal.coloringBoard.studentStamp') }}</h3>
                 <v-item-group v-model="selectedStamp" mandatory class="d-flex flex-wrap gap3 py20" style="width: 57rem">
                     <div v-for="(item, index) in stampList" class="item" :key="index">
                         <v-item v-slot="{ isSelected, toggle }">
@@ -595,14 +627,17 @@
                     </div>
                 </v-item-group>
                 <div class="dialog_btn_wrap mgt30 gap1 d-flex justify-center">
-                    <v-btn rounded flat class="outlined size_md" @click="stamp = false">취소</v-btn>
-                    <v-btn rounded flat class="primary" @click="sendStamp" v-if="mode === 'teacher'">피드백 도장 보내기</v-btn>
+                    <v-btn rounded flat class="outlined size_md" @click="stamp = false">{{ t('common.button.cancel') }}</v-btn>
+                    <v-btn rounded flat class="primary" @click="sendStamp" v-if="mode === 'teacher'">{{
+                        t('modal.coloringBoard.feedbackStamp')
+                    }}</v-btn>
                 </div>
             </v-sheet>
         </div>
     </v-dialog>
 </template>
 <script setup>
+const { t } = useI18n();
 const mode = useCookie('mode');
 const tab = ref('one');
 const props = defineProps(['selected']);

@@ -3,7 +3,7 @@
         <v-card class="dialog pda20" width="138rem" height="80rem">
             <div class="dialog_header">
                 <div class="inline_wrap gap1">
-                    <h1>나의</h1>
+                    <h1>{{ t('modal.achievement.my') }}</h1>
                     <v-select
                         v-model="select"
                         :items="items"
@@ -20,7 +20,7 @@
                         hide-details
                         @update:model-value="getDateList"
                     ></v-select>
-                    <h1>영역별 학업 성취율</h1>
+                    <h1>{{ t('modal.achievement.achievementArea') }}</h1>
                 </div>
                 <v-btn class="icon_close" @click="closeModal"><i class="ico close_30 ico_size_lg"></i></v-btn>
             </div>
@@ -39,15 +39,15 @@
                     <div class="chart-bar">
                         <div class="use-word">
                             <span class="bullet color-1"></span>
-                            <p>{{ mode === 'student' ? user.name : '' }} 학생</p>
+                            <p>{{ mode === 'student' ? user.name : '' }} {{ t('modal.achievement.student') }}</p>
                         </div>
                         <div class="use-word">
                             <span class="bullet color-2"></span>
-                            <p>반 평균</p>
+                            <p>{{ t('modal.achievement.classAverage') }}</p>
                         </div>
                         <div class="use-word">
                             <span class="bullet color-3"></span>
-                            <p>지역 평균</p>
+                            <p>{{ t('modal.achievement.regionalAverage') }}</p>
                         </div>
                     </div>
                     <!-- // 차트 라벨부분 입니다. -->
@@ -58,6 +58,7 @@
 </template>
 
 <script setup>
+const { t } = useI18n();
 const mode = useCookie('mode');
 const { user } = storeToRefs(useApiUserStore());
 const apiLessonStore = useApiMyLessonStore();
@@ -67,11 +68,11 @@ const { dateListState } = storeToRefs(apiLessonStore);
 const { modalData, closeModal } = useModalStore();
 const dayjs = useDayjs();
 
-const select = ref({ state: '최근 7일', value: 7 });
+const select = ref({ state: t('modal.achievement.last7day'), value: 7 });
 const items = ref([
-    { state: '최근 7일', value: 7 },
-    { state: '최근 15일', value: 15 },
-    { state: '최근 20일', value: 20 }
+    { state: t('modal.achievement.last7day'), value: 7 },
+    { state: t('modal.achievement.last15day'), value: 15 },
+    { state: t('modal.achievement.last20day'), value: 20 }
 ]);
 
 const selectedDate = ref(null);
