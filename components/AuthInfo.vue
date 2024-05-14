@@ -9,7 +9,7 @@
         </div>
         <!-- 학생/교사 구분 mode로 분기 -->
         <div v-if="mode === 'teacher'" class="d-flex align-center mgl30">
-            <p>{{ t('common.authInfo.content') }} <span>16</span>{{ t('common.authInfo.content2') }}</p>
+            <p>{{ t('common.authInfo.content') }}</p>
             <v-btn flat rounded class="dark_blue size_xxs ml-2" @click="authStore.getAuthInfo()">
                 <i class="ico refresh ico_size_sm mr-1"></i>
                 {{ t('common.button.refresh') }}
