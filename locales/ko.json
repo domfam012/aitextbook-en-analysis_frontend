@@ -14,6 +14,20 @@
             "appendAction": "appendAction",
             "clear": "clear"
         },
+        "pagination": {
+            "ariaLabel": {
+                "root": "root"
+            }
+        },
+        "dataFooter": {
+            "firstPage": "firstPage",
+            "lastPage": "lastPage",
+            "prevPage": "prevPage",
+            "nextPage": "nextPage",
+            "itemsPerPageText": "itemsPerPageText",
+            "itemsPerPageAll": "itemsPerPageAll",
+            "pageText": "pageText"
+        },
         "noDataText": "해당 데이터가 없습니다."
     },
     "chart": {
@@ -188,7 +202,33 @@
             "num": "개"
         }
     },
-    "analytics": {},
+    "analytics": {
+        "accumulation": {
+            "text": " 단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.",
+            "unitAssessmentAI": "단원 평가 AI 맞춤 출제",
+            "sendAssignment": "과제 보내기",
+            "word": "단어 문제",
+            "expression": "표현 문제",
+            "situation": "상황 문제",
+            "totalNumber": "총 문항 수",
+            "points": "점 배점",
+            "perfectScore": "= 100점 만점",
+            "more": "5명 더 보기",
+            "number": "번호",
+            "name": "이름",
+            "average": "평균 학업 성취율"
+        },
+        "chatBot": {
+            "text": "학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.",
+            "noRegistration": "미노출 등록",
+            "text1": "선택한 단어 및 표현을",
+            "text2": "미노출 등록 하시겠습니까?",
+            "registrations": "등록되었습니다.",
+            "text3": "‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.",
+            "registration": "등록",
+            "check": "확인"
+        }
+    },
     "record": {
         "issuanceStatus": {
             "grade": "3학년",
