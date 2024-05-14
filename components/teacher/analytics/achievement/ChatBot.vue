@@ -16,7 +16,7 @@
                 </p>
             </div>
             <h3 class="bullet">
-                학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.
+                {{ t('analytics.chatBot.text') }}
             </h3>
         </div>
         <v-sheet class="bottom mgt20">
@@ -51,9 +51,9 @@
                             >
                                 {{ item.studentSentence }}
                             </p>
-                            <v-btn v-if="isTextSelected[index]" rounded flat class="primary" @click="openRegisterModal(index, item)"
-                                >미노출 등록</v-btn
-                            >
+                            <v-btn v-if="isTextSelected[index]" rounded flat class="primary" @click="openRegisterModal(index, item)">{{
+                                t('analytics.chatBot.noRegistration')
+                            }}</v-btn>
                         </div>
                     </div>
                 </div>
@@ -61,16 +61,17 @@
         </v-sheet>
 
         <Modal @handle-action="register" v-if="modalData.type === 'text-register'">
-            선택한 단어 및 표현을 <br />미노출 등록 하시겠습니까?
+            {{ t('analytics.chatBot.text1') }} <br />{{ t('analytics.chatBot.text2') }}
         </Modal>
 
         <Modal v-if="modalData.type === 'text-register-success'">
-            <p class="txt">등록되었습니다.</p>
-            <p class="mgt10 desc">‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.</p>
+            <p class="txt">{{ t('analytics.chatBot.registrations') }}</p>
+            <p class="mgt10 desc">{{ t('analytics.chatBot.text3') }}</p>
         </Modal>
     </div>
 </template>
 <script setup>
+const { t } = useI18n();
 const props = defineProps({ item: Object });
 const { modalData, openModal } = useModalStore();
 const learnStore = useApiLearnStore();
@@ -134,7 +135,7 @@ const wrapSelectedTextWithSpan = index => {
 };
 
 const openRegisterModal = (index, item) => {
-    openModal({ type: 'text-register', buttonLabels: ['취소', '등록'] });
+    openModal({ type: 'text-register', buttonLabels: [t('common.button.cancel'), t('analytics.chatBot.registration')] });
     registerIndex.value = index;
     selectedSentenceId.value = item.studentSentenceId;
 };
@@ -160,7 +161,7 @@ const register = async () => {
         });
 
         isTextSelected.value[registerIndex.value] = false;
-        openModal({ type: 'text-register-success', buttonLabels: ['확인'] });
+        openModal({ type: 'text-register-success', buttonLabels: [t('analytics.chatBot.check')] });
     } else {
         // 실패 시나리오
     }
