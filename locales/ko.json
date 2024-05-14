@@ -221,12 +221,14 @@
                 "numOfLoginsAndTotalLearningTime": "로그인 횟수와 총 학습 시간",
                 "areaAchievementRate": "영역별 학업 성취율",
                 "unitAchievementRate": "단원별 학업 성취율",
+                "wordLearningDiagnostics": "단어 학습 진단",
                 "dayAverageLearningTime": "요일별 평균 학습 시간",
                 "emotionalWeather": "감정 날씨_학기 총계",
                 "learningSentiment": "학습 정서_학기 평균",
                 "unitDevelopment": "단원별 교과 학습 발달 사항",
                 "behavioralDevelopmentEvaluation": "담임 선생님의 행동 발달 평가 내용"
             },
+            "student": "학생",
             "textbookLearning": "교과서 학습",
             "totalLearningTime": "총 학습 시간",
             "drillLearning": "드릴 학습",
@@ -242,7 +244,18 @@
                 "fourth": "교우관계 개선을 위해 협력과 공동 작업을 통해 다른 사람과의 협력능력을 향상시켜야 함.",
                 "fifth": "이기적인 행동을 줄이기 위해 함께 하는 즐거움과 공동 성취감을 강조하는 활동을 도입해야 함."
             },
-            "warningMsg": "최대 2개 항목 이상 삭제가 불가능합니다."
+            "warningMsg": "최대 2개 항목 이상 삭제가 불가능합니다.",
+            "colorViewInfo": "학생이 한 학기 동안 꾸민 색칠 도안입니다."
+        },
+        "index": {
+            "grade": "학년",
+            "class": "반",
+            "avatarImg": "아바타 이미지",
+            "semester": "학기",
+            "ofAI": "의 AI",
+            "english": "영어",
+            "studentRecord": "생활기록부",
+            "selectText": "교과 진도만 분석합니다."
         }
     }
 }

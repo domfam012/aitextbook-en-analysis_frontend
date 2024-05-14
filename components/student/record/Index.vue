@@ -29,22 +29,27 @@
                 <div class="inner_wrap">
                     <ul class="divider_group">
                         <li>{{ user.schoolName }}</li>
-                        <li>{{ user.classInfo.grade }}학년 {{ user.classInfo.classNum }}반</li>
+                        <li>
+                            {{ user.classInfo.grade + t('record.index.grade') }} {{ user.classInfo.classNum + t('record.index.class') }}
+                        </li>
                     </ul>
                     <div class="avatar-box">
                         <div class="avatar">
-                            <v-img :src="user.profileUrl" alt="아바타 이미지" class="avatar-item" />
+                            <v-img :src="user.profileUrl" :alt="t('record.index.avatarImg')" class="avatar-item" />
                         </div>
                         <div class="avatar-info">
-                            <span class="info_number">{{ user.number }}번</span>
+                            <span class="info_number">{{ user.number + t('common.unit.no') }}</span>
                             <h2>
                                 <span class="info_name">{{ user.name }}</span>
-                                의 AI
+                                {{ t('record.index.ofAI') }}
                                 <span class="subject">
-                                    <span>{{ user.classInfo.grade }}학년 {{ user.semester }}학기</span>
-                                    <strong>영어</strong>
+                                    <span
+                                        >{{ user.classInfo.grade + t('record.index.grade') }}
+                                        {{ user.semester + t('record.index.semester') }}</span
+                                    >
+                                    <strong>{{ t('record.index.english') }}</strong>
                                 </span>
-                                생활기록부
+                                {{ t('record.index.studentRecord') }}
                             </h2>
                         </div>
                     </div>
@@ -55,9 +60,10 @@
     </div>
 </template>
 <script setup>
+const { t } = useI18n();
 const mode = useCookie('mode');
 const { savePdf, printPage } = usePrintSave();
 const { user } = storeToRefs(useApiUserStore());
-const select = ref({ state: '교과 진도만 분석합니다.' });
-const items = ref([{ state: '교과 진도만 분석합니다.' }]);
+const select = ref({ state: t('record.index.selectText') });
+const items = ref([{ state: t('record.index.selectText') }]);
 </script>
