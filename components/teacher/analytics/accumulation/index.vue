@@ -2,7 +2,7 @@
     <v-sheet>
         <div class="tableCarousel">
             <h3 class="bullet">
-                단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.
+                {{ t('analytics.accumulation.text') }}
             </h3>
             <v-btn rounded flat class="close_button" @click="closeTable">
                 <i class="ico close_circle close position-absolute" />
@@ -72,41 +72,48 @@
                             <div class="box d-flex align-center">
                                 <img src="@/assets/images/img_character.svg" alt="캐릭터" />
                                 <div class="mgl20 mgr30">
-                                    <h3>단원 평가 AI 맞춤 출제</h3>
-                                    <v-btn @click="() => postAssignmentFn()" rounded flat size="small" class="primary mgt10"
-                                        >과제 보내기</v-btn
-                                    >
+                                    <h3>{{ t('analytics.accumulation.unitAssessmentAI') }}</h3>
+                                    <v-btn @click="() => postAssignmentFn()" rounded flat size="small" class="primary mgt10">{{
+                                        t('analytics.accumulation.sendAssignment')
+                                    }}</v-btn>
                                 </div>
                             </div>
                         </div>
                         <div class="right">
                             <div class="block">
-                                <p class="question">단어 문제</p>
+                                <p class="question">{{ t('analytics.accumulation.word') }}</p>
                                 <div class="d-flex align-center mgt10">
                                     <input type="number" :value="questionByDifficultState.questionWordCount" disabled />
-                                    <span class="points mgl10">x {{ questionByDifficultState.questionWordPoint }}점 배점 </span>
+                                    <span class="points mgl10"
+                                        >x {{ questionByDifficultState.questionWordPoint }}{{ t('analytics.accumulation.points') }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="block">
-                                <p class="question">표현 문제</p>
+                                <p class="question">{{ t('analytics.accumulation.expression') }}</p>
                                 <div class="d-flex align-center mgt10">
                                     <input type="number" :value="questionByDifficultState.questionExpressCount" disabled />
-                                    <span class="points mgl10">x {{ questionByDifficultState.questionExpressPoint }}점 배점</span>
+                                    <span class="points mgl10"
+                                        >x {{ questionByDifficultState.questionExpressPoint }}{{ t('analytics.accumulation.points') }}</span
+                                    >
                                 </div>
                             </div>
                             <div class="block">
-                                <p class="question">상황 문제</p>
+                                <p class="question">{{ t('analytics.accumulation.situation') }}</p>
                                 <div class="d-flex align-center mgt10">
                                     <input type="number" :value="questionByDifficultState.questionSituationCount" disabled />
-                                    <span class="points mgl10">x {{ questionByDifficultState.questionSituationPoint }}점 배점</span>
+                                    <span class="points mgl10"
+                                        >x {{ questionByDifficultState.questionSituationPoint
+                                        }}{{ t('analytics.accumulation.points') }}</span
+                                    >
                                 </div>
                             </div>
                             <div class="block">
-                                <p class="question">총 문항 수</p>
+                                <p class="question">{{ t('analytics.accumulation.totalNumber') }}</p>
                                 <div class="d-flex align-center mgt10">
                                     <!-- 문항 수 15개 고정으로  disabled 처리 했습니다. 수정 필요할시 제거TeacherAnalyticsAccumulationCustomized  -->
                                     <input type="number" :value="10" class="total" disabled />
-                                    <span class="points mgl10">= 100점 만점</span>
+                                    <span class="points mgl10">{{ t('analytics.accumulation.perfectScore') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -114,14 +121,20 @@
                 </div>
             </div>
             <div class="page_buttons">
-                <v-btn rounded flat class="secondary" :disabled="renderAll" @click="currentPage = currentPage + 1"
-                    >{{ `5명 더 보기 (${currentPage + 1}/${Math.ceil(lessonAccumulatedState.resultList?.length / 5)})` }}
+                <v-btn rounded flat class="secondary" :disabled="renderAll" @click="currentPage = currentPage + 1">
+                    {{
+                        $t('analytics.accumulation.more', {
+                            currentPage: currentPage + 1,
+                            totalPages: Math.ceil(lessonAccumulatedState.resultList?.length / 5)
+                        })
+                    }}
                 </v-btn>
             </div>
         </div>
     </v-sheet>
 </template>
 <script setup>
+const { t } = useI18n();
 const learnStore = useApiLearnStore();
 const lessonStore = useApiLessonStore();
 const { lessonAccumulatedState, lessonCommonState, questionByDifficultState } = storeToRefs(lessonStore);
@@ -134,17 +147,17 @@ const selectedChid = ref(null);
 // 왼쪽 테이블 header
 const tableInfoHead = [
     {
-        title: '번호',
+        title: t('analytics.accumulation.number'),
         sortable: false,
         key: 'number'
     },
-    { title: '이름', sortable: false, key: 'name' }
+    { title: t('analytics.accumulation.name'), sortable: false, key: 'name' }
 ];
 
 // 오른쪽 평균 성취율 테이블 header
 const tableAvgInfoHead = [
     {
-        title: '평균 학업 성취율',
+        title: t('analytics.accumulation.average'),
         sortable: false,
         key: 'number'
     }
