@@ -31,7 +31,7 @@
                             >
                                 <div class="avatar avatar-box">
                                     <div class="avatar-info">
-                                        <span class="info_number">{{ item.number }}번</span>
+                                        <span class="info_number">{{ item.number + t('common.unit.no') }}</span>
                                         <span class="info_name">{{ item.studName }}</span>
                                     </div>
                                 </div>
@@ -49,8 +49,8 @@
             <IssuancePart v-else-if="clampType === 'clamp_right'" />
         </div>
         <div v-if="clampType === 'clamp_center'" class="mgt30 gap1 d-flex justify-center position-relative">
-            <v-btn @click="cancelMode" rounded flat size="large" class="outlined">취소</v-btn>
-            <v-btn @click="handleSubmit" rounded flat size="large" class="primary">저장</v-btn>
+            <v-btn @click="cancelMode" rounded flat size="large" class="outlined">{{ t('common.button.cancel') }}</v-btn>
+            <v-btn @click="handleSubmit" rounded flat size="large" class="primary">{{ t('common.button.save') }}</v-btn>
             <v-btn
                 @click="handleEditMode"
                 rounded
@@ -59,7 +59,7 @@
                 class="primary position-absolute"
                 :disabled="personalListOfQualification?.filter(data => data.selectedFlag).length === 0"
                 style="right: 0"
-                >{{ isEditMode ? '편집 초기화' : '텍스트 편집' }}</v-btn
+                >{{ isEditMode ? t('record.issuance.index.reset') : t('record.issuance.index.editText') }}</v-btn
             >
         </div>
     </div>
@@ -71,6 +71,8 @@ const { learningHistoryCollectionStudent } = storeToRefs(useApiRecordHistoryStor
 const { completionStudent } = storeToRefs(useApiCompletionStore());
 const { clampType, selectedStudentIndex } = storeToRefs(useApiRecordStore());
 const { isEditMode, qualificationByUnitStudentList, personalListOfQualification, unitType } = storeToRefs(useApiRecordGradeStore());
+const { t } = useI18n();
+
 //현재학기
 const { semesterInProgress } = storeToRefs(useApiRecordHistoryStore());
 const studentSemId = semesterInProgress.value.currentSemester;

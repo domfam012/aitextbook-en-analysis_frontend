@@ -2,7 +2,7 @@
     <div class="grade">
         <div v-if="!isEditMode" class="top d-flex">
             <div class="type d-flex align-center">
-                <p class="">평어 유형</p>
+                <p class="">{{ t('record.issuance.grade.unitType') }}</p>
                 <v-btn-toggle
                     v-model="unitType"
                     @update:modelValue="val => updateDivisionCode(val)"
@@ -10,9 +10,9 @@
                     mandatory
                     density="compact"
                 >
-                    <v-btn rounded flat size="small" class="secondary" value="A"> A형 </v-btn>
-                    <v-btn rounded flat size="small" class="secondary" value="B"> B형 </v-btn>
-                    <v-btn rounded flat size="small" class="secondary" value="C"> C형 </v-btn>
+                    <v-btn rounded flat size="small" class="secondary" value="A"> {{ t('record.issuance.grade.typeA') }} </v-btn>
+                    <v-btn rounded flat size="small" class="secondary" value="B"> {{ t('record.issuance.grade.typeB') }} </v-btn>
+                    <v-btn rounded flat size="small" class="secondary" value="C"> {{ t('record.issuance.grade.typeC') }} </v-btn>
                 </v-btn-toggle>
             </div>
         </div>
@@ -22,6 +22,8 @@
 <script setup>
 const { isEditMode } = storeToRefs(useApiRecordGradeStore());
 const { qualificationByUnitStudentList, unitType } = storeToRefs(useApiRecordGradeStore());
+const { t } = useI18n();
+
 //현재학기
 const { semesterInProgress } = storeToRefs(useApiRecordHistoryStore());
 

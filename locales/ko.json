@@ -72,6 +72,56 @@
             "writeColorPieces": "'쓰기' 색깔 조각",
             "feedbackStamp": "피드백 도장 보내기",
             "studentStamp": "학생에게 어떤 도장을 보낼까요?"
+        },
+        "curiTalkInfo": {
+            "AICURITalk": "AI CURI Talk!",
+            "glanceLook": "한눈에 보기",
+            "cumulativeChatNum": "누적 채팅 횟수:",
+            "cumulativeChatTime": "누적 채팅 시간:",
+            "wholeSemester": "학기 전체",
+            "1stSemester": "1학기",
+            "2stSemester": "2학기",
+            "chatDate": "채팅 날짜",
+            "chatTime": "채팅 시간",
+            "expressionPraise": "칭찬 표현",
+            "misspelledExpression": "철자를 틀린 표현",
+            "wrongExpression": "잘못된 표현",
+            "aiExpressionHelper": "AI 표현 도우미",
+            "Q": "Q.",
+            "A": "A:"
+        },
+        "progressInfo": {
+            "progressHistory": "진도 학습 이력",
+            "lessonCompleted": "완료한 학습 차시:",
+            "cumulativeTime": "누적 학습 시간:",
+            "afterClass": "차시 복습",
+            "note": "노트",
+            "absenceReview": "결석 복습",
+            "wholeSemester": "학기 전체",
+            "chName": "Lesson",
+            "sessId": "차시",
+            "noteYn": "학습 바로가기",
+            "sectionList": "학습내용",
+            "date": "학습날짜",
+            "time": "학습한 시간",
+            "percent": "완료율"
+        },
+        "selfCheck": {
+            "compilationCollect": "성취 기준 모아보기",
+            "unit": "단원별",
+            "date": "날짜별",
+            "achievementCriteria": "성취 기준"
+        },
+        "touchVoca": {
+            "touchVocaLearningHistory": "Touch VOCA 학습이력",
+            "barText1": "응시한 단어 수",
+            "barText2": "알고 있는 단어 수",
+            "barText3": "조금 알거나 모르는 단어 수",
+            "barText4": "모르는 단어 수",
+            "last30day": "최근 30일"
+        },
+        "vocaLearnigStatus": {
+            "touchVoca": "에 학습한 Touch VOCA"
         }
     },
     "table": {
@@ -140,10 +190,27 @@
     },
     "analytics": {},
     "record": {
-        "issuanceStatus": {},
+        "issuanceStatus": {
+            "grade": "3학년",
+            "semester": "학기",
+            "title": "AI 수학 생활기록부 발행 현황 :",
+            "totalCnt": "총 {count}명",
+            "subtitle1": "학습 이력 수집",
+            "subtitle2": "단원별 평어 작성",
+            "subtitle3": "발행 완료 건수",
+            "info": "위 숫자를 선택하면 AI 수학 생활기록부를 조회하거나 평어를 작성할 수 있어요."
+        },
         "issuance": {
-            "grade": {},
-            "index": {}
+            "grade": {
+                "unitType": "평어 유형",
+                "typeA": "A형",
+                "typeB": "B형",
+                "typeC": "C형"
+            },
+            "index": {
+                "reset": "편집 초기화",
+                "editText": "텍스트 편집"
+            }
         },
         "issuancePart": {
             "button": {

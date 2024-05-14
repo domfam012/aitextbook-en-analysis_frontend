@@ -1,6 +1,6 @@
 <template>
     <div class="stackedBar">
-        <p class="tit bullet mgt30">각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.</p>
+        <p class="tit bullet mgt30">{{ t('chart.stackedBar.title') }}</p>
         <div class="colorGroup mgt30">
             <div class="result_distribution">
                 <!-- width 값은 max-width: 1100값을 기준으로 백분률 값 -->

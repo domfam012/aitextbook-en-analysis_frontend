@@ -3,7 +3,7 @@
         <div class="d-flex align-center">
             <i class="ico ico_size_4 people mr-2" />
             <p>
-                {{ t('common.authInfo.title') }} : <span>{{ authState?.count }}</span
+                {{ t('common.authInfo.title') }}: <span>{{ authState?.count }}</span
                 >{{ t('common.unit.cnt') }}
             </p>
         </div>
