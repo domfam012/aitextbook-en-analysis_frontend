@@ -20,7 +20,9 @@
                 <p v-else-if="index === props.legend.length - 1" class="legend-text">
                     {{ t('chart.doughnut.colorPiece') }} {{ count }}{{ t('chart.doughnut.lessThanNum') }}
                 </p>
-                <p v-else class="legend-text">{{ t('chart.doughnut.colorPiece') }} {{ count }}~{{ props.legend[index + 1] - 1 }}개</p>
+                <p v-else class="legend-text">
+                    {{ t('chart.doughnut.colorPiece') }} {{ count }}~{{ props.legend[index + 1] - 1 }}{{ t('common.unit.num') }}
+                </p>
             </div>
             <div v-if="props.type === 'long'" v-for="(time, idx) in props.legend" :key="idx" class="use-word">
                 <span class="bullet" :class="`color-${idx + 1}`"></span>

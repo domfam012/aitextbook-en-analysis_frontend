@@ -19,7 +19,9 @@
                             <p>
                                 {{ item.value }}
                                 <template v-if="suffix === '분'">
-                                    <span v-if="item.value >= 60">{{ suffix }}({{ Math.floor(item.value / 60) }}시간)</span>
+                                    <span v-if="item.value >= 60"
+                                        >{{ suffix }}({{ Math.floor(item.value / 60) + t('common.unit.hour') }})</span
+                                    >
                                     <span v-else>{{ suffix }}</span>
                                 </template>
                                 <template v-else>
