@@ -59,8 +59,7 @@
                             totalPages: Math.ceil(vocaState?.length / 3)
                         })
                     }}
-                
-                >
+                </v-btn>
             </div>
         </template>
 
@@ -70,7 +69,7 @@
         -->
         <div v-else class="card_no_data">
             <i class="ico no_voca ico_size_25" />
-            <p>{{t('analytics.learn.touchVoca.noStudent')}}</p>
+            <p>{{ t('analytics.learn.touchVoca.noStudent') }}</p>
         </div>
     </v-sheet>
 
