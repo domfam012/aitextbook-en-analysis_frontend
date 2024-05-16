@@ -166,15 +166,15 @@ const getCurrentAndLastMonth = () => {
     const currentMonth = today.format('MM');
     const lastMonth = today.subtract(1, 'month').format('MM');
     // items 배열에 추가
-    items.value.push({ state: `${currentMonth}` t('modal.progressInfo.MM')  });
-    items.value.push({ state: `${lastMonth}` t('modal.progressInfo.MM')  });
+    items.value.push({ state: `${currentMonth}` + t('modal.progressInfo.MM') });
+    items.value.push({ state: `${lastMonth}` + t('modal.progressInfo.MM') });
 };
 
 const changeSelectMonth = async () => {
     if (select.value.state === t('modal.progressInfo.wholeSemester')) {
         await lessonStore.getMyLessonProgressLearningHistory();
     } else {
-        await lessonStore.getMyLessonProgressLearningHistory(select.value.state.replace( t('modal.progressInfo.lessonCompleted') , ''));
+        await lessonStore.getMyLessonProgressLearningHistory(select.value.state.replace(t('modal.progressInfo.lessonCompleted'), ''));
     }
 };
 onMounted(async () => {
