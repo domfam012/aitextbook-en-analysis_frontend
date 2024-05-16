@@ -39,7 +39,7 @@
                                 <tr>
                                     <td class="text_center">
                                         <time :datetime="item.date">
-                                            {{ dayjs(item.date).format('MM월 DD일 (dd)') }}
+                                            {{ dayjs(item.date).format(t('modal.curiTalkInfo.day')) }}
                                         </time>
                                     </td>
                                     <td class="text_center">{{ item.time }}</td>

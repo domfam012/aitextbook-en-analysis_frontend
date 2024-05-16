@@ -84,7 +84,7 @@
                                 <div class="tit">
                                     <span class="box_bg">
                                         <time :datetime="item.edlDtm">
-                                            {{ dayjs(item.edlDtm).format('MM월 DD일 (dd)') }}
+                                            {{ dayjs(item.edlDtm).format(t('modal.selfCheck.day')) }}
                                         </time>
                                     </span>
                                 </div>
