@@ -32,7 +32,7 @@
                     <div class="learningDiagnostics">
                         <h3 class="learn-title bullet-bot">단어 학습 진단</h3>
                         <ChartBasicBar
-                            suffix="개"
+                            :suffix="t('common.unit.num')"
                             :item="[
                                 {
                                     value: wordDiagnosisState?.wrdPrfctUndrsUseCnt,
@@ -64,7 +64,7 @@
                         <h3 class="learn-title bullet-bot">요일별 누적 학습 시간</h3>
                         <ChartBasicBar
                             :solidColor="true"
-                            suffix="분"
+                            :suffix="t('common.unit.min')"
                             :item="[
                                 {
                                     value: cumulativeTimeState?.mondayLearnTime,
@@ -105,6 +105,7 @@ const items = ref([
 const apiMyLessonStore = useApiMyLessonStore();
 const { wordDiagnosisState, cumulativeTimeState, selectedDateState } = storeToRefs(apiMyLessonStore);
 
+const { t } = useI18n();
 const dayjs = useDayjs();
 
 const handleGetData = () => {

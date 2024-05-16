@@ -18,7 +18,7 @@
                         >
                             <p>
                                 {{ item.value }}
-                                <template v-if="suffix === '분'">
+                                <template v-if="suffix === t('common.unit.min')">
                                     <span v-if="item.value >= 60"
                                         >{{ suffix }}({{ Math.floor(item.value / 60) + t('common.unit.hour') }})</span
                                     >

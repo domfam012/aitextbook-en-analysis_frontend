@@ -239,7 +239,7 @@
                             </v-card-title>
                         </v-card-item>
                         <v-container fluid>
-                            <ChartBasicBar suffix="개" :item="wordChart" />
+                            <ChartBasicBar :suffix="t('common.unit.num')" :item="wordChart" />
                         </v-container>
                     </v-card>
                     <!-- // 단어 학습 진단 -->
@@ -261,7 +261,7 @@
                             </v-card-title>
                         </v-card-item>
                         <v-container fluid>
-                            <chartBasicBar :solidColor="true" suffix="분" :item="dayChart" />
+                            <chartBasicBar :solidColor="true" :suffix="t('common.unit.min')" :item="dayChart" />
                         </v-container>
                     </v-card>
                     <!-- // 누적 학습 시간 -->

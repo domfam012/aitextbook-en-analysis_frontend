@@ -8,8 +8,8 @@ export default defineI18nConfig(() => ({
     legacy: false,
     locale: i18n.value || 'ko',
     messages: {
-        ko: ko
-        // en: en,
-        // jp: jp
+        ko: ko,
+        en: en,
+        jp: jp
     }
 }));
