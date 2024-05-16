@@ -81,7 +81,7 @@
                                             </v-list-item>
                                         </v-list>
                                     </td>
-                                    <td>{{ dayjs(item.dt).format('MM월 DD일 (dd)') }}</td>
+                                    <td>{{ dayjs(item.dt).format(t('modal.progressInfo.day')) }}</td>
                                     <!--                                    <td>{{ dayjs(item.totLrnSs).utc().format('HH시간 mm분') }}</td>-->
                                     <td>{{ item.totLrnSs }}</td>
                                     <td>{{ item.flflmRt }}%</td>
@@ -166,15 +166,15 @@ const getCurrentAndLastMonth = () => {
     const currentMonth = today.format('MM');
     const lastMonth = today.subtract(1, 'month').format('MM');
     // items 배열에 추가
-    items.value.push({ state: `${currentMonth}월` });
-    items.value.push({ state: `${lastMonth}월` });
+    items.value.push({ state: `${currentMonth}` t('modal.progressInfo.MM')  });
+    items.value.push({ state: `${lastMonth}` t('modal.progressInfo.MM')  });
 };
 
 const changeSelectMonth = async () => {
     if (select.value.state === t('modal.progressInfo.wholeSemester')) {
         await lessonStore.getMyLessonProgressLearningHistory();
     } else {
-        await lessonStore.getMyLessonProgressLearningHistory(select.value.state.replace(/월$/, ''));
+        await lessonStore.getMyLessonProgressLearningHistory(select.value.state.replace( t('modal.progressInfo.lessonCompleted') , ''));
     }
 };
 onMounted(async () => {

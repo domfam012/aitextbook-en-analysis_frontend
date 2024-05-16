@@ -28,7 +28,7 @@
                 <v-slide-group v-model="selectedDate" show-arrows class="type_rounded" @update:model-value="getAchievement">
                     <v-slide-group-item v-slot="{ isSelected, toggle }" v-for="(item, index) in dateListState" :key="index">
                         <v-btn rounded flat :class="{ active: isSelected }" @click="toggle">{{
-                            dayjs(item.strYmd).format('M월 DD일 dd요일')
+                            dayjs(item.strYmd).format(t('modal.achievement.day'))
                         }}</v-btn>
                     </v-slide-group-item>
                 </v-slide-group>

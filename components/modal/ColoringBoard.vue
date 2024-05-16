@@ -506,8 +506,8 @@
                                                     <span>
                                                         {{
                                                             mode === 'teacher' && remainingColorState && remainingColorState.length > 0
-                                                                ? remainingColorState[0].colorLstnnCnt + '개'
-                                                                : studentRemainingColorState[0]?.colorLstnnCnt + '개'
+                                                                ? remainingColorState[0].colorLstnnCnt + t('common.unit.num')
+                                                                : studentRemainingColorState[0]?.colorLstnnCnt + t('common.unit.num')
                                                         }}
                                                     </span>
                                                 </div>
@@ -522,8 +522,8 @@
                                                     <span>
                                                         {{
                                                             mode === 'teacher' && remainingColorState && remainingColorState.length > 0
-                                                                ? remainingColorState[0].colorRedngCnt + '개'
-                                                                : studentRemainingColorState[0]?.colorRedngCnt + '개'
+                                                                ? remainingColorState[0].colorRedngCnt + t('common.unit.num')
+                                                                : studentRemainingColorState[0]?.colorRedngCnt + t('common.unit.num')
                                                         }}
                                                     </span>
                                                 </div>
@@ -538,8 +538,8 @@
                                                     <span>
                                                         {{
                                                             mode === 'teacher' && remainingColorState && remainingColorState.length > 0
-                                                                ? remainingColorState[0].colorViewCnt + '개'
-                                                                : studentRemainingColorState[0]?.colorViewCnt + '개'
+                                                                ? remainingColorState[0].colorViewCnt + t('common.unit.num')
+                                                                : studentRemainingColorState[0]?.colorViewCnt + t('common.unit.num')
                                                         }}
                                                     </span>
                                                 </div>
@@ -554,8 +554,8 @@
                                                     <span>
                                                         {{
                                                             mode === 'teacher' && remainingColorState && remainingColorState.length > 0
-                                                                ? remainingColorState[0].colorSpkngCnt + '개'
-                                                                : studentRemainingColorState[0]?.colorSpkngCnt + '개'
+                                                                ? remainingColorState[0].colorSpkngCnt + t('common.unit.num')
+                                                                : studentRemainingColorState[0]?.colorSpkngCnt + t('common.unit.num')
                                                         }}
                                                     </span>
                                                 </div>
@@ -570,8 +570,8 @@
                                                     <span>
                                                         {{
                                                             mode === 'teacher' && remainingColorState && remainingColorState.length > 0
-                                                                ? remainingColorState[0].colorWritngCnt + '개'
-                                                                : studentRemainingColorState[0]?.colorWritngCnt + '개'
+                                                                ? remainingColorState[0].colorWritngCnt + t('common.unit.num')
+                                                                : studentRemainingColorState[0]?.colorWritngCnt + t('common.unit.num')
                                                         }}
                                                     </span>
                                                 </div>
