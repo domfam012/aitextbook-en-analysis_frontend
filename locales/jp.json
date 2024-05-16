@@ -118,7 +118,8 @@
             "regionalAverage": "JP지역 평균",
             "last7day": "JP최근 7일",
             "last15day": "JP최근 15일",
-            "last20day": "JP최근 20일"
+            "last20day": "JP최근 20일",
+            "day": "JPM월 DD일 dd요일"
         },
         "coloringBoard": {
             "title": "JP숫자 색칠판 완성하기",
@@ -148,7 +149,8 @@
             "wrongExpression": "JP잘못된 표현",
             "aiExpressionHelper": "JPAI 표현 도우미",
             "Q": "JPQ.",
-            "A": "JPA:"
+            "A": "JPA:",
+            "day": "JPM월 DD일 (dd)"
         },
         "progressInfo": {
             "progressHistory": "JP진도 학습 이력",
@@ -164,13 +166,16 @@
             "sectionList": "JP학습내용",
             "date": "JP학습날짜",
             "time": "JP학습한 시간",
-            "percent": "JP완료율"
+            "percent": "JP완료율",
+            "day": "JPM월 DD일 (dd)",
+            "MM": "JP월"
         },
         "selfCheck": {
             "compilationCollect": "JP성취 기준 모아보기",
             "unit": "JP단원별",
             "date": "JP날짜별",
-            "achievementCriteria": "JP성취 기준"
+            "achievementCriteria": "JP성취 기준",
+            "day": "JPM월 DD일 (dd)"
         },
         "touchVoca": {
             "touchVocaLearningHistory": "JPTouch VOCA 학습이력",

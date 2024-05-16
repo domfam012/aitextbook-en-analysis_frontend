@@ -118,7 +118,8 @@
             "regionalAverage": "EN지역 평균",
             "last7day": "EN최근 7일",
             "last15day": "EN최근 15일",
-            "last20day": "EN최근 20일"
+            "last20day": "EN최근 20일",
+            "day": "ENM월 DD일 dd요일"
         },
         "coloringBoard": {
             "title": "EN숫자 색칠판 완성하기",
@@ -148,7 +149,8 @@
             "wrongExpression": "EN잘못된 표현",
             "aiExpressionHelper": "ENAI 표현 도우미",
             "Q": "ENQ.",
-            "A": "ENA:"
+            "A": "ENA:",
+            "day": "ENM월 DD일 (dd)"
         },
         "progressInfo": {
             "progressHistory": "EN진도 학습 이력",
@@ -164,13 +166,16 @@
             "sectionList": "EN학습내용",
             "date": "EN학습날짜",
             "time": "EN학습한 시간",
-            "percent": "EN완료율"
+            "percent": "EN완료율",
+            "day": "ENM월 DD일 (dd)",
+            "MM": "EN월"
         },
         "selfCheck": {
             "compilationCollect": "EN성취 기준 모아보기",
             "unit": "EN단원별",
             "date": "EN날짜별",
-            "achievementCriteria": "EN성취 기준"
+            "achievementCriteria": "EN성취 기준",
+            "day": "ENM월 DD일 (dd)"
         },
         "touchVoca": {
             "touchVocaLearningHistory": "ENTouch VOCA 학습이력",

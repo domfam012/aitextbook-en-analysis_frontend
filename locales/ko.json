@@ -118,7 +118,8 @@
             "regionalAverage": "지역 평균",
             "last7day": "최근 7일",
             "last15day": "최근 15일",
-            "last20day": "최근 20일"
+            "last20day": "최근 20일",
+            "day": "M월 DD일 dd요일"
         },
         "coloringBoard": {
             "title": "숫자 색칠판 완성하기",
@@ -148,7 +149,8 @@
             "wrongExpression": "잘못된 표현",
             "aiExpressionHelper": "AI 표현 도우미",
             "Q": "Q.",
-            "A": "A:"
+            "A": "A:",
+            "day": "M월 DD일 (dd)"
         },
         "progressInfo": {
             "progressHistory": "진도 학습 이력",
@@ -164,13 +166,16 @@
             "sectionList": "학습내용",
             "date": "학습날짜",
             "time": "학습한 시간",
-            "percent": "완료율"
+            "percent": "완료율",
+            "day": "M월 DD일 (dd)",
+            "MM": "월"
         },
         "selfCheck": {
             "compilationCollect": "성취 기준 모아보기",
             "unit": "단원별",
             "date": "날짜별",
-            "achievementCriteria": "성취 기준"
+            "achievementCriteria": "성취 기준",
+            "day": "M월 DD일 (dd)"
         },
         "touchVoca": {
             "touchVocaLearningHistory": "Touch VOCA 학습이력",
