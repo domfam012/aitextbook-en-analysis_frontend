@@ -3,7 +3,7 @@
         <div class="achievement">
             <v-card-item>
                 <v-card-title>
-                    <p>영역별 학업 성취도</p>
+                    <p>{{ t('analytics.achievement.title') }}</p>
                     <v-btn class="icon_only icon_only-sm" rounded flat @click="openModal({ type: 'achievement' })"
                         ><i class="ico more"
                     /></v-btn>
@@ -21,15 +21,15 @@
                         <div class="chart-bar">
                             <div class="use-word">
                                 <span class="bullet color-1"></span>
-                                <p>{{ mode === 'student' ? user?.name : '' }} 학생</p>
+                                <p>{{ mode === 'student' ? user?.name : '' }} {{ t('analytics.achievement.student') }}</p>
                             </div>
                             <div class="use-word">
                                 <span class="bullet color-2"></span>
-                                <p>반 평균</p>
+                                <p>{{ t('analytics.achievement.halfAverage') }}</p>
                             </div>
                             <div class="use-word">
                                 <span class="bullet color-3"></span>
-                                <p>지역 평균</p>
+                                <p>{{ t('analytics.achievement.regionalAverage') }}</p>
                             </div>
                         </div>
                         <!-- // 차트 라벨부분 입니다. -->
@@ -43,6 +43,7 @@
     </template>
 </template>
 <script setup>
+const { t } = useI18n();
 const mode = useCookie('mode');
 const { user } = storeToRefs(useApiUserStore());
 const { modalData, openModal } = useModalStore();

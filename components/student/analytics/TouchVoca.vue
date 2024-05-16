@@ -3,7 +3,7 @@
         <div class="touchVoca">
             <v-card-item>
                 <v-card-title>
-                    <p>오늘의 Touch VOCA</p>
+                    <p>{{ t('analytics.touchVoca.title') }}</p>
                     <v-spacer></v-spacer>
                     <v-btn class="icon_only icon_only-sm" @click="openModal({ type: 'touchVoca' })" rounded flat
                         ><i class="ico more"
@@ -29,19 +29,19 @@
                         <div class="chart-bar type_single">
                             <div class="use-word">
                                 <span class="bullet color-1"></span>
-                                <p>응시한 단어 수</p>
+                                <p>{{ t('analytics.touchVoca.text1') }}</p>
                             </div>
                             <div class="use-word">
                                 <span class="bullet color-2"></span>
-                                <p>알고 있는 단어 수</p>
+                                <p>{{ t('analytics.touchVoca.text2') }}</p>
                             </div>
                             <div class="use-word">
                                 <span class="bullet color-3"></span>
-                                <p>조금 알거나 모르는 단어 수</p>
+                                <p>{{ t('analytics.touchVoca.text3') }}</p>
                             </div>
                             <div class="use-word">
                                 <span class="bullet color-6"></span>
-                                <p>모르는 단어 수</p>
+                                <p>{{ t('analytics.touchVoca.text4') }}</p>
                             </div>
                         </div>
                     </div>
@@ -54,6 +54,7 @@
     </template>
 </template>
 <script setup>
+const { t } = useI18n();
 const { modalData, openModal } = useModalStore();
 const todayStore = useApiTodayStore();
 const { touchVocaGraph } = storeToRefs(todayStore);

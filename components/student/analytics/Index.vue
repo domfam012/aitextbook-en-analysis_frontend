@@ -3,7 +3,7 @@
         <AuthInfo />
         <div class="title-box">
             <div class="sub_title">
-                <p>오늘의 수업 현황</p>
+                <p>{{ t('analytics.index.todayClass') }}</p>
                 <v-select
                     v-model="selected"
                     :items="items"
@@ -24,7 +24,7 @@
         </div>
         <div class="d-flex mb-5 gap2">
             <Calendar />
-            <template v-if="selected === '진도 학습'">
+            <template v-if="selected === t('analytics.index.pacedLearning')">
                 <StudentAnalyticsProgressInfo />
             </template>
             <template v-else>
@@ -40,6 +40,7 @@
     </div>
 </template>
 <script setup>
+const { t } = useI18n();
 const todayStore = useApiTodayStore();
 const calendarStore = useApiCalendarStore();
 const lessonStore = useApiMyLessonStore();
@@ -47,8 +48,8 @@ const lessonStore = useApiMyLessonStore();
 const { selectLessonState } = storeToRefs(todayStore);
 const { formatDate } = storeToRefs(calendarStore);
 
-const selected = ref('진도 학습');
-const items = ref(['진도 학습', 'AI CURI Talk!']);
+const selected = ref(t('analytics.index.pacedLearning'));
+const items = ref([t('analytics.index.pacedLearning'), t('analytics.index.AICURITalk')]);
 
 /**
  * 선택된 날짜의 단원/차시 목록 Get

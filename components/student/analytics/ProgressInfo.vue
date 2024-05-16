@@ -8,7 +8,7 @@
                     <p class="tit_txt">{{ item.sctnNameEng }}</p>
                     <p class="sub_txt">{{ item.sctnNameKor }}</p>
                     <div class="extra">
-                        <v-btn rounded flat size="small" class="primary">복습</v-btn>
+                        <v-btn rounded flat size="small" class="primary">{{ t('analytics.progressInfo.review') }}</v-btn>
                     </div>
                 </v-list-item>
             </v-list>
@@ -19,16 +19,16 @@
             <v-card-title>
                 <span class="font-color-primary">
                     <time :datetime="formatDate">
-                        {{ dayjs(formatDate).format('MM월 DD일 dddd') }}
+                        {{ dayjs(formatDate).format(t('analytics.timeFormat')) }}
                     </time>
-                    수업 정보
+                    {{ t('analytics.progressInfo.classInformation') }}
                 </span>
             </v-card-title>
         </v-card-item>
         <v-card-text>
             <div class="card_no_data">
                 <i class="ico no_color_board ico_size_25" />
-                <p>완료한 수업이 없습니다.</p>
+                <p>{{ t('analytics.progressInfo.noClass') }}.</p>
             </div>
         </v-card-text>
     </v-card>
@@ -39,7 +39,7 @@
 
 <script setup>
 import dayjs from 'dayjs';
-
+const { t } = useI18n();
 const { modalData } = useModalStore();
 const todayStore = useApiTodayStore();
 const calendarStore = useApiCalendarStore();

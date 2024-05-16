@@ -3,7 +3,7 @@
         <!-- 데이터 있을 때 -->
         <div v-if="curiState?.length > 0" class="inner">
             <div class="inner_title">
-                <h3 class="bullet">학습을 완료할 때마다 색깔 조각이 생깁니다. 도안을 선택해서 완성해 보세요.</h3>
+                <h3 class="bullet">{{ t('analytics.curi.coloring.text') }}</h3>
             </div>
             <v-list class="d-flex px30 py-0">
                 <v-list-item class="px15 py15 cursor" v-for="(item, index) in curiState" :key="index" @click="$event => handleClick(index)">
@@ -15,7 +15,7 @@
         <!-- 데이터 없을 때 -->
         <div v-else class="card_no_data">
             <i class="ico no_color_board ico_size_25" />
-            <p>데이터가 존재하지 않습니다.</p>
+            <p>{{ t('analytics.noData') }}</p>
         </div>
     </v-sheet>
     <Modal v-if="modalData?.type === 'coloring'">
@@ -24,6 +24,7 @@
 </template>
 
 <script setup>
+const { t } = useI18n();
 const { modalData, openModal, closeModal } = useModalStore();
 const curiStore = useApiCuriStore();
 

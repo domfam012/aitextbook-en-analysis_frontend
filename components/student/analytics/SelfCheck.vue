@@ -2,11 +2,11 @@
     <v-card height="56rem" elevation="0" class="v-card-yellow v-card-with_flag flex-1-1-100">
         <div class="selfCheck">
             <div class="flag flag-left">
-                <span>{{ props?.sessionInfo }}차시</span>
+                <span>{{ props?.sessionInfo }}{{ t('analytics.selfCheck.sessId') }}</span>
             </div>
             <v-card-item>
                 <v-card-title>
-                    <span> 진도 학습을 스스로 점검해 볼까요?</span>
+                    <span>{{ t('analytics.selfCheck.text') }}</span>
                     <v-spacer></v-spacer>
                     <v-btn class="icon_only icon_only-sm" rounded flat @click="openModal({ type: 'selfCheck' })"
                         ><i class="ico more"
@@ -38,6 +38,7 @@
     </template>
 </template>
 <script setup>
+const { t } = useI18n();
 const props = defineProps({
     /**
      * 차시 정보 -> 현재 프롭스로 관리하고 있지만 , 전역 store로 관리 예정

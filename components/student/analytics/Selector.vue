@@ -39,9 +39,9 @@
                     </template>
                 </v-select>
                 <div class="pages">
-                    교과서<br />
+                    {{ t('analytics.selector.textbook') }}<br />
                     <!--                    <span class="num">{{ depth2.bookPageCount }}쪽</span>-->
-                    <span class="num">{{ depth2.textbookStartPage }}쪽</span>
+                    <span class="num">{{ depth2.textbookStartPage }}{{ t('analytics.selector.page') }}</span>
                 </div>
             </div>
             <v-btn class="icon_only icon_only-sm" rounded flat @click="openModal({ type: 'progressInfo' })"><i class="ico more" /></v-btn>
@@ -58,6 +58,7 @@ const props = defineProps({
         required: Boolean
     }
 });
+const { t } = useI18n();
 const { openModal } = useModalStore();
 const todayStore = useApiTodayStore();
 const calendarStore = useApiCalendarStore();

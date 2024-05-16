@@ -2,7 +2,7 @@
     <v-card elevation="0" class="v-card-lightblue">
         <v-card-item>
             <v-card-title class="d-flex align-center">
-                <span class="mr-5"> 나의 학습 분석</span>
+                <span class="mr-5"> {{ t('analytics.diagnosis.title') }}</span>
                 <div class="d-flex">
                     <div class="select_box_wrap mgr10">
                         <v-select
@@ -30,38 +30,38 @@
             <v-row no-gutters class="gap6">
                 <v-col>
                     <div class="learningDiagnostics">
-                        <h3 class="learn-title bullet-bot">단어 학습 진단</h3>
+                        <h3 class="learn-title bullet-bot">{{ t('analytics.diagnosis.wordLearning') }}</h3>
                         <ChartBasicBar
                             :suffix="t('common.unit.num')"
                             :item="[
                                 {
                                     value: wordDiagnosisState?.wrdPrfctUndrsUseCnt,
                                     color: 'color-1',
-                                    label: '잘이해하고 활용한 단어'
+                                    label: t('analytics.diagnosis.text1')
                                 },
                                 {
                                     value: wordDiagnosisState?.wrdExprsUndrsUnsdCnt,
                                     color: 'color-2',
-                                    label: '이해했으나 활용하지 못한 단어'
+                                    label: t('analytics.diagnosis.text2')
                                 },
                                 {
                                     value: wordDiagnosisState?.wrdWrongExprsUndrsCnt,
                                     color: 'color-3',
-                                    label: '조금만 더학습하면 좋을 단어'
+                                    label: t('analytics.diagnosis.text3')
                                 },
                                 {
                                     value: wordDiagnosisState?.wrdSplngWrongKnowCnt,
                                     color: 'color-4',
-                                    label: '더열심히 학습해야 할 단어'
+                                    label: t('analytics.diagnosis.text4')
                                 },
-                                { value: wordDiagnosisState?.wrdLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
+                                { value: wordDiagnosisState?.wrdLrnTotCnt, color: 'color-5', label: t('analytics.diagnosis.text5') }
                             ]"
                         />
                     </div>
                 </v-col>
                 <v-col>
                     <div class="learningDiagnostics">
-                        <h3 class="learn-title bullet-bot">요일별 누적 학습 시간</h3>
+                        <h3 class="learn-title bullet-bot">{{ t('analytics.diagnosis.dayAccumulate') }}</h3>
                         <ChartBasicBar
                             :solidColor="true"
                             :suffix="t('common.unit.min')"
@@ -69,25 +69,33 @@
                                 {
                                     value: cumulativeTimeState?.mondayLearnTime,
                                     color: 'color-1',
-                                    label: '월요일'
+                                    label: t('analytics.diagnosis.monday')
                                 },
                                 {
                                     value: cumulativeTimeState?.tuesdayLearnTime,
                                     color: 'color-2',
-                                    label: '화요일'
+                                    label: t('analytics.diagnosis.tuesday')
                                 },
                                 {
                                     value: cumulativeTimeState?.wednesdayLearnTime,
                                     color: 'color-3',
-                                    label: '수요일'
+                                    label: t('analytics.diagnosis.wednesday')
                                 },
                                 {
                                     value: cumulativeTimeState?.thursdayLearnTime,
                                     color: 'color-4',
-                                    label: '목요일'
+                                    label: t('analytics.diagnosis.thursday')
                                 },
-                                { value: cumulativeTimeState?.fridayLearnTime, color: 'color-5', label: '금요일' },
-                                { value: cumulativeTimeState?.saturdaySundayLearnTime, color: 'color-6', label: '토요일, 일요일' }
+                                {
+                                    value: cumulativeTimeState?.fridayLearnTime,
+                                    color: 'color-5',
+                                    label: t('analytics.diagnosis.friday')
+                                },
+                                {
+                                    value: cumulativeTimeState?.saturdaySundayLearnTime,
+                                    color: 'color-6',
+                                    label: t('analytics.diagnosis.weekend')
+                                }
                             ]"
                         />
                     </div>
@@ -97,15 +105,15 @@
     </v-card>
 </template>
 <script setup>
-const select = ref({ state: '최근 7일', value: 7 });
+const { t } = useI18n();
+const select = ref({ state: t('analytics.diagnosis.last7day'), value: 7 });
 const items = ref([
-    { state: '최근 7일', value: 7 },
-    { state: '최근 30일', value: 30 }
+    { state: t('analytics.diagnosis.last7day'), value: 7 },
+    { state: t('analytics.diagnosis.last30day'), value: 30 }
 ]);
 const apiMyLessonStore = useApiMyLessonStore();
 const { wordDiagnosisState, cumulativeTimeState, selectedDateState } = storeToRefs(apiMyLessonStore);
 
-const { t } = useI18n();
 const dayjs = useDayjs();
 
 const handleGetData = () => {

@@ -4,14 +4,14 @@
             <v-card-title>
                 <span class="font-color-primary">
                     <time :datetime="formatDate">
-                        {{ dayjs(formatDate).format('MM월 DD일 dddd') }}
+                        {{ dayjs(formatDate).format(t('analytics.timeFormat')) }}
                     </time>
-                    수업 정보
+                    {{ t('analytics.curi.index.classInformation') }}
                 </span>
                 <v-tabs v-model="tab" @update:model-value="handleGetData">
-                    <v-tab value="tab1">숫자 색칠판 완성하기</v-tab>
-                    <v-tab value="tab2">큐리가 칭찬한 표현</v-tab>
-                    <v-tab value="tab3">큐리가 아쉬워한 표현</v-tab>
+                    <v-tab value="tab1">{{ t('analytics.curi.index.text1') }}</v-tab>
+                    <v-tab value="tab2">{{ t('analytics.curi.index.text2') }}</v-tab>
+                    <v-tab value="tab3">{{ t('analytics.curi.index.text3') }}</v-tab>
                 </v-tabs>
                 <v-btn class="icon_only" rounded flat
                     ><i class="ico more ico_size_10" @click="openModal({ type: 'aiCuri', buttonLabels: [], closeBtnClass: true })"
@@ -36,6 +36,7 @@
     <Modal v-if="modalData.type === 'aiCuri'"> <ModalCuriTalkInfo /> </Modal>
 </template>
 <script setup>
+const { t } = useI18n();
 const dayjs = useDayjs();
 const tab = ref(null);
 

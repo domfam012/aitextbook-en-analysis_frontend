@@ -5,7 +5,7 @@
                 <h3 class="title">
                     <span>
                         <time :datetime="formatDate">
-                            {{ dayjs(formatDate).format(t('analytics.lesson.index.timeFormat')) }}
+                            {{ dayjs(formatDate).format(t('analytics.timeFormat')) }}
                         </time>
                         {{ t('analytics.lesson.index.classInfo') }}
                     </span>

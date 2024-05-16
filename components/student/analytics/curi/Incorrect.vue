@@ -1,7 +1,7 @@
 <template>
     <v-sheet class="incorrect_wrap">
         <div class="inner_title">
-            <h3 class="bullet">철자를 틀린 경우</h3>
+            <h3 class="bullet">{{ t('analytics.curi.incorrect.noSpelling') }}</h3>
         </div>
         <v-list class="list_check" v-if="curiState?.wrongSpelling?.value.length > 0">
             <v-list-item v-for="(item, index) in curiState?.wrongSpelling" :key="index">
@@ -9,10 +9,10 @@
                 <span class="right"> {{ item?.correct }}<span class="text_err">r</span>ning(o) </span>
             </v-list-item>
         </v-list>
-        <p class="font-body3 ml-2 mb-4 font-weight-bold" v-else>데이터가 존재하지 않습니다.</p>
+        <p class="font-body3 ml-2 mb-4 font-weight-bold" v-else>{{ t('analytics.noData') }}</p>
 
         <div class="inner_title">
-            <h3 class="bullet">잘못된 표현을 쓴 경우</h3>
+            <h3 class="bullet">{{ t('analytics.curi.incorrect.wrongExpression') }}</h3>
         </div>
         <v-list class="list_check" v-if="curiState?.wrongExpression?.value?.length > 0">
             <v-list-item v-for="(item, index) in curiState?.wrongExpression" :key="index">
@@ -21,11 +21,12 @@
                 </span>
             </v-list-item>
         </v-list>
-        <p class="font-body3 ml-2 mb-4 font-weight-bold" v-else>데이터가 존재하지 않습니다.</p>
+        <p class="font-body3 ml-2 mb-4 font-weight-bold" v-else>{{ t('analytics.noData') }}</p>
     </v-sheet>
 </template>
 
 <script setup>
+const { t } = useI18n();
 const curiStore = useApiCuriStore();
 const { curiState } = storeToRefs(curiStore);
 </script>
