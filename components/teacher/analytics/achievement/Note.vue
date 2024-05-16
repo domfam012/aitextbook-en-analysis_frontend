@@ -7,12 +7,12 @@
                     <h3 class="bullet">{{ item.title }}</h3>
                     <span>{{ item.description }}</span>
                 </div>
-                <strong class="result">{{ item.count }}건</strong>
+                <strong class="result">{{ item.count + t('common.unit.case') }}</strong>
             </div>
             <div class="card_items type_wrap">
                 <div class="item" v-for="index in item.imgSrc" :key="index">
                     <div class="image_wrap">
-                        <v-img :src="useAsset(index.img)" alt="가족사진 이미지" />
+                        <v-img :src="useAsset(index.img)" :alt="t('analytics.familyPicImg')" />
                     </div>
                     <!-- !NOTE 이미지가 없는 경우 -->
                     <!-- <div class="image_wrap no_image">
@@ -23,7 +23,7 @@
         </div>
         <div class="page_buttons" v-if="currentPageCountDisplay !== totalPageCountDisplay">
             <v-btn rounded flat class="secondary" @click="getMoreNotePage"
-                >더보기 {{ currentPageCountDisplay }}/{{ totalPageCountDisplay }}
+                >{{ t('common.button.more') }} {{ currentPageCountDisplay }}/{{ totalPageCountDisplay }}
             </v-btn>
         </div>
     </div>
@@ -31,6 +31,7 @@
 
 <script setup>
 const props = defineProps(['item']);
+const { t } = useI18n();
 
 // 현재 페이지 카운트 갯수
 const currentPageCount = ref(2);

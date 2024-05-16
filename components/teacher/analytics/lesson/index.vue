@@ -26,7 +26,7 @@
                 <v-card-title>
                     <span>
                         <time :datetime="formatDate">
-                            {{ dayjs(formatDate).format('MM월 DD일 dddd') }}
+                            {{ dayjs(formatDate).format(t('analytics.lesson.index.timeFormat')) }}
                         </time>
                         {{ t('analytics.lesson.index.classInfo') }}
                     </span>

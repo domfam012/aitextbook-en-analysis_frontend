@@ -10,7 +10,7 @@
                 >
                     <div class="avatar avatar-box" @click="openModal({ type: 'vocaLearningStatus' })">
                         <!-- !NOTE API 학생 정보 데이터 추가 요청중. 2024-04-12 (파라미터 변경될 수 있음.) -->
-                        <v-img :src="item.profile" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
+                        <v-img :src="item.profile" :alt="t('analytics.learn.touchVoca.avatarImg')" class="avatar-item" max-width="5rem" />
                         <div class="avatar-info">
                             <span class="info_number">{{ item.studId }}{{ t('common.unit.no') }}</span>
                             <span class="info_name">{{ item.studName }}</span>
@@ -54,7 +54,7 @@
             <div class="page_buttons mgt30">
                 <v-btn rounded flat class="secondary" :disabled="renderAll" @click="emit('page', currentPage + 1)">
                     {{
-                        $t('analytics.learn.touchVoca.more', {
+                        t('analytics.learn.touchVoca.more', {
                             currentPage: currentPage + 1,
                             totalPages: Math.ceil(vocaState?.length / 3)
                         })

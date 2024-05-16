@@ -11,7 +11,7 @@
             >
                 <div class="size_sm">
                     <i class="ico size_5 left_24"></i>
-                    <span class="blind">이전</span>
+                    <span class="blind">{{ t('common.button.prev') }}</span>
                 </div>
             </v-btn>
             <div class="info">
@@ -34,12 +34,13 @@
         </div>
         <div class="pages">
             <div>{{ t('analytics.lesson.selector.textbook') }}</div>
-            <span class="num">{{ teacherLearningSessionState[currentPage]?.bookPageCount }}쪽</span>
+            <span class="num">{{ teacherLearningSessionState[currentPage]?.bookPageCount + t('common.unit.page') }}</span>
         </div>
     </div>
 </template>
 
 <script setup>
+const { t } = useI18n();
 const dayjs = useDayjs();
 const courseStore = useApiCourseStore();
 const { teacherLearningSessionState } = storeToRefs(courseStore);

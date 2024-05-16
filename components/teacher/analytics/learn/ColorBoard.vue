@@ -14,12 +14,13 @@
         ></div>
 
         <div v-if="stamp" class="board-stamp">
-            <v-img :src="stampSrc" alt="도장이미지" />
+            <v-img :src="stampSrc" :alt="t('analytics.stampImg')" />
         </div>
     </div>
 </template>
 <script setup>
 import { v4 as uuidv4 } from 'uuid';
+const { t } = useI18n();
 const mode = useCookie('mode');
 const props = defineProps({
     paintable: { type: Boolean, default: false },

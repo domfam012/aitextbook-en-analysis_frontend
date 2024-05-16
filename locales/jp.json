@@ -1,409 +1,432 @@
 {
-    "10": "10",
-    "25": "25",
-    "50": "50",
-    "100": "100",
+    "10": "JP10",
+    "25": "JP25",
+    "50": "JP50",
+    "100": "JP100",
     "$vuetify": {
-        "open": "open",
-        "close": "close",
+        "open": "JPopen",
+        "close": "JPclose",
         "carousel": {
-            "prev": "prev",
-            "next": "next"
+            "prev": "JPprev",
+            "next": "JPnext"
         },
         "datePicker": {
-            "title": "title"
+            "title": "JPtitle"
         },
         "input": {
-            "prependAction": "prependAction",
-            "appendAction": "appendAction",
-            "clear": "clear"
+            "prependAction": "JPprependAction",
+            "appendAction": "JPappendAction",
+            "clear": "JPclear"
         },
         "pagination": {
             "ariaLabel": {
-                "root": "root"
+                "root": "JProot"
             }
         },
         "dataFooter": {
-            "firstPage": "firstPage",
-            "lastPage": "lastPage",
-            "prevPage": "prevPage",
-            "nextPage": "nextPage",
-            "itemsPerPageText": "itemsPerPageText",
-            "itemsPerPageAll": "itemsPerPageAll",
-            "pageText": "pageText"
+            "firstPage": "JPfirstPage",
+            "lastPage": "JPlastPage",
+            "prevPage": "JPprevPage",
+            "nextPage": "JPnextPage",
+            "itemsPerPageText": "JPitemsPerPageText",
+            "itemsPerPageAll": "JPitemsPerPageAll",
+            "pageText": "JPpageText"
         },
-        "noDataText": "해당 데이터가 없습니다."
+        "noDataText": "JP해당 데이터가 없습니다."
     },
     "chart": {
         "basicBar": {
-            "level4": "잘이해하고 활용한 단어",
-            "level3": "이해했으나 활용하지 못한 단어",
-            "level2": "조금만 더학습하면 좋을 단어",
-            "level1": "더열심히 학습해야 할 단어",
-            "totalLearningWords": "학습한 누적 단어 개수",
-            "monday": "월요일",
-            "tuesday": "화요일",
-            "wednesday": "수요일",
-            "thursday": "목요일",
-            "friday": "금요일",
-            "weekend": "토요일, 일요일"
+            "level4": "JP잘이해하고 활용한 단어",
+            "level3": "JP이해했으나 활용하지 못한 단어",
+            "level2": "JP조금만 더학습하면 좋을 단어",
+            "level1": "JP더열심히 학습해야 할 단어",
+            "totalLearningWords": "JP학습한 누적 단어 개수",
+            "monday": "JP월요일",
+            "tuesday": "JP화요일",
+            "wednesday": "JP수요일",
+            "thursday": "JP목요일",
+            "friday": "JP금요일",
+            "weekend": "JP토요일, 일요일"
         },
         "columnBar": {
-            "scale": "5점 만점 척도",
-            "pleasure": "즐거움",
-            "pride": "자부심",
-            "scared": "두려움",
-            "anger": "화, 절망감",
-            "boredom": "지루함",
-            "learningEnvironment": "학습환경",
-            "anxiety": "불안감"
+            "scale": "JP5점 만점 척도",
+            "pleasure": "JP즐거움",
+            "pride": "JP자부심",
+            "scared": "JP두려움",
+            "anger": "JP화, 절망감",
+            "boredom": "JP지루함",
+            "learningEnvironment": "JP학습환경",
+            "anxiety": "JP불안감"
         },
         "doughnut": {
-            "often": "자주",
-            "much": "많이",
-            "long": "오래",
-            "how": "얼마나",
-            "colorPiece": "색깔 조각",
-            "numOrMore": "개 이상",
-            "lessThanNum": "개 미만",
-            "cumulativeLearningTime": "누적 학습 시간",
-            "minutesOrMore": "분 이상",
-            "minutesOrLess": "분 이하"
+            "often": "JP자주",
+            "much": "JP많이",
+            "long": "JP오래",
+            "how": "JP얼마나",
+            "colorPiece": "JP색깔 조각",
+            "numOrMore": "JP개 이상",
+            "lessThanNum": "JP개 미만",
+            "cumulativeLearningTime": "JP누적 학습 시간",
+            "minutesOrMore": "JP분 이상",
+            "minutesOrLess": "JP분 이하"
         },
         "radar": {
-            "listening": "듣기",
-            "speaking": "말하기",
-            "writing": "쓰기",
-            "presenting": "제시하기",
-            "viewing": "보기",
-            "reading": "읽기",
-            "student": "학생",
-            "classAverage": "반 평균",
-            "regionalAverage": "지역 평균"
+            "listening": "JP듣기",
+            "speaking": "JP말하기",
+            "writing": "JP쓰기",
+            "presenting": "JP제시하기",
+            "viewing": "JP보기",
+            "reading": "JP읽기",
+            "student": "JP학생",
+            "classAverage": "JP반 평균",
+            "regionalAverage": "JP지역 평균"
         },
         "simpleDonut": {
-            "sunny": "맑음",
-            "cloudyAndRainy": "흐리고 비",
-            "cloudyAndThundery": "흐리고 천둥",
-            "veryWindy": "바람 많이",
-            "unresponsive": "미응답",
-            "cloudyAndWarm": "흐린 뒤 갬",
-            "sunnyAndCloudy": "맑았다 흐림",
-            "heavyRain": "폭우",
-            "cloudyAndSnowy": "흐리고 눈"
+            "sunny": "JP맑음",
+            "cloudyAndRainy": "JP흐리고 비",
+            "cloudyAndThundery": "JP흐리고 천둥",
+            "veryWindy": "JP바람 많이",
+            "unresponsive": "JP미응답",
+            "cloudyAndWarm": "JP흐린 뒤 갬",
+            "sunnyAndCloudy": "JP맑았다 흐림",
+            "heavyRain": "JP폭우",
+            "cloudyAndSnowy": "JP흐리고 눈"
         },
         "stackedBar": {
-            "title": "각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.",
+            "title": "JP각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.",
             "learners": {
-                "level1": "빠른 학습자",
-                "level2": "조금 빠른 학습자",
-                "level3": "중간 학습자",
-                "level4": "조금 느린 학습자",
-                "level5": "느린 학습자",
-                "level6": "미학습"
+                "level1": "JP빠른 학습자",
+                "level2": "JP조금 빠른 학습자",
+                "level3": "JP중간 학습자",
+                "level4": "JP조금 느린 학습자",
+                "level5": "JP느린 학습자",
+                "level6": "JP미학습"
             }
         },
         "stackedColumn": {
-            "understanding": "이해",
-            "listening": "듣기",
-            "speaking": "말하기"
+            "understanding": "JP이해",
+            "listening": "JP듣기",
+            "speaking": "JP말하기"
         }
     },
     "modal": {
         "achievement": {
-            "my": "나의",
-            "achievementArea": "영역별 학업 성취율",
-            "student": "학생",
-            "classAverage": "반 평균",
-            "regionalAverage": "지역 평균",
-            "last7day": "최근 7일",
-            "last15day": "최근 15일",
-            "last20day": "최근 20일"
+            "my": "JP나의",
+            "achievementArea": "JP영역별 학업 성취율",
+            "student": "JP학생",
+            "classAverage": "JP반 평균",
+            "regionalAverage": "JP지역 평균",
+            "last7day": "JP최근 7일",
+            "last15day": "JP최근 15일",
+            "last20day": "JP최근 20일"
         },
         "coloringBoard": {
-            "title": "숫자 색칠판 완성하기",
-            "tab1": "수집한 색깔 조각",
-            "tab2": "남은 색깔 조각",
-            "teacherStamp": "선생님의 도장이 찍힌 도안은 색깔 조각을 옮길 수 없습니다.",
-            "listenColorPieces": "'듣기' 색깔 조각",
-            "readColorPieces": "'읽기' 색깔 조각",
-            "viewColorPieces": "'보기' 색깔 조각",
-            "talkingColorPieces": "'말하기' 색깔 조각",
-            "writeColorPieces": "'쓰기' 색깔 조각",
-            "feedbackStamp": "피드백 도장 보내기",
-            "studentStamp": "학생에게 어떤 도장을 보낼까요?"
+            "title": "JP숫자 색칠판 완성하기",
+            "tab1": "JP수집한 색깔 조각",
+            "tab2": "JP남은 색깔 조각",
+            "teacherStamp": "JP선생님의 도장이 찍힌 도안은 색깔 조각을 옮길 수 없습니다.",
+            "listenColorPieces": "JP'듣기' 색깔 조각",
+            "readColorPieces": "JP'읽기' 색깔 조각",
+            "viewColorPieces": "JP'보기' 색깔 조각",
+            "talkingColorPieces": "JP'말하기' 색깔 조각",
+            "writeColorPieces": "JP'쓰기' 색깔 조각",
+            "feedbackStamp": "JP피드백 도장 보내기",
+            "studentStamp": "JP학생에게 어떤 도장을 보낼까요?"
         },
         "curiTalkInfo": {
-            "AICURITalk": "AI CURI Talk!",
-            "glanceLook": "한눈에 보기",
-            "cumulativeChatNum": "누적 채팅 횟수:",
-            "cumulativeChatTime": "누적 채팅 시간:",
-            "wholeSemester": "학기 전체",
-            "1stSemester": "1학기",
-            "2stSemester": "2학기",
-            "chatDate": "채팅 날짜",
-            "chatTime": "채팅 시간",
-            "expressionPraise": "칭찬 표현",
-            "misspelledExpression": "철자를 틀린 표현",
-            "wrongExpression": "잘못된 표현",
-            "aiExpressionHelper": "AI 표현 도우미",
-            "Q": "Q.",
-            "A": "A:"
+            "AICURITalk": "JPAI CURI Talk!",
+            "glanceLook": "JP한눈에 보기",
+            "cumulativeChatNum": "JP누적 채팅 횟수:",
+            "cumulativeChatTime": "JP누적 채팅 시간:",
+            "wholeSemester": "JP학기 전체",
+            "1stSemester": "JP1학기",
+            "2stSemester": "JP2학기",
+            "chatDate": "JP채팅 날짜",
+            "chatTime": "JP채팅 시간",
+            "expressionPraise": "JP칭찬 표현",
+            "misspelledExpression": "JP철자를 틀린 표현",
+            "wrongExpression": "JP잘못된 표현",
+            "aiExpressionHelper": "JPAI 표현 도우미",
+            "Q": "JPQ.",
+            "A": "JPA:"
         },
         "progressInfo": {
-            "progressHistory": "진도 학습 이력",
-            "lessonCompleted": "완료한 학습 차시:",
-            "cumulativeTime": "누적 학습 시간:",
-            "afterClass": "차시 복습",
-            "note": "노트",
-            "absenceReview": "결석 복습",
-            "wholeSemester": "학기 전체",
-            "chName": "Lesson",
-            "sessId": "차시",
-            "noteYn": "학습 바로가기",
-            "sectionList": "학습내용",
-            "date": "학습날짜",
-            "time": "학습한 시간",
-            "percent": "완료율"
+            "progressHistory": "JP진도 학습 이력",
+            "lessonCompleted": "JP완료한 학습 차시:",
+            "cumulativeTime": "JP누적 학습 시간:",
+            "afterClass": "JP차시 복습",
+            "note": "JP노트",
+            "absenceReview": "JP결석 복습",
+            "wholeSemester": "JP학기 전체",
+            "chName": "JPLesson",
+            "sessId": "JP차시",
+            "noteYn": "JP학습 바로가기",
+            "sectionList": "JP학습내용",
+            "date": "JP학습날짜",
+            "time": "JP학습한 시간",
+            "percent": "JP완료율"
         },
         "selfCheck": {
-            "compilationCollect": "성취 기준 모아보기",
-            "unit": "단원별",
-            "date": "날짜별",
-            "achievementCriteria": "성취 기준"
+            "compilationCollect": "JP성취 기준 모아보기",
+            "unit": "JP단원별",
+            "date": "JP날짜별",
+            "achievementCriteria": "JP성취 기준"
         },
         "touchVoca": {
-            "touchVocaLearningHistory": "Touch VOCA 학습이력",
-            "barText1": "응시한 단어 수",
-            "barText2": "알고 있는 단어 수",
-            "barText3": "조금 알거나 모르는 단어 수",
-            "barText4": "모르는 단어 수",
-            "last30day": "최근 30일"
+            "touchVocaLearningHistory": "JPTouch VOCA 학습이력",
+            "barText1": "JP응시한 단어 수",
+            "barText2": "JP알고 있는 단어 수",
+            "barText3": "JP조금 알거나 모르는 단어 수",
+            "barText4": "JP모르는 단어 수",
+            "last30day": "JP최근 30일"
         },
         "vocaLearningStatus": {
-            "touchVoca": "에 학습한 Touch VOCA"
+            "touchVoca": "JP에 학습한 Touch VOCA"
         }
     },
     "table": {
         "carousel": {
-            "unlearning": "미학습",
-            "waitLearning": "학습대기",
-            "unit": "단원"
+            "unlearning": "JP미학습",
+            "waitLearning": "JP학습대기",
+            "unit": "JP단원"
         },
         "edit": {
-            "reset": "선택 초기화",
+            "reset": "JP선택 초기화",
             "headers": {
-                "lesson": "Lesson",
-                "level": "수준",
-                "developments": "교과 학습 발달 사항"
+                "lesson": "JPLesson",
+                "level": "JP수준",
+                "developments": "JP교과 학습 발달 사항"
             }
         },
         "panel": {
-            "studId": "번호",
-            "studName": "이름",
-            "achvRtAvg": "학업 성취율",
-            "wrtngNoteCnt": "필기노트",
-            "drillPrtcpCnt": "드릴 학습 참여 건수",
-            "wrdLrnCnt": "단어 학습",
-            "chtLrnCnt": "챗봇 학습",
-            "achvBaseScale": "성취 기준 자기채점"
+            "studId": "JP번호",
+            "studName": "JP이름",
+            "achvRtAvg": "JP학업 성취율",
+            "wrtngNoteCnt": "JP필기노트",
+            "drillPrtcpCnt": "JP드릴 학습 참여 건수",
+            "wrdLrnCnt": "JP단어 학습",
+            "chtLrnCnt": "JP챗봇 학습",
+            "achvBaseScale": "JP성취 기준 자기채점"
         }
     },
     "common": {
         "authInfo": {
-            "title": "오늘 로그인 횟수",
-            "content": "오늘 학습한 내용은 16시 이후에 분석됩니다."
+            "title": "JP오늘 로그인 횟수",
+            "content": "JP오늘 학습한 내용은 16시 이후에 분석됩니다."
         },
         "calendar": {
-            "notice": "생활기록부 작성 기간이 10일 남았습니다.",
-            "masks": "YYYY년 MMM",
-            "scheduledClass": "수업 예정일",
-            "completedClass": "수업 완료일",
-            "issuePeriod": "생활기록부 발행 기간"
+            "notice": "JP생활기록부 작성 기간이 10일 남았습니다.",
+            "masks": "JPYYYY년 MMM",
+            "scheduledClass": "JP수업 예정일",
+            "completedClass": "JP수업 완료일",
+            "issuePeriod": "JP생활기록부 발행 기간"
         },
         "empty": {
-            "studentRecord": "생활 기록부",
-            "content": "2024년 {currentSemester}학기 생활 기록부가 발행 전입니다.",
-            "button": "2024년 1학기 생활 기록부 불러오기"
+            "studentRecord": "JP생활 기록부",
+            "content": "JP2024년 {currentSemester}학기 생활 기록부가 발행 전입니다.",
+            "button": "JP2024년 1학기 생활 기록부 불러오기"
         },
         "rangeDatePicker": {
-            "warningMsg": "정확한 분석을 위해 최대 30일까지 조회만 가능합니다."
+            "warningMsg": "JP정확한 분석을 위해 최대 30일까지 조회만 가능합니다."
         },
         "button": {
-            "cancel": "취소",
-            "save": "저장",
-            "refresh": "새로고침",
-            "prev": "이전",
-            "next": "다음",
-            "close": "닫기",
-            "reset": "초기화",
-            "check": "확인"
+            "cancel": "JP취소",
+            "save": "JP저장",
+            "refresh": "JP새로고침",
+            "prev": "JP이전",
+            "next": "JP다음",
+            "close": "JP닫기",
+            "reset": "JP초기화",
+            "check": "JP확인",
+            "more": "JP더보기"
         },
         "unit": {
-            "hour": "시간",
-            "min": "분",
-            "no": "번",
-            "cnt": "회",
-            "person": "명",
-            "case": "건",
-            "num": "개"
+            "hour": "JP시간",
+            "min": "JP분",
+            "no": "JP번",
+            "cnt": "JP회",
+            "person": "JP명",
+            "case": "JP건",
+            "num": "JP개",
+            "page": "JP쪽"
         }
     },
     "analytics": {
+        "familyPicImg": "JP가족사진 이미지",
+        "stampImg": "JP도장 이미지",
         "accumulation": {
-            "text": " 단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.",
-            "unitAssessmentAI": "단원 평가 AI 맞춤 출제",
-            "sendAssignment": "과제 보내기",
-            "word": "단어 문제",
-            "expression": "표현 문제",
-            "situation": "상황 문제",
-            "totalNumber": "총 문항 수",
-            "points": "점 배점",
-            "perfectScore": "= 100점 만점",
-            "more": "5명 더 보기",
-            "number": "번호",
-            "name": "이름",
-            "average": "평균 학업 성취율"
+            "text": "JP 단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.",
+            "unitAssessmentAI": "JP단원 평가 AI 맞춤 출제",
+            "sendAssignment": "JP과제 보내기",
+            "word": "JP단어 문제",
+            "expression": "JP표현 문제",
+            "situation": "JP상황 문제",
+            "totalNumber": "JP총 문항 수",
+            "points": "JP점 배점",
+            "perfectScore": "JP= 100점 만점",
+            "more": "JP5명 더 보기",
+            "number": "JP번호",
+            "name": "JP이름",
+            "average": "JP평균 학업 성취율",
+            "character": "JP캐릭터"
         },
         "chatBot": {
-            "text": "학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.",
-            "noRegistration": "미노출 등록",
-            "text1": "선택한 단어 및 표현을",
-            "text2": "미노출 등록 하시겠습니까?",
-            "registrations": "등록되었습니다.",
-            "text3": "‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.",
-            "registration": "등록"
+            "text": "JP학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.",
+            "noRegistration": "JP미노출 등록",
+            "text1": "JP선택한 단어 및 표현을",
+            "text2": "JP미노출 등록 하시겠습니까?",
+            "registrations": "JP등록되었습니다.",
+            "text3": "JP‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.",
+            "registration": "JP등록",
+            "profile": "JP프로필",
+            "avatarImg": "JP아바타 이미지"
         },
+
         "study": {
-            "text": "선생님께서는 학생에게 출제할 AI 추천 자료를 선택하고 보내기를 눌러주세요.",
-            "selectAll": "모두 선택",
-            "deSelect": "선택 해제",
-            "send": "보내기"
+            "text": "JP선생님께서는 학생에게 출제할 AI 추천 자료를 선택하고 보내기를 눌러주세요.",
+            "selectAll": "JP모두 선택",
+            "deSelect": "JP선택 해제",
+            "send": "JP보내기"
         },
         "word": {
-            "text1": "알고있는 단어 수 :",
-            "text2": "조금 알거나 모르는 단어 수 :",
-            "text3": "모르는 단어 수 :",
-            "text4": "단어 학습 총 개수 :",
-            "expand": "펼치기"
+            "text1": "JP알고있는 단어 수 :",
+            "text2": "JP조금 알거나 모르는 단어 수 :",
+            "text3": "JP모르는 단어 수 :",
+            "text4": "JP단어 학습 총 개수 :",
+            "expand": "JP펼치기"
         },
         "coloring": {
-            "more": "3명 더 보기",
-            "text": "아직 숫자 색칠판을 시작한 학생이 없습니다."
+            "more": "JP3명 더 보기",
+            "text": "JP아직 숫자 색칠판을 시작한 학생이 없습니다."
         },
         "learn": {
             "index": {
-                "class": "우리 반",
-                "inquiry": "조회 일자 : ",
-                "inquiryPeriod": "조회 기간 : ",
-                "coloringBoard": "색칠판 학습 이력",
-                "perfection": "완성도 Top 5",
-                "touchVoca": "Touch Voca",
-                "cumulativeLearning": "누적 학습 기록",
-                "soaring": "급상승 Top 5",
-                "encouragement": "독려 필요 Top 5",
-                "text1": "많이 푼 순서",
-                "text2": "많이 맞힌 순서"
+                "class": "JP우리 반",
+                "inquiry": "JP조회 일자 : ",
+                "inquiryPeriod": "JP조회 기간 : ",
+                "coloringBoard": "JP색칠판 학습 이력",
+                "perfection": "JP완성도 Top 5",
+                "touchVoca": "JPTouch Voca",
+                "cumulativeLearning": "JP누적 학습 기록",
+                "soaring": "JP급상승 Top 5",
+                "encouragement": "JP독려 필요 Top 5",
+                "text1": "JP많이 푼 순서",
+                "text2": "JP많이 맞힌 순서"
             },
             "record": {
-                "text": "학습 이력이 없습니다.",
-                "subText1": "10회 이상 방문",
-                "subText2": "6~9회 방문",
-                "subText3": "3~5회 방문",
-                "subText4": "1~2회 방문",
-                "subText5": "방문 기록 없음"
+                "text": "JP학습 이력이 없습니다.",
+                "subText1": "JP10회 이상 방문",
+                "subText2": "JP6~9회 방문",
+                "subText3": "JP3~5회 방문",
+                "subText4": "JP1~2회 방문",
+                "subText5": "JP방문 기록 없음"
             },
             "touchVoca": {
-                "text1": "응시한 단어 수",
-                "text2": "알고 있는 단어 수",
-                "text3": "조금 알거나 모르는 단어 수",
-                "text4": "모르는 단어 수",
-                "noStudent": "아직 응시한 학생이 없습니다.",
-                "more": "3명 더 보기"
+                "text1": "JP응시한 단어 수",
+                "text2": "JP알고 있는 단어 수",
+                "text3": "JP조금 알거나 모르는 단어 수",
+                "text4": "JP모르는 단어 수",
+                "noStudent": "JP아직 응시한 학생이 없습니다.",
+                "more": "JP3명 더 보기",
+                "avatarImg": "JP아바타 이미지"
             }
         },
         "lesson": {
-            "level": {
-                "title": "AI Level Test를 볼 때가 되었어요!",
-                "noMessage": "독려 메시지를 보낼 ",
-                "noStudent": "학생이 없습니다.",
-                "count": "주",
-                "message": "독려 메시지 보내기",
-                "student": "선택한 학생에게",
-                "aiLevel": "AI Level Test",
-                "messages": "독려 메시지를",
-                "send": "보내시겠습니까?",
-                "aiMessage": "AI Level Test 독려 메시지를 보냈습니다."
+            "index": {
+                "timeFormat": "JPMM월 DD일 dddd",
+                "classInfo": "JP수업 정보",
+                "classText1": "JP예정된 수업이",
+                "classText2": "JP있습니다.",
+                "noClass": "JP선택한 날에는 수업이 배정되어 있지 않습니다."
+            },
+            "info": {
+                "tab1": "JP오늘의 학업 성취율",
+                "tab2": "JP단원별 누적 성취율"
+            },
+            "selector": {
+                "textbook": "JP교과서"
             }
+        },
+        "level": {
+            "title": "JPAI Level Test를 볼 때가 되었어요!",
+            "noMessage": "JP독려 메시지를 보낼 ",
+            "noStudent": "JP학생이 없습니다.",
+            "count": "JP주",
+            "message": "JP독려 메시지 보내기",
+            "student": "JP선택한 학생에게",
+            "aiLevel": "JPAI Level Test",
+            "messages": "JP독려 메시지를",
+            "send": "JP보내시겠습니까?",
+            "aiMessage": "JPAI Level Test 독려 메시지를 보냈습니다."
         }
     },
     "record": {
         "issuanceStatus": {
-            "grade": "3학년",
-            "semester": "학기",
-            "title": "AI 수학 생활기록부 발행 현황 :",
-            "totalCnt": "총 {count}명",
-            "subtitle1": "학습 이력 수집",
-            "subtitle2": "단원별 평어 작성",
-            "subtitle3": "발행 완료 건수",
-            "info": "위 숫자를 선택하면 AI 수학 생활기록부를 조회하거나 평어를 작성할 수 있어요."
+            "grade": "JP3학년",
+            "semester": "JP학기",
+            "title": "JPAI 수학 생활기록부 발행 현황 :",
+            "totalCnt": "JP총 {count}명",
+            "subtitle1": "JP학습 이력 수집",
+            "subtitle2": "JP단원별 평어 작성",
+            "subtitle3": "JP발행 완료 건수",
+            "info": "JP위 숫자를 선택하면 AI 수학 생활기록부를 조회하거나 평어를 작성할 수 있어요."
         },
         "issuance": {
             "grade": {
-                "unitType": "평어 유형",
-                "typeA": "A형",
-                "typeB": "B형",
-                "typeC": "C형"
+                "unitType": "JP평어 유형",
+                "typeA": "JPA형",
+                "typeB": "JPB형",
+                "typeC": "JPC형"
             },
             "index": {
-                "reset": "편집 초기화",
-                "editText": "텍스트 편집"
+                "reset": "JP편집 초기화",
+                "editText": "JP텍스트 편집"
             }
         },
         "issuancePart": {
             "button": {
-                "savePDF": "PDF 저장",
-                "print": "인쇄"
+                "savePDF": "JPPDF 저장",
+                "print": "JP인쇄"
             },
             "title": {
-                "numOfLoginsAndTotalLearningTime": "로그인 횟수와 총 학습 시간",
-                "areaAchievementRate": "영역별 학업 성취율",
-                "unitAchievementRate": "단원별 학업 성취율",
-                "wordLearningDiagnostics": "단어 학습 진단",
-                "dayAverageLearningTime": "요일별 평균 학습 시간",
-                "emotionalWeather": "감정 날씨_학기 총계",
-                "learningSentiment": "학습 정서_학기 평균",
-                "unitDevelopment": "단원별 교과 학습 발달 사항",
-                "behavioralDevelopmentEvaluation": "담임 선생님의 행동 발달 평가 내용"
+                "numOfLoginsAndTotalLearningTime": "JP로그인 횟수와 총 학습 시간",
+                "areaAchievementRate": "JP영역별 학업 성취율",
+                "unitAchievementRate": "JP단원별 학업 성취율",
+                "wordLearningDiagnostics": "JP단어 학습 진단",
+                "dayAverageLearningTime": "JP요일별 평균 학습 시간",
+                "emotionalWeather": "JP감정 날씨_학기 총계",
+                "learningSentiment": "JP학습 정서_학기 평균",
+                "unitDevelopment": "JP단원별 교과 학습 발달 사항",
+                "behavioralDevelopmentEvaluation": "JP담임 선생님의 행동 발달 평가 내용"
             },
-            "student": "학생",
-            "textbookLearning": "교과서 학습",
-            "totalLearningTime": "총 학습 시간",
-            "drillLearning": "드릴 학습",
-            "AITouchVoca": "AI Touch Voca",
-            "AICURITalk": "AI CURI Talk",
-            "inquiryPeriod": "조회 기간: 학기 초 ~ 학기 말",
-            "halfAverage": "반 평균",
-            "regionalAverage": "지역 평균",
+            "student": "JP학생",
+            "textbookLearning": "JP교과서 학습",
+            "totalLearningTime": "JP총 학습 시간",
+            "drillLearning": "JP드릴 학습",
+            "AITouchVoca": "JPAI Touch Voca",
+            "AICURITalk": "JPAI CURI Talk",
+            "inquiryPeriod": "JP조회 기간: 학기 초 ~ 학기 말",
+            "halfAverage": "JP반 평균",
+            "regionalAverage": "JP지역 평균",
             "behaviorContent": {
-                "first": "준법정신이 투철하여 학교 규칙을 엄격히 준수함.",
-                "second": "학교 규칙을 지키면서도 자발적으로 동기부여를 받아야 함을 이해하고 있음.",
-                "third": "자기중심적인 사고가 강하지만, 다른 사람의 의견을 존중하고 받아들일 수 있는 자세를 함양해야 함.",
-                "fourth": "교우관계 개선을 위해 협력과 공동 작업을 통해 다른 사람과의 협력능력을 향상시켜야 함.",
-                "fifth": "이기적인 행동을 줄이기 위해 함께 하는 즐거움과 공동 성취감을 강조하는 활동을 도입해야 함."
+                "first": "JP준법정신이 투철하여 학교 규칙을 엄격히 준수함.",
+                "second": "JP학교 규칙을 지키면서도 자발적으로 동기부여를 받아야 함을 이해하고 있음.",
+                "third": "JP자기중심적인 사고가 강하지만, 다른 사람의 의견을 존중하고 받아들일 수 있는 자세를 함양해야 함.",
+                "fourth": "JP교우관계 개선을 위해 협력과 공동 작업을 통해 다른 사람과의 협력능력을 향상시켜야 함.",
+                "fifth": "JP이기적인 행동을 줄이기 위해 함께 하는 즐거움과 공동 성취감을 강조하는 활동을 도입해야 함."
             },
-            "warningMsg": "최대 2개 항목 이상 삭제가 불가능합니다.",
-            "colorViewInfo": "학생이 한 학기 동안 꾸민 색칠 도안입니다."
+            "warningMsg": "JP최대 2개 항목 이상 삭제가 불가능합니다.",
+            "colorViewInfo": "JP학생이 한 학기 동안 꾸민 색칠 도안입니다."
         },
         "index": {
-            "grade": "학년",
-            "class": "반",
-            "avatarImg": "아바타 이미지",
-            "semester": "학기",
-            "ofAI": "의 AI",
-            "english": "영어",
-            "studentRecord": "생활기록부",
-            "selectText": "교과 진도만 분석합니다."
+            "grade": "JP학년",
+            "class": "JP반",
+            "avatarImg": "JP아바타 이미지",
+            "semester": "JP학기",
+            "ofAI": "JP의 AI",
+            "english": "JP영어",
+            "studentRecord": "JP생활기록부",
+            "selectText": "JP교과 진도만 분석합니다."
         }
     }
 }

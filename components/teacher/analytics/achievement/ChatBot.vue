@@ -27,7 +27,7 @@
                             <div class="avatar avatar-box">
                                 <v-img
                                     :src="useAsset('images/img_cuteTalk.svg')"
-                                    alt="프로필"
+                                    :alt="t('analytics.chatBot.profile')"
                                     class="avatar-item avatar-item-60 border-none"
                                 />
                             </div>
@@ -39,7 +39,7 @@
                             <div class="avatar avatar-box">
                                 <v-img
                                     :src="useAsset('images/temp/img_pho_st01.png')"
-                                    alt="아바타 이미지"
+                                    :alt="t('analytics.chatBot.avatarImg')"
                                     class="avatar-item avatar-item-60"
                                 />
                             </div>

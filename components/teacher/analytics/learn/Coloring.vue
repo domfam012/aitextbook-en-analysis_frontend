@@ -34,7 +34,7 @@
                 <v-btn rounded flat class="secondary mgt30" :disabled="renderAll" @click="emit('page', currentPage + 1)">
                     <span class="more">
                         {{
-                            $t('analytics.coloring.more', {
+                            t('analytics.coloring.more', {
                                 currentPage: currentPage + 1,
                                 totalPages: Math.ceil(colorBoardState?.length / 3)
                             })

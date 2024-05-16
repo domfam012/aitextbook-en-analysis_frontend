@@ -7,7 +7,7 @@
         <div class="page_buttons">
             <v-btn rounded flat class="secondary" :disabled="renderAll" @click="currentPage = currentPage + 1">
                 {{
-                    $t('analytics.accumulation.more', {
+                    t('analytics.accumulation.more', {
                         currentPage: currentPage + 1,
                         totalPages: Math.ceil(teacherColorMatchedGroupState.resultList?.length / 5)
                     })

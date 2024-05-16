@@ -1,409 +1,432 @@
 {
-    "10": "10",
-    "25": "25",
-    "50": "50",
-    "100": "100",
+    "10": "EN10",
+    "25": "EN25",
+    "50": "EN50",
+    "100": "EN100",
     "$vuetify": {
-        "open": "open",
-        "close": "close",
+        "open": "ENopen",
+        "close": "ENclose",
         "carousel": {
-            "prev": "prev",
-            "next": "next"
+            "prev": "ENprev",
+            "next": "ENnext"
         },
         "datePicker": {
-            "title": "title"
+            "title": "ENtitle"
         },
         "input": {
-            "prependAction": "prependAction",
-            "appendAction": "appendAction",
-            "clear": "clear"
+            "prependAction": "ENprependAction",
+            "appendAction": "ENappendAction",
+            "clear": "ENclear"
         },
         "pagination": {
             "ariaLabel": {
-                "root": "root"
+                "root": "ENroot"
             }
         },
         "dataFooter": {
-            "firstPage": "firstPage",
-            "lastPage": "lastPage",
-            "prevPage": "prevPage",
-            "nextPage": "nextPage",
-            "itemsPerPageText": "itemsPerPageText",
-            "itemsPerPageAll": "itemsPerPageAll",
-            "pageText": "pageText"
+            "firstPage": "ENfirstPage",
+            "lastPage": "ENlastPage",
+            "prevPage": "ENprevPage",
+            "nextPage": "ENnextPage",
+            "itemsPerPageText": "ENitemsPerPageText",
+            "itemsPerPageAll": "ENitemsPerPageAll",
+            "pageText": "ENpageText"
         },
-        "noDataText": "해당 데이터가 없습니다."
+        "noDataText": "EN해당 데이터가 없습니다."
     },
     "chart": {
         "basicBar": {
-            "level4": "잘이해하고 활용한 단어",
-            "level3": "이해했으나 활용하지 못한 단어",
-            "level2": "조금만 더학습하면 좋을 단어",
-            "level1": "더열심히 학습해야 할 단어",
-            "totalLearningWords": "학습한 누적 단어 개수",
-            "monday": "월요일",
-            "tuesday": "화요일",
-            "wednesday": "수요일",
-            "thursday": "목요일",
-            "friday": "금요일",
-            "weekend": "토요일, 일요일"
+            "level4": "EN잘이해하고 활용한 단어",
+            "level3": "EN이해했으나 활용하지 못한 단어",
+            "level2": "EN조금만 더학습하면 좋을 단어",
+            "level1": "EN더열심히 학습해야 할 단어",
+            "totalLearningWords": "EN학습한 누적 단어 개수",
+            "monday": "EN월요일",
+            "tuesday": "EN화요일",
+            "wednesday": "EN수요일",
+            "thursday": "EN목요일",
+            "friday": "EN금요일",
+            "weekend": "EN토요일, 일요일"
         },
         "columnBar": {
-            "scale": "5점 만점 척도",
-            "pleasure": "즐거움",
-            "pride": "자부심",
-            "scared": "두려움",
-            "anger": "화, 절망감",
-            "boredom": "지루함",
-            "learningEnvironment": "학습환경",
-            "anxiety": "불안감"
+            "scale": "EN5점 만점 척도",
+            "pleasure": "EN즐거움",
+            "pride": "EN자부심",
+            "scared": "EN두려움",
+            "anger": "EN화, 절망감",
+            "boredom": "EN지루함",
+            "learningEnvironment": "EN학습환경",
+            "anxiety": "EN불안감"
         },
         "doughnut": {
-            "often": "자주",
-            "much": "많이",
-            "long": "오래",
-            "how": "얼마나",
-            "colorPiece": "색깔 조각",
-            "numOrMore": "개 이상",
-            "lessThanNum": "개 미만",
-            "cumulativeLearningTime": "누적 학습 시간",
-            "minutesOrMore": "분 이상",
-            "minutesOrLess": "분 이하"
+            "often": "EN자주",
+            "much": "EN많이",
+            "long": "EN오래",
+            "how": "EN얼마나",
+            "colorPiece": "EN색깔 조각",
+            "numOrMore": "EN개 이상",
+            "lessThanNum": "EN개 미만",
+            "cumulativeLearningTime": "EN누적 학습 시간",
+            "minutesOrMore": "EN분 이상",
+            "minutesOrLess": "EN분 이하"
         },
         "radar": {
-            "listening": "듣기",
-            "speaking": "말하기",
-            "writing": "쓰기",
-            "presenting": "제시하기",
-            "viewing": "보기",
-            "reading": "읽기",
-            "student": "학생",
-            "classAverage": "반 평균",
-            "regionalAverage": "지역 평균"
+            "listening": "EN듣기",
+            "speaking": "EN말하기",
+            "writing": "EN쓰기",
+            "presenting": "EN제시하기",
+            "viewing": "EN보기",
+            "reading": "EN읽기",
+            "student": "EN학생",
+            "classAverage": "EN반 평균",
+            "regionalAverage": "EN지역 평균"
         },
         "simpleDonut": {
-            "sunny": "맑음",
-            "cloudyAndRainy": "흐리고 비",
-            "cloudyAndThundery": "흐리고 천둥",
-            "veryWindy": "바람 많이",
-            "unresponsive": "미응답",
-            "cloudyAndWarm": "흐린 뒤 갬",
-            "sunnyAndCloudy": "맑았다 흐림",
-            "heavyRain": "폭우",
-            "cloudyAndSnowy": "흐리고 눈"
+            "sunny": "EN맑음",
+            "cloudyAndRainy": "EN흐리고 비",
+            "cloudyAndThundery": "EN흐리고 천둥",
+            "veryWindy": "EN바람 많이",
+            "unresponsive": "EN미응답",
+            "cloudyAndWarm": "EN흐린 뒤 갬",
+            "sunnyAndCloudy": "EN맑았다 흐림",
+            "heavyRain": "EN폭우",
+            "cloudyAndSnowy": "EN흐리고 눈"
         },
         "stackedBar": {
-            "title": "각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.",
+            "title": "EN각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.",
             "learners": {
-                "level1": "빠른 학습자",
-                "level2": "조금 빠른 학습자",
-                "level3": "중간 학습자",
-                "level4": "조금 느린 학습자",
-                "level5": "느린 학습자",
-                "level6": "미학습"
+                "level1": "EN빠른 학습자",
+                "level2": "EN조금 빠른 학습자",
+                "level3": "EN중간 학습자",
+                "level4": "EN조금 느린 학습자",
+                "level5": "EN느린 학습자",
+                "level6": "EN미학습"
             }
         },
         "stackedColumn": {
-            "understanding": "이해",
-            "listening": "듣기",
-            "speaking": "말하기"
+            "understanding": "EN이해",
+            "listening": "EN듣기",
+            "speaking": "EN말하기"
         }
     },
     "modal": {
         "achievement": {
-            "my": "나의",
-            "achievementArea": "영역별 학업 성취율",
-            "student": "학생",
-            "classAverage": "반 평균",
-            "regionalAverage": "지역 평균",
-            "last7day": "최근 7일",
-            "last15day": "최근 15일",
-            "last20day": "최근 20일"
+            "my": "EN나의",
+            "achievementArea": "EN영역별 학업 성취율",
+            "student": "EN학생",
+            "classAverage": "EN반 평균",
+            "regionalAverage": "EN지역 평균",
+            "last7day": "EN최근 7일",
+            "last15day": "EN최근 15일",
+            "last20day": "EN최근 20일"
         },
         "coloringBoard": {
-            "title": "숫자 색칠판 완성하기",
-            "tab1": "수집한 색깔 조각",
-            "tab2": "남은 색깔 조각",
-            "teacherStamp": "선생님의 도장이 찍힌 도안은 색깔 조각을 옮길 수 없습니다.",
-            "listenColorPieces": "'듣기' 색깔 조각",
-            "readColorPieces": "'읽기' 색깔 조각",
-            "viewColorPieces": "'보기' 색깔 조각",
-            "talkingColorPieces": "'말하기' 색깔 조각",
-            "writeColorPieces": "'쓰기' 색깔 조각",
-            "feedbackStamp": "피드백 도장 보내기",
-            "studentStamp": "학생에게 어떤 도장을 보낼까요?"
+            "title": "EN숫자 색칠판 완성하기",
+            "tab1": "EN수집한 색깔 조각",
+            "tab2": "EN남은 색깔 조각",
+            "teacherStamp": "EN선생님의 도장이 찍힌 도안은 색깔 조각을 옮길 수 없습니다.",
+            "listenColorPieces": "EN'듣기' 색깔 조각",
+            "readColorPieces": "EN'읽기' 색깔 조각",
+            "viewColorPieces": "EN'보기' 색깔 조각",
+            "talkingColorPieces": "EN'말하기' 색깔 조각",
+            "writeColorPieces": "EN'쓰기' 색깔 조각",
+            "feedbackStamp": "EN피드백 도장 보내기",
+            "studentStamp": "EN학생에게 어떤 도장을 보낼까요?"
         },
         "curiTalkInfo": {
-            "AICURITalk": "AI CURI Talk!",
-            "glanceLook": "한눈에 보기",
-            "cumulativeChatNum": "누적 채팅 횟수:",
-            "cumulativeChatTime": "누적 채팅 시간:",
-            "wholeSemester": "학기 전체",
-            "1stSemester": "1학기",
-            "2stSemester": "2학기",
-            "chatDate": "채팅 날짜",
-            "chatTime": "채팅 시간",
-            "expressionPraise": "칭찬 표현",
-            "misspelledExpression": "철자를 틀린 표현",
-            "wrongExpression": "잘못된 표현",
-            "aiExpressionHelper": "AI 표현 도우미",
-            "Q": "Q.",
-            "A": "A:"
+            "AICURITalk": "ENAI CURI Talk!",
+            "glanceLook": "EN한눈에 보기",
+            "cumulativeChatNum": "EN누적 채팅 횟수:",
+            "cumulativeChatTime": "EN누적 채팅 시간:",
+            "wholeSemester": "EN학기 전체",
+            "1stSemester": "EN1학기",
+            "2stSemester": "EN2학기",
+            "chatDate": "EN채팅 날짜",
+            "chatTime": "EN채팅 시간",
+            "expressionPraise": "EN칭찬 표현",
+            "misspelledExpression": "EN철자를 틀린 표현",
+            "wrongExpression": "EN잘못된 표현",
+            "aiExpressionHelper": "ENAI 표현 도우미",
+            "Q": "ENQ.",
+            "A": "ENA:"
         },
         "progressInfo": {
-            "progressHistory": "진도 학습 이력",
-            "lessonCompleted": "완료한 학습 차시:",
-            "cumulativeTime": "누적 학습 시간:",
-            "afterClass": "차시 복습",
-            "note": "노트",
-            "absenceReview": "결석 복습",
-            "wholeSemester": "학기 전체",
-            "chName": "Lesson",
-            "sessId": "차시",
-            "noteYn": "학습 바로가기",
-            "sectionList": "학습내용",
-            "date": "학습날짜",
-            "time": "학습한 시간",
-            "percent": "완료율"
+            "progressHistory": "EN진도 학습 이력",
+            "lessonCompleted": "EN완료한 학습 차시:",
+            "cumulativeTime": "EN누적 학습 시간:",
+            "afterClass": "EN차시 복습",
+            "note": "EN노트",
+            "absenceReview": "EN결석 복습",
+            "wholeSemester": "EN학기 전체",
+            "chName": "ENLesson",
+            "sessId": "EN차시",
+            "noteYn": "EN학습 바로가기",
+            "sectionList": "EN학습내용",
+            "date": "EN학습날짜",
+            "time": "EN학습한 시간",
+            "percent": "EN완료율"
         },
         "selfCheck": {
-            "compilationCollect": "성취 기준 모아보기",
-            "unit": "단원별",
-            "date": "날짜별",
-            "achievementCriteria": "성취 기준"
+            "compilationCollect": "EN성취 기준 모아보기",
+            "unit": "EN단원별",
+            "date": "EN날짜별",
+            "achievementCriteria": "EN성취 기준"
         },
         "touchVoca": {
-            "touchVocaLearningHistory": "Touch VOCA 학습이력",
-            "barText1": "응시한 단어 수",
-            "barText2": "알고 있는 단어 수",
-            "barText3": "조금 알거나 모르는 단어 수",
-            "barText4": "모르는 단어 수",
-            "last30day": "최근 30일"
+            "touchVocaLearningHistory": "ENTouch VOCA 학습이력",
+            "barText1": "EN응시한 단어 수",
+            "barText2": "EN알고 있는 단어 수",
+            "barText3": "EN조금 알거나 모르는 단어 수",
+            "barText4": "EN모르는 단어 수",
+            "last30day": "EN최근 30일"
         },
         "vocaLearningStatus": {
-            "touchVoca": "에 학습한 Touch VOCA"
+            "touchVoca": "EN에 학습한 Touch VOCA"
         }
     },
     "table": {
         "carousel": {
-            "unlearning": "미학습",
-            "waitLearning": "학습대기",
-            "unit": "단원"
+            "unlearning": "EN미학습",
+            "waitLearning": "EN학습대기",
+            "unit": "EN단원"
         },
         "edit": {
-            "reset": "선택 초기화",
+            "reset": "EN선택 초기화",
             "headers": {
-                "lesson": "Lesson",
-                "level": "수준",
-                "developments": "교과 학습 발달 사항"
+                "lesson": "ENLesson",
+                "level": "EN수준",
+                "developments": "EN교과 학습 발달 사항"
             }
         },
         "panel": {
-            "studId": "번호",
-            "studName": "이름",
-            "achvRtAvg": "학업 성취율",
-            "wrtngNoteCnt": "필기노트",
-            "drillPrtcpCnt": "드릴 학습 참여 건수",
-            "wrdLrnCnt": "단어 학습",
-            "chtLrnCnt": "챗봇 학습",
-            "achvBaseScale": "성취 기준 자기채점"
+            "studId": "EN번호",
+            "studName": "EN이름",
+            "achvRtAvg": "EN학업 성취율",
+            "wrtngNoteCnt": "EN필기노트",
+            "drillPrtcpCnt": "EN드릴 학습 참여 건수",
+            "wrdLrnCnt": "EN단어 학습",
+            "chtLrnCnt": "EN챗봇 학습",
+            "achvBaseScale": "EN성취 기준 자기채점"
         }
     },
     "common": {
         "authInfo": {
-            "title": "오늘 로그인 횟수",
-            "content": "오늘 학습한 내용은 16시 이후에 분석됩니다."
+            "title": "EN오늘 로그인 횟수",
+            "content": "EN오늘 학습한 내용은 16시 이후에 분석됩니다."
         },
         "calendar": {
-            "notice": "생활기록부 작성 기간이 10일 남았습니다.",
-            "masks": "YYYY년 MMM",
-            "scheduledClass": "수업 예정일",
-            "completedClass": "수업 완료일",
-            "issuePeriod": "생활기록부 발행 기간"
+            "notice": "EN생활기록부 작성 기간이 10일 남았습니다.",
+            "masks": "ENYYYY년 MMM",
+            "scheduledClass": "EN수업 예정일",
+            "completedClass": "EN수업 완료일",
+            "issuePeriod": "EN생활기록부 발행 기간"
         },
         "empty": {
-            "studentRecord": "생활 기록부",
-            "content": "2024년 {currentSemester}학기 생활 기록부가 발행 전입니다.",
-            "button": "2024년 1학기 생활 기록부 불러오기"
+            "studentRecord": "EN생활 기록부",
+            "content": "EN2024년 {currentSemester}학기 생활 기록부가 발행 전입니다.",
+            "button": "EN2024년 1학기 생활 기록부 불러오기"
         },
         "rangeDatePicker": {
-            "warningMsg": "정확한 분석을 위해 최대 30일까지 조회만 가능합니다."
+            "warningMsg": "EN정확한 분석을 위해 최대 30일까지 조회만 가능합니다."
         },
         "button": {
-            "cancel": "취소",
-            "save": "저장",
-            "refresh": "새로고침",
-            "prev": "이전",
-            "next": "다음",
-            "close": "닫기",
-            "reset": "초기화",
-            "check": "확인"
+            "cancel": "EN취소",
+            "save": "EN저장",
+            "refresh": "EN새로고침",
+            "prev": "EN이전",
+            "next": "EN다음",
+            "close": "EN닫기",
+            "reset": "EN초기화",
+            "check": "EN확인",
+            "more": "EN더보기"
         },
         "unit": {
-            "hour": "시간",
-            "min": "분",
-            "no": "번",
-            "cnt": "회",
-            "person": "명",
-            "case": "건",
-            "num": "개"
+            "hour": "EN시간",
+            "min": "EN분",
+            "no": "EN번",
+            "cnt": "EN회",
+            "person": "EN명",
+            "case": "EN건",
+            "num": "EN개",
+            "page": "EN쪽"
         }
     },
     "analytics": {
+        "familyPicImg": "EN가족사진 이미지",
+        "stampImg": "EN도장 이미지",
         "accumulation": {
-            "text": " 단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.",
-            "unitAssessmentAI": "단원 평가 AI 맞춤 출제",
-            "sendAssignment": "과제 보내기",
-            "word": "단어 문제",
-            "expression": "표현 문제",
-            "situation": "상황 문제",
-            "totalNumber": "총 문항 수",
-            "points": "점 배점",
-            "perfectScore": "= 100점 만점",
-            "more": "5명 더 보기",
-            "number": "번호",
-            "name": "이름",
-            "average": "평균 학업 성취율"
+            "text": "EN 단원별 평균 학업 성취율입니다. 각 단원별 학업 성취율을 클릭하면, 학생별로 단원 평가를 과제로 출제할 수 있습니다.",
+            "unitAssessmentAI": "EN단원 평가 AI 맞춤 출제",
+            "sendAssignment": "EN과제 보내기",
+            "word": "EN단어 문제",
+            "expression": "EN표현 문제",
+            "situation": "EN상황 문제",
+            "totalNumber": "EN총 문항 수",
+            "points": "EN점 배점",
+            "perfectScore": "EN= 100점 만점",
+            "more": "EN5명 더 보기",
+            "number": "EN번호",
+            "name": "EN이름",
+            "average": "EN평균 학업 성취율",
+            "character": "EN캐릭터"
         },
         "chatBot": {
-            "text": "학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.",
-            "noRegistration": "미노출 등록",
-            "text1": "선택한 단어 및 표현을",
-            "text2": "미노출 등록 하시겠습니까?",
-            "registrations": "등록되었습니다.",
-            "text3": "‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.",
-            "registration": "등록"
+            "text": "EN학생들의 챗봇 학습 중에서 다소 민감한 주제(다문화, 인권, 장애 관련)의 어휘나 표현들은 드래그하여 미노출 등록을 하세요.",
+            "noRegistration": "EN미노출 등록",
+            "text1": "EN선택한 단어 및 표현을",
+            "text2": "EN미노출 등록 하시겠습니까?",
+            "registrations": "EN등록되었습니다.",
+            "text3": "EN‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.",
+            "registration": "EN등록",
+            "profile": "EN프로필",
+            "avatarImg": "EN아바타 이미지"
         },
+
         "study": {
-            "text": "선생님께서는 학생에게 출제할 AI 추천 자료를 선택하고 보내기를 눌러주세요.",
-            "selectAll": "모두 선택",
-            "deSelect": "선택 해제",
-            "send": "보내기"
+            "text": "EN선생님께서는 학생에게 출제할 AI 추천 자료를 선택하고 보내기를 눌러주세요.",
+            "selectAll": "EN모두 선택",
+            "deSelect": "EN선택 해제",
+            "send": "EN보내기"
         },
         "word": {
-            "text1": "알고있는 단어 수 :",
-            "text2": "조금 알거나 모르는 단어 수 :",
-            "text3": "모르는 단어 수 :",
-            "text4": "단어 학습 총 개수 :",
-            "expand": "펼치기"
+            "text1": "EN알고있는 단어 수 :",
+            "text2": "EN조금 알거나 모르는 단어 수 :",
+            "text3": "EN모르는 단어 수 :",
+            "text4": "EN단어 학습 총 개수 :",
+            "expand": "EN펼치기"
         },
         "coloring": {
-            "more": "3명 더 보기",
-            "text": "아직 숫자 색칠판을 시작한 학생이 없습니다."
+            "more": "EN3명 더 보기",
+            "text": "EN아직 숫자 색칠판을 시작한 학생이 없습니다."
         },
         "learn": {
             "index": {
-                "class": "우리 반",
-                "inquiry": "조회 일자 : ",
-                "inquiryPeriod": "조회 기간 : ",
-                "coloringBoard": "색칠판 학습 이력",
-                "perfection": "완성도 Top 5",
-                "touchVoca": "Touch Voca",
-                "cumulativeLearning": "누적 학습 기록",
-                "soaring": "급상승 Top 5",
-                "encouragement": "독려 필요 Top 5",
-                "text1": "많이 푼 순서",
-                "text2": "많이 맞힌 순서"
+                "class": "EN우리 반",
+                "inquiry": "EN조회 일자 : ",
+                "inquiryPeriod": "EN조회 기간 : ",
+                "coloringBoard": "EN색칠판 학습 이력",
+                "perfection": "EN완성도 Top 5",
+                "touchVoca": "ENTouch Voca",
+                "cumulativeLearning": "EN누적 학습 기록",
+                "soaring": "EN급상승 Top 5",
+                "encouragement": "EN독려 필요 Top 5",
+                "text1": "EN많이 푼 순서",
+                "text2": "EN많이 맞힌 순서"
             },
             "record": {
-                "text": "학습 이력이 없습니다.",
-                "subText1": "10회 이상 방문",
-                "subText2": "6~9회 방문",
-                "subText3": "3~5회 방문",
-                "subText4": "1~2회 방문",
-                "subText5": "방문 기록 없음"
+                "text": "EN학습 이력이 없습니다.",
+                "subText1": "EN10회 이상 방문",
+                "subText2": "EN6~9회 방문",
+                "subText3": "EN3~5회 방문",
+                "subText4": "EN1~2회 방문",
+                "subText5": "EN방문 기록 없음"
             },
             "touchVoca": {
-                "text1": "응시한 단어 수",
-                "text2": "알고 있는 단어 수",
-                "text3": "조금 알거나 모르는 단어 수",
-                "text4": "모르는 단어 수",
-                "noStudent": "아직 응시한 학생이 없습니다.",
-                "more": "3명 더 보기"
+                "text1": "EN응시한 단어 수",
+                "text2": "EN알고 있는 단어 수",
+                "text3": "EN조금 알거나 모르는 단어 수",
+                "text4": "EN모르는 단어 수",
+                "noStudent": "EN아직 응시한 학생이 없습니다.",
+                "more": "EN3명 더 보기",
+                "avatarImg": "EN아바타 이미지"
             }
         },
         "lesson": {
-            "level": {
-                "title": "AI Level Test를 볼 때가 되었어요!",
-                "noMessage": "독려 메시지를 보낼 ",
-                "noStudent": "학생이 없습니다.",
-                "count": "주",
-                "message": "독려 메시지 보내기",
-                "student": "선택한 학생에게",
-                "aiLevel": "AI Level Test",
-                "messages": "독려 메시지를",
-                "send": "보내시겠습니까?",
-                "aiMessage": "AI Level Test 독려 메시지를 보냈습니다."
+            "index": {
+                "timeFormat": "ENMM월 DD일 dddd",
+                "classInfo": "EN수업 정보",
+                "classText1": "EN예정된 수업이",
+                "classText2": "EN있습니다.",
+                "noClass": "EN선택한 날에는 수업이 배정되어 있지 않습니다."
+            },
+            "info": {
+                "tab1": "EN오늘의 학업 성취율",
+                "tab2": "EN단원별 누적 성취율"
+            },
+            "selector": {
+                "textbook": "EN교과서"
             }
+        },
+        "level": {
+            "title": "ENAI Level Test를 볼 때가 되었어요!",
+            "noMessage": "EN독려 메시지를 보낼 ",
+            "noStudent": "EN학생이 없습니다.",
+            "count": "EN주",
+            "message": "EN독려 메시지 보내기",
+            "student": "EN선택한 학생에게",
+            "aiLevel": "ENAI Level Test",
+            "messages": "EN독려 메시지를",
+            "send": "EN보내시겠습니까?",
+            "aiMessage": "ENAI Level Test 독려 메시지를 보냈습니다."
         }
     },
     "record": {
         "issuanceStatus": {
-            "grade": "3학년",
-            "semester": "학기",
-            "title": "AI 수학 생활기록부 발행 현황 :",
-            "totalCnt": "총 {count}명",
-            "subtitle1": "학습 이력 수집",
-            "subtitle2": "단원별 평어 작성",
-            "subtitle3": "발행 완료 건수",
-            "info": "위 숫자를 선택하면 AI 수학 생활기록부를 조회하거나 평어를 작성할 수 있어요."
+            "grade": "EN3학년",
+            "semester": "EN학기",
+            "title": "ENAI 수학 생활기록부 발행 현황 :",
+            "totalCnt": "EN총 {count}명",
+            "subtitle1": "EN학습 이력 수집",
+            "subtitle2": "EN단원별 평어 작성",
+            "subtitle3": "EN발행 완료 건수",
+            "info": "EN위 숫자를 선택하면 AI 수학 생활기록부를 조회하거나 평어를 작성할 수 있어요."
         },
         "issuance": {
             "grade": {
-                "unitType": "평어 유형",
-                "typeA": "A형",
-                "typeB": "B형",
-                "typeC": "C형"
+                "unitType": "EN평어 유형",
+                "typeA": "ENA형",
+                "typeB": "ENB형",
+                "typeC": "ENC형"
             },
             "index": {
-                "reset": "편집 초기화",
-                "editText": "텍스트 편집"
+                "reset": "EN편집 초기화",
+                "editText": "EN텍스트 편집"
             }
         },
         "issuancePart": {
             "button": {
-                "savePDF": "PDF 저장",
-                "print": "인쇄"
+                "savePDF": "ENPDF 저장",
+                "print": "EN인쇄"
             },
             "title": {
-                "numOfLoginsAndTotalLearningTime": "로그인 횟수와 총 학습 시간",
-                "areaAchievementRate": "영역별 학업 성취율",
-                "unitAchievementRate": "단원별 학업 성취율",
-                "wordLearningDiagnostics": "단어 학습 진단",
-                "dayAverageLearningTime": "요일별 평균 학습 시간",
-                "emotionalWeather": "감정 날씨_학기 총계",
-                "learningSentiment": "학습 정서_학기 평균",
-                "unitDevelopment": "단원별 교과 학습 발달 사항",
-                "behavioralDevelopmentEvaluation": "담임 선생님의 행동 발달 평가 내용"
+                "numOfLoginsAndTotalLearningTime": "EN로그인 횟수와 총 학습 시간",
+                "areaAchievementRate": "EN영역별 학업 성취율",
+                "unitAchievementRate": "EN단원별 학업 성취율",
+                "wordLearningDiagnostics": "EN단어 학습 진단",
+                "dayAverageLearningTime": "EN요일별 평균 학습 시간",
+                "emotionalWeather": "EN감정 날씨_학기 총계",
+                "learningSentiment": "EN학습 정서_학기 평균",
+                "unitDevelopment": "EN단원별 교과 학습 발달 사항",
+                "behavioralDevelopmentEvaluation": "EN담임 선생님의 행동 발달 평가 내용"
             },
-            "student": "학생",
-            "textbookLearning": "교과서 학습",
-            "totalLearningTime": "총 학습 시간",
-            "drillLearning": "드릴 학습",
-            "AITouchVoca": "AI Touch Voca",
-            "AICURITalk": "AI CURI Talk",
-            "inquiryPeriod": "조회 기간: 학기 초 ~ 학기 말",
-            "halfAverage": "반 평균",
-            "regionalAverage": "지역 평균",
+            "student": "EN학생",
+            "textbookLearning": "EN교과서 학습",
+            "totalLearningTime": "EN총 학습 시간",
+            "drillLearning": "EN드릴 학습",
+            "AITouchVoca": "ENAI Touch Voca",
+            "AICURITalk": "ENAI CURI Talk",
+            "inquiryPeriod": "EN조회 기간: 학기 초 ~ 학기 말",
+            "halfAverage": "EN반 평균",
+            "regionalAverage": "EN지역 평균",
             "behaviorContent": {
-                "first": "준법정신이 투철하여 학교 규칙을 엄격히 준수함.",
-                "second": "학교 규칙을 지키면서도 자발적으로 동기부여를 받아야 함을 이해하고 있음.",
-                "third": "자기중심적인 사고가 강하지만, 다른 사람의 의견을 존중하고 받아들일 수 있는 자세를 함양해야 함.",
-                "fourth": "교우관계 개선을 위해 협력과 공동 작업을 통해 다른 사람과의 협력능력을 향상시켜야 함.",
-                "fifth": "이기적인 행동을 줄이기 위해 함께 하는 즐거움과 공동 성취감을 강조하는 활동을 도입해야 함."
+                "first": "EN준법정신이 투철하여 학교 규칙을 엄격히 준수함.",
+                "second": "EN학교 규칙을 지키면서도 자발적으로 동기부여를 받아야 함을 이해하고 있음.",
+                "third": "EN자기중심적인 사고가 강하지만, 다른 사람의 의견을 존중하고 받아들일 수 있는 자세를 함양해야 함.",
+                "fourth": "EN교우관계 개선을 위해 협력과 공동 작업을 통해 다른 사람과의 협력능력을 향상시켜야 함.",
+                "fifth": "EN이기적인 행동을 줄이기 위해 함께 하는 즐거움과 공동 성취감을 강조하는 활동을 도입해야 함."
             },
-            "warningMsg": "최대 2개 항목 이상 삭제가 불가능합니다.",
-            "colorViewInfo": "학생이 한 학기 동안 꾸민 색칠 도안입니다."
+            "warningMsg": "EN최대 2개 항목 이상 삭제가 불가능합니다.",
+            "colorViewInfo": "EN학생이 한 학기 동안 꾸민 색칠 도안입니다."
         },
         "index": {
-            "grade": "학년",
-            "class": "반",
-            "avatarImg": "아바타 이미지",
-            "semester": "학기",
-            "ofAI": "의 AI",
-            "english": "영어",
-            "studentRecord": "생활기록부",
-            "selectText": "교과 진도만 분석합니다."
+            "grade": "EN학년",
+            "class": "EN반",
+            "avatarImg": "EN아바타 이미지",
+            "semester": "EN학기",
+            "ofAI": "EN의 AI",
+            "english": "EN영어",
+            "studentRecord": "EN생활기록부",
+            "selectText": "EN교과 진도만 분석합니다."
         }
     }
 }

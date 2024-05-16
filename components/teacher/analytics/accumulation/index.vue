@@ -70,7 +70,7 @@
                     <div class="contents d-flex align-center">
                         <div class="left">
                             <div class="box d-flex align-center">
-                                <img src="@/assets/images/img_character.svg" alt="캐릭터" />
+                                <img src="@/assets/images/img_character.svg" :alt="t('analytics.accumulation.character')" />
                                 <div class="mgl20 mgr30">
                                     <h3>{{ t('analytics.accumulation.unitAssessmentAI') }}</h3>
                                     <v-btn @click="() => postAssignmentFn()" rounded flat size="small" class="primary mgt10">{{
@@ -123,7 +123,7 @@
             <div class="page_buttons">
                 <v-btn rounded flat class="secondary" :disabled="renderAll" @click="currentPage = currentPage + 1">
                     {{
-                        $t('analytics.accumulation.more', {
+                        t('analytics.accumulation.more', {
                             currentPage: currentPage + 1,
                             totalPages: Math.ceil(lessonAccumulatedState.resultList?.length / 5)
                         })
