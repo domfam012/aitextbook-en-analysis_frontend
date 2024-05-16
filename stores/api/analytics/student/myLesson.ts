@@ -49,6 +49,7 @@ const defaultUrl = `/student/dashboard/learningAnalytics`;
 export const useApiMyLessonStore = defineStore(
     'apiMyLesson',
     () => {
+        const { t } = useI18n();
         const myLessonState: Ref<MyLesson> = ref();
         const lessonDetailState: Ref<lessonDetailState[]> = ref();
         const wordDiagnosisState = ref();
@@ -156,11 +157,18 @@ export const useApiMyLessonStore = defineStore(
                 achivementGraphState.value = data.value.data;
                 const item = achivementGraphState.value;
                 achivementGraphState.value = {
-                    labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
+                    labels: [
+                        t('chart.radar.listening'),
+                        t('chart.radar.speaking'),
+                        t('chart.radar.writing'),
+                        t('chart.radar.presenting'),
+                        t('chart.radar.viewing'),
+                        t('chart.radar.reading')
+                    ],
                     datasets: [
                         {
                             type: 'radar',
-                            label: '학생',
+                            label: t('chart.radar.student'),
                             data: [
                                 item?.achvLstnnRt || 0,
                                 item?.achvSpkngRt || 0,
@@ -177,7 +185,7 @@ export const useApiMyLessonStore = defineStore(
                         },
                         {
                             type: 'radar',
-                            label: '반 평균',
+                            label: t('chart.radar.classAverage'),
                             data: [
                                 item?.avgAchvLstnnRtClass || 0,
                                 item?.avgAchvSpkngRtClass || 0,
@@ -194,7 +202,7 @@ export const useApiMyLessonStore = defineStore(
                         },
                         {
                             type: 'radar',
-                            label: '지역 평균',
+                            label: t('chart.radar.regionalAverage'),
                             data: [
                                 item?.avgAchvLstnnRtArea || 0,
                                 item?.avgAchvSpkngRtArea || 0,

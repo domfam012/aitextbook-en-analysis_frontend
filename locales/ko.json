@@ -1,4 +1,8 @@
 {
+    "10": "10",
+    "25": "25",
+    "50": "50",
+    "100": "100",
     "$vuetify": {
         "open": "open",
         "close": "close",
@@ -31,8 +35,28 @@
         "noDataText": "해당 데이터가 없습니다."
     },
     "chart": {
+        "basicBar": {
+            "level4": "잘이해하고 활용한 단어",
+            "level3": "이해했으나 활용하지 못한 단어",
+            "level2": "조금만 더학습하면 좋을 단어",
+            "level1": "더열심히 학습해야 할 단어",
+            "totalLearningWords": "학습한 누적 단어 개수",
+            "monday": "월요일",
+            "tuesday": "화요일",
+            "wednesday": "수요일",
+            "thursday": "목요일",
+            "friday": "금요일",
+            "weekend": "토요일, 일요일"
+        },
         "columnBar": {
-            "scale": "5점 만점 척도"
+            "scale": "5점 만점 척도",
+            "pleasure": "즐거움",
+            "pride": "자부심",
+            "scared": "두려움",
+            "anger": "화, 절망감",
+            "boredom": "지루함",
+            "learningEnvironment": "학습환경",
+            "anxiety": "불안감"
         },
         "doughnut": {
             "often": "자주",
@@ -45,6 +69,28 @@
             "cumulativeLearningTime": "누적 학습 시간",
             "minutesOrMore": "분 이상",
             "minutesOrLess": "분 이하"
+        },
+        "radar": {
+            "listening": "듣기",
+            "speaking": "말하기",
+            "writing": "쓰기",
+            "presenting": "제시하기",
+            "viewing": "보기",
+            "reading": "읽기",
+            "student": "학생",
+            "classAverage": "반 평균",
+            "regionalAverage": "지역 평균"
+        },
+        "simpleDonut": {
+            "sunny": "맑음",
+            "cloudyAndRainy": "흐리고 비",
+            "cloudyAndThundery": "흐리고 천둥",
+            "veryWindy": "바람 많이",
+            "unresponsive": "미응답",
+            "cloudyAndWarm": "흐린 뒤 갬",
+            "sunnyAndCloudy": "맑았다 흐림",
+            "heavyRain": "폭우",
+            "cloudyAndSnowy": "흐리고 눈"
         },
         "stackedBar": {
             "title": "각 색깔별 학업 성취율 그룹의 숫자를 누르면 자세한 학습자 정보를 확인할 수 있어요.",

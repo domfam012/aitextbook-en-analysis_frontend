@@ -12,6 +12,7 @@ export const useApiRecordHistoryStore = defineStore(
     'apiRecordHistory',
     () => {
         const mode = useCookie('mode');
+        const { t } = useI18n();
         /**
          * [교사] 영역별 학업 성취율
          */
@@ -30,11 +31,18 @@ export const useApiRecordHistoryStore = defineStore(
                 achievementByArea.value = data.value.data as Record;
                 const item = achievementByArea.value;
                 radarChart.value = {
-                    labels: ['듣기', '말하기', '쓰기', '제시하기', '보기', '읽기'],
+                    labels: [
+                        t('chart.radar.listening'),
+                        t('chart.radar.speaking'),
+                        t('chart.radar.writing'),
+                        t('chart.radar.presenting'),
+                        t('chart.radar.viewing'),
+                        t('chart.radar.reading')
+                    ],
                     datasets: [
                         {
                             type: 'radar',
-                            label: '학생',
+                            label: t('chart.radar.student'),
                             data: [
                                 item?.achvLstnnRt || 0,
                                 item?.achvSpkngRt || 0,
@@ -51,7 +59,7 @@ export const useApiRecordHistoryStore = defineStore(
                         },
                         {
                             type: 'radar',
-                            label: '반 평균',
+                            label: t('chart.radar.classAverage'),
                             data: [
                                 item?.classLstnnRt || 0,
                                 item?.classSpkngRt || 0,
@@ -68,7 +76,7 @@ export const useApiRecordHistoryStore = defineStore(
                         },
                         {
                             type: 'radar',
-                            label: '지역 평균',
+                            label: t('chart.radar.regionalAverage'),
                             data: [
                                 item?.areaLstnnRt || 0,
                                 item?.areaSpkngRt || 0,
@@ -145,23 +153,30 @@ export const useApiRecordHistoryStore = defineStore(
                 emtViewYn.value = item.emtViewYn.toString();
                 colorViewYn.value = item.colorViewYn.toString();
                 wordChart.value = [
-                    { value: item.wrdPrfctUndrsUseCnt, color: 'color-1', label: '잘이해하고 활용한 단어' },
-                    { value: item.wrdExprsUndrsUnsdCnt, color: 'color-2', label: '이해했으나 활용하지 못한 단어' },
-                    { value: item.wrdWrongExprsUndrsCnt, color: 'color-3', label: '조금만 더학습하면 좋을 단어' },
-                    { value: item.wrdSplngWrongKnowCnt, color: 'color-4', label: '더열심히 학습해야 할 단어' },
-                    { value: item.wrdLrnTotCnt, color: 'color-5', label: '학습한 누적 단어 개수' }
+                    { value: item.wrdPrfctUndrsUseCnt, color: 'color-1', label: t('chart.basicBar.level4') },
+                    { value: item.wrdExprsUndrsUnsdCnt, color: 'color-2', label: t('chart.basicBar.level3') },
+                    { value: item.wrdWrongExprsUndrsCnt, color: 'color-3', label: t('chart.basicBar.level2') },
+                    { value: item.wrdSplngWrongKnowCnt, color: 'color-4', label: t('chart.basicBar.level1') },
+                    { value: item.wrdLrnTotCnt, color: 'color-5', label: t('chart.basicBar.totalLearningWords') }
                 ];
                 dayChart.value = [
-                    { value: item.lrnTimeMon, color: 'color-1', label: '월요일' },
-                    { value: item.lrnTimeTues, color: 'color-2', label: '화요일' },
-                    { value: item.lrnTimeWed, color: 'color-3', label: '수요일' },
-                    { value: item.lrnTimeThur, color: 'color-4', label: '목요일' },
-                    { value: item.lrnTimeFri, color: 'color-5', label: '금요일' },
-                    { value: item.lrnTimeSatSun, color: 'color-6', label: '토요일, 일요일' }
+                    { value: item.lrnTimeMon, color: 'color-1', label: t('chart.basicBar.monday') },
+                    { value: item.lrnTimeTues, color: 'color-2', label: t('chart.basicBar.tuesday') },
+                    { value: item.lrnTimeWed, color: 'color-3', label: t('chart.basicBar.wednesday') },
+                    { value: item.lrnTimeThur, color: 'color-4', label: t('chart.basicBar.thursday') },
+                    { value: item.lrnTimeFri, color: 'color-5', label: t('chart.basicBar.friday') },
+                    { value: item.lrnTimeSatSun, color: 'color-6', label: t('chart.basicBar.weekend') }
                 ];
 
                 emotionChart.value = {
-                    labels: [['즐거움'], ['자부심'], ['두려움'], ['화, 절망감'], ['지루함'], ['학습환경', '불안감']],
+                    labels: [
+                        [t('chart.columnBar.pleasure')],
+                        [t('chart.columnBar.pride')],
+                        [t('chart.columnBar.scared')],
+                        [t('chart.columnBar.anger')],
+                        [t('chart.columnBar.boredom')],
+                        [t('chart.columnBar.learningEnvironment'), t('chart.columnBar.anxiety')]
+                    ],
                     datasets: [
                         {
                             data: [
@@ -193,11 +208,20 @@ export const useApiRecordHistoryStore = defineStore(
                     ]
                 };
                 weatherChart.value = {
-                    labels: ['맑음', '흐리고 비', '흐리고 천둥', '바람 많이', '미응답', '흐린 뒤 갬', '맑았다 흐림', '폭우', '흐리고 눈'],
+                    labels: [
+                        t('chart.simpleDonut.sunny'),
+                        t('chart.simpleDonut.cloudyAndRainy'),
+                        t('chart.simpleDonut.cloudyAndThundery'),
+                        t('chart.simpleDonut.veryWindy'),
+                        t('chart.simpleDonut.unresponsive'),
+                        t('chart.simpleDonut.cloudyAndWarm'),
+                        t('chart.simpleDonut.sunnyAndCloudy'),
+                        t('chart.simpleDonut.heavyRain'),
+                        t('chart.simpleDonut.cloudyAndSnowy')
+                    ],
                     datasets: [
                         {
                             type: 'doughnut',
-                            label: '맑음',
                             data: [
                                 item.wethrVeryClrTot,
                                 item.wethrCloudyRainTot,
