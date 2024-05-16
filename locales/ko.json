@@ -180,7 +180,7 @@
             "barText4": "모르는 단어 수",
             "last30day": "최근 30일"
         },
-        "vocaLearnigStatus": {
+        "vocaLearningStatus": {
             "touchVoca": "에 학습한 Touch VOCA"
         }
     },
@@ -236,7 +236,8 @@
             "prev": "이전",
             "next": "다음",
             "close": "닫기",
-            "reset": "초기화"
+            "reset": "초기화",
+            "check": "확인"
         },
         "unit": {
             "hour": "시간",
@@ -271,8 +272,69 @@
             "text2": "미노출 등록 하시겠습니까?",
             "registrations": "등록되었습니다.",
             "text3": "‘설정 > 미노출단어·표현‘ 에서 확인하실 수 있습니다.",
-            "registration": "등록",
-            "check": "확인"
+            "registration": "등록"
+        },
+        "study": {
+            "text": "선생님께서는 학생에게 출제할 AI 추천 자료를 선택하고 보내기를 눌러주세요.",
+            "selectAll": "모두 선택",
+            "deSelect": "선택 해제",
+            "send": "보내기"
+        },
+        "word": {
+            "text1": "알고있는 단어 수 :",
+            "text2": "조금 알거나 모르는 단어 수 :",
+            "text3": "모르는 단어 수 :",
+            "text4": "단어 학습 총 개수 :",
+            "expand": "펼치기"
+        },
+        "coloring": {
+            "more": "3명 더 보기",
+            "text": "아직 숫자 색칠판을 시작한 학생이 없습니다."
+        },
+        "learn": {
+            "index": {
+                "class": "우리 반",
+                "inquiry": "조회 일자 : ",
+                "inquiryPeriod": "조회 기간 : ",
+                "coloringBoard": "색칠판 학습 이력",
+                "perfection": "완성도 Top 5",
+                "touchVoca": "Touch Voca",
+                "cumulativeLearning": "누적 학습 기록",
+                "soaring": "급상승 Top 5",
+                "encouragement": "독려 필요 Top 5",
+                "text1": "많이 푼 순서",
+                "text2": "많이 맞힌 순서"
+            },
+            "record": {
+                "text": "학습 이력이 없습니다.",
+                "subText1": "10회 이상 방문",
+                "subText2": "6~9회 방문",
+                "subText3": "3~5회 방문",
+                "subText4": "1~2회 방문",
+                "subText5": "방문 기록 없음"
+            },
+            "touchVoca": {
+                "text1": "응시한 단어 수",
+                "text2": "알고 있는 단어 수",
+                "text3": "조금 알거나 모르는 단어 수",
+                "text4": "모르는 단어 수",
+                "noStudent": "아직 응시한 학생이 없습니다.",
+                "more": "3명 더 보기"
+            }
+        },
+        "lesson": {
+            "level": {
+                "title": "AI Level Test를 볼 때가 되었어요!",
+                "noMessage": "독려 메시지를 보낼 ",
+                "noStudent": "학생이 없습니다.",
+                "count": "주",
+                "message": "독려 메시지 보내기",
+                "student": "선택한 학생에게",
+                "aiLevel": "AI Level Test",
+                "messages": "독려 메시지를",
+                "send": "보내시겠습니까?",
+                "aiMessage": "AI Level Test 독려 메시지를 보냈습니다."
+            }
         }
     },
     "record": {

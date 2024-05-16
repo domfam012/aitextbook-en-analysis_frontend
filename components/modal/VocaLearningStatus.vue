@@ -12,7 +12,7 @@
                         <span class="info_name">늘푸른하늘</span>
                     </div>
                 </div>
-                <h3><span class="date">2024년 03월 02일</span>{{ t('modal.vocaLearnigStatus.touchVoca') }}</h3>
+                <h3><span class="date">2024년 03월 02일</span>{{ t('modal.vocaLearningStatus.touchVoca') }}</h3>
             </div>
             <div class="bot">
                 <div class="box">
