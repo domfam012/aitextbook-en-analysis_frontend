@@ -3,7 +3,7 @@
         <div class="LearningHistoryStats">
             <v-sheet>
                 <div class="title top">
-                    <h3>우리 반</h3>
+                    <h3>{{ t('analytics.learn.index.class') }}</h3>
                     <div class="d-flex gap1 mgl10">
                         <div class="select_box_wrap">
                             <v-select
@@ -21,10 +21,10 @@
                                 @update:model-value="changeDepth1"
                             ></v-select>
                         </div>
-                        <div v-if="depth1 !== '누적 학습 기록'" class="select_box_wrap">
+                        <div v-if="depth1 !== t('analytics.learn.index.cumulativeLearning')" class="select_box_wrap">
                             <v-select
                                 v-model="depth2"
-                                :items="depth1 === '색칠판 학습 이력' ? select01Items : select02Items"
+                                :items="depth1 === t('analytics.learn.index.coloringBoard') ? select01Items : select02Items"
                                 variant="outlined"
                                 persistent-hint
                                 rounded
@@ -37,17 +37,17 @@
                     </div>
                     <v-spacer></v-spacer>
                     <time v-if="depth1 === 'Touch Voca'" :datetime="formatDate">
-                        <p class="font-body4 bullet">조회일자 : {{ formatDate }}</p>
+                        <p class="font-body4 bullet">{{ t('analytics.learn.index.inquiry') }} {{ formatDate }}</p>
                     </time>
                     <p v-else class="font-body4 bullet">
-                        조회 기간 :
+                        {{ t('analytics.learn.index.inquiryPeriod') }}
                         {{ getLastMonday().format('YYYY-MM-DD') }} ~
                         {{ getLastSunday().format('YYYY-MM-DD') }}
                     </p>
                 </div>
             </v-sheet>
             <TeacherAnalyticsLearnColoring
-                v-if="depth1 === '색칠판 학습 이력'"
+                v-if="depth1 === t('analytics.learn.index.coloringBoard')"
                 @page="
                     page => {
                         currentPage = page;
@@ -64,27 +64,32 @@
                 "
                 :current-page="currentPage"
             />
-            <TeacherAnalyticsLearnRecord v-if="depth1 === '누적 학습 기록'" />
+            <TeacherAnalyticsLearnRecord v-if="depth1 === t('analytics.learn.index.cumulativeLearning')" />
         </div>
     </v-card>
 </template>
 
 <script setup>
+const { t } = useI18n();
 const dayjs = useDayjs();
 const calendarStore = useApiCalendarStore();
 const apiClassStore = useApiTeacherClassStore();
 const { calendarState, formatDate } = storeToRefs(calendarStore);
-const depth1 = ref('색칠판 학습 이력');
-const depth2 = ref({ title: '완성도 Top 5', type: 'perfection' });
-const depth1Items = ref(['색칠판 학습 이력', 'Touch Voca', '누적 학습 기록']);
+const depth1 = ref(t('analytics.learn.index.coloringBoard'));
+const depth2 = ref({ title: t('analytics.learn.index.perfection'), type: 'perfection' });
+const depth1Items = ref([
+    t('analytics.learn.index.coloringBoard'),
+    t('analytics.learn.index.touchVoca'),
+    t('analytics.learn.index.cumulativeLearning')
+]);
 const select01Items = ref([
-    { title: '완성도 Top 5', type: 'perfection' },
-    { title: '급상승 Top 5', type: 'soaring' },
-    { title: '독려 필요 Top 5', type: 'needEncouragement' }
+    { title: t('analytics.learn.index.perfection'), type: 'perfection' },
+    { title: t('analytics.learn.index.soaring'), type: 'soaring' },
+    { title: t('analytics.learn.index.encouragement'), type: 'needEncouragement' }
 ]);
 const select02Items = ref([
-    { title: '많이 푼 순서', type: 'rankingOfSolvedTheWord' },
-    { title: '많이 맞힌 순서', type: 'rankingOfHighCorrectAnswerRate' }
+    { title: t('analytics.learn.index.text1'), type: 'rankingOfSolvedTheWord' },
+    { title: t('analytics.learn.index.text2'), type: 'rankingOfHighCorrectAnswerRate' }
 ]);
 const currentPage = ref(0);
 
@@ -94,13 +99,13 @@ onMounted(async () => {
 
 const changeDepth1 = async () => {
     currentPage.value = 0;
-    if (depth1.value === '색칠판 학습 이력') {
+    if (depth1.value === t('analytics.learn.index.coloringBoard')) {
         depth2.value = select01Items.value[0];
         await apiClassStore.getClassColorBoard(depth2.value.type);
-    } else if (depth1.value === 'Touch Voca') {
+    } else if (depth1.value === t('analytics.learn.index.touchVoca')) {
         depth2.value = select02Items.value[0];
         await apiClassStore.getClassVocaRanking(depth2.value.type, formatDate.value);
-    } else if (depth1.value === '누적 학습 기록') {
+    } else if (depth1.value === t('analytics.learn.index.cumulativeLearning')) {
         await apiClassStore.getClassCumulativeRecordOften();
         await apiClassStore.getClassCumulativeRecordOMany();
         await apiClassStore.getClassCumulativeRecordOLong();
@@ -109,9 +114,9 @@ const changeDepth1 = async () => {
 
 const changeDepth2 = async () => {
     currentPage.value = 0;
-    if (depth1.value === '색칠판 학습 이력') {
+    if (depth1.value === t('analytics.learn.index.coloringBoard')) {
         await apiClassStore.getClassColorBoard(depth2.value.type);
-    } else if (depth1.value === 'Touch Voca') {
+    } else if (depth1.value === t('analytics.learn.index.touchVoca')) {
         await apiClassStore.getClassVocaRanking(depth2.value.type, formatDate.value);
     }
 };

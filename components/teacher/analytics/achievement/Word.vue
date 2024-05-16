@@ -5,26 +5,26 @@
             <v-list class="tit px30 py40" bg-color="transparent">
                 <v-list-item class="bullet" v-if="wordLearningState.knownWordsCount">
                     <p>
-                        알고있는 단어 수 : <span class="num">{{ wordLearningState.knownWordsCount.count }}</span
-                        >개
+                        {{ t('analytics.word.text1') }} <span class="num">{{ wordLearningState.knownWordsCount.count }}</span
+                        >{{ t('common.unit.num') }}
                     </p>
                 </v-list-item>
                 <v-list-item class="bullet" v-if="wordLearningState.somewhatKnownWordsCount">
                     <p>
-                        조금 알거나 모르는 단어 수 : <span class="num">{{ wordLearningState.somewhatKnownWordsCount.count }}</span
-                        >개
+                        {{ t('analytics.word.text2') }} <span class="num">{{ wordLearningState.somewhatKnownWordsCount.count }}</span
+                        >{{ t('common.unit.num') }}
                     </p>
                 </v-list-item>
                 <v-list-item class="bullet" v-if="wordLearningState.unknownWordsCount">
                     <p>
-                        모르는 단어 수 : <span class="num">{{ wordLearningState.unknownWordsCount.count }}</span
-                        >개
+                        {{ t('analytics.word.text3') }}<span class="num">{{ wordLearningState.unknownWordsCount.count }}</span
+                        >{{ t('common.unit.num') }}
                     </p>
                 </v-list-item>
                 <v-list-item class="bullet" v-if="wordLearningState.totalWordLearningCount">
                     <p>
-                        단어 학습 총 개수 : <span class="num">{{ wordLearningState.totalWordLearningCount.count }}</span
-                        >개
+                        {{ t('analytics.word.text4') }}<span class="num">{{ wordLearningState.totalWordLearningCount.count }}</span
+                        >{{ t('common.unit.num') }}
                     </p>
                 </v-list-item>
             </v-list>
@@ -56,13 +56,14 @@
                 <div class="ico_outer size_60">
                     <i v-if="word" class="ico left_24"></i>
                     <i v-else class="ico right_24"></i>
-                    <span class="blind">펼치기</span>
+                    <span class="blind">{{ t('analytics.word.expand') }}</span>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script setup>
+const { t } = useI18n();
 const word = ref(false);
 const props = defineProps(['item']);
 

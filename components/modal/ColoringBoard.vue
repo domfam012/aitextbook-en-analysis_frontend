@@ -216,7 +216,7 @@
                                                         <span>
                                                             {{
                                                                 studnetCollectedColorState &&
-                                                                studnetCollectedColorState[0].colorLstnnCnt + '개'
+                                                                studnetCollectedColorState[0].colorLstnnCnt + t('common.unit.num')
                                                             }}
                                                         </span>
                                                     </div>
@@ -231,7 +231,7 @@
                                                         <span>
                                                             {{
                                                                 studnetCollectedColorState &&
-                                                                studnetCollectedColorState[0].colorRedngCnt + '개'
+                                                                studnetCollectedColorState[0].colorRedngCnt + t('common.unit.num')
                                                             }}
                                                         </span>
                                                     </div>
@@ -246,7 +246,7 @@
                                                         <span>
                                                             {{
                                                                 studnetCollectedColorState &&
-                                                                studnetCollectedColorState[0].colorViewCnt + '개'
+                                                                studnetCollectedColorState[0].colorViewCnt + t('common.unit.num')
                                                             }}
                                                         </span>
                                                     </div>
@@ -261,7 +261,7 @@
                                                         <span>
                                                             {{
                                                                 studnetCollectedColorState &&
-                                                                studnetCollectedColorState[0].colorSpkngCnt + '개'
+                                                                studnetCollectedColorState[0].colorSpkngCnt + t('common.unit.num')
                                                             }}
                                                         </span>
                                                     </div>
@@ -276,7 +276,7 @@
                                                         <span>
                                                             {{
                                                                 studnetCollectedColorState &&
-                                                                studnetCollectedColorState[0].colorWritngCnt + '개'
+                                                                studnetCollectedColorState[0].colorWritngCnt + t('common.unit.num')
                                                             }}
                                                         </span>
                                                     </div>

@@ -15,7 +15,7 @@
                                     <div class="avatar avatar-box">
                                         <v-img src="" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
                                         <div class="avatar-info">
-                                            <span class="info_number">{{ item.studId }}번</span>
+                                            <span class="info_number">{{ item.studId }}{{ t('common.unit.no') }}</span>
                                             <span class="info_name">{{ item.studName }}</span>
                                         </div>
                                     </div>
@@ -32,14 +32,21 @@
             </v-list>
             <div class="bottom_btn_wrap text-center">
                 <v-btn rounded flat class="secondary mgt30" :disabled="renderAll" @click="emit('page', currentPage + 1)">
-                    <span class="more">{{ `3명 더 보기 (${currentPage + 1}/${Math.ceil(colorBoardState?.length / 3)})` }}</span>
+                    <span class="more">
+                        {{
+                            $t('analytics.coloring.more', {
+                                currentPage: currentPage + 1,
+                                totalPages: Math.ceil(colorBoardState?.length / 3)
+                            })
+                        }}
+                    </span>
                 </v-btn>
             </div>
         </div>
         <!-- 데이터 없을 때 -->
         <div v-else class="card_no_data">
             <i class="ico no_color_board ico_size_25" />
-            <p>아직 숫자 색칠판을 시작한 학생이 없습니다.</p>
+            <p>{{ t('analytics.coloring.text') }}</p>
         </div>
     </v-sheet>
     <Modal v-if="modalData?.type === 'coloring'">
@@ -47,6 +54,7 @@
     </Modal>
 </template>
 <script setup>
+const { t } = useI18n();
 const { modalData, openModal, closeModal } = useModalStore();
 const apiClassStore = useApiTeacherClassStore();
 const { colorBoardState } = storeToRefs(apiClassStore);

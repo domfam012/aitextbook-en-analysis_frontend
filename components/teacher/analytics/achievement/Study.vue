@@ -1,10 +1,10 @@
 <template>
     <div class="inner_title gap2">
-        <h3 class="bullet">선생님께서는 학생에게 출제할 AI 추천 자료를 선택하고 보내기를 눌러주세요.</h3>
+        <h3 class="bullet">{{ t('analytics.study.text') }}</h3>
         <div class="buttons">
-            <v-btn rounded flat size="small" class="secondary" @click="checkAllCheckBox">모두 선택</v-btn>
-            <v-btn rounded flat size="small" class="secondary" @click="resetCheckBox">선택 해제</v-btn>
-            <v-btn rounded flat size="small" class="primary" @click="sendAiRecommendationData">보내기</v-btn>
+            <v-btn rounded flat size="small" class="secondary" @click="checkAllCheckBox">{{ t('analytics.study.selectAll') }}</v-btn>
+            <v-btn rounded flat size="small" class="secondary" @click="resetCheckBox">{{ t('analytics.study.deSelect') }}</v-btn>
+            <v-btn rounded flat size="small" class="primary" @click="sendAiRecommendationData">{{ t('analytics.study.send') }}</v-btn>
         </div>
     </div>
     <div class="scrollable_x mgt10">
@@ -37,6 +37,7 @@
 </template>
 
 <script setup>
+const { t } = useI18n();
 const props = defineProps(['item']);
 
 const learnStore = useApiLearnStore();

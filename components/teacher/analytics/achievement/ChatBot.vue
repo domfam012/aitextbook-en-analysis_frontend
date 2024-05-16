@@ -161,7 +161,7 @@ const register = async () => {
         });
 
         isTextSelected.value[registerIndex.value] = false;
-        openModal({ type: 'text-register-success', buttonLabels: [t('analytics.chatBot.check')] });
+        openModal({ type: 'text-register-success', buttonLabels: [t('common.button.check')] });
     } else {
         // 실패 시나리오
     }

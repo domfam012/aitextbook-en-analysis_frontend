@@ -2,15 +2,15 @@
     <v-card elevation="0" max-width="42rem" height="54.5rem">
         <div class="mission aILevelTest sm h100">
             <v-sheet class="h100">
-                <h3>AI Level Test를 볼 때가 되었어요!</h3>
+                <h3>{{ t('analytics.lesson.level.title') }}</h3>
                 <v-card-text class="wrap">
                     <!-- 데이터 있을 때 -->
                     <v-list v-if="encourageState?.length > 0" class="list" density="compact">
                         <v-list-item class="pa-0" v-for="(student, index) in encourageState" :key="index">
                             <div class="name">
-                                <p class="txt_num">{{ student.studentNumber }}번</p>
+                                <p class="txt_num">{{ student.studentNumber }}{{ t('common.unit.no') }}</p>
                                 <p class="txt_name ellipsis">{{ student.studentName }}</p>
-                                <p class="txt_week orange">({{ student.defectWeekCount }}주)</p>
+                                <p class="txt_week orange">({{ student.defectWeekCount }} {{ t('analytics.lesson.level.count') }})</p>
                             </div>
                             <v-list-item-action>
                                 <p class="check">
@@ -30,8 +30,8 @@
                     <div v-else class="card_no_data">
                         <i class="ico no_student ico_size_25" />
                         <p>
-                            독려 메시지를 보낼 <br />
-                            학생이 없습니다.
+                            {{ t('analytics.lesson.level.noMessage') }} <br />
+                            {{ t('analytics.lesson.level.noStudent') }}
                         </p>
                     </div>
                     <div class="box_stamp mt-5 mt10 text-center">
@@ -40,30 +40,44 @@
                             flat
                             class="primary size_md"
                             :disabled="selected.length === 0"
-                            @click="openModal({ type: 'encourage', buttonLabels: ['취소', '확인'], closeBtnClass: false })"
-                            >독려 메시지 보내기</v-btn
+                            @click="
+                                openModal({
+                                    type: 'encourage',
+                                    buttonLabels: [t('common.button.cancel'), t('common.button.check')],
+                                    closeBtnClass: false
+                                })
+                            "
+                        >
+                            {{ t('analytics.lesson.level.message') }}</v-btn
                         >
                     </div>
                 </v-card-text>
             </v-sheet>
 
             <Modal v-if="modalData.type === 'encourage'" @handle-action="sendMessage">
-                <p>선택한 학생에게 <em class="font-color-orange">AI Level Test </em>독려 메시지를<br />보내시겠습니까?</p>
+                <p>
+                    {{ t('analytics.lesson.level.student') }}
+                    <em class="font-color-orange"> {{ t('analytics.lesson.level.aiLevel') }} </em> {{ t('analytics.lesson.level.messages')
+                    }}<br />
+                    {{ t('analytics.lesson.level.send') }}
+                </p>
             </Modal>
             <Modal v-if="modalData.type === 'alert'">
                 <div class="d-flex align-center flex-wrap justify-center mb-1">
                     <div v-for="(item, index) in selected" :key="index">
-                        <span class="num font-color-blue font-weight-extrabold mr-1">{{ item.studentNumber }}번</span>{{ item.studentName }}
+                        <span class="num font-color-blue font-weight-extrabold mr-1">{{ item.studentNumber }}{{ t('common.unit.no') }}</span
+                        >{{ item.studentName }}
                         <em v-if="index !== selected.length - 1" class="mx-1">,</em>
                     </div>
                 </div>
-                <p>AI Level Test 독려 메시지를 보냈습니다.</p>
+                <p>{{ t('analytics.lesson.level.aiMessage') }}</p>
                 <!--  post 호출 함수  -->
             </Modal>
         </div>
     </v-card>
 </template>
 <script setup>
+const { t } = useI18n();
 const selected = ref([]);
 const { modalData, openModal, closeModal } = useModalStore();
 const { openAlert } = useAlertStore();

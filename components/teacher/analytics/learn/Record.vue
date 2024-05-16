@@ -14,22 +14,23 @@
         </v-list>
         <div v-if="isNoData" class="card_no_data">
             <i class="ico no_record ico_size_25" />
-            <p>학습 이력이 없습니다.</p>
+            <p>{{ t('analytics.learn.record.text') }}</p>
         </div>
     </v-sheet>
 </template>
 <script setup>
+const { t } = useI18n();
 // store
 const apiClassStore = useApiTeacherClassStore();
 const { cumulativeRecordHowLongState, cumulativeRecordHowOftenState, cumulativeRecordHowMuchState } = storeToRefs(apiClassStore);
 
 // 얼마나 자주 범례
 const oftenLegends = [
-    { text: '10회 이상 방문' },
-    { text: '6~9회 방문' },
-    { text: '3~5회 방문' },
-    { text: '1~2회 방문' },
-    { text: '방문 기록 없음' }
+    { text: t('analytics.learn.record.subText1') },
+    { text: t('analytics.learn.record.subText2') },
+    { text: t('analytics.learn.record.subText3') },
+    { text: t('analytics.learn.record.subText4') },
+    { text: t('analytics.learn.record.subText5') }
 ];
 
 // 얼마나 많이 범례

@@ -12,8 +12,8 @@
                         <!-- !NOTE API 학생 정보 데이터 추가 요청중. 2024-04-12 (파라미터 변경될 수 있음.) -->
                         <v-img :src="item.profile" alt="아바타 이미지" class="avatar-item" max-width="5rem" />
                         <div class="avatar-info">
-                            <span class="info_number">{{ `${item.studId}번` }}</span>
-                            <span class="info_name">{{ `${item.studName}` }}</span>
+                            <span class="info_number">{{ item.studId }}{{ t('common.unit.no') }}</span>
+                            <span class="info_name">{{ item.studName }}</span>
                         </div>
                     </div>
                     <!-- !NOTE API 차트 중앙 원 안에 총 개수 값 스키마에도 없어 추가 요청중. 2024-04-24 -->
@@ -36,25 +36,31 @@
             <div class="chart-bar">
                 <div class="use-word">
                     <span class="bullet color-1"></span>
-                    <p>응시한 단어 수</p>
+                    <p>{{ t('analytics.learn.touchVoca.text1') }}</p>
                 </div>
                 <div class="use-word">
                     <span class="bullet color-2"></span>
-                    <p>알고 있는 단어 수</p>
+                    <p>{{ t('analytics.learn.touchVoca.text2') }}</p>
                 </div>
                 <div class="use-word">
                     <span class="bullet color-3"></span>
-                    <p>조금 알거나 모르는 단어 수</p>
+                    <p>{{ t('analytics.learn.touchVoca.text3') }}</p>
                 </div>
                 <div class="use-word">
                     <span class="bullet color-6"></span>
-                    <p>모르는 단어 수</p>
+                    <p>{{ t('analytics.learn.touchVoca.text4') }}</p>
                 </div>
             </div>
             <div class="page_buttons mgt30">
-                <v-btn rounded flat class="secondary" :disabled="renderAll" @click="emit('page', currentPage + 1)">{{
-                    `3명 더 보기 (${currentPage + 1}/${Math.ceil(vocaState?.length / 3)})`
-                }}</v-btn>
+                <v-btn rounded flat class="secondary" :disabled="renderAll" @click="emit('page', currentPage + 1)">
+                    {{
+                        $t('analytics.learn.touchVoca.more', {
+                            currentPage: currentPage + 1,
+                            totalPages: Math.ceil(vocaState?.length / 3)
+                        })
+                    }}
+                
+                >
             </div>
         </template>
 
@@ -64,7 +70,7 @@
         -->
         <div v-else class="card_no_data">
             <i class="ico no_voca ico_size_25" />
-            <p>아직 응시한 학생이 없습니다.</p>
+            <p>{{t('analytics.learn.touchVoca.noStudent')}}</p>
         </div>
     </v-sheet>
 
@@ -72,6 +78,7 @@
 </template>
 
 <script setup>
+const { t } = useI18n();
 const apiClassStore = useApiTeacherClassStore();
 const { vocaState } = storeToRefs(apiClassStore);
 const { modalData, openModal } = useModalStore();
