@@ -28,12 +28,12 @@
             >
                 <div class="size_sm">
                     <i class="ico size_5 right_24"></i>
-                    <span class="blind">다음</span>
+                    <span class="blind">{{ t('common.button.next') }}</span>
                 </div>
             </v-btn>
         </div>
         <div class="pages">
-            <div>교과서</div>
+            <div>{{ t('analytics.lesson.selector.textbook') }}</div>
             <span class="num">{{ teacherLearningSessionState[currentPage]?.bookPageCount }}쪽</span>
         </div>
     </div>

@@ -323,18 +323,32 @@
             }
         },
         "lesson": {
-            "level": {
-                "title": "AI Level Test를 볼 때가 되었어요!",
-                "noMessage": "독려 메시지를 보낼 ",
-                "noStudent": "학생이 없습니다.",
-                "count": "주",
-                "message": "독려 메시지 보내기",
-                "student": "선택한 학생에게",
-                "aiLevel": "AI Level Test",
-                "messages": "독려 메시지를",
-                "send": "보내시겠습니까?",
-                "aiMessage": "AI Level Test 독려 메시지를 보냈습니다."
+            "index": {
+                "timeFormat": "MM월 DD일 dddd",
+                "classInfo": "수업 정보",
+                "classText1": "예정된 수업이",
+                "classText2": "있습니다.",
+                "noClass": "선택한 날에는 수업이 배정되어 있지 않습니다."
+            },
+            "info": {
+                "tab1": "오늘의 학업 성취율",
+                "tab2": "단원별 누적 성취율"
+            },
+            "selector": {
+                "textbook": "교과서"
             }
+        },
+        "level": {
+            "title": "AI Level Test를 볼 때가 되었어요!",
+            "noMessage": "독려 메시지를 보낼 ",
+            "noStudent": "학생이 없습니다.",
+            "count": "주",
+            "message": "독려 메시지 보내기",
+            "student": "선택한 학생에게",
+            "aiLevel": "AI Level Test",
+            "messages": "독려 메시지를",
+            "send": "보내시겠습니까?",
+            "aiMessage": "AI Level Test 독려 메시지를 보냈습니다."
         }
     },
     "record": {

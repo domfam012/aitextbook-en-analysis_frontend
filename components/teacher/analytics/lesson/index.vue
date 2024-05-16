@@ -5,9 +5,9 @@
                 <h3 class="title">
                     <span>
                         <time :datetime="formatDate">
-                            {{ dayjs(formatDate).format('MM월 DD일 dddd') }}
+                            {{ dayjs(formatDate).format(t('analytics.lesson.index.timeFormat')) }}
                         </time>
-                        수업 정보
+                        {{ t('analytics.lesson.index.classInfo') }}
                     </span>
                 </h3>
                 <v-spacer />
@@ -28,7 +28,7 @@
                         <time :datetime="formatDate">
                             {{ dayjs(formatDate).format('MM월 DD일 dddd') }}
                         </time>
-                        수업 정보
+                        {{ t('analytics.lesson.index.classInfo') }}
                     </span>
                 </v-card-title>
             </v-card-item>
@@ -36,9 +36,11 @@
                 <div class="card_no_data">
                     <i class="ico no_class_data ico_size_25" />
                     <p v-if="teacherLearningSessionState.length > 0 && dayjs(formatDate).isAfter(dayjs())" elevation="0" height="54rem">
-                        예정된 수업이 <span class="text_err">{{ teacherLearningSessionState.length }}건</span> 있습니다.
+                        {{ t('analytics.lesson.index.classText1') }}
+                        <span class="text_err">{{ teacherLearningSessionState.length + t('common.unit.case') }}</span>
+                        {{ t('analytics.lesson.index.classText2') }}
                     </p>
-                    <p v-else>선택한 날에는 수업이 배정되어 있지 않습니다.</p>
+                    <p v-else>{{ t('analytics.lesson.index.noClass') }}</p>
                 </div>
             </v-card-text>
         </v-card>
@@ -53,6 +55,7 @@ const calendarStore = useApiCalendarStore();
 const { teacherLearningSessionState } = storeToRefs(courseStore);
 const { lessonCommonState, lessonState } = storeToRefs(lessonStore);
 const { formatDate } = storeToRefs(calendarStore);
+const { t } = useI18n();
 
 const currentPage = ref(0);
 const handleGetSessionInfos = async () => {
