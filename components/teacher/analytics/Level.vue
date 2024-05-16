@@ -2,7 +2,7 @@
     <v-card elevation="0" max-width="42rem" height="54.5rem">
         <div class="mission aILevelTest sm h100">
             <v-sheet class="h100">
-                <h3>{{ t('analytics.lesson.level.title') }}</h3>
+                <h3>{{ t('analytics.level.title') }}</h3>
                 <v-card-text class="wrap">
                     <!-- 데이터 있을 때 -->
                     <v-list v-if="encourageState?.length > 0" class="list" density="compact">
@@ -10,7 +10,7 @@
                             <div class="name">
                                 <p class="txt_num">{{ student.studentNumber }}{{ t('common.unit.no') }}</p>
                                 <p class="txt_name ellipsis">{{ student.studentName }}</p>
-                                <p class="txt_week orange">({{ student.defectWeekCount }} {{ t('analytics.lesson.level.count') }})</p>
+                                <p class="txt_week orange">({{ student.defectWeekCount }} {{ t('analytics.level.count') }})</p>
                             </div>
                             <v-list-item-action>
                                 <p class="check">
@@ -30,8 +30,8 @@
                     <div v-else class="card_no_data">
                         <i class="ico no_student ico_size_25" />
                         <p>
-                            {{ t('analytics.lesson.level.noMessage') }} <br />
-                            {{ t('analytics.lesson.level.noStudent') }}
+                            {{ t('analytics.level.noMessage') }} <br />
+                            {{ t('analytics.level.noStudent') }}
                         </p>
                     </div>
                     <div class="box_stamp mt-5 mt10 text-center">
@@ -48,7 +48,7 @@
                                 })
                             "
                         >
-                            {{ t('analytics.lesson.level.message') }}</v-btn
+                            {{ t('analytics.level.message') }}</v-btn
                         >
                     </div>
                 </v-card-text>
@@ -56,10 +56,9 @@
 
             <Modal v-if="modalData.type === 'encourage'" @handle-action="sendMessage">
                 <p>
-                    {{ t('analytics.lesson.level.student') }}
-                    <em class="font-color-orange"> {{ t('analytics.lesson.level.aiLevel') }} </em> {{ t('analytics.lesson.level.messages')
-                    }}<br />
-                    {{ t('analytics.lesson.level.send') }}
+                    {{ t('analytics.level.student') }}
+                    <em class="font-color-orange"> {{ t('analytics.level.aiLevel') }} </em> {{ t('analytics.level.messages') }}<br />
+                    {{ t('analytics.level.send') }}
                 </p>
             </Modal>
             <Modal v-if="modalData.type === 'alert'">
@@ -70,7 +69,7 @@
                         <em v-if="index !== selected.length - 1" class="mx-1">,</em>
                     </div>
                 </div>
-                <p>{{ t('analytics.lesson.level.aiMessage') }}</p>
+                <p>{{ t('analytics.level.aiMessage') }}</p>
                 <!--  post 호출 함수  -->
             </Modal>
         </div>
