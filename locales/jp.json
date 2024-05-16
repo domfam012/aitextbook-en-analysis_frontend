@@ -257,6 +257,8 @@
         }
     },
     "analytics": {
+        "timeFormat": "JPMM월 DD일 dddd",
+        "noData": "JP데이터가 존재하지 않습니다.",
         "familyPicImg": "JP가족사진 이미지",
         "stampImg": "JP도장 이미지",
         "accumulation": {
@@ -363,6 +365,73 @@
             "messages": "JP독려 메시지를",
             "send": "JP보내시겠습니까?",
             "aiMessage": "JPAI Level Test 독려 메시지를 보냈습니다."
+        },
+        "curi": {
+            "coloring": {
+                "text": "JP학습을 완료할 때마다 색깔 조각이 생깁니다. 도안을 선택해서 완성해 보세요."
+            },
+            "correct": {
+                "compliment": "JP칭찬한 표현"
+            },
+            "incorrect": {
+                "noSpelling": "JP철자를 틀린 경우",
+                "wrongExpression": "JP잘못된 표현을 쓴 경우"
+            },
+            "index": {
+                "classInformation": "JP수업 정보",
+                "text1": "JP숫자 식칠판 완성하기",
+                "text2": "JP큐리가 칭찬한 표현",
+                "text3": "JP큐리가 아쉬워한 표현"
+            }
+        },
+        "achievement": {
+            "title": "JP영역별 학업 성취도",
+            "student": "JP학생",
+            "halfAverage": "JP반 평균",
+            "regionalAverage": "JP지역 평균"
+        },
+        "diagnosis": {
+            "title": "JP나의 학습 분석",
+            "wordLearning": "JP단어 학습 진단",
+            "text1": "JP잘이해하고 활용한 단어",
+            "text2": "JP이해했으나 활용하지 못한 단어",
+            "text3": "JP조금만 더학습하면 좋을 단어",
+            "text4": "JP더열심히 학습해야 할 단어",
+            "text5": "JP학습한 누적 단어 개수",
+            "dayAccumulate": "JP요일별 누적 학습 시간",
+            "monday": "JP월요일",
+            "tuesday": "JP화요일",
+            "wednesday": "JP수요일",
+            "thursday": "JP목요일",
+            "friday": "JP금요일",
+            "weekend": "JP토요일, 일요일",
+            "last7day": "JP최근 7일",
+            "last30day": "JP최근 30일"
+        },
+        "index": {
+            "todayClass": "JP오늘의 수업 현황",
+            "pacedLearning": "JP진도 학습",
+            "AICURITalk": "JPAI CURI Talk!"
+        },
+        "progressInfo": {
+            "review": "JP복습",
+            "classInformation": "JP수업 정보",
+            "noClass": "JP완료한 수업이 없습니다."
+        },
+        "selector": {
+            "textbook": "JP교과서",
+            "page": "JP쪽"
+        },
+        "selfCheck": {
+            "sessId": "JP차시",
+            "text": "JP진도 학습을 스스로 점검해 볼까요?"
+        },
+        "touchVoca": {
+            "title": "JP오늘의 Touch VOCA",
+            "text1": "JP응시한 단어 수",
+            "text2": "JP알고 있는 단어 수",
+            "text3": "JP조금 알거나 모르는 단어 수",
+            "text4": "JP모르는 단어 수"
         }
     },
     "record": {

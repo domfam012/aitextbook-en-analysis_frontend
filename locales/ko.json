@@ -257,6 +257,8 @@
         }
     },
     "analytics": {
+        "timeFormat": "MM월 DD일 dddd",
+        "noData": "데이터가 존재하지 않습니다.",
         "familyPicImg": "가족사진 이미지",
         "stampImg": "도장 이미지",
         "accumulation": {
@@ -363,6 +365,73 @@
             "messages": "독려 메시지를",
             "send": "보내시겠습니까?",
             "aiMessage": "AI Level Test 독려 메시지를 보냈습니다."
+        },
+        "curi": {
+            "coloring": {
+                "text": "학습을 완료할 때마다 색깔 조각이 생깁니다. 도안을 선택해서 완성해 보세요."
+            },
+            "correct": {
+                "compliment": "칭찬한 표현"
+            },
+            "incorrect": {
+                "noSpelling": "철자를 틀린 경우",
+                "wrongExpression": "잘못된 표현을 쓴 경우"
+            },
+            "index": {
+                "classInformation": "수업 정보",
+                "text1": "숫자 식칠판 완성하기",
+                "text2": "큐리가 칭찬한 표현",
+                "text3": "큐리가 아쉬워한 표현"
+            }
+        },
+        "achievement": {
+            "title": "영역별 학업 성취도",
+            "student": "학생",
+            "halfAverage": "반 평균",
+            "regionalAverage": "지역 평균"
+        },
+        "diagnosis": {
+            "title": "나의 학습 분석",
+            "wordLearning": "단어 학습 진단",
+            "text1": "잘이해하고 활용한 단어",
+            "text2": "이해했으나 활용하지 못한 단어",
+            "text3": "조금만 더학습하면 좋을 단어",
+            "text4": "더열심히 학습해야 할 단어",
+            "text5": "학습한 누적 단어 개수",
+            "dayAccumulate": "요일별 누적 학습 시간",
+            "monday": "월요일",
+            "tuesday": "화요일",
+            "wednesday": "수요일",
+            "thursday": "목요일",
+            "friday": "금요일",
+            "weekend": "토요일, 일요일",
+            "last7day": "최근 7일",
+            "last30day": "최근 30일"
+        },
+        "index": {
+            "todayClass": "오늘의 수업 현황",
+            "pacedLearning": "진도 학습",
+            "AICURITalk": "AI CURI Talk!"
+        },
+        "progressInfo": {
+            "review": "복습",
+            "classInformation": "수업 정보",
+            "noClass": "완료한 수업이 없습니다."
+        },
+        "selector": {
+            "textbook": "교과서",
+            "page": "쪽"
+        },
+        "selfCheck": {
+            "sessId": "차시",
+            "text": "진도 학습을 스스로 점검해 볼까요?"
+        },
+        "touchVoca": {
+            "title": "오늘의 Touch VOCA",
+            "text1": "응시한 단어 수",
+            "text2": "알고 있는 단어 수",
+            "text3": "조금 알거나 모르는 단어 수",
+            "text4": "모르는 단어 수"
         }
     },
     "record": {
